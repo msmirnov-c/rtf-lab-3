@@ -19,39 +19,14 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-const WebSocket = require('ws');//(app);
 var server = http.createServer(app);
-/*
-let expressWs = require('express-ws')(app);
-app.ws('/ws', function(ws, req, next) {
-  ws.on('message', function(msg) {
-    console.log('msg:', msg)
-    ws.send(`Hello, you sent -> ${msg}`);
-  })
 
-});
-*/
-//const server = http.createServer(express());
-
+const WebSocket = require('ws');
 //initialize the WebSocket server instance
-const wss = new WebSocket.Server({ server: server, path: "/hws" });
+const wss = new WebSocket.Server({ server: server, path: "/api/" });
+const onconnection = require('../comments');
+wss.on('connection', onconnection);
 
-wss.on('connection', (ws) => {
-
-  //connection is up, let's add a simple simple event
-  ws.on('message', (message) => {
-
-    //log the received message and send it back to the client
-    console.log('received: %s', message);
-    wss.clients.forEach(client => {
-            client.send(`Hello, broadcast message -> ${message}`);
-        });
-    //ws.send(`Hi there, I am a WebSocket server ${message}`);
-  });
-
-  //send immediatly a feedback to the incoming connection
-  ws.send('Hi there, I am a WebSocket server');
-});
 /**
  * Listen on provided port, on all network interfaces.
  */
