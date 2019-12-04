@@ -11,8 +11,6 @@ class DBProvider {
         this.close = db.close.bind(db);
         this.addUser = (login, nick, pass) =>
             db.run(`INSERT INTO users VALUES('${login}', '${nick}', '${pass}')` );
-
-
     }
 }
 
