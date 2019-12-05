@@ -1,4 +1,5 @@
 const DBProvider = require("../dbprovider");
+const User = require("../model/user");
 const express = require('express');
 const router = express.Router();
 
@@ -7,7 +8,7 @@ router.post('/add', async function(req, res, next) {
     if (!login || !nick || !pass)
         res.send({Error: 'NO PARAMS'});
     const db = new DBProvider();
-    await db.addUser(login, nick, pass);
+    await db.addUser(new User(login, nick, pass));
     db.close();
     res.send('Ok');
 });

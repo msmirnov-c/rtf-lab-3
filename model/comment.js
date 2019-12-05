@@ -5,9 +5,8 @@ const Origin = {
 };
 
 class Comment {
-    constructor(id, text, userLogin, origin, date)
+    constructor(text, userLogin, origin, date = Date.now())
     {
-        this.id = id;
         this.text = text;
         this.user = userLogin;
         this.origin = origin;
