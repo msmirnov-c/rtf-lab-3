@@ -1,37 +1,85 @@
 body {
-  display: flex;
-  flex-direction: column;
-  /*flex-basis: 75px;*/
-  height: 95vh;
-  padding: 0;
+    display: flex;
+    flex-direction: column;
+    /*flex-basis: 75px;*/
+    /*color: #444444;*/
+    font-size: 22px;
+    height: 99vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
 }
 
 article {
-  margin: 0;
-  flex-grow: 50;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  justify-items: center;
+    margin: 0;
+    flex-grow: 50;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    background: linear-gradient(135deg, brown, black);
 }
 
- nav {
-   flex-grow: 1;
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   border-bottom: 1px solid black;
-   padding: 0;
- }
+nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*border-bottom: 1px solid darkgray;
+    border-top: 1px solid darkgray;*/
+    padding: 0;
+    margin: 0;
+    color: lightgray;
+    background: linear-gradient(/*#c73b3b, #c52a2a,*/ #660909 70%, #550a0a, black );
+}
 
- footer {
-     flex-grow: 1;
-     border-top: 1px solid black;
- }
+footer {
+    flex-grow: 1;
+    color: lightgray;
+    /*border-top: 1px solid lightgray;*/
+    background: linear-gradient(/*#c73b3b, #c52a2a,*/ #660909 70%, #550a0a, black );
+}
 
- .nav-item {
+.nav-item {
     min-width: 100px;
     text-align: center;
-    margin: 0  25px 0 25px;
-    border: black solid 1px;
- }
+    /*margin: 0  25px 0 25px;*/
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item:hover {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    background-color: #990c0c;
+    cursor: pointer;
+}
+
+#title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    flex-grow: 5;
+}
+
+#user {
+    margin:  0  35px 0 35px;
+}
+
+#passMess {
+    visibility: hidden;
+    color: red;
+}
+
+.form {
+    color: lightgray;
+}
+
+.form input {
+
+    border-radius: 7px;
+    cursor: pointer;
+}

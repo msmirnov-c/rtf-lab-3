@@ -8,15 +8,19 @@
     <title>Registration</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-item">1</div>
-        <div class="nav-item">2</div>
-        <div class="nav-item">3</div>
-    </nav>
+<nav>
+    <div id="title">Title</div>
+    <div class="nav-item">1</div>
+    <div class="nav-item">2</div>
+    <div class="nav-item">3</div>
+    <div id="user">
+        <a href="register.html">Sign up</a>/<a href="#">Sign in</a>
+    </div>
+</nav>
     <article>
-        Registration form
-        <br />
-        <div>
+        <div class="form">
+            Registration form
+            <br />
             E-mail:
             <br/>
             <input type="email" id="email"/>
@@ -28,12 +32,14 @@
             Password:
             <br/>
             <input type="password" id="pass"/>
+            <br>
             Password confirm:
             <br/>
             <input type="password" id="passconf"/>
             <br>
-            <button onclick="onsent()">Sent</button>
             <label id="passMess">Passwords are not equal</label>
+            <br>
+            <button onclick="onsent()">Sent</button>
         </div>
     </article>
     <footer>footer</footer>
