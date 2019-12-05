@@ -19,7 +19,7 @@ router.post('/add', async function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    const {login: email, nick, pass} = req.body;
+    const {email, nick, pass} = req.body;
     const db = new DBProvider();
     console.log(email, nick, pass);
     if ((!email && !nick) || !pass)
