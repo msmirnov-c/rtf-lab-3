@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet"/>
+    <script src="javascripts/registration.js" lang="js"></script>
+    <title>Registration</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-item">1</div>
+        <div class="nav-item">2</div>
+        <div class="nav-item">3</div>
+    </nav>
+    <article>
+        Registration form
+        <br />
+        <div>
+            E-mail:
+            <br/>
+            <input type="email" id="email"/>
+            <br/>
+            Nickname:
+            <br/>
+            <input type="text" id="nick"/>
+            <br/>
+            Password:
+            <br/>
+            <input type="password" id="pass"/>
+            Password confirm:
+            <br/>
+            <input type="password" id="passconf"/>
+            <br>
+            <button onclick="onsent()">Sent</button>
+            <label id="passMess">Passwords are not equal</label>
+        </div>
+    </article>
+    <footer>footer</footer>
+</body>
+</html>

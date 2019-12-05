@@ -9,6 +9,10 @@ body {
 article {
   margin: 0;
   flex-grow: 50;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 }
 
  nav {

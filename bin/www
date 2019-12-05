@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('./app');
+var app = require('../app');
 var debug = require('debug')('site:server');
 var http = require('http');
 
@@ -24,7 +24,7 @@ var server = http.createServer(app);
 const WebSocket = require('ws');
 //initialize the WebSocket server instance
 const wss = new WebSocket.Server({ server: server, path: "/api/comment" });
-const onconnection = require('./comments');
+const onconnection = require('../comments');
 wss.on('connection', onconnection.bind(null, wss));
 
 /**
