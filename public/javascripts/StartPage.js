@@ -1,3 +1,3 @@
-import CommentedPage from "./CommentedPage.js";
+import Page from "./Page.js";
 
-const page = new CommentedPage();
+const page = new Page();

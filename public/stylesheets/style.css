@@ -1,8 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    /*flex-basis: 75px;*/
-    /*color: #444444;*/
+    flex-basis: auto;
     font-size: 22px;
     min-height: 99vh;
     margin: 0;
@@ -13,7 +12,7 @@ body {
 article {
     padding: 5% 7%;
     margin: 0;
-    flex-grow: 50;
+    flex-grow: 5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +85,7 @@ div.form {
     /*opacity: 0.2;*/
     color: black;
     padding: 15px;
-    margin: 20px;
+    margin: 15px;
     align-items: center;
     text-align: center;
     min-width: 100%;
@@ -103,7 +102,25 @@ div.form {
 }
 
 .comment {
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    background: rgba(200,200,200,0.4); ;
+    border-top: 1px solid rgba(211,211,211, 0.4);
+    border-bottom: 1px solid rgba(211,211,211, 0.4);;
+    background: rgba(150,150,150,0.175);
+}
+
+.comments {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:hover {
+    cursor: pointer;
+    color:darkgray;
+}
+
+h3, p {
+    margin: 0;
 }

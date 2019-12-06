@@ -1,4 +1,4 @@
-export default class CommentedPage {
+export default class Page {
     constructor(origin) {
         const socket = new WebSocket(`ws://${document.location.host}/api/comment`);
         document.addEventListener("DOMContentLoaded", () => {
@@ -19,6 +19,7 @@ export default class CommentedPage {
                 console.log(`[message] Данные получены с сервера: ${event.data}`);
                 try {
                     const data = JSON.parse(event.data);
+                    comments.innerHTML = "";
                     for (let comment of data) {
                         const comEl = document.createElement('div');
                         comEl.classList.add('comment');
