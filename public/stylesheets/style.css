@@ -101,3 +101,9 @@ div.form {
 #newComment {
     width: inherit;
 }
+
+.comment {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    background: rgba(200,200,200,0.4); ;
+}
