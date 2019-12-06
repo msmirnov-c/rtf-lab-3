@@ -1,4 +1,4 @@
-const DBProvider = require("../dbprovider");
+
 const {getUser, addNewUser} = require("../authorisation");
 const User = require("../model/user");
 const express = require('express');

@@ -8,7 +8,14 @@ export default class Page {
             if(u !== null)
                 user.innerHTML = `${u.nick}/<a onclick="localStorage.clear(); document.location.reload();">Sign out</a>`;
             if(origin === undefined || origin === null) return;
-
+            const commentAdd = document.getElementById("commentAdd");
+            if(commentAdd !== undefined && commentAdd !== null) {
+                commentAdd.disabled = false;/*
+                commentAdd.addEventListener('click', () =>
+                    socket.send(`{"comment": "${comment.value}", "login": "${u.login}", "origin":"${origin}"`), false);*/
+                commentAdd.onclick = ev =>
+                    socket.send(`{"comment": "${comment.value}", "login": "${u.email}", "origin":"${origin}"}`);
+            }
             socket.onopen = function(e) {
                 console.log("[open] Соединение установлено");
                 console.log("Отправляем данные на сервер");
@@ -23,7 +30,8 @@ export default class Page {
                     for (let comment of data) {
                         const comEl = document.createElement('div');
                         comEl.classList.add('comment');
-                        comEl.innerHTML = `${comment.nick} ${new Date(Number.parseInt(comment.date))} <br/> ${comment.comment}`;
+                        const date = new Date(Number.parseInt(comment.date))
+                        comEl.innerHTML = `<span class="commentDescription">Author: ${comment.nick} Time: ${date.getDay()}-${date.getMonth()}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</span> <br/> ${comment.comment}`;
                         comments.appendChild(comEl)
                     }
                 } catch (e) {}

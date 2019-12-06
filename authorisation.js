@@ -1,3 +1,5 @@
+const DBProvider = require("./dbprovider");
+
 function getUser(req, res, next) {
     const {email, nick, pass} = req.body;
     const db = new DBProvider();

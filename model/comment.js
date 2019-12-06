@@ -1,9 +1,3 @@
-const Origin = {
-    Client: 0,
-    Node: 1,
-    Java: 2
-};
-
 class Comment {
     constructor(text, userLogin, origin, date = Date.now())
     {
@@ -14,4 +8,4 @@ class Comment {
     }
 }
 
-module.exports = {Origin, Comment};
+module.exports = Comment;

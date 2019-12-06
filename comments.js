@@ -1,5 +1,5 @@
 const DBProvider = require("./dbprovider");
-const {Origin, Comment} = require("./model/comment");
+const Comment = require("./model/comment");
 
 const onconnection =  (wss, ws) => {
     const db = new DBProvider(/*'../data.sqlite'*/);/*
