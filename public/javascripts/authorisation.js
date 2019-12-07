@@ -17,7 +17,7 @@ async function getUserData(adress = '/api/user/') {
         body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
         headers: {
             'Content-Type': 'application/json'
-        }//formData.toString()
+        }
     }).then(async r => {
         const res = await r.text();
         console.log(res);

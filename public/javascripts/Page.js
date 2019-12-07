@@ -5,16 +5,15 @@ export default class Page {
             const usr = localStorage.getItem('user');
             console.log(usr);
             const u = JSON.parse(usr);
-            if(u !== null)
+            if(u !== null) {
                 user.innerHTML = `${u.nick}/<a onclick="localStorage.clear(); document.location.reload();">Sign out</a>`;
-            if(origin === undefined || origin === null) return;
-            const commentAdd = document.getElementById("commentAdd");
-            if(commentAdd !== undefined && commentAdd !== null) {
-                commentAdd.disabled = false;/*
-                commentAdd.addEventListener('click', () =>
-                    socket.send(`{"comment": "${comment.value}", "login": "${u.login}", "origin":"${origin}"`), false);*/
-                commentAdd.onclick = ev =>
-                    socket.send(`{"comment": "${comment.value}", "login": "${u.email}", "origin":"${origin}"}`);
+                if (origin === undefined || origin === null) return;
+                const commentAdd = document.getElementById("commentAdd");
+                if (commentAdd !== undefined && commentAdd !== null) {
+                    commentAdd.disabled = false;
+                    commentAdd.onclick = ev =>
+                        socket.send(`{"comment": "${comment.value}", "login": "${u.email}", "origin":"${origin}"}`);
+                }
             }
             socket.onopen = function(e) {
                 console.log("[open] Соединение установлено");
