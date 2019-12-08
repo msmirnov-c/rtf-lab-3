@@ -24,6 +24,27 @@ function getUser(req, res, next) {
     db.close();
 }
 
+
+async function changeUser(req, res)
+{
+    const {oldEmail, pass, newEmail, newNick, newPass } = req.body;
+    if (!oldEmail|| !pass)
+        res.send({Error: 'Not all fields are received'});
+    const db = new DBProvider();
+    await db.getUserByEmail(oldEmail, pass,  async function(err, row) {
+        if(row === undefined)
+            res.json({Error: 'Such user has not been found: check email or nick and password'});
+        else {
+            const newUserData = new User(newEmail ? newEmail : oldEmail, newNick ? newNick : row.nick, newPass ? newPass : row.pass);
+            await db.changeUser(oldEmail , newUserData, err => {
+                newUserData.pass = undefined;
+                res.json(newUserData);
+            });
+        }
+    });
+    db.close();
+}
+
 async function addNewUser(req, res, next) {
     const {email, nick, pass} = req.body;
     if (!email || !nick || !pass) {
@@ -39,4 +60,4 @@ async function addNewUser(req, res, next) {
     //res.send('Ok');
 }
 
-module.exports = {getUser, addNewUser}
+module.exports = {getUser, addNewUser, changeUser};
