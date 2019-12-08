@@ -11,36 +11,34 @@
 <nav>
     <div id="title"><a href="index.html">Title</a></div>
     <div class="nav-item" onclick="document.location.href = '/client.html'">Client</div>
-    <div class="nav-item">2</div>
-    <div class="nav-item">3</div>
+    <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+    <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
     <div id="user">
-        <a href="register.html">Sign up</a>/<a href="#">Sign in</a>
+        <a href="register.html">Sign up</a>/<a href="authorisation.html">Sign in</a>
     </div>
 </nav>
     <article>
-        <div class="content form">
-            Registration form
-            <br />
+        <form class="content">
+            <p align="center"><b>Registration</b></p>
             E-mail:
             <br/>
-            <input type="email" id="email"/>
+            <input type="email" placeholder="email" id="email"/>
             <br/>
             Nickname:
             <br/>
-            <input type="text" id="nick"/>
+            <input type="text" id="nick" placeholder="nick"/>
             <br/>
             Password:
             <br/>
-            <input type="password" id="pass"/>
+            <input type="password" id="pass" placeholder="password"/>
             <br>
             Password confirm:
             <br/>
-            <input type="password" id="passconf"/>
+            <input type="password" id="passconf" placeholder="password"/>
             <br>
+            <button onclick="registerNewUser(event)">Sent</button>
             <label id="passMess">Passwords are not equal</label>
-            <br>
-            <button onclick="registerNewUser()">Sent</button>
-        </div>
+        </form>
     </article>
     <footer>footer</footer>
 </body>

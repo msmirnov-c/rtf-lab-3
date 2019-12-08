@@ -1,11 +1,14 @@
-async function registerNewUser() {
+async function registerNewUser(ev) {
+    ev.preventDefault();
     if (passconf.value !== pass.value)
         passMess.style.visibility = "visible";
     else
-        await getUserData('/api/user/add/');
+        await getUserData(null,'/api/user/add/');
 }
 
-async function getUserData(adress = '/api/user/') {
+async function getUserData(ev, adress = '/api/user/') {
+    if(ev !== null && ev !== undefined)
+        ev.preventDefault();
     const passHash = CryptoJS.MD5(pass.value).toString();
     const data = {
         email: email.value ,
@@ -24,4 +27,20 @@ async function getUserData(adress = '/api/user/') {
         localStorage.setItem('user', res);
         document.location.href = '/';
     }).catch(err => console.log(err));
+}
+
+function setEmailInput() {
+    email.style.display = 'inline';
+    emaillabel.className = 'activeInput';
+    nicklabel.className = 'passiveInput';
+    nick.style.display = 'none';
+    nick.value = '';
+}
+
+function setNickInput() {
+    nick.style.display = 'inline';
+    nicklabel.className = 'activeInput';
+    emaillabel.className = 'passiveInput';
+    email.style.display = 'none';
+    email.value = '';
 }
