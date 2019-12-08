@@ -17,16 +17,21 @@ async function getUserData(ev, adress = '/api/user/') {
     };
     const r = await fetch( adress, {
         method: 'POST' ,
-        body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
     }).then(async r => {
         const res = await r.text();
+        const obj = JSON.parse(res);
+        if (obj.Error !== undefined) {
+            alert(obj.Error);
+            return;
+        }
         console.log(res);
-        localStorage.setItem('user', res);
+        localStorage.setItem('user' , res);
         document.location.href = '/';
-    }).catch(err => console.log(err));
+    }).catch(err => alert(err));
 }
 
 function setEmailInput() {

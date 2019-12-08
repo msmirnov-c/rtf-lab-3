@@ -30,7 +30,7 @@ export default class Page {
                         const comEl = document.createElement('div');
                         comEl.classList.add('comment');
                         const date = new Date(Number.parseInt(comment.date))
-                        comEl.innerHTML = `<span class="commentDescription">Author: ${comment.nick} Time: ${date.getDay()}-${date.getMonth()}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</span> <br/> ${comment.comment}`;
+                        comEl.innerHTML = `<span class="commentDescription">Author: ${comment.nick} Time: ${date.getDay() + 1}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</span> <br/> ${comment.comment}`;
                         comments.appendChild(comEl)
                     }
                 } catch (e) {}

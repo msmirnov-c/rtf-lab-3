@@ -129,17 +129,19 @@ h3, p {
 }
 
 textarea {
-    font-size: 22px;
+    font-size: 5vmin;
 }
 
 .commentDescription {
-    font-size: 18px;
+    font-size: 3vmin;
 }
 
 button {
+    min-width: 20vmin;
+    min-height: 7vmin;
     font-size: 5vmin;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     color: lightgray;
     background-color: #550a0a;
 }
