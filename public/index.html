@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>сайт</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  
+  <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+
+    $(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>COSMOAPP</span>
+    </div>
+    <div id="about">
+      <a href="#" title="Планеты" onclick="slowScroll('#main')">Планеты</a>
+      <a href="#" onclick="slowScroll('#overview')" title="Затмения">Затмения</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Регистрация">Регистрация</a>
+      <a href="#" onclick="slowScroll('#faq')" title="Информация">Информация</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Космос!</h1>
+    <h3>не такой далёкий как кажется</h3>
+  </div>
+
+
+
+  
+  
+  <div class="info">
+    
+		<button class="show_popup blue_btn" rel="popup1">Отправить письмо</button>
+	</div>
+
+
+
+
+
+
+  <div id="main">
+      <h2>Bыберете планету</h2>
+    
+    <div class="scale" rel="popup1">       
+      <img src="images/Ear.png" alt="" class = "show_popup" rel="popup1">    
+      <span>Земля</span>
+    </div>
+    <div class="overlay_popup"></div>
+
+    <div class="popup" id="popup1">
+      <div class="object">
+        <p>1. Земля является третьей по счёту планетой от Солнца. Это единственная известная нам планета с кислородной атмосферой, океанами и жизнью.</p>
+        <p>2. Земля на самом деле не идеальной сферической формы. Из-за дисбаланса гравитационной и центробежной сил в районе экватора вокруг планеты есть небольшое вздутие, похожее на автомобильную запаску.</p>
+        <p>3. Земля имеет «талию» — протяжённость экватора составляет 40 075 км.</p> 
+        <p>4. Вы думаете, что стоите на месте, но на самом деле вы двигаетесь. А всё потому, что Земля вращается вокруг Солнца и вокруг своей оси. В зависимости от того, где вы находитесь, вы можете двигаться в пространстве со скоростью свыше 1 600 км/ч.</p>
+      </div>
+    </div>
+
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    <div class="block">       
+      <img src="images/jup.png" alt="">    
+      <span>Юпитер</span>
+    </div>
+    
+    
+  </div>
+
+  
+ 
+
+  <div id="overview">
+    <h2>Затмения</h2>
+    <h4></h4>
+    <div class="img">
+      <img src="https://d1i4t8bqe7zgj6.cloudfront.net/thumbnails/56dfd3f4e4b0dfe5ddd4b050/2016_03_09T064755Z_01_BEA29_RTRIDSP_3_SOLAR_ECLIPSE.jpg" alt="">
+      <span>Солнечное затмение</span>
+    </div>
+    <div class="img">
+      <img src="https://media.azpm.org/master/image/2018/1/25/hero/bloodmoon.jpg" alt="">
+      <span>Лунное затмение</span>
+    </div>
+  </div>
+
+  <div id="contacts">
+    <center><h5>Присоединяйся в команду!</h5></center>
+    <form id="form_input" method="POST" action="api/register">
+      <label for="id">Ваш ID <span>*</span></label><br>
+      <input type="register" placeholder="Введите id" name="id" ><br>
+      <label for="name">Ваше имя <span>*</span></label><br>
+			<input type="register" placeholder="Введите имя" name="name" ><br>
+			<label for="age">Ваш возраст <span>*</span></label><br>
+      <input type="register" placeholder="Введите возраст" name="age" ><br>
+      <input type="submit" class="btn" value="Отправить"><br>
+    </form>
+   
+
+  </div>
+
+
+  <div id="faq">
+    <div>
+      <span class="title">Информация</span><br>
+      <span class="heading">Информация?</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae asperiores debitis perspiciatis perferendis nemo tempore distinctio officia commodi et non tempora laudantium culpa nostrum, quidem, quasi ratione itaque nam.</p>
+    </div>
+    <div>
+      <span class="title">Информация</span><br>
+      <span class="heading">Информация?</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae asperiores debitis perspiciatis perferendis nemo tempore distinctio officia commodi et non tempora laudantium culpa nostrum, quidem, quasi ratione itaque nam.</p>
+    </div>
+    <div>
+      <span class="title">Информация</span><br>
+      <span class="heading">Информация?</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae asperiores debitis perspiciatis perferendis nemo tempore distinctio officia commodi et non tempora laudantium culpa nostrum, quidem, quasi ratione itaque nam.</p>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script>
+  
+    $('.show_popup').click(function() { // Вызываем функцию по нажатию на кнопку 
+        var popup_id = $('#' + $(this).attr("rel")); // Связываем rel и popup_id 
+        $(popup_id).show(); // Открываем окно
+        $('.overlay_popup').show(); // Открываем блок заднего фона
+    }) 
+    $('.overlay_popup').click(function() { // Обрабатываем клик по заднему фону
+        $('.overlay_popup, .popup').hide(); // Скрываем затемнённый задний фон и основное всплывающее окно
+    })
+  </script>
+
+  <footer>
+      <p>2019 © M1M0G</p>
+  </footer>
+
+
+
+</body>
+</html>
