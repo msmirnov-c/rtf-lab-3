@@ -12,10 +12,10 @@ function register(req, res, next) {
      }
      console.log(id, age, name);
      res.json({Success: true});
-     
-     //file_put_contents('file.txt', json_encode($_POST));
-     //$f = fopen('file.txt', 'a+' );
-     //fwrite($f, "Имя пользователя: ", $name," \n");
+     const content = (id, name, age);
+     file_put_contents('file.txt', req.body);
+     $f = fopen('/file.txt', 'a+' );
+     fwrite($f, "Имя пользователя: ", req.body," \n");
      
     }
  

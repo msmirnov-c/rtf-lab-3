@@ -150,74 +150,6 @@ header.fixed #logo {
 
 /*-----------------------*/
 
-textarea {
-	width: 100%;
-	resize: none;
-}
-
-/* Ставим кнопку по центру */
-
-.info {
-  text-align: center;
-  display: block;
-}
-
-/* Стили для нашей кнопки */
-
-button {
-  border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 22px;
-  text-decoration: none;
-  margin: 20px;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  border: 0;
-}
-
-button:active {
-  transform: translate(0px, 5px);
-  -webkit-transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
-}
-
-button:focus {
-	outline: none !important
-}
-
-/* Стили для содержимого popup окна */
-
-input, textarea {
-	color: #494949;
-    border: 1px solid #e3e3e3;
-    border-radius: 3px;
-    background: #fff;
-    font-size: 14px;
-    margin: 0 0 10px;
-	  padding: 5px;
-    width: 100%;
-	font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-}
-
-input:focus {
-	border-color: #808080;
-	outline: none;
-}
-
-textarea:focus {
-	border-color: #808080;
-	outline: none;
-}
-
-/* Кнопка */
-
-.blue_btn {
-  background-color: #55acee;
-  box-shadow: 0px 5px 0px 0px #3C93D5;
-}
 
 /* Окно */
 
@@ -261,8 +193,6 @@ textarea:focus {
   padding: 50px 30%;
   width: 40%;
   float: left;
-  background-color: #dbdbdb;
-  border-top: 2px solid silver;
   text-align: center;
   color: #484848;
 }
@@ -303,7 +233,8 @@ textarea:focus {
   #main {
     padding: 50px 20%;
     width: 60%;
-    font-size: 2em
+    font-size: 2em;
+    background-image: url("../images/Fon.png");
   }
 }
 
@@ -311,7 +242,8 @@ textarea:focus {
   #main {
     padding: 50px 10%;
     width: 80%;
-    font-size: 2em
+    font-size: 2em;
+    background-color:  #eee;
   }
 }
 
@@ -445,7 +377,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 7px;
   border: 2px solid silver;
   font-size: 0.9em;
-  color: #fff;
+  color: rgb(85, 85, 85);
   font-family: 'Roboto Slab', serif;
   font-size: 1.2em;
   border-radius: 5px;
