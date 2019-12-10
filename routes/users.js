@@ -5,5 +5,4 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
-//CryptoJS.MD5(pass.value).toString();
 module.exports = router;
