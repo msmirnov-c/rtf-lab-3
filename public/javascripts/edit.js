@@ -38,10 +38,29 @@ function hasChanges() {
     return el !== null || email.value !== oldEmail.value || nick.value !== oldNick.value;
 }
 
-function sendData() {
-    pass.value = CryptoJS.MD5(password.value).toString();
+function sendData(event) {
+    event.preventDefault();
+    //pass.value = CryptoJS.MD5(password.value).toString();
     const newpass = document.getElementById('newPassInp');
-    newPass.value = newpass ? CryptoJS.MD5(newpass.value).toString() : '';
+    //newPass.value = newpass ? CryptoJS.MD5(newpass.value).toString() : '';
+    fetch("/api/user/change", {
+        method: 'POST' ,
+        body: JSON.stringify({newNick: nick.value, pass: CryptoJS.MD5(password.value).toString(),
+            newEmail: email.value, oldEmail: oldEmail.value, newPass: newpass ? CryptoJS.MD5(newpass.value).toString() : ''}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(async r => {
+        const res = await r.text();
+        const obj = JSON.parse(res);
+        if (obj.Error !== undefined) {
+            alert(obj.Error);
+            return;
+        }
+        console.log(res);
+        localStorage.setItem('user' , res);
+        document.location.href = '/';
+    }).catch(err => alert(err));
 
 }
 

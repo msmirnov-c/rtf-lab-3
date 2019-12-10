@@ -26,7 +26,6 @@
     <article>
         <form class="content" method="post" action="/api/user/change">
             <p align="center"><b>Your data</b></p>
-
             <br/>
             Your email
             <input type="email" id="email" name="newEmail" value="{{email}}" oninput="checkChanges()"/>
@@ -40,11 +39,10 @@
             <br/>
             Enter your current password to confirm
             <br/>
-            <input type = "hidden" id="pass" name="pass"/>
-            <input type = "hidden" id="newPass" name="newPass"/>
+           <!-- <input type = "hidden" id="pass" name="pass"/>
+            <input type = "hidden" id="newPass" name="newPass"/>-->
             <input type="password" id="password" placeholder="password"/>
-            <button onclick="sendData()" id="confB" disabled>Change</button>
-
+            <button onclick="sendData(event)" id="confB" disabled>Change</button>
         </form>
     </article>
     <footer>footer</footer>
