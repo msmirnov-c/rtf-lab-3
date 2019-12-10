@@ -39,19 +39,20 @@ footer {
     background: linear-gradient( #660909 70%, #550a0a, black );
 }
 
-.nav-item {
+.nav-item, #menuButton {
     min-width: 10vw;
     height: 6vh;
     /*margin: 0  25px 0 25px;*/
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nav-item:hover {
+.nav-item:hover, #menuButton:hover {
     border-left: 1px solid lightgray;
     border-right: 1px solid lightgray;
     color:darkgray;
@@ -128,6 +129,10 @@ a:hover, #editLink:hover {
 
 h3, p {
     margin: 0;
+}
+
+#menuButton {
+    display: none;
 }
 
 textarea {

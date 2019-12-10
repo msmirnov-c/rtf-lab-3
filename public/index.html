@@ -5,6 +5,12 @@
     <link href="stylesheets/style.css" rel="stylesheet"/>
     <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
     <script type="module"  src="javascripts/StartPage.js"></script>
+    <script>
+        function showMenu() {
+            const navs = document.getElementsByClassName('nav-item');
+            [...navs].forEach(e => e.style.display = e.style.display === 'flex' ? 'none' : 'flex');
+        }
+    </script>
     <title>Content</title>
 </head>
 <body>
@@ -13,6 +19,7 @@
         <div class="nav-item" onclick="document.location.href = '/client.html'">Client</div>
         <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
         <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+        <div id="menuButton" onclick="showMenu()">list</div>
         <div id="user">
             <a href="register.html">Sign up</a>/<a href="authorisation.html">Sign in</a>
         </div>
