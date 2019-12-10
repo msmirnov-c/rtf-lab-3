@@ -43,6 +43,7 @@
 
     #menuButton {
         display: flex;
+        height: 10vh;
     }
     .nav-item {
         color: lightgray;
@@ -51,26 +52,44 @@
         left: 0;
         right: 0;
         width: 100%;
-        top: 10vh;
+        /*top: 10vh;*/
         /*display: flex;*/
-        height: 6vh;
         display: none;
         align-items: center;
         justify-content: center;
     }
+
     .nav-item:nth-of-type(2)  {
+        height: 6vh;
+        top: 10vh;
+    }
+    .nav-item:nth-of-type(3)  {
+        height: 6vh;
         top: 16vh;
     }
 
-    .nav-item:nth-of-type(3) {
+    .nav-item:nth-of-type(4) {
+        height: 6vh;
         top: 22vh;
     }
 
-    .nav-item:hover {
+    .nav-item:nth-of-type(2):hover  {
+        border: none;
+    }
+    .nav-item:nth-of-type(3):hover  {
+        border: none;
+    }
+
+    .nav-item:nth-of-type(4):hover {
+        border: none;
+    }
+
+    .nav-item:hover, #menuButton:hover  {
         border-left: 1px solid lightgray;
         border-right: 1px solid lightgray;
+        /*border: none;*/
         color: darkgray;
-        font-weight: bold;
+        font-weight: normal;
         background-color: #990c0c;
         cursor: pointer;
     }
