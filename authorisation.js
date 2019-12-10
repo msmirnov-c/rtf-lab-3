@@ -24,6 +24,22 @@ function getUser(req, res, next) {
     db.close();
 }
 
+function editUser(req, res) {
+    const {email} = req.body;
+    const db = new DBProvider();
+    console.log(email);
+    if(email)
+        db.getUserByOnlyEmail(email,function(err, row) {
+            if(row === undefined)
+                res.json({Error: 'Such user has not been found: check email or nick and password'});
+            else
+                res.render('edit', {email: row.email, nick: row.nick});
+        });
+    else
+        res.send({Error: 'Not all fields are received'});
+    db.close();
+    //res.render('edit.hbs', {nick: "my nick", email: 'AS@qASD'})
+}
 
 async function changeUser(req, res)
 {
@@ -35,10 +51,11 @@ async function changeUser(req, res)
         if(row === undefined)
             res.json({Error: 'Such user has not been found: check email or nick and password'});
         else {
-            const newUserData = new User(newEmail ? newEmail : oldEmail, newNick ? newNick : row.nick, newPass ? newPass : row.pass);
+            const newUserData = new User(newEmail ? newEmail : oldEmail, newNick ? newNick : row.nick, newPass !== "" ? newPass : row.pass);
             await db.changeUser(oldEmail , newUserData, err => {
-                newUserData.pass = undefined;
+                //newUserData.pass = undefined;
                 res.json(newUserData);
+                //res.location('/');
             });
         }
     });
@@ -60,4 +77,4 @@ async function addNewUser(req, res, next) {
     //res.send('Ok');
 }
 
-module.exports = {getUser, addNewUser, changeUser};
+module.exports = {getUser, addNewUser, changeUser, editUser};

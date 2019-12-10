@@ -6,7 +6,12 @@ export default class Page {
             console.log(usr);
             const u = JSON.parse(usr);
             if(u !== null) {
-                user.innerHTML = `${u.nick}/<a onclick="localStorage.clear(); document.location.reload();">Sign out</a>`;
+                user.innerHTML =
+                `<form style="display: inline" method="post" action="/api/user/edit">
+                    <input type="hidden" name="email" value="${u.email}"/>
+                    <input type="submit" value="${u.nick}" id="editLink"/>
+                </form> 
+                <a onclick="localStorage.clear(); document.location.reload();">Sign out</a>`;
                 if (origin === undefined || origin === null) return;
                 const commentAdd = document.getElementById("commentAdd");
                 if (commentAdd !== undefined && commentAdd !== null) {

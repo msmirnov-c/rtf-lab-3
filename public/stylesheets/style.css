@@ -114,12 +114,14 @@ form.content {
     text-align: left;
 }
 
-a {
+a, #editLink {
+    border: none;
+    background: none;
     text-decoration: none;
     color: lightgray;
 }
 
-a:hover {
+a:hover, #editLink:hover {
     cursor: pointer;
     color:darkgray;
 }
@@ -141,6 +143,7 @@ button {
     min-height: 7vmin;
     font-size: 5vmin;
     border: none;
+    margin: 10px;
     border-radius: 20px;
     color: lightgray;
     background-color: #550a0a;
