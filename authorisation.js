@@ -62,18 +62,27 @@ async function changeUser(req, res)
     db.close();
 }
 
-async function addNewUser(req, res, next) {
+function addNewUser(req, res, next) {
     const {email, nick, pass} = req.body;
     if (!email || !nick || !pass) {
         res.send({Error: 'not all fields received'});
         return;
     }
     const db = new DBProvider();
-    await db.addUser(new User(email, nick, pass));
-    await db.getUserByEmail(email, pass, function(err, row) {
-        res.json({email: row.email, nick: row.nick});
+    db.addUser(new User(email, nick, pass), (err)=>{
+        if(err) {
+            const tokens = err.message.split(' ');
+            res.json({Error: err.code === 'SQLITE_CONSTRAINT' ? `User with such ${tokens[tokens.length - 1].split('.')[1]} already exists` : err});
+        }
+        else
+            db.getUserByEmail(email, pass, function(err, row) {
+                if(err)
+                    res.json({Error: err});
+                else
+                    res.json({email: row.email, nick: row.nick});
+                db.close();
+            });
     });
-    db.close();
     //res.send('Ok');
 }
 

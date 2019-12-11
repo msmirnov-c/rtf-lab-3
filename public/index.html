@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav>
-        <div id="title"><a href="/">Title</a></div>
+        <div id="title"><a href="/">WebSockets</a></div>
         <div class="nav-item" onclick="document.location.href = '/client.html'">Client</div>
         <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
         <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
@@ -20,22 +20,53 @@
         </div>
     </nav>
     <article>
-        <div class="content">
-            content content content content content content
-            content content content content content content
+        <div class="content" >
+            <h1 align="center">Общая информация</h1>
+            WebSocket — протокол связи поверх TCP-соединения, предназначенный для обмена сообщениями между браузером и веб-сервером в режиме реального времени.
             <br/>
-            content content content content content content
+            Протокол Web Socket определяет две URI-схемы, ws: (нешифрованное соединение) и wss: (шифрованное соединение).
+            <p><b>Установление соединения</b></p>
+            Пример запроса от браузера при создании нового объекта new WebSocket("ws://server.example.com/chat"):
             <br/>
-            content content content content content content
+            <div style="background-color: lightgrey; white-space: pre-wrap; width: fit-content">
+            GET /chat HTTP/1.1
+            Host: server.example.com
+            Upgrade: websocket
+            Connection: Upgrade
+            Origin: http://javascript.ru
+            Sec-WebSocket-Key: Iv8io/9s+lYFgZWcXczP8Q==
+            Sec-WebSocket-Version: 13
+            </div>
+            <h3>Описания заголовков:</h3>
+            <ul>
+                <li>
+                <b>GET, Host</b>
+                Стандартные HTTP-заголовки из URL запроса
+                </li>
+                <li>
+                <b>Upgrade, Connection</b>
+                Указывают, что браузер хочет перейти на websocket.
+                </li>
+                <li>
+                <b>Origin</b>
+                Протокол, домен и порт, откуда отправлен запрос.
+                </li>
+                <li>
+                <b>Sec-WebSocket-Key</b>
+                Случайный ключ, который генерируется браузером: 16 байт в кодировке Base64.
+                </li>
+                <li>
+                <b>Sec-WebSocket-Version</b>
+                Версия протокола. Текущая версия: 13.
+                </li>
+            </ul>
             <br/>
-            content content content content content content
+            <div class="content" style="min-width: 0">
+            <i>Все заголовки, кроме GET и Host, браузер генерирует сам, без возможности вмешательства JavaScript.</i>
             <br/>
-            content content content content content content
-            <br/>
-            content content content content content content
-            <br/>
-            content content content content content content
-            <br/>
+            <b>Такой XMLHttpRequest создать нельзя</b>
+            Создать подобный XMLHttpRequest-запрос (подделать WebSocket) невозможно, по одной простой причине:
+            указанные выше заголовки запрещены к установке методом setRequestHeader.</div>
         </div>
     </article>
     <footer>footer</footer>
