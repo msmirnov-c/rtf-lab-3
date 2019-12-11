@@ -7,12 +7,11 @@ class DbClient{
             'Id INTEGER PRIMARY KEY AUTOINCREMENT,' +
             'Email TEXT,' +
             'Nickname TEXT,' +
-            'passHash TEXT,' +
-            'answerHash TEXT);');
+            'passHash TEXT);');
         db.run('CREATE UNIQUE INDEX IF NOT EXISTS UNQEmail on Users (Email);');
         db.run('CREATE UNIQUE INDEX IF NOT EXISTS UNQNick on Users (Nickname);');
-        this.AddUser = (email, nickname, passHash, answerHash, onend) => {
-            db.each(`INSERT INTO Users (email, nickname, passHash, answerHash) VALUES("${email}", "${nickname}", "${passHash}", "${answerHash}")`, onend);
+        this.AddUser = (email, nickname, passHash, onend) => {
+            db.each(`INSERT INTO Users (email, nickname, passHash) VALUES("${email}", "${nickname}", "${passHash}")`, onend);
         };
         this.GetAllUsers = () => {
             db.get(`SELECT * FROM Users;`);
@@ -24,8 +23,13 @@ class DbClient{
                 db.each(`DELETE FROM Users WHERE (Email = "${identifier}") OR (Nickname = "${identifier}"`);
             }
         };
+        this.CheckUser = (identifier) => {
+            db.get(`SELECT * FROM Users WHERE (Email = "${identifier}") OR (Nickname = "${identifier}"`);
+        };
+        this.CheckUserAuth = (identifier, password, onend) => {
+            db.get(`SELECT * FROM Users WHERE ((Email = "${identifier}") OR (Nickname = "${identifier}")) AND (passHash = "${password}")`, onend);
+        };
         this.close = db.close.bind(db);
     }
 }
-
 module.exports = DbClient;

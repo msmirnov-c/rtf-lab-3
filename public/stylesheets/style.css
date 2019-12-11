@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
+  padding: 1px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+header{
+  display: flex;
+  width: 100%;
+  height: 55px;
+}
+
+.NavBar{
+  height: 50px;
+  background: rgb(60,20,124);
+  display: table-cell;
+  vertical-align: middle;
+  horiz-align: left;
+  width: 98vw;
+  padding-left: 30%;
+  padding-right: 5px;
+}
+.NavBarButton {
+  position: relative;
+  right: 0;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  display: table-cell;
+  height: 36px;
+  width: 90px;
+  vertical-align: middle;
+  border: 1px solid black;
+  background: #00B7FF;
+}
+.NavBarButton:hover {
+  background: #65ebff;
+  transition: 0.5s linear;
 }
