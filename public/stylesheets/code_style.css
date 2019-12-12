@@ -11,6 +11,13 @@
     color: #000020;
 }
 
+
+
+.javascript, .java, .xml {
+    max-width: 90%;
+    overflow-x: scroll;
+}
+
 .javascript {
     font-size: 13px;
     width: fit-content;

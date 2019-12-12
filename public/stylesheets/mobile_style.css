@@ -8,6 +8,7 @@
     }
 
     body {
+        word-wrap: break-word;
         font-size: 5vmin;
         overflow-x: hidden;
     }
@@ -54,5 +55,22 @@
 
     .content {
         width: 100%;
+    }
+
+    .javascript, .java, .xml {
+        padding: 0 0 0 6vmin;
+    }
+
+    .request {
+        background-color: rgba(200, 200, 200, 0.6);
+        white-space: normal;
+        overflow-x: scroll;
+        width: fit-content
+    }
+
+
+    .inner-content {
+        min-width: 0;
+        max-width: 90%;
     }
 }
