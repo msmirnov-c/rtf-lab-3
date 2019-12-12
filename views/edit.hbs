@@ -5,7 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <link href="/stylesheets/style.css" rel="stylesheet"/>
     <link href="/stylesheets/mobile_style.css" rel="stylesheet"/>
-    <title>Edit data</title>
+    <title>Редактирование данных</title>
     <script src="/javascripts/edit.js">
     </script>
     <script type="module">
@@ -16,35 +16,35 @@
 <body>
 <nav>
     <div id="title"><a href="/">WebSockets</a></div>
-    <div class="nav-item" onclick="document.location.href = '/client.html'">Client</div>
+    <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
     <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
     <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
     <div id="user">
-        <a href="/register.html">Sign up</a>/<a href="/authorisation.html">Sign in</a>
+        <!--<a href="/register.html">Регистрация</a>/<a href="/authorisation.html">Вход</a>-->
     </div>
 </nav>
     <article>
         <form class="content" method="post" action="/api/user/change">
-            <p align="center"><b>Your data</b></p>
+            <p align="center"><b>Ваши данные</b></p>
             <br/>
-            Your email
+            Ваш email
             <input type="email" id="email" name="newEmail" value="{{email}}" oninput="checkChanges()"/>
             <input type="hidden" id="oldEmail" value="{{email}}" name="oldEmail"/>
             <br/>
-            Your nick
+            Ваш ник
             <input type="text" id="nick" value="{{nick}}" oninput="checkChanges()" name="newNick"/>
             <input type="hidden" id = "oldNick" value="{{nick}}"/>
             <br/>
-            <button onclick="passCh(event)">Change password</button>
+            <button onclick="passCh(event)">Изменить пароль</button>
             <br/>
-            Enter your current password to confirm
+            Введите текущий пароль для подверждения
             <br/>
            <!-- <input type = "hidden" id="pass" name="pass"/>
             <input type = "hidden" id="newPass" name="newPass"/>-->
             <input type="password" id="password" placeholder="password"/>
-            <button onclick="sendData(event)" id="confB" disabled>Change</button>
+            <button onclick="sendData(event)" id="confB" disabled>Изменить</button>
         </form>
     </article>
-    <footer>footer</footer>
+    <footer>2019 WebSockets</footer>
 </body>
 </html>

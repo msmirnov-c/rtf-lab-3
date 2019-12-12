@@ -11,16 +11,16 @@ const transporter = mail.createTransport({/*
     service: 'Gmail',
     auth: {
         user: 'simple.auth.service@gmail.com',
-        pass: 'by.password12'
+        pass: '****'
     }
 });
 
 function sendPassword(address, password, onend) {
     const mailOptions = {
-        from: 'Authorisation',//'simple.auth.service@gmail.com',
+        from: 'Служба авторизации',//'simple.auth.service@gmail.com',
         to: address,//'vovasatunkin@mail.ru',
-        subject: 'Dropping password',
-        html: `<h3>Password successfully changed</h3> Your new password: ${password}`
+        subject: 'Сброс пароля',
+        html: `<h3>Пароль успешно сброшен</h3>Ваш новый пароль: ${password}`
     };
 
     transporter.sendMail(mailOptions, onend);
@@ -33,13 +33,17 @@ function generatePassword() {
     return res;
 }
 
+/**
+ * Метод принимающий в теле запроса 1 парамметр
+ * @param {string} email - почта
+ */
 function dropPassword(req, res) {
     const {email} = req.body;
     const newPass = generatePassword();
     const db = new DBProvider();
     db.getUserByOnlyEmail(email,  function(err, row) {
         if(row === undefined)
-            res.json({Error: 'Such user has not been found: check email'});
+            res.json({Error: 'Пользователь с таким e-mail не найден'});
         else {
             const newUserData = new User(email, row.nick,
                 CryptoJS.MD5(newPass));
