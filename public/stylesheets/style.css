@@ -16,7 +16,7 @@ article {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, brown, black);
+    background: linear-gradient(135deg, black, brown, brown, brown, brown, brown, brown, black);
 }
 
 nav {

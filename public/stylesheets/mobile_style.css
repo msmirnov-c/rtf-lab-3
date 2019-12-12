@@ -4,7 +4,7 @@
         padding: 5% 7%;
         flex-grow: 5;
         display: flex;
-        background: linear-gradient(135deg, brown 35%, #1F1F1F, black);
+        background: linear-gradient(135deg, brown 65%, #9F1A1A, #971919, #971919, #2D2D2D/*, #1F1F1F, #171717*/);
     }
 
     body {
@@ -27,6 +27,7 @@
         display: flex;
         height: 10vh;
     }
+
     .nav-item {
         color: lightgray;
         background: linear-gradient( #660909 70%, #550a0a, black);
@@ -67,7 +68,6 @@
         overflow-x: scroll;
         width: fit-content
     }
-
 
     .inner-content {
         min-width: 0;
