@@ -9,7 +9,7 @@
 
     body {
         font-size: 5vmin;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     nav {
@@ -41,42 +41,7 @@
         align-items: center;
         justify-content: center;
         /*transition: top 1s ease;*/
-    }/*
-    .nav-item:first-of-type {
-        height: 10vh;
-        transition: none;
-        position: static;
     }
-
-    .nav-item:first-of-type:hover, #menuButton:hover {
-        border-left: 1px solid lightgray;
-        border-right: 1px solid lightgray;
-        color:darkgray;
-        font-weight: bold;
-        background-color: #990c0c;
-        cursor: pointer;
-    }*/
-    /*
-    .nav-item:nth-of-type(2)  {
-        top: 10vh;
-    }
-    .nav-item:nth-of-type(3)  {
-        top: 16vh;
-    }
-    .nav-item:nth-of-type(4) {
-        top: 22vh;
-    }*/
-/*
-    .nav-item:nth-of-type(2):hover  {
-        border: none;
-    }
-    .nav-item:nth-of-type(3):hover  {
-        border: none;
-    }
-
-    .nav-item:nth-of-type(4):hover {
-        border: none;
-    }*/
 
     .nav-item:hover {
         border: none;
@@ -87,4 +52,7 @@
         width: 100%;
     }
 
+    .content {
+        width: 100%;
+    }
 }

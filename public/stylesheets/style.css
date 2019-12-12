@@ -88,13 +88,23 @@ form.content {
     padding: 12px;
     margin: 12px;
     align-items: center;
-    min-width: 100%;
+    width: 70%;
 }
 
 .content input, textarea {
     width: 90%;
     border-radius: 7px;
     cursor: pointer;
+}
+
+.inner-content {
+    min-width: 0;
+}
+
+.request {
+    background-color: rgba(200, 200, 200, 0.6);
+    white-space: pre-wrap;
+    width: fit-content
 }
 
 #newComment {
