@@ -53,10 +53,10 @@
                 <li class="li1"><div class="de1">&nbsp;</div></li>
                 <li class="li1"><div class="de1">&nbsp; <span class="kw2">var</span> id <span class="sy0">=</span> Math.<span class="me1">random</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp; clients<span class="br0">&#91;</span>id<span class="br0">&#93;</span> <span class="sy0">=</span> ws<span class="sy0">;</span></div></li>
-                <li class="li1"><div class="de1">&nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">&quot;new connection &quot;</span> <span class="sy0"~ezentity_gt+ezentity_lt~/span> id<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">&quot;new connection &quot;</span> <span class="sy0"~ezentity_gt+ezentity_lt~></span> id<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li2"><div class="de2">&nbsp;</div></li>
                 <li class="li1"><div class="de1">&nbsp; ws.<span class="me1">on</span><span class="br0">&#40;</span><span class="st0">'message'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
-                <li class="li1"><div class="de1">&nbsp; &nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">'message received '</span> <span class="sy0"~ezentity_gt+ezentity_lt~/span> message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">'message received '</span> <span class="sy0"~ezentity_gt+ezentity_lt~></span> message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp;</div></li>
                 <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">for</span> <span class="br0">&#40;</span><span class="kw2">var</span> key <span class="kw1">in</span> clients<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
                 <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; clients<span class="br0">&#91;</span>key<span class="br0">&#93;</span>.<span class="me1">send</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
@@ -64,7 +64,7 @@
                 <li class="li1"><div class="de1">&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp;</div></li>
                 <li class="li1"><div class="de1">&nbsp; ws.<span class="me1">on</span><span class="br0">&#40;</span><span class="st0">'close'</span><span class="sy0">,</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
-                <li class="li2"><div class="de2">&nbsp; &nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">'connection closed'</span> <span class="sy0"~ezentity_gt+ezentity_lt~/span> id<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; console.<span class="me1">log</span><span class="br0">&#40;</span><span class="st0">'connection closed'</span> <span class="sy0"~ezentity_gt+ezentity_lt~></span> id<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">delete</span> clients<span class="br0">&#91;</span>id<span class="br0">&#93;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
                 <li class="li1"><div class="de1">&nbsp;</div></li>
@@ -82,6 +82,6 @@
             <button id="commentAdd" disabled="disabled">Добавить</button>
         </div>
     </article>
-    <footer>footer</footer>
+    <footer>2019 WebSockets</footer>
 </body>
 </html>
