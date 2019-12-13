@@ -1,0 +1,31 @@
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация</title>
+  <link href="/css/buttons.css" rel="stylesheet" type="text/css">
+  <link href="/css/input.css" rel="stylesheet" type="text/css">
+</head>
+<div class="group" style="left: 48%;
+    margin-right: -50%;">
+<h1>Регистрация</h1>
+<form action="/register" method="POST">
+  <div class="group" style="left: -4%;">
+    <input type="text" id="name" name="name" required>
+    <span class="bar"></span>
+    <label>Имя</label>
+  </div>
+  <div class="group" style="left: -4%;">
+    <input type="email" id="email" name="email" required>
+    <span class="bar"></span>
+    <label>Email</label>
+  </div>
+  <div class="group" style="left: -4%;">
+    <input type="password" id="password" name="password" required>
+    <span class="bar"></span>
+    <label>Пароль</label>
+  </div>
+</div>
+<div style="text-align: center;">
+  <button class="button1" type="submit" >Регистрация</button>
+<a href="/login" class="button1">Вход</a>
+</div>
+</form>

@@ -1,0 +1,71 @@
+body {
+	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753;
+	background-image: url(../images/2-fon-dlya-sayta.jpg);
+	margin: 0; 
+	padding: 0;
+	}
+h2 {
+	font: italic normal 2em georgia, sans-serif;
+	letter-spacing: 1px;
+	font-weight: bold;
+	margin-bottom: 0;
+	color: #b31719;
+}
+h3 {
+	font: italic normal 2em georgia, sans-serif;
+	letter-spacing: 1px;
+	margin-bottom: 0;
+	color: #98171a;
+	}
+abbr {
+	border-bottom: none;
+	}
+
+.page-wrapper {
+	}
+
+.intro { 
+	min-width: 470px;
+	width: 100%;
+	}
+
+header h1 {
+	background: url(../images/Google_Chrome_logo.png) no-repeat top left;
+	margin-top: 10px;
+	display: block;
+	width: 190px;
+	height: 200px;
+	float: left;
+	}
+
+.summary {
+	clear: both; 
+	margin: 0px 20px 5px 10px;
+	width: 160px; 
+	float: left;
+	}
+.summary p {
+	font: italic 1.4em/2.2 georgia;
+	text-align: center;
+	}
+
+.preamble {
+	font: normal 1.5em/1.5 Noto Sans;
+	clear: right; 
+	padding: 1px 10px 0 10px;
+	}
+
+.supporting {
+	font: normal 1.5em/1.5 Noto Sans;
+	padding-left: 10px; 
+	margin-bottom: 40px;
+	}
+
+footer { 
+	text-align: center; 
+	}
+footer a:link, footer a:visited { 
+	margin-right: 20px; 
+	}
