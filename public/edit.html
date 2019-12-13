@@ -8,10 +8,7 @@
     <title>Редактирование данных</title>
     <script src="/javascripts/edit.js">
     </script>
-    <script type="module">
-        import Page from "/javascripts/Page.js";
-        const page = new Page();
-    </script>
+    <script type="module" src="/javascripts/editPage.js"></script>
 </head>
 <body>
 <nav>
@@ -28,12 +25,12 @@
             <p align="center"><b>Ваши данные</b></p>
             <br/>
             Ваш email
-            <input type="email" id="email" name="newEmail" value="{{email}}" oninput="checkChanges()"/>
-            <input type="hidden" id="oldEmail" value="{{email}}" name="oldEmail"/>
+            <input type="email" id="email" name="newEmail" oninput="checkChanges()"/>
+            <input type="hidden" id="oldEmail" name="oldEmail"/>
             <br/>
             Ваш ник
-            <input type="text" id="nick" value="{{nick}}" oninput="checkChanges()" name="newNick"/>
-            <input type="hidden" id = "oldNick" value="{{nick}}"/>
+            <input type="text" id="nick" oninput="checkChanges()" name="newNick"/>
+            <input type="hidden" id = "oldNick" />
             <br/>
             <button onclick="passCh(event)">Изменить пароль</button>
             <br/>

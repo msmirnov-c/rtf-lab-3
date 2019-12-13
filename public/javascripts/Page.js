@@ -1,17 +1,12 @@
 export default class Page {
     constructor(origin) {
-        const socket = new WebSocket(`wss://${document.location.host}/api/comment`);
+        const socket = new WebSocket(`ws://${document.location.host}/api/comment`);
         document.addEventListener("DOMContentLoaded", () => {
             const usr = localStorage.getItem('user');
             console.log(usr);
             const u = JSON.parse(usr);
             if(u !== null) {
-                user.innerHTML =
-                `<form style="display: inline" method="post" action="/api/user/edit">
-                    <input type="hidden" name="email" value="${u.email}"/>
-                    <input type="submit" value="${u.nick}" id="editLink"/>
-                </form> 
-                <a onclick="localStorage.clear(); document.location.reload();">Sign out</a>`;
+                user.innerHTML = `<a href="/edit.html">${u.nick}</a> </a><a onclick="localStorage.clear(); document.location.reload();">Выход</a>`;
                 if (origin === undefined || origin === null) return;
                 const commentAdd = document.getElementById("commentAdd");
                 if (commentAdd !== undefined && commentAdd !== null) {
@@ -21,13 +16,13 @@ export default class Page {
                 }
             }
             socket.onopen = function(e) {
-                console.log("[open] Соединение установлено");
-                console.log("Отправляем данные на сервер");
+                //console.log("[open] Соединение установлено");
+                //console.log("Отправляем данные на сервер");
                 socket.send(`{"origin": "${origin}"}`);
             };
 
             socket.onmessage = function(event) {
-                console.log(`[message] Данные получены с сервера: ${event.data}`);
+                //console.log(`[message] Данные получены с сервера: ${event.data}`);
                 try {
                     const data = JSON.parse(event.data);
                     comments.innerHTML = "";

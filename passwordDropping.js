@@ -3,11 +3,7 @@ const User = require('./model/user');
 const DBProvider = require('./dbprovider');
 const CryptoJS = require('crypto-js');
 
-const transporter = mail.createTransport({/*
-
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,*/
+const transporter = mail.createTransport({
     service: 'Gmail',
     auth: {
         user: 'simple.auth.service@gmail.com',
@@ -17,8 +13,8 @@ const transporter = mail.createTransport({/*
 
 function sendPassword(address, password, onend) {
     const mailOptions = {
-        from: 'Служба авторизации',//'simple.auth.service@gmail.com',
-        to: address,//'vovasatunkin@mail.ru',
+        from: 'Служба авторизации',
+        to: address,
         subject: 'Сброс пароля',
         html: `<h3>Пароль успешно сброшен</h3>Ваш новый пароль: ${password}`
     };
