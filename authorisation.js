@@ -28,26 +28,7 @@ function getUser(req, res, next) {
         });
     db.close();
 }
-/**
- * Метод принимающий в теле запроса 1 парамметр
- * @param {string} email - почта
- */
-function editUser(req, res) {
-    const {email} = req.body;
-    const db = new DBProvider();
-    console.log(email);
-    if(email)
-        db.getUserByOnlyEmail(email,function(err, row) {
-            if(row === undefined)
-                res.json({Error: 'Пользователь с такими данными не найден проверьте e-mail/ник и пароль'});
-            else
-                res.render('edit', {email: row.email, nick: row.nick});
-        });
-    else
-        res.send({Error: 'Не все поля получены'});
-    db.close();
-    //res.render('edit.hbs', {nick: "my nick", email: 'AS@qASD'})
-}
+
 /**
  * Метод принимающий в теле запроса 5 парамметров
  * @param {string} oldEmail - старая почта
@@ -103,7 +84,6 @@ function addNewUser(req, res, next) {
                 db.close();
             });
     });
-    //res.send('Ok');
 }
 
-module.exports = {getUser, addNewUser, changeUser, editUser};
+module.exports = {getUser, addNewUser, changeUser};

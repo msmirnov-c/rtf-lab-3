@@ -42,7 +42,6 @@ footer {
 .nav-item, #menuButton {
     min-width: 10vw;
     height: 6vh;
-    /*margin: 0  25px 0 25px;*/
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin: 0;
