@@ -1,6 +1,6 @@
 export default class Page {
     constructor(origin) {
-        const socket = new WebSocket(`ws://${document.location.host}/api/comment`);
+        const socket = new WebSocket(`wss://${document.location.host}/api/comment`);
         document.addEventListener("DOMContentLoaded", () => {
             const usr = localStorage.getItem('user');
             console.log(usr);
