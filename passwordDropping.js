@@ -11,7 +11,7 @@ const transporter = mail.createTransport({/*
     service: 'Gmail',
     auth: {
         user: 'simple.auth.service@gmail.com',
-        pass: '****'
+        pass: 'by.password13'
     }
 });
 
