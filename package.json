@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node bin/www"
   },
+  "engines": {
+  "node": "10.x"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "crypto-js": "^3.1.9-1",
