@@ -184,6 +184,27 @@ header.fixed #logo {
 }
 
 
+@media (max-width: 320px) {
+  .object {
+   height: 100%;
+  	background-color: #eee;
+   padding: 10px 20%;
+    width:60%;
+    text-align: left;
+    font-size: 0,9em
+  }
+}
+
+@media (min-width: 321px) {
+  .object {
+    height: 100%;
+	  background-color: #eee;
+    padding: 10px 20%;
+   width:60%;
+    text-align: left;
+  }
+}
+
 
 /*-----------------------*/
 
@@ -232,9 +253,8 @@ header.fixed #logo {
 @media (min-width: 1401px) {
   #main {
     padding: 50px 20%;
-    width: 60%;
+    width: 60% ;
     font-size: 2em;
-    background-image: url("../images/Fon.png");
   }
 }
 
@@ -242,7 +262,6 @@ header.fixed #logo {
   #main {
     padding: 50px 10%;
     width: 80%;
-    font-size: 2em;
     background-color:  #eee;
   }
 }
@@ -342,21 +361,27 @@ h1, h2, h3, h4, h5 {
 #contacts h5 {font-size: 3em; color: #4f4f4f}
 
 #form_input {
-  margin-top: 15px;
   font-size: 1.1em;
 }
 
 @media (min-width: 1051px) {
   #form_input {
     width: 35%;
-    margin-left: 38%;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 1050px) {
   #form_input {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 450px) {
+  #form_input {
     width: 90%;
-    margin-left: 10%;
+    margin: 0 auto;
   }
 }
 
@@ -371,16 +396,17 @@ h1, h2, h3, h4, h5 {
   color: #e87e7e;
 }
 
+
+
 #form_input input,#form_input textarea {
   margin-bottom: 10px;
-  width: 70%;
-  border-radius: 7px;
+  width: 100%;
   border: 2px solid silver;
-  font-size: 0.9em;
-  color: rgb(85, 85, 85);
+  font-size: 1.2em;
+  color: #ffffff;
   font-family: 'Roboto Slab', serif;
   font-size: 1.2em;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 #form_input input:focus, #form_input textarea:focus {
