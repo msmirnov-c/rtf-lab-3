@@ -190,16 +190,16 @@ section a:hover, a:focus, a:active {
     padding: 2em 0;
 }
 
+.section--first {
+    background-attachment: scroll, scroll, fixed;
+    background-color: rgba(182, 217, 202, 0.5);
+    background-size: auto, auto, cover;
+}
+
 .section--second {
     background-attachment: scroll, scroll, fixed;
     background-color: rgba(101, 155, 147, 0.5);
     background-size: auto, auto, cover;
-}
-
-.section__header{
-    margin: 0 auto 40px;
-    width: 100%;
-    max-width: 1200px;
 }
 
 .section__title{
@@ -256,7 +256,7 @@ section a:hover, a:focus, a:active {
     opacity: 0;
     transition: opacity 0.1s linear;
 
-    top: 40%;
+    top: 30%;
     left: 0;
     z-index: 2;
 }
