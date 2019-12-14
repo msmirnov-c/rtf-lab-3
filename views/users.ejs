@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация/Вход</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<div style="display: table; border-spacing: 400px 50px;">
+<div class="group" style="display: table-cell;">
+<h1>Регистрация</h1>
+<form action="/register" method="POST">
+  <div>
+    <input id="name" name="name" placeholder="Укажите ваше имя!" class="name" required />
+    <input id="email" name="email" placeholder="Укажите ваш Email!" class="email" type="email" required />
+    <input id="password" name="password" placeholder="Введите ваш пароль!" class="name" required></input>
+  <button class="btn" type="submit" >Регистрация</button>
+  </div>
+</form>
+
+<div style="display: table-cell;">
+  <h1>Вход</h1>
+  <form action="/login" method="POST">
+    <input id="email" name="email" placeholder="Email!" class="email" type="email" required />
+    <input id="password" name="password" placeholder="пароль!" class="name" required></input>
+  <button type="submit" class="btn">Вход</button>
+  </div>
+  </form>
+</div>
+</div>
