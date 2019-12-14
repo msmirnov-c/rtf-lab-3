@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="stylesheets/css.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <nav>
+        <a href="/" class="ni">Главная</a>
+        <a class="ni">Не Главная</a>
+        <button class="ni">Регистрация</button>
+        <button class="ni">Вход</button>
+    </nav>
+    <div class="centred">
+        <form action="/api/reg" method="post">
+            Логин:
+            <br/>
+            <input type="text" required name="login"/>
+            <br/>
+            Пароль:
+            <br/>
+            <input type="password" required name="psw" />
+            <br/>
+            <button>Подтвердить</button>
+        </form>
+    </div>
+</body>
+</html>
