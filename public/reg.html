@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link href="stylesheets/css.css" rel="stylesheet"/>
+    <script src="javascripts/scripts.js"></script>
     <meta charset="UTF-8">
     <title>Регистрация</title>
 </head>
@@ -13,16 +14,16 @@
         <button class="ni">Вход</button>
     </nav>
     <div class="centred">
-        <form action="/api/reg" method="post">
+        <form>
             Логин:
             <br/>
-            <input type="text" required name="login"/>
+            <input type="text" required name="login" id="lg"/>
             <br/>
             Пароль:
             <br/>
-            <input type="password" required name="psw" />
+            <input type="password" required name="psw" id="psw"/>
             <br/>
-            <button>Подтвердить</button>
+            <button onclick="reg(event)">Подтвердить</button>
         </form>
     </div>
 </body>

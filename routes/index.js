@@ -16,7 +16,21 @@ router.post('/reg', function (req, res) {
         if(err)
             res.send(err);
         else
-            res.redirect('/');
+            res.json({login: login});
+    });
+});
+
+router.post('/auth', function (req, res) {
+    const {login, psw} = req.body;
+    if(!login || !psw) {
+        res.send('Error!');
+        return;
+    }
+    db.get(`SELECT login FROM users WHERE login = ${login} AND password = ${psw}`, (err) => {
+        if(err)
+            res.send(err);
+        else
+            res.json({login: login});
     });
 });
 

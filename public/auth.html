@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="stylesheets/css.css" rel="stylesheet"/>
+    <script src="javascripts/scripts.js"></script>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<nav>
+    <a href="/" class="ni">Главная</a>
+    <a class="ni">Не Главная</a>
+    <button class="ni">Регистрация</button>
+    <button class="ni">Вход</button>
+</nav>
+<div class="centred">
+    <form>
+        Логин:
+        <br/>
+        <input type="text" required name="login" id="lg"/>
+        <br/>
+        Пароль:
+        <br/>
+        <input type="password" required name="psw" id="psw"/>
+        <br/>
+        <button onclick="auth(event)">Подтвердить</button>
+    </form>
+</div>
+</body>
+</html>
