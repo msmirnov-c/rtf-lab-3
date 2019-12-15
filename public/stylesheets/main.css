@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap');
+
+
+.back-image {
+    background-image: url('../images/back1.jpg');
+    background-repeat: repeat-x;
+}
+
+.separator {
+    width: 80%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.4);
+    margin: auto;
+}
+
+.block {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    background: rgb(248, 248, 248);
+    
+}
+
+.block-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.block-title {
+    color: #152a6e;
+    font-weight: bold;
+}
+
+.block-middle {
+    box-sizing: border-box;
+}
+
+.text {
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 10px 0 10px 0;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.menu-item {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #152a6e;
+    transition: ease-in-out 0.2s;
+}
+
+.menu-item:hover {
+    cursor: pointer;
+    font-size: 22.5px;
+    color: #6585ec;
+    transition: ease-in-out 0.2s;
+}
+
+#back-color {
+    background: linear-gradient(#609bdf, #c7e6f5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+#quote {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    border-left: 5px solid #59cece;
+    color: #59cece;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 20px;
+    margin-left: 50px;
+    font-family: 'Amatic SC', cursive;
+}
+
+#image-container {
+    margin: 10px 0 10px 0;
+    align-items: center;
+    display: flex;
+}
+
+ul {
+    margin-left: 50px;
+}
+
+li {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.chapter {
+    margin: 20px 0 20px 0;
+}
+
+#block-decoration {
+    background-image: url('../images/footer-block.jpg');
+    background-repeat: repeat-x;
+    height: 30px;
+}
+
+#border-image {
+    background-image: url('../images/border.jpg');
+    background-repeat: repeat-x;
+    height: 177px;
+    margin: 60px 0 60px 0;
+}
+
+.li-history {
+    font-weight: 100;
+    font-size: 25px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+#btn-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+    #user-block {
+        visibility: hidden;
+    }
+
+    #greetings {
+        visibility: visible;
+        font-size: 20px;
+        line-height: 80px;
+        text-align: center;
+        animation: appearance 1s 1 ease-in-out;
+    }
+
+    .back-image {
+        padding: 5px 0 5px 0;
+    }
+
+    .block {
+        width: 95%;
+        margin: auto;
+    }
+
+    .block-top {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .block-middle {
+        padding: 10px;
+    }
+
+    .text {
+        font-size: 15px;
+    }
+
+    #menu {
+        height: 200px;
+        flex-direction: column;
+    }
+
+    .menu-item {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    #back-color {
+        padding: 5px 0 5px 0;
+    }
+
+    #quote {
+        margin-left: 20px;
+    }
+
+    #image-container {
+        flex-direction: column;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    .chapter {
+        font-size: 20px;
+        text-align: center; 
+        text-decoration: underline;
+    }
+
+    .li-history {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    #btn-container {
+        justify-content: center;
+        padding: 20px 0 20px 0;
+    }
+}
+
+@media (min-width: 901px) {
+    #user-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        height: 80px;
+        margin: 50px auto;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        animation: appearance 1s 1 ease-in-out;
+    }
+
+    #user-block:hover {
+        box-shadow: 5px 5px 20px rgba(13, 146, 255, 0.5);
+    }
+
+    .back-image {
+        margin-top: 50px;
+        padding: 20px 0 20px 0;
+    }
+
+    .block {
+        width: 80%;
+        margin: auto;
+    }
+
+    .block-middle {
+        padding: 60px;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    #menu {
+        width: 90%;
+        flex-direction: row;
+    }
+
+    .menu-item {
+        font-size: 22px;
+        line-height: 200px;
+    }
+
+    #back-color {
+        padding: 50px;
+    }
+    
+    #image-text {
+        margin-left: 50px;
+    }
+
+    #btn-container {
+        padding: 0 80px 50px 0;
+    }
+}

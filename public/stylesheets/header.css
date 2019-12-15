@@ -1,0 +1,38 @@
+#header {
+    background: #15346e;
+    box-shadow: 0 5px 15px #030702b5;
+} 
+
+#header-content {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: inherit;
+}
+
+.header-link {
+    font-size: 24px;
+    margin: 10px;
+}
+
+#logo {
+    flex-grow: 1;
+}
+
+@media (max-width: 900px) {
+    #header-content {
+        flex-direction: column;
+        padding: 20px 0 20px 0;
+    }
+}  
+
+@media (min-width: 901px) {
+    #header {
+        height: 80px;
+    }
+
+    #header-content {
+        justify-content: flex-end;
+        width: 80%;
+    }
+}

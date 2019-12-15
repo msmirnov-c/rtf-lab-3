@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Play&display=swap');
+
+@keyframes appearance {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+* 
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background: rgb(243, 243, 243);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Play', sans-serif;
+} 
+
+button {
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  background: #152a6e;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  animation: appearance 1s 1 ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #152a6ece;
+  transition: ease-in-out 0.5s;
+}
