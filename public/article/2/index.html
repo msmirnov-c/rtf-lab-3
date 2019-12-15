@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item active" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Переменные и типы данных</h1>
+    <p>Переменная хранит определенные данные. Название переменной в Python должно начинаться с алфавитного символа или со знака подчеркивания и может
+        содержать алфавитно-цифровые символы и знак подчеркивания. И кроме того, название переменной не должно совпадать с названием ключевых слов языка Python.
+        Ключевых слов не так много, их легко запомнить: and, as, assert, break, class, continue, def, del, elif, else, except, False, finally, for, from, global,
+        if, import, in, is, lambda, None, nonlocal, not, or, pass, raise, return, True, try, while, with, yield.</p>
+    <p>Например, создадим переменную:</p>
+    <pre class="brush:py;">
+name = "Tom"
+</pre>
+    <p>Здесь определена переменная <code>name</code>, которая хранит строку "Tom".</p>
+    <p>В пайтоне применяется два типа наименования переменных: camel case и underscore notation.</p>
+    <p>Camel case подразумевает, что каждое новое подслово в наименовании переменной начинается с большой буквы. Например:</p>
+    <pre class="brush:py;">
+userName = "Tom"
+</pre>
+    <p>Underscore notation подразумевает, что подслова в наименовании переменной разделяются знаком подчеркивания. Например:</p>
+    <pre class="brush:py;">
+user_name = "Tom"
+</pre>
+    <p>И также надо учитывать регистрозависимость, поэтому переменные <code>name</code> и <code>Name</code> будут представлять разные объекты.</p>
+    <p>Переменная хранит данные одного из типов данных. В Python существует множество различных типов данных, которые подразделяются на категории:
+        числа, последовательности, словари, наборы:</p>
+    <ul>
+        <li><p><span class="b">boolean</span> - логическое значение <code>True</code> или <code>False</code></p></li>
+        <li><p><span class="b">int</span> - представляет целое число, например, 1, 4, 8, 50.</p></li>
+        <li><p><span class="b">float</span> - представляет число с плавающей точкой, например, 1.2 или 34.76</p></li>
+        <li><p><span class="b">complex</span> - комплексные числа</p></li>
+        <li><p><span class="b">str</span> - строки, например "hello". В Python 3.x строки представляют набор символов в кодировке Unicode</p></li>
+        <li><p><span class="b">bytes</span> - последовательность чисел в диапазоне 0-255</p></li>
+        <li><p><span class="b">byte array</span> - массив байтов, аналогичен bytes с тем отличием, что может изменяться</p></li>
+        <li><p><span class="b">list</span> - список</p></li>
+        <li><p><span class="b">tuple</span> - кортеж</p></li>
+        <li><p><span class="b">set</span> - неупорядоченная коллекция уникальных объектов</p></li>
+        <li><p><span class="b">frozen set</span> - то же самое, что и set, только не может изменяться (immutable)</p></li>
+        <li><p><span class="b">dict</span> - словарь, где каждый элемент имеет ключ и значение</p></li>
+    </ul>
+    <p>Python является языком с динамической типизацией. Он определяет тип данных переменной исходя из значения, которое ей присвоено. Так, при
+        присвоении строки в двойных или одинарных кавычках переменная имеет тип str. При присвоении целого числа
+        Python автоматически определяет тип переменной как int. Чтобы определить переменную как объект float, ей присваивается дробное число, в котором разделителем
+        целой и дробной части является точка. Число с плавающей точкой можно определять в экспоненциальной записи:</p>
+    <pre class="brush:py;">
+x = 3.9e3
+print(x)  # 3900.0
+
+x = 3.9e-3
+print(x)  # 0.0039
+</pre>
+    <p>Число float может иметь только 18 значимых симолов. Так, в данном случае используются только два символа - 3.9. И если число слишком велико или
+        слишком мало, то мы можем записывать число в подобной нотации, используя экспоненту. Число после экспоненты указывает степень числа 10, на которое надо умножить основное число - 3.9.</p>
+    <p>При этом в процессе работы программы мы можем изменить тип переменной, присвоив ей значение другого типа:</p>
+    <pre class="brush:py;">
+user_id = "12tomsmith438"  # тип str
+print(user_id)
+
+user_id = 234  # тип int
+print(user_id)
+</pre>
+    <p>С помощью функции <span class="b">type()</span> динамически можно узнать текущий тип переменной:</p>
+    <pre class="brush:py;">
+user_id = "12tomsmith438"
+print(type(user_id))  # &lt;class 'str'&gt;
+
+user_id = 234
+print(type(user_id))  # &lt;class 'int'&gt;
+</pre>
+</div>
+</body>
+</html>

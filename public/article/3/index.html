@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item active" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Операции с числами</h1>
+    <h3>Арифметические операции</h3>
+    <p>Python поддерживает все распространенные арифметические операции:</p>
+    <ul>
+        <li><p><span class="b">+</span></p>
+            <p>Сложение двух чисел:</p>
+            <pre class="brush:py;">print(6 + 2)  # 8</pre>
+        </li>
+        <li><p><span class="b">-</span></p>
+            <p>Вычитание двух чисел:</p>
+            <pre class="brush:py;">print(6 - 2)  # 4</pre>
+        </li>
+        <li><p><span class="b">*</span></p>
+            <p>Умножение двух чисел:</p>
+            <pre class="brush:py;">print(6 * 2)  # 12</pre>
+        </li>
+        <li><p><span class="b">/</span></p>
+            <p>Деление двух чисел:</p>
+            <pre class="brush:py;">print(6 / 2)  # 3.0</pre>
+        </li>
+        <li><p><span class="b">//</span></p>
+            <p>Целочисленное деление двух чисел:</p>
+            <pre class="brush:py;">
+print(7 / 2)  # 3.5
+print(7 // 2)  # 3
+</pre>
+            <p>Данная операция возвращает целочисленный результат деления, отбрасывая дробную часть</p>
+        </li>
+        <li><p><span class="b">**</span></p>
+            <p>Возведение в степень:</p>
+            <pre class="brush:py;">
+print(6 ** 2)  # Возводим число 6 в степень 2. Результат - 36
+</pre>
+        </li>
+        <li><p><span class="b">%</span></p>
+            <p>Получение остатка от деления:</p>
+            <pre class="brush:py;">
+print(7 % 2)  # Получение остатка от деления числа 7 на 2. Результат - 1
+</pre>
+            <p>В данном случае ближайшее число к 7, которое делится на 2 без остатка, это 6. Поэтому остаток от деления равен 7 - 6 = 1</p>
+        </li>
+    </ul>
+    <p>При последовательном использовании нескольких арифметических операций их выполнение производится в соответствии с их приоритетом.
+        В начале выполняются операции с большим приоритетом. Приоритеты операций в порядке убывания приведены в следующей таблице.</p>
+    <table>
+        <tr><td><p>Операции</p></td><td><p>Направление</p></td></tr>
+        <tr><td><p>**</p></td><td><p>Слева направо</p></td></tr>
+        <tr><td><p>* / // %</p></td><td><p>Слева направо</p></td></tr>
+        <tr><td><p>+ -</p></td><td><p>Слева направо</p></td></tr>
+    </table>
+    <p>Пусть у нас выполняется следующее выражение:</p>
+    <pre class="brush:py;">
+number = 3 + 4 * 5 ** 2 + 7
+print(number)  # 110
+</pre>
+    <p>Здесь начале выполняется возведение в степень (5 ** 2) как операция с большим приоритетом, далее результат умножается на 4 (25 * 4), затем происходит сложение
+        (3 + 100) и далее опять идет сложение (103 + 7).</p>
+    <p>Чтобы переопределить порядок операций, можно использовать скобки:</p>
+    <pre class="brush:py;">
+number = (3 + 4) * (5 ** 2 + 7)
+print(number)  # 224
+</pre>
+    <p>Следует отметить, что в арифметических операциях могут принимать участие как целые, так и дробные числа. Если в одной операции участвует
+        целое число (int) и число с плавающей точкой (float),
+        то целое число приводится к типу float.</p>
+    <h3>Арифметические операции с присвоением</h3>
+    <p>Ряд специальных операций позволяют использовать присвоить результат операции первому операнду:</p>
+    <ul>
+        <li><p><span class="b">+=</span></p>
+            <p>Присвоение результата сложения</p>
+        </li>
+        <li><p><span class="b">-=</span></p>
+            <p>Присвоение результата вычитания</p>
+        </li>
+        <li><p><span class="b">*=</span></p>
+            <p>Присвоение результата умножения</p>
+        </li>
+        <li><p><span class="b">/=</span></p>
+            <p>Присвоение результата от деления</p>
+        </li>
+        <li><p><span class="b">//=</span></p>
+            <p>Присвоение результата целочисленного деления</p>
+        </li>
+        <li><p><span class="b">**=</span></p>
+            <p>Присвоение степени числа</p>
+        </li>
+        <li><p><span class="b">%=</span></p>
+            <p>Присвоение остатка от деления</p>
+        </li>
+    </ul>
+    <p>Примеры операций:</p>
+    <pre class="brush:py;">
+number = 10
+number += 5
+print(number)  # 15
+
+number -= 3
+print(number)  # 12
+
+number *= 4
+print(number)  # 48
+</pre>
+    <h3>Функции преобразования чисел</h3>
+    <p>Ряд встроенных функций в Python позволяют работать с числами. В частности, функции <span class="b">int()</span> и <span class="b">float()</span>
+        позволяют привести значение к типу int и float соответственно.</p>
+    <p>Например, пусть у нас будет следующий код:</p>
+    <pre class="brush:py;">
+first_number = "2"
+second_number = 3
+third_number = first_number + second_number
+</pre>
+    <p>Мы ожидаем, что "2" + 3 будет равно 5. Однако этот код сгенерирует исключение, так как первое число на самом деле представляет строку.
+        И чтобы все заработало как надо, необходимо привести строку к числу с помощью функции int():</p>
+    <pre class="brush:py;">
+first_number = "2"
+second_number = 3
+third_number = int(first_number) + second_number
+print(third_number)	# 5
+</pre>
+    <p>Аналогичным образом действует функция float(), которая преобразует в число с плавающей точкой. Но вообще с дробными числами надо учитывать, что результат операций с ними
+        может быть не совсем точным. Например:</p>
+    <pre class="brush:py;">
+first_number = 2.0001
+second_number = 5
+third_number = first_number / second_number
+print(third_number)	# 0.40002000000000004
+</pre>
+    <p>В данном случае мы ожидаем получить число 0.40002, однако в конце через ряд нулей появляется еще какая-то четверка. Или еще одно выражение:</p>
+    <pre class="brush:py;">print(2.0001 + 0.1)  # 2.1001000000000003</pre>
+    <p>В этот случае для округления результата мы можем использовать функцию <span class="b">round()</span>:</p>
+    <pre class="brush:py;">
+first_number = 2.0001
+second_number = 0.1
+third_number = first_number + second_number
+print(round(third_number, 4))  # 2.1001
+</pre>
+    <p>Первый параметр функции - округляемое число, а второй - сколько знаков после запятой должно содержать получаемое число.</p>
+    <h3>Представление числа</h3>
+    <p>При обычном определении числовой переменной она получает значение в десятичной системе. Но кроме десятичной в Python мы можем использовать двоичную,
+        восьмеричную и шестнадцатеричную системы.</p>
+    <p>Для определения числа в двоичной системе перед его значением ставится 0 и префикс <span class="b">b</span>:</p>
+    <pre class="brush:py;">x = 0b101 	# 101 в двоичной системе равно 5</pre>
+    <p>Для определения числа в восьмеричной системе перед его значением ставится 0 и префикс <span class="b">o</span>:</p>
+    <pre class="brush:py;">a = 0o11 	# 11 в восьмеричной системе равно 9</pre>
+    <p>Для определения числа в шестнадцатеричной системе перед его значением ставится 0 и префикс <span class="b">x</span>:</p>
+    <pre class="brush:py;">y = 0x0a		# a в шестнадцатеричной системе равно 10</pre>
+    <p>И с числами в других системах измерения также можно проводить арифметические операции:</p>
+    <pre class="brush:py;">
+x = 0b101	# 5
+y = 0x0a	# 10
+z = x + y	# 15
+print("{0} in binary {0:08b}   in hex {0:02x} in octal {0:02o}".format(z))
+</pre>
+    <p>Для вывода числа в различных системах исчисления используются функция format, которая вызывается у строки.
+        В эту строку передаются различные форматы. Для двоичной системы "{0:08b}", где число 8 указывает, сколько знаков должно быть в записи числа. Если знаков указано больше, чем
+        требуется для числа, то ненужные позиции заполняются нулями. Для шестнадцатеричной системы применяется формат "{0:02x}". И здесь все аналогично - запись числа состоит из двух знаков, если один знак не нужен, то вместо него вставляется ноль.
+        А для записи в восьмеричной системе испольуется формат "{0:02o}".</p>
+    <p>Результат работы скрипта:</p>
+    <div class="console">
+<pre class="consoletext">
+15 in binary 00001111   in hex 0f   in octal 17
+</pre>
+    </div>
+</div>
+</body>
+</html>

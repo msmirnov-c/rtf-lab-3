@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item active" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Условная конструкция if</h1>
+    <p>Условные конструкции используют условные выражения и в зависимости от их значения направляют выполнение программы по одному из путей.
+        Одна из таких конструкций - это конструкция <span class="b">if</span>. Она имеет следующее формальное определение:</p>
+    <pre class="brush:py;">
+if логическое_выражение:
+	инструкции
+[elif логическое выражение:
+	инструкции]
+[else:
+	инструкции]
+</pre>
+    <p>В самом простом виде после ключевого слова <span class="b">if</span> идет логическое выражение. И если это логическое выражение возвращает True,
+        то выполняется последующий блок инструкций, каждая из которых должна начинаться с новой стоки и должна иметь отступы от начала строки:</p>
+    <pre class="brush:py;">
+age = 22
+if age &gt; 21:
+    print("Доступ разрешен")
+print("Завершение работы")
+</pre>
+    <p>Поскольку в данном случае значение переменной age больше 21, то будет выполняться блок if, а консоль выведет следующие строки:</p>
+    <div class="console">
+<pre class="consoletext">
+Доступ разрешен
+Завершение работы
+</pre>
+    </div>
+    <p>Отступ желательно делать в 4 пробела или то количество пробелов, которое кратно 4.</p>
+    <p>Обратите внимание в коде на последнюю стоку, которая выводит сообщение "Завершение работы". Она не имеет отступов от начала строки, поэтому
+        она не принадлежит к блоку if и будет выполняться в любом случае, даже если выражение в конструкции if возвратит False.</p>
+    <p>Но если бы мы поставили бы отступы, то она также принадлежала бы к конструкции if:</p>
+    <pre class="brush:py;">
+age = 22
+if age &gt; 21:
+    print("Доступ разрешен")
+    print("Завершение работы")
+</pre>
+    <p>Если вдруг нам надо определить альтернативное решение на тот случай, если условное выражение возвратит False, то мы можем использовать блок <span class="b">else</span>:</p>
+    <pre class="brush:py;">
+age = 18
+if age &gt; 21:
+    print("Доступ разрешен")
+else:
+    print("Доступ запрещен")
+</pre>
+    <p>Если выражение <code>age &gt; 21</code> возвращает True, то выполняется блок if, иначе выполняется блок else.</p>
+    <p>Если необходимо ввести несколько альтернативных условий, то можно использовать дополнительные блоки <span class="b">elif</span>, после
+        которого идет блок инструкций.</p>
+    <pre class="brush:py;">
+age = 18
+if age &gt;= 21:
+    print("Доступ разрешен")
+elif age &gt;= 18:
+    print("Доступ частично разрешен")
+else:
+    print("Доступ запрещен")
+</pre>
+    <h3>Вложенные конструкции if</h3>
+    <p>Конструкция if в свою очередь сама может иметь вложенные конструкции if:</p>
+    <pre class="brush:py;">
+age = 18
+if age &gt;= 18:
+    print("Больше 17")
+    if age &gt; 21:
+        print("Больше 21")
+    else:
+        print("От 18 до 21")
+</pre>
+    <p>Стоит учитывать, что вложенные выражения if также должны начинаться с отступов, а инструкции во вложенных конструкциях также должны иметь отступы. Отступы, расставленные не должным образом,
+        могут изменить логику программы. Так, предыдущий пример НЕ аналогичен следующему:</p>
+    <pre class="brush:py;">
+age = 18
+if age &gt;= 18:
+    print("Больше 17")
+if age &gt; 21:
+    print("Больше 21")
+else:
+    print("От 18 до 21")
+</pre>
+    <p>Теперь напишем небольшую программку, которая использует условные конструкции. Данная программка будет представлять собой своего рода обменный пункт:</p>
+    <pre class="brush:py;">
+# Программа Обменный пункт
+
+usd = 57
+euro = 60
+
+money = int(input("Введите сумму, которую вы хотите обменять: "))
+currency = int(input("Укажите код валюты (доллары - 400, евро - 401): "))
+
+if currency == 400:
+    cash = round(money / usd, 2)
+    print("Валюта: доллары США")
+elif currency == 401:
+    cash = round(money / euro, 2)
+    print("Валюта: евро")
+else:
+    cash = 0
+    print("Неизвестная валюта")
+
+print("К получению:", cash)
+</pre>
+    <p>С помощью функции <code>input()</code> получаем вводимые пользователем данные на консоль. Причем данная функция возвращает данные в виде строки,
+        поэтому нам надо ее еще привести к целому числу с помощью функции <code>int()</code>, чтобы введенные данные можно было использовать в арифметических операциях.</p>
+    <p>Программа подразумевает, что пользователь вводит количество средств, которые надо обменять, и код валюты, на которую надо произвести обмен.
+        Коды валюты достаточно условны: 400 для долларов и 401 для евро.</p>
+    <p>С помощью конструкции if проверяем код валюты и делим на соответствующий валютный курс. Так как в процессе деления образуется довольно длинное число с плавающей точкой,
+        которое может содержать множество знаков после запятой, то оно округляется до двух чисел после запятой с помощью функции <code>round()</code>.</p>
+    <p>В завершении на консоль выводится полученное значение. Например, запустим программу и введем какие-нибудь данные:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите сумму, которую вы хотите обменять: 20000
+Укажите код валюты (доллары - 400, евро - 401): 401
+Валюта: евро
+К получению: 333.33
+</pre>
+    </div>
+</div>
+</body>
+</html>

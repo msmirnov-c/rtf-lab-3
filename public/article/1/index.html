@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item active" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1>Введение в написание программ</h1>
+    <p>Программа на языке Python состоит из набора инструкций. Каждая инструкция помещается на новую строку. Например:</p>
+    <pre class="brush:py;">
+print(2 + 3)
+print("Hello")
+</pre>
+    <p>Большую роль в Python играют отступы. Неправильно поставленный отступ фактически является ошибкой. Например, в следующем случае мы получим ошибку, хотя код будет практически аналогичен приведенному выше:</p>
+    <pre class="brush:py;">
+print(2 + 3)
+	print("Hello")
+</pre>
+    <p>Поэтому стоит помещать новые инструкции сначала строки. В этом одно из важных отличий пайтона от других языков программирования, как C# или Java.</p>
+    <p>Однако стоит учитывать, что некоторые конструкции языка могут состоять из нескольких строк. Например, условная конструкция <span class="b">if</span>:</p>
+    <pre class="brush:py;">
+if 1 &lt; 2:
+    print("Hello")
+</pre>
+    <p>В данном случае если 1 меньше 2, то выводится строка "Hello". И здесь уже должен быть отступ, так как инструкция print("Hello") используется не сама по себе, а
+        как часть условной конструкции if. Причем отступ, согласно <a href="https://www.python.org/dev/peps/pep-0008/" rel="nofollow">руководству по оформлению кода</a>, желательно делать из такого количество пробелов, которое кратно 4 (то есть 4, 8, 16 и т.д.) Хотя если отступов будет не 4, а 5, то программа также будет работать.</p>
+    <p>Таких конструкций не так много, поэтому особой путаницы по поводу где надо, а где не надо ставить пробелы, не должно возникнуть.</p>
+    <h3>Регистрозависимость</h3>
+    <p>Python - регистрозависимый язык, поэтому выражения <code>print</code> и <code>Print</code> или <code>PRINT</code> представляют разные выражения.
+        И если вместо метода print для вывода на консоль мы попробуем использовать метод Print:</p>
+    <pre class="brush:py;">Print("Hello World")</pre>
+    <p>то у нас ничего не получится.</p>
+    <h3>Комментарии</h3>
+    <p>Для отметки, что делает тот или иной участок кода, применяются комментарии. При трансляции и выполнении программы интерпретатор игнорирует комментарии,
+        поэтому они не оказывают никакого влияния на работу программы.</p>
+    <p>Комментарии в Python бывают блочные и строчные. Все они предваряются знаком решетки (#).</p>
+    <p>Блочные комментарии ставятся в начале строки:</p>
+    <pre class="brush:py;">
+# Вывод сообщения на консоль
+print("Hello World")
+</pre>
+    <p>Строчные комментарии располагаются на той же строке, что и инструкции языка:</p>
+    <pre class="brush:py;">
+print("Hello World")  # Вывод сообщения на консоль
+</pre>
+    <h3>Основные функции</h3>
+    <p>Python предоставляет ряд встроенных функций. Некоторые из них используются очень часто, особенно на начальных этапах изучения языка, поэтому рассмотрим их.</p>
+    <p>Основной функцией для вывода информации на консоль является функция <span class="b">print()</span>. В качестве аргумента в эту функцию передается строка, которую мы хотим вывести:</p>
+    <pre class="brush:py;">print("Hello Python")</pre>
+    <p>Если же нам необходимо вывести несколько значений на консоль, то мы можем передать их в функцию print через запятую:</p>
+    <pre class="brush:py;">
+print("Full name:", "Tom", "Smith")
+</pre>
+    <p>В итоге все переданные значения склеятся через пробелы в одну строку:</p>
+    <div class="console">
+<pre class="consoletext">
+Full name: Tom Smith
+</pre>
+    </div>
+    <p>Если функция print отвечает за вывод, то функция <span class="b">input</span> отвечает за ввод информации. В качестве необязательного параметра
+        эта функция принимает приглашение к вводу и возвращает введенную строку, которую мы можем сохранить в переменную:</p>
+    <pre class="brush:py;">
+name = input("Введите имя: ")
+print("Привет", name)
+</pre>
+    <p>Консольный вывод:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите имя: Евгений
+Привет Евгений
+</pre>
+    </div>
+</div>
+</body>
+</html>

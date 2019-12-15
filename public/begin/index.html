@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-link-active" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1>Первая программа на Python</h1>
+    <p>После установки интерпретатора, как было описано в прошлой теме, мы можем начать создавать приложения на Python. Итак, создадим первую простенькую программу.</p>
+    <p>Как было сказано в прошлой теме, программа интерпретатора, если при установке не был изменен адрес, по умолчанию
+        устанавливается на Linux по пути <span class="ii">usr/local/bin/python37</span>, а на Windows по пути
+        <span class="ii">C:\Users\[имя_пользователя]\AppData\Local\Programs\Python\Python37\</span> и представляет файл под названием <span class="b">python.exe</span>.</p>
+    <p>Запустим интерпретатор и введем в него следующую строку:</p>
+    <pre class="brush:py;">
+print("hello world")
+</pre>
+    <p>И консоль выведет строку "hello world":</p>
+    <img src="/images/1.6.png" alt="Первая программа на Python" />
+    <p>Для этой программы использовался метод <span class="b">print()</span>, который выводит некоторую строку на консоль.</p>
+    <h3>Создание файла программы</h3>
+    <p>В реальности, как правило, программы определяются во внешних файлах-скриптах и затем передаются интерпретатору на выполнение. Поэтому создадим файл программы.
+        Для этого на диске C или где-нибудь в другом месте файловой системы определим для скриптов папку <span class="b">python</span>. А в этой папке создадим новый текстовый файл, который
+        назовем <span class="b">hello.py</span>. По умолчанию файлы с кодом на языке Python, как правило, имеют расширение <span class="b">py</span>.</p>
+    <img src="/images/1.7.png" alt="Создание скрипта на языке Python" />
+    <p>Откроем этот файл в любом текстовом редакторе и добавим в него следующий код:</p>
+    <pre class="brush:py;">
+name = input("Введите имя: ")
+print("Привет,", name)
+</pre>
+    <img src="/images/1.8.png" alt="Python в Notepad++" />
+    <p>Скрипт состоит из двух строк. Первая строка с помощью метода <span class="b">input()</span> ожидает ввода пользователем своего имени. Введенное
+        имя затем попадает в переменную <code>name</code>.</p>
+    <p>Вторая строка с помощью метода <code>print()</code> выводит приветствие вместе с введенным именем.</p>
+    <p>Теперь запустим командную строку/терминал и с помощью команды cd перейдем к папке, где находится файл с исходным кодом hello.py (например, в моем случае это папка C:\python).
+        Далее вначале введем полный путь к интерпретатору, а затем полный путь к файлу скрипта:</p>
+    <p>К примеру, в моем случае в консоль надо будет вести:</p>
+    <div class="console">
+<pre class="consoletext">
+C:\Users\Eugene\AppData\Local\Programs\Python\Python37\python.exe hello.py
+</pre>
+    </div>
+    <p>Но если при установке была указана опция "Add Python 3.7 to PATH", то есть путь к интерпретатору Python был добавлен в переменные среды, то вместо полного пути к интерпретатору можно просто написать python:</p>
+    <div class="console">
+<pre class="consoletext">
+python hello.py
+</pre>
+    </div>
+    <p>Варианты с обоими способами запуска:</p>
+    <img src="/images/1.9.png" alt="Первое приложение на Python" />
+    <p>В итоге программа выведет приглашение к вводу имени, а затем приветствие.</p>
+</div>
+</body>
+</html>

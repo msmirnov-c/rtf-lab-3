@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item active" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1>Операции со строками</h1>
+    <p>Строка представляет последовательность символов в кодировке Unicode, заключенных в кавычки. Причем в Python мы можем использовать как одинарные, так и двойные кавычки:</p>
+    <pre class="brush:py;">
+name = "Tom"
+surname = 'Smith'
+print(name, surname)  # Tom Smith
+</pre>
+    <p>Одной из самых распространенных операций со строками является их объединение или конкатенация. Для объединения строк применяется знак плюса:</p>
+    <pre class="brush:py;">
+name = "Tom"
+surname = 'Smith'
+fullname = name + " " + surname
+print(fullname)  # Tom Smith
+</pre>
+    <p>С объединением двух строк все просто, но что, если нам надо сложить строку и число? В этом случае необходимо привести число к строке с помощью функции
+        <span class="b">str()</span>:</p>
+    <pre class="brush:py;">
+name = "Tom"
+age = 33
+info = "Name: " + name + " Age: " + str(age)
+print(info)  # Name: Tom Age: 33
+</pre>
+    <h3>Эскейп-последовательности</h3>
+    <p>Кроме стандартных символов строки могут включать управляющие эскейп-последовательности, которые интерпретируются особым образом.
+        Например, последовательность <span class="b">\n</span> представляет перевод строки. Поэтому следующее выражение:</p>
+    <pre class="brush:py;">print("Время пришло в гости отправится\nждет меня старинный друг")</pre>
+    <p>На консоль выведет две строки:</p>
+    <div class="console">
+<pre class="consoletext">
+Время пришло в гости отправится
+ждет меня старинный друг
+</pre>
+    </div>
+    <p>Тоже самое касается и последовательности <span class="b">\t</span>, которая добавляет табляцию.</p>
+    <p>Кроме того, существуют символы, которые вроде бы сложно использовать в строке. Например, кавычки. И чтобы отобразить кавычки (как двойные, так и одинарные)
+        внутри строки, перед ними ставится слеш:</p>
+    <pre class="brush:py;">print("Кафе \"Central Perk\"")</pre>
+    <h3>Сравнение строк</h3>
+    <p>Особо следует сказать о сравнении строк. При сравнении строк принимается во внимание символы и их регистр. Так, цифровой символ условно меньше, чем любой алфавитный символ.
+        Алфавитный символ в верхнем регистре условно меньше, чем алфавитные символы в нижнем регистре. Например:</p>
+    <pre class="brush:py;">
+str1 = "1a"
+str2 = "aa"
+str3 = "Aa"
+print(str1 &gt; str2)  # False, так как первый символ в str1 - цифра
+print(str2 &gt; str3)  # True, так как первый символ в str2 - в нижнем регистре
+</pre>
+    <p>Поэтому строка "1a" условно меньше, чем строка "aa". Вначале сравнение идет по первому символу. Если начальные символы обоих строк представляют цифры, то
+        меньшей считается меньшая цифра, например, "1a" меньше, чем "2a".</p>
+    <p>Если начальные символы представляют алфавитные символы в одном и том же регистре, то смотрят по алфавиту. Так, "aa" меньше, чем "ba", а "ba" меньше, чем "ca".</p>
+    <p>Если первые символы одинаковые, в расчет берутся вторые символы при их наличии.</p>
+    <p>Зависимость от регистра не всегда желательна, так как по сути мы имеем дело с одинаковыми строками. В этом случае перед сравнением мы можем
+        привести обе строки к одному из регистров.</p>
+    <p>Функция <span class="b">lower()</span> приводит строку к нижнему регистру, а функция <span class="b">upper()</span> - к верхнему.</p>
+    <pre class="brush:py;">
+str1 = "Tom"
+str2 = "tom"
+print(str1 == str2)  # False - строки не равны
+
+print(str1.lower() == str2.lower())  # True
+</pre>
+</div>
+</body>
+</html>

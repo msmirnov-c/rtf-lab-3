@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item active" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Модули</h1>
+    <p>Модуль в языке Python представляет отдельный файл с кодом, который можно повторно использовать в других программах.</p>
+    <p>Для создания модуля необходимо создать собственно файл с расширением <span class="b">*.py</span>, который будет представлять модуль.
+        Название файла будет представлять название модуля. Затем в этом файле надо определить одну или несколько функций.</p>
+    <p>Пусть основной файл программы будет называться <span class="b">hello.py</span>. И мы хотим подключить к нему внешние модули.</p>
+    <p>Для этого сначала определим новый модуль: создадим новый файл, который назовем <span class="b">account.py</span>, в той же папке, где находится
+        hello.py. Если используется PyCharm или другая IDE, то оба файла просто помещаются в один проект.</p>
+    <img src="pics/2.1.png" alt="Модули в Python" />
+    <p>Соответственно модуль будет называться <span class="b">account</span>. И определим в нем следующий код:</p>
+    <pre class="brush:py;">
+def calculate_income(rate, money, month):
+    if money &lt;= 0:
+        return 0
+
+    for i in range(1, month+1):
+        money = round(money + money * rate / 100 / 12, 2)
+    return money
+</pre>
+    <p>Здесь определена функция calculate_income, которая в качестве параметров получает процентную ставку вклада, сумму вклада и период, на который делается вклад, и
+        высчитывает сумму, которая получится в конце данного периода.</p>
+    <p>В файле <span class="b">hello.py</span> используем данный модуль:</p>
+    <pre class="brush:py;">
+#! Программа Банковский счет
+import account
+
+
+rate = int(input("Введите процентную ставку: "))
+money = int(input("Введите сумму: "))
+period = int(input("Введите период ведения счета в месяцах: "))
+
+result = account.calculate_income(rate, money, period)
+print("Параметры счета:\n", "Сумма: ", money, "\n", "Ставка: ", rate, "\n",
+		"Период: ", period, "\n", "Сумма на счете в конце периода: ", result)
+</pre>
+    <p>Для использования модуля его надо импортировать с помощью оператора <span class="b">import</span>, после которого указывается имя модуля: <code>import account</code>.</p>
+    <p>Чтобы обращаться к функциональности модуля, нам нужно получить его <span class="b">пространство имен</span>. По умолчанию оно будет совпадать с именем
+        модуля, то есть в нашем случае также будет называться <span class="b">account</span>.</p>
+    <p>Получив пространство имен модуля, мы сможем обратиться к его функциям по схеме <span class="ii">пространство_имен.функция</span>:</p>
+    <pre class="brush:py;">account.calculate_income(rate, money, period)</pre>
+    <p>И после этого мы можем запустить главный скрипт hello.py, и он задействует модуль account.py. В частности, консольный вывод мог бы быть следующим:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите процентную ставку: 10
+Введите сумму: 300000
+Введите период ведения счета в месяцах: 6
+Параметры счета:
+ Сумма:  300000
+ Ставка:  10
+ Период:  6
+ Сумма на счете в конце периода:  315315.99
+</pre>
+    </div>
+    <h3>Настройка пространства имен</h3>
+    <p>По умолчанию при импорте модуля он доступен через одноименное пространство имен. Однако мы можем переопределить это поведение. Так,
+        ключевое слово <span class="b">as</span> позволяет сопоставить модуль с другим пространством имен. Например:</p>
+    <pre class="brush:py;">
+import account as acc
+
+#...............
+
+result = acc.calculate_income(rate, money, period)
+</pre>
+    <p>В данном случае пространство имен будет называться <span class="b">acc</span>.</p>
+    <p>Другой вариант настройки предполагает импорт функциональности модуля в глобальное пространство имен текущего модуля с помощью ключевого слова <span class="b">from</span>:</p>
+    <pre class="brush:py;">
+from account import calculate_income
+
+#...............
+
+result = calculate_income(rate, money, period)
+</pre>
+    <p>В данном случае мы импортируем из модуля account в глобальное пространство имен функцию calculate_income. Поэтому мы сможем ее использовать без указания пространства имен модуля как если бы она была определена в
+        этом же файле.</p>
+    <p>Если бы в модуле account было бы несколько функций, то могли бы их импортировать в глобальное пространство имен одним выражением:</p>
+    <pre class="brush:py;">
+from account import *
+
+#...............
+
+result = calculate_income(rate, money, period)
+</pre>
+    <p>Но стоит отметить, что импорт в глобальное пространство имен чреват коллизиями имен функций. Например, если у нас  том же файле определена функция с тем же именем, то при вызове функции
+        мы можем получить ошибку. Поэтому лучше избегать использования импорта в глобальное пространство имен.</p>
+    <h3>Имя модуля</h3>
+    <p>В примере выше модуль hello.py, который является главным, использует модуль account.py. При запуске модуля hello.py программа выполнит всю необходимую работу. Однако,
+        если мы запустим отдельно модуль account.py сам по себе, то ничего на консоли не увидим. Ведь модуль просто определяет функцию и невыполняет никаких других действий.
+        Но мы можем сделать так, чтобы модуль account.py мог использоваться как сам по себе, так и подключаться в другие модули.</p>
+    <p>При выполнении модуля среда определяет его имя и присваивает его глобальной переменной <span class="b">__name__</span> (с обеих сторон два подчеркивания).
+        Если модуль является запускаемым, то его имя равно <span class="b">__main__</span> (также по два подчеркивания с каждой стороны). Если модуль используется в другом модуле, то в момент выполнения его имя аналогично названию файла без расширения
+        py. И мы можем это использовать. Так, изменим содержимое файла <span class="b">account.py</span>:</p>
+    <pre class="brush:py;">
+def calculate_income(rate, money, month):
+    if money &lt;= 0:
+        return 0
+
+    for i in range(1, month+1):
+        money = round(money + money * rate / 100 / 12, 2)
+    return money
+
+
+def main():
+    rate = 10
+    money = 100000
+    period = 12
+
+    result = calculate_income(rate, money, period)
+    print("Параметры счета:\n", "Сумма: ", money, "\n", "Ставка: ", rate, "\n",
+          "Период: ", period, "\n", "Сумма на счете в конце периода: ", result)
+
+if __name__=="__main__":
+    main()
+</pre>
+    Кроме того, для тестирования функции определена главная функция <code>main</code>. И мы можем сразу запустить файл account.py отдельно от всех и протестировать код.</p>
+    <p>Следует обратить внимание на вызов функции main:</p>
+    <pre class="brush:py;">
+if __name__=="__main__":
+    main()
+</pre>
+    <p>Переменная <span class="b">__name__</span> указывает на имя модуля. Для главного модуля, который непосредственно запускается, эта переменная
+        всегда будет иметь значение <span class="b">__main__</span> вне зависимости от имени файла.</p>
+    <p>Поэтому, если мы будем запускать скрипт account.py отдельно, сам по себе, то Python присвоит переменной __name__ значение <code>__main__</code>, далее в выражении
+        if вызовет функцию main из этого же файла.</p>
+    <p>Однако если мы будем запускать другой скрипт, а этот - account.py - будем подключать в качестве вспомогательного, для account.py переменная
+        __name__ будет иметь значение <code>account</code>. И соответственно метод main в файле account.py не будет работать.</p>
+    <p>Данный подход с проверкой имени модуля является более рекомендуемым подходом, чем просто вызов метода main.</p>
+    <p>В файле hello.py также можно сделать проверку на то, является ли модуль главным (хотя в прицнипе это необязательно):</p>
+    <pre class="brush:py;">
+#! Программа Банковский счет
+import account
+
+
+def main():
+    rate = int(input("Введите процентную ставку: "))
+    money = int(input("Введите сумму: "))
+    period = int(input("Введите период ведения счета в месяцах: "))
+
+    result = account.calculate_income(rate, money, period)
+    print("Параметры счета:\n", "Сумма: ", money, "\n", "Ставка: ", rate, "\n",
+          "Период: ", period, "\n", "Сумма на счете в конце периода: ", result)
+
+if __name__ == "__main__":
+    main()
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item active" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1>Функции</h1>
+    <p>Функции представляют блок кода, который выполняет определенную задачу и который можно повторно использовать в других частях программы. Формальное определение функции:</p>
+    <pre class="brush:py;">
+def имя_функции ([параметры]):
+    инструкции
+</pre>
+    <p>Определение функции начинается с выражения <span class="b">def</span>, которое состоит из имени функции, набора скобок с параметрами и двоеточия.
+        Параметры в скобках необязательны. А со следующей строки идет блок инструкций, которые выполняет функция. Все инструкции функции имеют отступы от начала строки.</p>
+    <p>Например, определение простейшей функции:</p>
+    <pre class="brush:py;">
+def say_hello():
+    print("Hello")
+</pre>
+    <p>Функция называется <code>say_hello</code>.  Она не имеет параметров и содержит одну единственную инструкцию,
+        которая выводит на консоль строку "Hello".</p>
+    <p>Для вызова функции указывается имя функции, после которого в скобках идет передача значений для всех ее параметров. Например:</p>
+    <pre class="brush:py;">
+def say_hello():
+    print("Hello")
+
+say_hello()
+say_hello()
+say_hello()
+</pre>
+    <p>Здесь три раза подряд вызывается функция say_hello. В итоге мы получим следующий консольный вывод:</p>
+    <div class="console">
+<pre class="consoletext">
+Hello
+Hello
+Hello
+</pre>
+    </div>
+    <p>Теперь определим и используем функцию с параметрами:</p>
+    <pre class="brush:py;">
+def say_hello(name):
+    print("Hello,",name)
+
+say_hello("Tom")
+say_hello("Bob")
+say_hello("Alice")
+</pre>
+    <p>Функция принимает параметр name, и при вызове функции мы можем передать вместо параметра какой-либо значение:</p>
+    <div class="console">
+<pre class="consoletext">
+Hello, Tom
+Hello, Bob
+Hello, Alice
+</pre>
+    </div>
+    <h3>Значения по умолчанию</h3>
+    <p>Некоторые параметры функции мы можем сделать необязательными, указав для них значения по умолчанию при определении функции. Например:</p>
+    <pre class="brush:py;">
+def say_hello(name="Tom"):
+    print("Hello,", name)
+
+say_hello()
+say_hello("Bob")
+</pre>
+    <p>Здесь параметр name является необязательным. И если мы не передаем при вызове функции для него значение, то применяется значение по умолчанию, то есть
+        строка "Tom".</p>
+    <h3>Именованные параметры</h3>
+    <p>При передаче значений функция сопоставляет их с параметрами в том порядке, в котором они передаются. Например, пусть есть следующая функция:</p>
+    <pre class="brush:py;">
+def display_info(name, age):
+    print("Name:", name, "\t", "Age:", age)
+
+display_info("Tom", 22)
+</pre>
+    <p>При вызове функции первое значение "Tom" передается первому параметру - параметру name, второе значение - число 22 передается второму параметру - age. И так далее по порядку.
+        Использование именованных параметров позволяет переопределить порядок передачи:</p>
+    <pre class="brush:py;">
+def display_info(name, age):
+    print("Name:", name, "\t", "Age:", age)
+
+display_info(age=22, name="Tom")
+</pre>
+    <p>Именованные параметры предполагают указание имени параметра с присвоением ему значения при вызове функции.</p>
+    <h3>Неопределенное количество параметров</h3>
+    <p>С помощью символа звездочки можно определить неопределенное количество параметров:</p>
+    <pre class="brush:py;">
+def sum(*params):
+    result = 0
+    for n in params:
+        result += n
+    return result
+
+
+sumOfNumbers1 = sum(1, 2, 3, 4, 5)		# 15
+sumOfNumbers2 = sum(3, 4, 5, 6)			# 18
+print(sumOfNumbers1)
+print(sumOfNumbers2)
+</pre>
+    <p>В данном случае функция sum принимает один параметр - <code>*params</code>, но звездочка перед названием параметра указывает, что фактически на место этого
+        параметра мы можем передать неопределенное количество значений или набор значений. В самой функции с помощью цикла for можно пройтись по этому набору и произвести с переданными
+        значениями различные действия. Например, в данном случае возвращается сумма чисел.</p>
+    <h3>Возвращение результата</h3>
+    <p>Функция может возвращать результат. Для этого в функции используется оператор <span class="b">return</span>, после которого указывается возвращаемое значение:</p>
+    <pre class="brush:py;">
+def exchange(usd_rate, money):
+    result = round(money/usd_rate, 2)
+    return result
+
+result1 = exchange(60, 30000)
+print(result1)
+result2 = exchange(56, 30000)
+print(result2)
+result3 = exchange(65, 30000)
+print(result3)
+</pre>
+    <p>Поскольку функция возвращает значение, то мы можем присвоить это значение какой-либо переменной и затем использовать ее: <code>result2 = exchange(56, 30000)</code>.</p>
+    <p>В Python функция может возвращать сразу несколько значений:</p>
+    <pre class="brush:py;">
+def create_default_user():
+    name = "Tom"
+    age = 33
+    return name, age
+
+
+user_name, user_age = create_default_user()
+print("Name:", user_name, "\t Age:", user_age)
+</pre>
+    <p>Здесь функция create_default_user возвращает два значения: name и age. При вызове функции эти значения по порядку присваиваются переменным
+        user_name и user_age, и мы их можем использовать.</p>
+    <h3>Функция main</h3>
+    <p>В программе может быть определено множество функций. И чтобы всех их упорядочить, хорошей практикой считается добавление специальной функции
+        <code>main</code>, в которой потом уже вызываются другие функции:</p>
+    <pre class="brush:py;">
+def main():
+    say_hello("Tom")
+    usd_rate = 56
+    money = 30000
+    result = exchange(usd_rate, money)
+    print("К выдаче", result, "долларов")
+
+
+def say_hello(name):
+    print("Hello,", name)
+
+
+def exchange(usd_rate, money):
+    result = round(money/usd_rate, 2)
+    return result
+
+# Вызов функции main
+main()
+</pre>
+</div>
+</body>
+</html>

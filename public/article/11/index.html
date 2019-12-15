@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item active" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Обработка исключений</h1>
+    <p>При программировании на Python мы можем столкнуться с двумя типами ошибок. Первый тип представляют <span class="b">синтаксические ошибки</span> (syntax error). Они появляются в результате нарушения синтаксиса
+        языка программирования при написании исходного кода. При наличии таких ошибок программа не может быть скомпилирована. При работе в какой-либо среде разработки, например, в
+        PyCharm, IDE сама может отслеживать синтаксические ошибки и каким-либо образом их выделять.</p>
+    <p>Второй тип ошибок представляют <span class="b">ошибки выполнения</span> (runtime error). Они появляются в уже скомпилированной программе
+        в процессе ее выполнения. Подобные ошибки еще называются исключениями. Например, в прошлых темах мы рассматривали преобразование числа в строку:</p>
+    <pre class="brush:py;">
+string = "5"
+number = int(string)
+print(number)
+</pre>
+    <p>Данный скрипт успешно скомпилируется и выполнится, так как строка "5" вполне может быть конвертирована в число. Однако возьмем другой пример:</p>
+    <pre class="brush:py;">
+string = "hello"
+number = int(string)
+print(number)
+</pre>
+    <p>При выполнении этого скрипта будет выброшено исключение ValueError, так как строку "hello" нельзя преобразовать в число. С одной стороны, здесь очевидно,
+        сто строка не представляет число, но мы можем иметь дело с вводом пользователя, который также может ввести не совсем то, что мы ожидаем:</p>
+    <pre class="brush:py;">
+string = input("Введите число: ")
+number = int(string)
+print(number)
+</pre>
+    <p>При возникновении исключения работа программы прерывается, и чтобы избежать подобного поведения и обрабатывать исключения в Python есть конструкция
+        <span class="b">try..except</span>, которая имеет следующее формальное определение:</p>
+    <pre class="brush:py;">
+try:
+	инструкции
+except [Тип_исключения]:
+	инструкции
+</pre>
+    <p>Весь основной код, в котором потенциально может возникнуть исключение, помещается после ключевого слова <span class="b">try</span>. Если в этом коде генерируется
+        исключение, то работа кода в блоке try прерывается, и выполнение переходит в блок <span class="b">except</span>.</p>
+    <p>После ключевого слова <span class="b">except</span> опционально можно указать, какое исключение будет обрабатываться (например, ValueError или KeyError).
+        После слова except на следующей стоке идут инструкции блока except, выполняемые при возникновении исключения.</p>
+    <p>Рассмотрим обработку исключения на примере преобразовании строки в число:</p>
+    <pre class="brush:py;">
+try:
+    number = int(input("Введите число: "))
+    print("Введенное число:", number)
+except:
+    print("Преобразование прошло неудачно")
+print("Завершение программы")
+</pre>
+    <p>Вводим строку:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите число: hello
+Преобразование прошло неудачно
+Завершение программы
+</pre>
+    </div>
+    <p>Как видно из консольного вывода, при вводе строки вывод числа на консоль не происходит, а выполнение программы переходит к блоку except.</p>
+    <p>Вводим правильное число:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите число: 22
+Введенное число: 22
+Завершение программы
+</pre>
+    </div>
+    <p>Теперь все выполняется нормально, исключение не возникает, и соответственно блок except не выполняется.</p>
+    <p>В примере выше обрабатывались сразу все исключения, которые могут возникнуть в коде. Однако мы можем конкретизировать тип обрабатываемого исключения,
+        указав его после слова except:</p>
+    <pre class="brush:py;">
+try:
+    number = int(input("Введите число: "))
+    print("Введенное число:", number)
+except ValueError:
+    print("Преобразование прошло неудачно")
+print("Завершение программы")
+</pre>
+    <p>Если ситуация такова, что в программе могут быть сгенерированы различные типы исключений, то мы можем их обработать по отдельности, используя дополнительные
+        выражения except:</p>
+    <pre class="brush:py;">
+try:
+    number1 = int(input("Введите первое число: "))
+    number2 = int(input("Введите второе число: "))
+    print("Результат деления:", number1/number2)
+except ValueError:
+    print("Преобразование прошло неудачно")
+except ZeroDivisionError:
+    print("Попытка деления числа на ноль")
+except Exception:
+    print("Общее исключение")
+print("Завершение программы")
+</pre>
+    <p>Если возникнет исключение в результате преобразования строки в число, то оно будет обработано блоком <code>except ValueError</code>.
+        Если же второе число будет равно нулю, то есть будет деление на ноль, тогда возникнет исключение ZeroDivisionError, и оно будет обработано блоком
+        <code>except ZeroDivisionError</code>.</p>
+    <p>Тип <span class="b">Exception</span> представляет общее исключение, под которое попадают все исключительные ситуации. Поэтому в данном случае
+        любое исключение, которое не представляет тип ValueError или ZeroDivisionError, будет обработано в блоке <code>except Exception:</code>.</p>
+    <h3>Блок finally</h3>
+    <p>При обработке исключений также можно использовать необязательный блок <span class="b">finally</span>. Отличительной особенностью этого блока является то, что он выполняется
+        вне зависимости, было ли сгенерировано исключение:</p>
+    <pre class="brush:py;">
+try:
+    number = int(input("Введите число: "))
+    print("Введенное число:", number)
+except ValueError:
+    print("Не удалось преобразовать число")
+finally:
+    print("Блок try завершил выполнение")
+print("Завершение программы")
+</pre>
+    <p>Как правило, блок finally применяется для освобождения используемых ресурсов, например, для закрытия файлов.</p>
+    <h3>Получение информации об исключении</h3>
+    <p>С помощью оператора <span class="b">as</span> мы можем передать всю информацию об исключении в переменную, которую затем можно использовать в блоке except:</p>
+    <pre class="brush:py;">
+try:
+    number = int(input("Введите число: "))
+    print("Введенное число:", number)
+except ValueError as e:
+    print("Сведения об исключении", e)
+print("Завершение программы")
+</pre>
+    <p>Пример некорректного ввода:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите число: fdsf
+Сведения об исключении invalid literal for int() with base 10: 'fdsf'
+Завершение программы
+</pre>
+    </div>
+    <h3>Генерация исключений</h3>
+    <p>Иногда возникает необходимость вручную сгенерировать то или иное исключение. Для этого применяется оператор <span class="b">raise</span>.</p>
+    <pre class="brush:py;">
+try:
+    number1 = int(input("Введите первое число: "))
+    number2 = int(input("Введите второе число: "))
+    if number2 == 0:
+        raise Exception("Второе число не должно быть равно 0")
+    print("Результат деления двух чисел:", number1/number2)
+except ValueError:
+    print("Введены некорректные данные")
+except Exception as e:
+    print(e)
+print("Завершение программы")
+</pre>
+    <p>При вызове исключения мы можем ему передать сообщение, которое затем можно вывести пользователю:</p>
+    <div class="console">
+<pre class="consoletext">
+Введите первое число: 1
+Введите второе число: 0
+Второе число не должно быть равно 0
+Завершение программы
+</pre>
+    </div>
+</div>
+</body>
+</html>
