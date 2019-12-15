@@ -4,28 +4,10 @@ body {
     font-size: 15px;
     line-height: 1.6;
     color: #333;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-}
-
-section a:link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #5faf99;
-    transition: color 0.1s linear;
-}
-section a:visited {
-    font-weight: bold;
-    text-decoration: none;
-    color: #5eb5ac;
-    transition: color 0.1s linear;
-}
-section a:hover, a:focus, a:active {
-    text-decoration: underline;
-    color: #71cfc6;
 }
 
 *,
@@ -55,7 +37,7 @@ section a:hover, a:focus, a:active {
     background-size: cover;
 }
 
-.intro__inner{
+.intro__inner {
     width: 100%;
     max-width: 880px;
     margin: 0 auto;
@@ -63,7 +45,7 @@ section a:hover, a:focus, a:active {
     text-align: center;
 }
 
-.intro__title{
+.intro__title {
     font-size: 100px;
     font-weight: bold;
     text-transform: uppercase;
@@ -71,7 +53,7 @@ section a:hover, a:focus, a:active {
     font-family: "Kaushan Script", cursive;
 }
 
-.intro__title:after{
+.intro__title:after {
     content: "";
     display: block;
     width: 60px;
@@ -80,18 +62,18 @@ section a:hover, a:focus, a:active {
     margin: 60px auto 60px;
 }
 
-.intro__subtitle{
+.intro__subtitle {
     margin-bottom: 20px;
     font-size: 60px;
     font-family: "Kaushan Script", cursive;
 }
 
-.preamble{
+.preamble {
     margin: 60px auto 60px;
-    font-size: 18px;
+    font-size: 22px;
 }
 
-.preamble:after{
+.preamble:after {
     content: "";
     display: block;
     width: 60px;
@@ -100,7 +82,7 @@ section a:hover, a:focus, a:active {
     margin: 60px auto 60px;
 }
 
-.header{
+.header {
     width: 100%;
     padding-top: 30px;
 
@@ -111,24 +93,24 @@ section a:hover, a:focus, a:active {
     z-index: 1000;
 }
 
-.header__inner{
+.header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header__logo{
+.header__logo {
     font-size: 30px;
     font-weight: bold;
     color: #fff;
 }
 
-.nav{
-    font-size: 14px;
+.nav {
+    font-size: 16px;
     text-transform: uppercase;
 }
 
-.nav__link{
+.nav__link {
     display: inline-block;
     position: relative;
     vert-align: top;
@@ -138,7 +120,7 @@ section a:hover, a:focus, a:active {
     transition: color 0.1s linear;
 }
 
-.nav__link:after{
+.nav__link:after {
     content: "";
     display: block;
     width: 100%;
@@ -156,16 +138,21 @@ section a:hover, a:focus, a:active {
     transition: opacity 0.1s linear;
 }
 
-.nav__link:hover{
+.nav__link:visited, .nav__link:focus, .nav__link:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__link:hover {
     color: #a8e6cd;
 }
 
-.nav__link:hover:after{
+.nav__link:hover:after {
     opacity: 1;
     display: block;
 }
 
-.btn{
+.button {
     display: inline-block;
     vert-align: top;
     padding: 10px 15px;
@@ -179,32 +166,28 @@ section a:hover, a:focus, a:active {
     text-decoration: none;
 }
 
-.btn:hover{
+.button:hover {
     background-color: white;
     color: black;
 
     transition: background 0.2s linear, color 0.1s linear;
 }
 
-.section{
+.section {
     padding: 2em 0;
+    background-attachment: scroll, scroll, fixed;
+    background-size: auto, auto, cover;
 }
 
 .section--first {
-    padding: 2em 0;
-    background-attachment: scroll, scroll, fixed;
     background-color: rgba(182, 217, 202, 0.5);
-    background-size: auto, auto, cover;
 }
 
 .section--second {
-    padding: 2em 0;
-    background-attachment: scroll, scroll, fixed;
-    background-color: rgba(120, 175, 167, 0.5);
-    background-size: auto, auto, cover;
+    background-color: rgba(129, 185, 177, 0.5);
 }
 
-.section__title{
+.section__title {
     font-size: 30px;
     text-transform: uppercase;
 
@@ -212,7 +195,7 @@ section a:hover, a:focus, a:active {
     position: relative;
 }
 
-.section__title:after{
+.section__title:after {
     content: "";
     display: block;
     width: 100%;
@@ -220,17 +203,36 @@ section a:hover, a:focus, a:active {
     background-color: #5faf99;
 }
 
-.section__text{
+.section__text {
     color: #555555;
     font-size: 20px;
 }
 
-.quote{
-    border-left: 5px solid #c7f1eb;
+section a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #5faf99;
+    transition: color 0.1s linear;
+}
+
+section a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #5eb5ac;
+    transition: color 0.1s linear;
+}
+
+section a:hover, a:focus, a:active {
+    text-decoration: underline;
+    color: #71cfc6;
+}
+
+.quote {
+    border-left: 5px solid #a0c7c1;
     padding-left: 50px;
 }
 
-.img__about{
+.img__about {
     position: relative;
 }
 
@@ -238,21 +240,23 @@ section a:hover, a:focus, a:active {
     opacity: 0.4;
 }
 
-.img__about:hover .img__text{
+.img__about:hover .img__text {
     opacity: 1;
 }
 
-.img__inner img{
+.img__inner img {
     display: block;
+    max-width: 100%;
+    height: auto;
     transition: opacity 0.1s linear;
 }
 
-.img__inner{
+.img__inner {
     background: #71cfc6;
     transition: transform .2s linear;
 }
 
-.img__text{
+.img__text {
     width: 100%;
     color: white;
     font-size: 20px;
@@ -280,7 +284,106 @@ section a:hover, a:focus, a:active {
     text-align: center;
 }
 
-.copyright span {
-    color: #f38181;
+@media (max-width: 1230px) {
+
+    .intro__title {
+        font-size: 80px;
+    }
 }
 
+@media (max-width: 990px) {
+    .intro__title {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 770px) {
+    .intro {
+        min-height: 650px;
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .header__inner {
+        padding: 10px 0;
+        justify-content: center;
+    }
+
+    .header__logo {
+        font-size: 25px;
+    }
+
+    .preamble {
+        font-size: 15px;
+        margin: 40px auto 40px;
+    }
+
+    .intro__title:after {
+        margin: 40px auto 40px;
+    }
+
+    .preamble:after {
+        margin: 40px auto 40px;
+    }
+
+
+    .nav {
+        flex-direction: column;
+        padding: 20px 0 20px 0;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .intro__title {
+        font-size: 40px;
+    }
+
+    .header__logo {
+        font-size: 20px;
+    }
+
+    .preamble {
+        font-size: 15px;
+        margin: 30px auto 30px;
+    }
+
+    .intro__title:after {
+        margin: 30px auto 30px;
+    }
+
+    .preamble:after {
+        margin: 30px auto 30px;
+    }
+
+    .section {
+        padding: 1em 0;
+    }
+
+    .section__header {
+        margin-bottom: 50px;
+    }
+
+    .section__title {
+        font-size: 20px;
+    }
+
+    .section__text {
+        font-size: 15px;
+    }
+
+    .img__text {
+        font-size: 12px;
+    }
+
+    .quote {
+        border-left: 3px solid #a0c7c1;
+        padding-left: 20px;
+    }
+}
