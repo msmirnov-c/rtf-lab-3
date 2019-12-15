@@ -128,10 +128,6 @@ li {
 }
 
 @media (max-width: 900px) {
-    #user-block {
-        visibility: hidden;
-    }
-
     #greetings {
         visibility: visible;
         font-size: 20px;
@@ -206,22 +202,6 @@ li {
 }
 
 @media (min-width: 901px) {
-    #user-block {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        height: 80px;
-        margin: 50px auto;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        animation: appearance 1s 1 ease-in-out;
-    }
-
-    #user-block:hover {
-        box-shadow: 5px 5px 20px rgba(13, 146, 255, 0.5);
-    }
-
     .back-image {
         margin-top: 50px;
         padding: 20px 0 20px 0;
@@ -233,7 +213,7 @@ li {
     }
 
     .block-middle {
-        padding: 60px;
+        padding: 40px;
     }
 
     .text {

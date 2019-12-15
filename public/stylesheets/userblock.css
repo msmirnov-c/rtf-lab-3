@@ -1,0 +1,111 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes rotateBack {
+    0% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+#user-block-info {
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    animation: appearance 1s 1 ease-in-out;
+}
+
+#main-user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100px;
+    margin-left: 10px;
+    transition: ease-in-out 1s;
+}
+
+#about-user-info {
+    flex-grow: 1;
+    padding: 10px;
+    margin: 10px;
+    min-height: 80px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(174, 206, 255, 0.3);
+}
+
+@media (max-width: 900px) {
+    #arrow-img {
+        display: none;
+    }
+
+    #user-block {
+        visibility: hidden;
+    }
+
+    #user-block-info {
+        visibility: visible;
+        flex-direction: column;
+        margin: 10px auto;
+    }
+
+    #about-user-info {
+        min-height: 80px;
+    }
+}
+
+@media (min-width: 901px) {
+    #greetings-block {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #arrow-img {
+        background-size: contain;
+        align-self: center;
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+
+    #user-block {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        width: 70%;
+        padding: 20px;
+        margin: 50px auto;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        animation: appearance 1s 1 ease-in-out;
+    }
+
+    #user-block:hover {
+        box-shadow: 5px 5px 20px rgba(13, 146, 255, 0.5);
+    }
+    
+    #user-block-info {
+        min-height: 100px;
+        margin-top: 20px;
+    }
+
+    #main-user-info {
+        width: 40%;
+    }
+
+    #about-user-info {
+        max-width: 60%;
+    }
+}
