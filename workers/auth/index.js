@@ -10,7 +10,7 @@ function authUser(req, res, next) {
  * @param {string} name - имя
  * @param {number} age - возраст
  */
-function postExample(req, res, next) {
+function regUser(req, res, next) {
     const {id, name, age} = req.body;
     if (!id || !name || !age) {
         res.send({Error: 'NO PARAMS'})
@@ -21,5 +21,5 @@ function postExample(req, res, next) {
 
 module.exports =  {
     authUser,
-    postExample
-};
+    regUser
+}

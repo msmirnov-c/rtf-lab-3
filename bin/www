@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('chromeapi:server');
+var debug = require('debug')('laba3-api:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000npm star');
 app.set('port', port);
 console.log('CURRENT PORT:', port)
 
@@ -79,7 +79,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event
+ * Event listener for HTTP server "listening" event.
  */
 
 function onListening() {
