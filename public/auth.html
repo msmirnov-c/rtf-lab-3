@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="stylesheets/css.css" rel="stylesheet"/>
+    <script src="javascripts/scripts.js"></script>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<nav>
+    <a href="/" class="ni">Internet Explorer</a>
+    <a class="ni"  href="edge.html">Microsoft edge</a>
+    <div id="buts">
+        <button class="ni" onclick="document.location.href='/reg.html'">Регистрация</button>
+        <button class="ni" onclick="document.location.href='/auth.html'">Вход</button>
+    </div>
+</nav>
+<div class="centred">
+    <form action="/api/auth" method="post">
+        <p><b>Авторизация</b></p>
+        Логин:
+        <br/>
+        <input type="text" required name="login" id="lg"/>
+        <br/>
+        Пароль:
+        <br/>
+        <input type="password" required name="psw" id="psw"/>
+        <br/>
+        <button onclick="">Подтвердить</button>
+    </form>
+</div>
+<footer>2019 История Internet Explorer</footer>
+</body>
+</html>
