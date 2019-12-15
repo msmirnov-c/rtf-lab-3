@@ -8,10 +8,12 @@
 </head>
 <body>
 <nav>
-    <a href="/" class="ni">Главная</a>
-    <a class="ni">Не Главная</a>
-    <button class="ni">Регистрация</button>
-    <button class="ni">Вход</button>
+    <a href="/" class="ni">Internet Explorer</a>
+    <a class="ni"  href="edge.html">Microsoft edge</a>
+    <div id="buts">
+        <button class="ni" onclick="document.location.href='/reg.html'">Регистрация</button>
+        <button class="ni" onclick="document.location.href='/auth.html'">Вход</button>
+    </div>
 </nav>
 <div class="centred">
     <form action="/api/auth" method="post">
