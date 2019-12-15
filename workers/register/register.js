@@ -14,25 +14,26 @@ function register(req, res, next) {
      //console.log(name, email);
     /* 
      Тут будем хешировать...
-     */
-     
-        // Store hash in database
-      
-    
+     */     
+    var salt = bcrypt.genSaltSync(10);
+    var passwordToSave = bcrypt.hashSync(password, salt);
 
 
-
-
-
-     
      const fs = require("fs");
-     const content = new Array(name, email, bcrypt.hash( password, 10, function( err, hash ){
-        return hash
-     }));
+
+     let content ={
+      Username: name,
+      email: email,
+      hash: passwordToSave,
+      salt: salt
+      };
+      
+     //const content = new Array(name, email, passwordToSave, salt);
      fs.writeFile("file.txt", JSON.stringify(content), function(error){
      if(error) throw error; // если возникла ошибка
      console.log("Асинхронная запись файла завершена. Содержимое файла:");
      let data = fs.readFileSync("file.txt", "utf8");
+   
      console.log(data);
 
 

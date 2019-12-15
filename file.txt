@@ -1,1 +1,1 @@
-["Mikhail Алексеевич Gaev","mixail233442@gmail.com",null]
+{"Username":"Гаев Михаил Алексеевич","email":"mixail233442@gmail.com","hash":"$2a$10$sErdE8nVPAvWaYJA6QDfjualVsjMb12ePc1jFjfQxzxol07PTgCZ2","salt":"$2a$10$sErdE8nVPAvWaYJA6QDfju"}

@@ -1,6 +1,5 @@
 //const { authUser, postExample } = require('../workers/auth/index.js');
-const {register}= require('../workers/register/register.js');
-
+const {authorisation}= require('../workers/authorisation/auth.js');
 var express = require('express');
 var router = express.Router();
 
@@ -9,7 +8,7 @@ var router = express.Router();
 router.use(express.json());       // to support JSON-encoded bodies
 router.use(express.urlencoded()); // to support URL-encoded bodies
 //router.post('/post/example', postExample);
-router.post('/register', register);
 
+router.post('/authorisation', authorisation);
 
 module.exports = router;
