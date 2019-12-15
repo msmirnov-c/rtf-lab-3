@@ -1,12 +1,12 @@
 const now = new Date();
-let greetings;
+let greetings = "Доброго времени суток, ";
 if (now.getHours() >= 0 && now.getHours() < 6) {
     greetings = "Доброй ночи, ";
 } else if (now.getHours() >= 6 && now.getHours() < 12) {
     greetings = "Доброе утро, ";
 } else if (now.getHours() >= 12 && now.getHours() < 18) {
     greetings = "Добрый день, ";
-} else if (now.getHours() >= 18 && now.getHours() < 0) {
+} else if (now.getHours() >= 18 && now.getHours() < 24) {
     greetings = "Добрый вечер, ";
 }
 
