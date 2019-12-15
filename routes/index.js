@@ -13,10 +13,17 @@ router.post('/reg', function (req, res) {
         return;
     }
     db.run(`INSERT INTO users VALUES('${login}','${CryptoJS.MD5(psw).toString()}')`, (err) => {
-        if(err)
-            res.send(err);
+        if(err){
+            res.cookie('err', 'Sorry such user already exists');
+            res.redirect('/reg.html');
+        }
         else
-            res.json({login: login});
+        {
+            res.cookie('err', '');
+            res.cookie('login', login);
+            res.redirect('/');
+        }
+            //res.json({login: login});
     });
 });
 
@@ -26,11 +33,19 @@ router.post('/auth', function (req, res) {
         res.send('Error!');
         return;
     }
-    db.get(`SELECT login FROM users WHERE login = ${login} AND password = ${psw}`, (err) => {
-        if(err)
-            res.send(err);
+    const hash = CryptoJS.MD5(psw).toString();
+    db.get(`SELECT login FROM users WHERE login = '${login}' AND password = '${hash}'`, (err, row) => {
+        if(err || !row || !row.login) {
+            res.cookie('err', 'Sorry such user does not exist');
+            res.redirect('/auth.html');
+        }
         else
-            res.json({login: login});
+        {
+            res.cookie('err', '');
+            res.cookie('login', row.login);
+            res.redirect('/');
+        }
+            //res.json({login: login});
     });
 });
 

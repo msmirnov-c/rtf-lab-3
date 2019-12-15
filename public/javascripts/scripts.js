@@ -1,52 +1,22 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    const login = sessionStorage.getItem('login');
-    if(login)
-    {
-        buts.innerHTML =
+    //const login = sessionStorage.getItem('login');
+    String.prototype.replaceAll = function(search, replace){
+        return this.split(search).join(replace);
+    }
+    console.log(document.cookie);
+    const login = document.cookie.split('; ').map(c => c.split('=')).find(c => c[0] === 'login')[1];
+    const err = document.cookie.split('; ').map(c => c.split('=')).find(c => c[0] === 'err')[1];
+    if(!err || err === '') {
+        if(login && login !== '')
+        {
+            buts.innerHTML =
             `<b>${login}</b>
-            <button class="ni" onclick="sessionStorage.clear(); document.location.reload();">Выход</button>`
+            <button class="ni" onclick="document.cookie = 'login='; document.location.reload();">Выход</button>`
+        }
+    }
+    else {
+        alert(err.replaceAll('%20', ' '));
+        document.cookie = 'err=';
     }
 });
-
-async function reg(ev) {
-    ev.preventDefault();
-    const res = await fetch('/api/reg',
-    {
-        method: 'POST' ,
-        body: JSON.stringify({login: lg.value, psw: psw.value}),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    const t = await res.text();
-    const obj = JSON.parse(t);
-    if(!obj)
-    {
-        alert('Ошибка: ' + t);
-        return ;
-    }
-    sessionStorage.setItem('login', obj.login);
-    document.location.href = '/';
-}
-
-async function auth(ev) {
-    ev.preventDefault();
-    const res = await fetch('/api/auth',
-        {
-            method: 'POST' ,
-            body: JSON.stringify({login: lg.value, psw: psw.value}),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    const t = await res.text();
-    const obj = JSON.parse(t);
-    if(!obj)
-    {
-        alert('Ошибка: ' + t);
-        return ;
-    }
-    sessionStorage.setItem('login', obj.login);
-    document.location.href = '/';
-}

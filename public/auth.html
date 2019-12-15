@@ -14,7 +14,8 @@
     <button class="ni">Вход</button>
 </nav>
 <div class="centred">
-    <form>
+    <form action="/api/auth" method="post">
+        <p><b>Авторизация</b></p>
         Логин:
         <br/>
         <input type="text" required name="login" id="lg"/>
@@ -23,8 +24,9 @@
         <br/>
         <input type="password" required name="psw" id="psw"/>
         <br/>
-        <button onclick="auth(event)">Подтвердить</button>
+        <button onclick="">Подтвердить</button>
     </form>
 </div>
+<footer>2019 История Internet Explorer</footer>
 </body>
 </html>

@@ -28,6 +28,10 @@ article, form {/*
     border-radius: 15px;
 }
 
+form button {
+    margin-top: 5px;
+}
+
 .centred {
     display: flex;
     justify-content: center;
@@ -44,14 +48,15 @@ body {
 }
 
 button {
-    background-color: lightgray;
+    background-color: #e7e7e7;
     border: none;
     font-size: 26px;
     border-radius: 7px;
 }
 
 button:hover {
-    background-color: grey;
+    cursor: pointer;
+    background-color: lightgray;
 }
 
 .ni {
