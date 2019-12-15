@@ -8,11 +8,21 @@ nav {
     justify-content: center;
 }
 
+footer {
+    padding: 7px;
+    padding-left: 25px;
+    margin: 40px;
+    border: 1px solid darkgray;
+    box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
+    border-radius: 15px;
+}
+
 article, form {/*
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 10vh;*/
     margin: 40px;
+    padding: 30px;
     border: 1px solid darkgray;
     box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
     border-radius: 15px;
@@ -26,7 +36,6 @@ article, form {/*
 
 form {
     width: fit-content;
-    padding: 15px;
 }
 body {
     margin: 0;
