@@ -191,14 +191,16 @@ section a:hover, a:focus, a:active {
 }
 
 .section--first {
+    padding: 2em 0;
     background-attachment: scroll, scroll, fixed;
     background-color: rgba(182, 217, 202, 0.5);
     background-size: auto, auto, cover;
 }
 
 .section--second {
+    padding: 2em 0;
     background-attachment: scroll, scroll, fixed;
-    background-color: rgba(101, 155, 147, 0.5);
+    background-color: rgba(120, 175, 167, 0.5);
     background-size: auto, auto, cover;
 }
 
@@ -221,6 +223,11 @@ section a:hover, a:focus, a:active {
 .section__text{
     color: #555555;
     font-size: 20px;
+}
+
+.quote{
+    border-left: 5px solid #c7f1eb;
+    padding-left: 50px;
 }
 
 .img__about{
@@ -261,4 +268,19 @@ section a:hover, a:focus, a:active {
     z-index: 2;
 }
 
+.footer {
+    background-color: #7eb5a7;
+}
+
+.copyright {
+    padding: 30px 0;
+
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.copyright span {
+    color: #f38181;
+}
 
