@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 
     opacity: 0;
 
-    background-color: #afedd4;
+    background-color: #c1e697;
     position: absolute;
 
     top: 100%;
@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav__link:hover {
-    color: #a8e6cd;
+    color: #c1e697;
 }
 
 .nav__link:hover:after {
@@ -180,11 +180,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--first {
-    background-color: rgba(182, 217, 202, 0.5);
+    background-color: rgba(183, 201, 151, 0.65);
 }
 
 .section--second {
-    background-color: rgba(129, 185, 177, 0.5);
+    background-color: rgba(173, 195, 129, 0.66);
 }
 
 .section__title {
@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #5faf99;
+    background-color: #7faf31;
 }
 
 .section__text {
@@ -211,24 +211,23 @@ h1, h2, h3, h4, h5, h6 {
 section a:link {
     font-weight: bold;
     text-decoration: none;
-    color: #5faf99;
+    color: #5aa827;
     transition: color 0.1s linear;
 }
 
 section a:visited {
     font-weight: bold;
     text-decoration: none;
-    color: #5eb5ac;
+    color: #5dad27;
     transition: color 0.1s linear;
 }
 
 section a:hover, a:focus, a:active {
-    text-decoration: underline;
-    color: #71cfc6;
+    color: #66be2d;
 }
 
 .quote {
-    border-left: 5px solid #a0c7c1;
+    border-left: 5px solid #395424;
     padding-left: 50px;
 }
 
@@ -252,7 +251,7 @@ section a:hover, a:focus, a:active {
 }
 
 .img__inner {
-    background: #71cfc6;
+    background: rgba(136, 193, 84, 0.74);
     transition: transform .2s linear;
 }
 
@@ -273,7 +272,7 @@ section a:hover, a:focus, a:active {
 }
 
 .footer {
-    background-color: #7eb5a7;
+    background-color: #8da775;
 }
 
 .copyright {
@@ -383,7 +382,7 @@ section a:hover, a:focus, a:active {
     }
 
     .quote {
-        border-left: 3px solid #a0c7c1;
+        border-left: 3px solid #395424;
         padding-left: 20px;
     }
 }
