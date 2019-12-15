@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/solarSystemStyle.css">
+    <link rel="stylesheet" href="stylesheets/fontsStyle.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="javascripts/solarSystem.js"></script>
     <script src="javascripts/registration.js"></script>
-    <title>Title</title>
+    <script src="javascripts/checkAuth.js"></script>
+    <script src="javascripts/cookie.js"></script>
+    <script src="javascripts/planetChoosing.js"></script>
+    <title>Solar System Model</title>
 </head>
-<body>
+<body onload="CheckAuth()" >
 <header>
-    <nav class="NavBar" >
-    <div class="NavBarButton"></div>
-    <div class="NavBarButton"></div>
-    <div class="NavBarButton"></div>
-    <div class="NavBarButton" onclick=""></div>
-    <div class="NavBarButton" onclick="document.location.href = '/auth'">Авторизация</div>
-    </nav>
+    <header class="NavBar" role="banner">
+        <div class="NavBarBlock">
+            <div class="Title" onclick="document.location.href='/'" >Solar system model</div>
+        </div>
+        <div class="NavBarBlock" id="MainNav">
+            <div class="NavBarButton" onclick="document.location.href = '/auth'">
+                <div class="NavBarButtonText">Войти</div>
+            </div>
+            <div class="WidthButton" onclick="document.location.href = '/join'">
+                <div class="WidthButtonText">Регистрация</div>
+            </div>
+        </div>
+    </header>
 </header>
-<div>
-    <h2 >WELCOME HELL!!</h2>
+<div class="SubBody">
+<h3 id="yearCounter" >Прошло лет: 0</h3>
+<div id="MainHolder">
+    <div id="animationBlock">
+        <div id="path">
+        <div id="mercury" onclick="GiveMercury()" title="Mercury">
+        </div>
+        <div class="sun" onclick="GiveSun()" title="Sun"></div>
+        <div id="venus" onclick="GiveVenus()" title="Venus"></div>
+        <div id="planet"  onclick="GiveEarth()" title="Earth">
+            <div id="moon"></div>
+        </div>
+        <div id="mars" title="Mars" onclick="GiveMars()"></div>
+        <div id="jupiter" onclick="GiveJupiter()" title="Jupiter"></div>
+        <div id="saturn" onclick="GiveSaturn()" title="Saturn">
+            <div class="Ring" onclick="GiveSaturn()"></div>
+        </div>
+        <div id="uranus" onclick="GiveUranus()" title="Uranus"></div>
+        <div id="neptune" onclick="GiveNeptune()" title="Neptune"></div>
+        </div>
+</div>
+    <div class="Info">
+        <div id="CurrentPlanet"></div>
+        <div id="genInfo">
+            <h2 id="CurrentTitle">Солнечная система</h2>
+            <h3 id="CurrentDescription">В Солнечной системе восемь планет. Планеты земной группы: Меркурий – самый маленький и ближайший к горячему Солнцу, окутанная плотной кислотной атмосферой и перегретая Венера, холодный, но, вероятно, некогда вполне пригодный для жизни Марс и наша колыбель – Земля. Есть еще планеты-гиганты, расположенные за пределами пояса астероидов и не имеющие твердой поверхности: Юпитер, Сатурн, Уран, Нептун. </h3>
+        </div>
+        <div id="ButtonHolder">
+            <div class="NavBarButton" onclick="NextPlanet()">
+                <div class="NavBarButtonText" id="NextButtonText">Начать</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--
+    <div class="PlanetRow">
+        <div class="PlanetHolder">
+            <iframe class="PlanetModel" src="https://solarsystem.nasa.gov/gltf_embed/2369" frameborder="0" ></iframe>
+        </div>
+        <div class="PlanetInfo"></div>
+    </div> -->
 </div>
 </body>
 </html>

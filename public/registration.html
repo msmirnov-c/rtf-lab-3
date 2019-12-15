@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="stylesheets/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="javascripts/registration.js"></script>
+<script src="javascripts/cookie.js"></script>
+<script>
+    window.onload = async function CheckAuth() {
+        if (localStorage.getItem('user') !== null){
+            document.location.href = '/';
+            LogInput.disabled = true;
+            EmInput.disabled = true;
+            password.disabled = true;
+            sender.disabled = true;
+        }
+    }
+</script>
+<title>Регистрация</title>
+<body>
+<header>
+    <header class="NavBar" role="banner">
+        <div class="NavBarBlock">
+            <div class="Title" onclick="document.location.href='/'">Solar system model</div>
+        </div>
+        <div class="NavBarBlock" id="MainNav">
+            <div class="NavBarButton" onclick="document.location.href = '/auth'">
+                <div class="NavBarButtonText">Войти</div>
+            </div>
+            <div class="WidthButton" onclick="document.location.href = '/join'">
+                <div class="WidthButtonText">Регистрация</div>
+            </div>
+        </div>
+    </header>
+</header>
+<div class="SubBody AuthRegForm">
+    <h2 id="BigMargin" >Регистрация</h2>
+    <div>
+        <label class="AuthRegFont" >Почта:
+            <input id="EmInput" type="email" />
+        </label>
+        <br/>
+        <br/>
+        <label class="AuthRegFont" >Логин:
+            <input id="LogInput" type="email" />
+        </label>
+        <br/>
+        <br/>
+        <label class="AuthRegFont" >Пароль:
+            <input type="password" id="password" />
+        </label>
+        <br/>
+        <br>
+    </div>
+    <div id="sender" class="AuthRegFont WidthButton" onclick="getUserData()">
+        <div class="WidthButtonText ">Отправить</div>
+    </div>
+    <a  class="AuthRegFont HPLink" onclick="document.location.href = '/auth'">Уже есть аккаунт?</a>
+
+</div>
+</body>
+</html>

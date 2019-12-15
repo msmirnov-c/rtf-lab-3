@@ -21,15 +21,17 @@ async function postExample(req, res, next){
         res.send({Error: 'NO PARAMS'});
     }
     const db = new DbClient();
-    await db.AddUser(email, nick, pass, async function (err, row) {
-             if (err) {
-                 res.status(500).send('User with same E-mail or Nickname already exists!');
-            console.log(err);
-            throw err
-        }
+    await db.AddUser(email, nick, pass, async function (err, row) { // Добавляем в базу данных нового пользователя
+             if (row === undefined) {
+                 res.send("Success");
+                 console.log(err);
+             } else {
+                 res.status(500).send('Пользователь с таким логином или почтой уже зарегистрирован!');
+                 console.log(err);
+                 throw err
+             }
     });
     console.log(email, nick, pass);
-    res.json({Success : true});
     db.close();
 }
 
@@ -46,9 +48,9 @@ async function postExists(req, res, next){
         res.send({Error: 'NO PARAMS'});
     }
     const db = new DbClient();
-    await db.CheckUserAuth(identifier, pass, async function (err, row) {
+    await db.CheckUserAuth(identifier, pass, async function (err, row) { //Проверяем в бд есть ли пользователь
         if (row === undefined) {
-            res.status(500).send('Incorrect login or password.');
+            res.status(500).send('Неправильный логин или пароль.');
         } else {
             res.send("Success");
         }
