@@ -5,7 +5,7 @@ function authUser(req, res, next) {
 }
 
 /**
- * Метод принимающий 3 парамметра
+ * Метод принимающий 3 параметра
  * @param {string} id - айди пользователя
  * @param {string} name - имя
  * @param {number} age - возраст
