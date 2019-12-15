@@ -5,6 +5,7 @@ nav {
     border: 1px solid darkgray;
     box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
     border-radius: 15px;
+    font-size: 30px;
     justify-content: center;
 }
 
@@ -59,7 +60,7 @@ body {
 }
 
 button {
-    background-color: #e7e7e7;
+    background-color: white;
     border: none;
     font-size: 26px;
     border-radius: 7px;
@@ -67,7 +68,11 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: #e7e7e7;
+}
+
+h2 {
+    text-align: center;
 }
 
 .ni {
@@ -77,6 +82,9 @@ button:hover {
 .ni:hover {
     border-bottom: 3px solid darkgray;
 }*/
+img {
+    float: left;
+}
 
 @media (max-width: 1020px) {
 
