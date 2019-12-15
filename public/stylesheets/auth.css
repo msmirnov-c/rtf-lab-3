@@ -1,0 +1,102 @@
+@keyframes appearance {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.auth-block {
+    width: 70%;
+    margin: 80px auto;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin: 30px;
+}
+
+.upper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.middle {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 60%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding-left: 10px;
+    font-size: 15px;
+    animation: appearance 1s 1 ease-in-out;
+}
+
+input:focus {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+  
+input:invalid {
+    color:rgb(173, 20, 20);
+}
+
+textarea {
+    outline: none;
+    border: none;
+    resize: none;
+    border-radius: 5px;
+    height: 100px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 15px;
+    animation: appearance 1s 1 ease-in-out;
+}
+
+.badinfo {
+    text-align: center;
+    color: rgb(173, 20, 20);
+    font-size: 17px;
+    font-weight: bold;
+    animation: appearance 1s 1 ease-in-out;
+}
+
+.regbadinfo {
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    align-self: center;
+    margin: 15px 0 30px 0;
+}
+
+@media (max-width: 600px) {
+    .auth-block {
+        width: 90%;
+    }
+
+    form {
+        width: 80%;
+    }
+}

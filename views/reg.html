@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/auth.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+
+    <title>Авторизация</title>
+</head>
+
+<body id="registration">
+    <main>
+        <div class="auth-block">
+            <div class="upper">
+                <h2 class="title">Регистрация</h2>
+            </div>
+            <div class="middle">
+                <form action="/post/reg" method="POST">
+                    <p id="loginexists" class="badinfo regbadinfo">Данный логин уже существует в системе</p>
+                    <input name="login" type="text" placeholder="Логин..." maxlength="25" required />
+                    <input name="firstName" type="text" placeholder="Ваше имя..." maxlength="25" pattern="[A-Z,a-z,А-Я,а-я,Ё,ё]{0,25}" required />
+                    <input name="secondName" type="text" placeholder="Ваша фамилия..." maxlength="25" pattern="[A-Z,a-z,А-Я,а-я,Ё,ё]{0,25}" required />
+                    <p id="bademail" class="badinfo regbadinfo">Данный e-mail уже существует в системе</p>
+                    <input name="email" type="email" placeholder="Ваш e-mail..." minlenght="5" maxlength="25" required />
+                    <p id="badpass" class="badinfo regbadinfo">Введённые пароли не совпадают</p>
+                    <input name="password" type="password" placeholder="Придумайте пароль..." minlength="8" maxlength="30" required />
+                    <input name="passwordConfirmation" type="password" placeholder="Повторно введите пароль..." minlength="8" maxlength="30" required />
+                    <textarea name="about" cols="30" rows="10" placeholder="Расскажите немного о себе..." maxlength="200"></textarea>
+                    <button type="submit" class="login-btn">Зарегистрироваться</button>
+                    
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="/javascripts/blocks/header.js"></script>
+    <script src="/javascripts/blocks/footer.js"></script>
+    <script src="/javascripts/regSettings.js"></script>
+</body>
+
+</html>
