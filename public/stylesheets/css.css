@@ -1,0 +1,112 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+    border: 1px solid darkgray;
+    box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
+    border-radius: 15px;
+    font-size: 30px;
+    justify-content: center;
+}
+
+footer {
+    padding: 7px;
+    padding-left: 25px;
+    margin: 40px;
+    border: 1px solid darkgray;
+    box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
+    border-radius: 15px;
+}
+
+article, form {/*
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10vh;*/
+    margin: 40px;
+    padding: 30px;
+    border: 1px solid darkgray;
+    box-shadow: 2px 2px 2px 2px lightgray, -2px -2px 2px 2px lightgray;
+    border-radius: 15px;
+}
+
+form button {
+    margin-top: 5px;
+}
+
+.centred {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+a.ni {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+}
+
+a.ni:hover {
+    color: grey;
+}
+
+form {
+    width: fit-content;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    font-size: 26px;
+    border-radius: 7px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+h2 {
+    text-align: center;
+}
+
+.ni {
+    margin: 5px 20px 5px 20px;
+}
+/*
+.ni:hover {
+    border-bottom: 3px solid darkgray;
+}*/
+img {
+    float: left;
+}
+
+@media (max-width: 1020px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 5vmin;
+    }
+    button, input {
+        font-size: 5vmin;
+        margin: 10px;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ni {
+        font-size: 7vmin;
+        margin: 10px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
