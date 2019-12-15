@@ -1,14 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
+    <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
+    <title>Сайт о Go</title>
 </head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/215px-Go_Logo_Blue.svg.png" style="width: 80px; margin-left: 10px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Главы
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Глава 1: Основы</a>
+                    <a class="dropdown-item" href="/article/2">Глава 2: Структуры</a>
+                    <a class="dropdown-item" href="/article/3">Глава 3: Массивы, карты и срезы</a>
+                    <a class="dropdown-item" href="/article/4">Глава 4: Организация кода и интерфейсы</a>
+                    <a class="dropdown-item" href="/article/5">Глава 5: Лакомые кусочки</a>
+                    <a class="dropdown-item" href="/article/6">Глава 6: Конкурентность</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/about">О сайте</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h2 id="">Go</h2>
+    <p>Go (часто также Golang) — компилируемый многопоточный язык программирования, разработанный внутри компании Google.</p>
+    <p>Разработка Go началась в сентябре 2007 года, его непосредственным проектированием занимались Роберт Гризмер, Роб Пайк и Кен Томпсон[6], занимавшиеся до этого проектом разработки операционной системы Inferno. Официально язык был представлен в ноябре 2009 года.
+    </p><p>На данный момент поддержка официального компилятора, разрабатываемого создателями языка, осуществляется для операционных систем FreeBSD, OpenBSD, Linux, macOS, Windows, DragonFly BSD, Plan 9, Solaris, Android, AIX.[7]. Также Go поддерживается набором компиляторов gcc, существует несколько независимых реализаций. Ведётся разработка второй версии языка. </p>
+    </p>
+    <h2 id="">Основные преимущества языка Go:</h2>
+    <p>
+    <ul>
+        <li class="ar"><b>Простой и понятный синтаксис</b>. Это делает написание кода приятным занятием.</li>
+        <li class="ar"><b>Статическая типизация</b>. Позволяет избежать ошибок, допущенных по невнимательности, упрощает чтение и понимание кода, делает код однозначным.</li>
+        <li class="ar"><b>Скорость и компиляция</b>. Скорость у Go в десятки раз быстрее, чем у скриптовых языков, при меньшем потреблении памяти. При этом, компиляция практически мгновенна. Весь проект компилируется в один бинарный файл, без зависимостей. Как говорится, «просто добавь воды». И вам не надо заботиться о памяти, есть сборщик мусора.</li>
+        <li class="ar"><b>Отход от ООП</b>. В языке нет классов, но есть структуры данных с методами. Наследование заменяется механизмом встраивания. Существуют интерфейсы, которые не нужно явно имплементировать, а лишь достаточно реализовать методы интерфейса.</li>
+        <li class="ar"><b>Параллелизм</b>. Параллельные вычисления в языке делаются просто, изящно и без головной боли. Горутины (что-то типа потоков) легковесны, потребляют мало памяти.</li>
+        <li class="ar"><b>Богатая стандартная библиотека</b>. В языке есть все необходимое для веб-разработки и не только. Количество сторонних библиотек постоянно растет. Кроме того, есть возможность использовать библиотеки C и C++.</li>
+        <li class="ar"><b>Возможность писать в функциональном стиле</b>. В языке есть замыкания (closures) и анонимные функции. Функции являются объектами первого порядка, их можно передавать в качестве аргументов и использовать в качестве типов данных.</li>
+        <li class="ar"><b>Авторитетные отцы-основатели и сильное комьюнити</b>. Роб Пайк, Кен Томпсон, Роберт Гризмер стояли у истоков. Сейчас у языка более 300 контрибьюторов. Язык имеет сильное сообщество и постоянно развивается.</li>
+        <li class="ar"><b>Open Source</b></li>
+        <li class="ar"><b>Обаятельный талисман</b></li>
+    </ul><br/>
+    <br/></p>
+</div>
+</body>
 </html>

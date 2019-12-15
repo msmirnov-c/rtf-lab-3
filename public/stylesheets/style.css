@@ -1,0 +1,76 @@
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.content {
+  padding:30px 40px 10px 40px;
+  background-color: #f8f9fa;
+  width:70%;
+  margin:auto;
+  margin-top:30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.08);
+
+}
+
+h1{
+  margin-bottom: 15px;
+}
+
+#navbar-center
+{
+  width: 100%;
+
+}
+
+.navbar{
+  width: 70%;
+  margin: auto;
+  height: 65px;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.08);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #00667280;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: black;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre{
+  background-color: #006d7a1a;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.08);
+}
+
+.ar{
+  margin-bottom: 10px;
+}

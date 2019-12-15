@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
+    <title>Сайт о Go</title>
+</head>
+<body>
+<div id="navbar-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/215px-Go_Logo_Blue.svg.png" style="width: 80px; margin-left: 10px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Главы
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/article/1">Глава 1: Основы</a>
+                        <a class="dropdown-item" href="/article/2">Глава 2: Структуры</a>
+                        <a class="dropdown-item" href="/article/3">Глава 3: Массивы, карты и срезы</a>
+                        <a class="dropdown-item" href="/article/4">Глава 4: Организация кода и интерфейсы</a>
+                        <a class="dropdown-item" href="/article/5">Глава 5: Лакомые кусочки</a>
+                        <a class="dropdown-item" href="/article/6">Глава 6: Конкурентность</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">О сайте</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+<form action="/api/register" method="POST">
+    <div class="form-group">
+        <label for="username">Email address</label>
+        <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email" name="username">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

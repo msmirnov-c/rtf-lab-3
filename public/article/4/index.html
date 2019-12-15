@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.bundle.js"></script>
+    <title>Сайт о Go: Глава 4</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/215px-Go_Logo_Blue.svg.png" style="width: 80px; margin-left: 10px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Главы
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Глава 1: Основы</a>
+                    <a class="dropdown-item" href="/article/2">Глава 2: Структуры</a>
+                    <a class="dropdown-item" href="/article/3">Глава 3: Массивы, карты и срезы</a>
+                    <a class="dropdown-item active" href="/article/4">Глава 4: Организация кода и интерфейсы</a>
+                    <a class="dropdown-item" href="/article/5">Глава 5: Лакомые кусочки</a>
+                    <a class="dropdown-item" href="/article/6">Глава 6: Конкурентность</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/about">О сайте</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1 class="post-title">Глава 4: Организация кода и интерфейсы</h1>
+
+    <p>Настало время поговорить о том, как организовывать ваш код.</p>
+
+    <h2 id="">Пакеты</h2>
+
+    <p>Для того, чтобы хранить сложные системы и библиотеки организованно, нам нужно научиться пользоваться пакетами. В Go имена пакетов следуют структуре директорий в вашем рабочем пространстве. Если мы создаём систему для покупок, вероятно мы начнем с пакета по имени "shopping" и сохраним его исходные файлы в папке <code>$GOPATH/src/shopping/</code>.</p>
+
+    <p>Однако не хочется хранить все подряд в одной папке. Например, возможно мы захотим вынести логику работы с базой данных в другую директорию. Для этого, мы создадим поддиректорию в <code>$GOPATH/src/shopping/db</code>. Имя пакета для файлов в этом подкаталоге будет просто <code>db</code>, но для получения доступа к ним из других пакетов, включая <code>shopping</code>, нам нужно импортировать <code>shopping/db</code>.</p>
+
+    <p>Другими словами, когда вы указываете пакет с помощью ключевого слова <code>package</code>, вы используете одно название, а не полную иерархию (например "shopping" или "db"). Когда вы импортируете пакет, необходимо указывать полный путь.</p>
+
+    <p>Давайте попробуем. Внутри папки <code>src</code> рабочего пространства Go (которое мы задали в разделе «Приступая к работе» во <a href="/little-go-book-0/">введении</a>), создадим новую директорию с именем <code>shopping</code> и поддиректорию, которую назовём <code>db</code>. </p>
+
+    <p>Внутри <code>shopping/db</code>, создайте файл с именем <code>db.go</code> и напишите следующий код:</p>
+
+    <pre><code class="language-go">package db
+
+type Item struct {
+  Price float64
+}
+
+func LoadItem(id int) *Item {
+  return &amp;Item{
+    Price: 9.001,
+  }
+}
+</code></pre>
+
+    <p>Заметьте, что имя пакета совпадает с именем директории. Кроме того, очевидно, что на самом деле мы не подключаемся к базе данных. Мы просто будем использовать этот пример, чтобы показать, как организовывать код.</p>
+
+    <p>Теперь создайте файл с именем <code>pricecheck.go</code> внутри папки <code>shopping</code>. С таким содержанием:</p>
+
+    <pre><code class="language-go">package shopping
+
+import (
+  "shopping/db"
+)
+
+func PriceCheck(itemId int) (float64, bool) {
+  item := db.LoadItem(itemId)
+  if item == nil {
+    return 0, false
+  }
+  return item.Price, true
+}
+</code></pre>
+
+    <p>Этот код наталкивает на мысль, что импорт <code>shopping/db</code> почему-то так задан специально, ведь мы уже находимся в пакете/папке <code>shopping</code>. В действительности, вы импортируете <code>$GOPATH/src/shopping/db</code>, это означает, что вы так же легко можете импортировать <code>test/db</code>, если у вас есть пакет с именем <code>db</code> внутри папки <code>src/test</code> вашего рабочего пространства.</p>
+
+    <p>Если вы создаёте пакет, вам больше ничего не нужно знать, кроме того, что вы уже узнали. Для того, чтобы создать исполняемый файл, вам ещё нужен <code>main</code>. Я предпочитаю делать его в папке <code>main</code> внутри <code>shopping</code> с помощью файла с именем <code>main.go</code> следующего содержания:</p>
+
+    <pre><code class="language-go">package main
+
+import (
+  "shopping"
+  "fmt"
+)
+
+func main() {
+  fmt.Println(shopping.PriceCheck(4343))
+}
+</code></pre>
+
+    <p>Вы можете запустить ваш код перейдя в проект <code>shopping</code> и набрав:</p>
+
+    <pre><code>go run main/main.go
+</code></pre>
+
+    <h3 id="">Циклические импорты</h3>
+
+    <p>Когда вы начнете писать более сложные системы, вы обязательно столкнётесь с циклическими импортами. Это происходит когда пакет А импортирует пакет Б, а пакет Б импортирует пакет А (непосредственно или косвенно через другой пакет). Это то, что компилятор делать не позволяет.</p>
+
+    <p>Давайте изменим структуру нашей системы покупок так, чтобы вызвать ошибку.</p>
+
+    <p>Переместите определение <code>Item</code> из <code>shopping/db/db.go</code> в <code>shopping/pricecheck.go</code>. Файл <code>pricecheck.go</code> должен выглядеть так:</p>
+
+    <pre><code class="language-go">package shopping
+
+import (
+  "shopping/db"
+)
+
+type Item struct {
+  Price float64
+}
+
+func PriceCheck(itemId int) (float64, bool) {
+  item := db.LoadItem(itemId)
+  if item == nil {
+    return 0, false
+  }
+  return item.Price, true
+}
+</code></pre>
+
+    <p>Если вы попытаетесь запустить код, вы получите несколько ошибок в <code>db/db.go</code> о том, что <code>Item</code> не был определён. Это логично. <code>Item</code> больше не существует в пакете <code>db</code>; он был перемещен в пакет <code>shopping</code>. Нам нужно изменить файл <code>shopping/db/db.go</code> так:</p>
+
+    <pre><code class="language-go">package db
+
+import (
+  "shopping"
+)
+
+func LoadItem(id int) *shopping.Item {
+  return &amp;shopping.Item{
+    Price: 9.001,
+  }
+}
+</code></pre>
+
+    <p>Теперь, когда вы запустите код, вы получите ошибку: <em>import cycle not allowed</em>. Мы исправим её с помощью добавления нового пакета, который будет содержать общие структуры. Директория в итоге будет выглядеть так:</p>
+
+    <pre><code>$GOPATH/src
+  - shopping
+    pricecheck.go
+    - db
+      db.go
+    - models
+      item.go
+    - main
+      main.go
+</code></pre>
+
+    <p><code>pricecheck.go</code> всё ещё импортирует <code>shopping/db</code>, но <code>db.go</code> теперь импортирует <code>shopping/models</code> вместо <code>shopping</code>, тем самым прерывая цикл. Так как мы переместили общую структуру <code>Item</code> в <code>shopping/models/item.go</code>, нам нужно изменить в  <code>shopping/db/db.go</code> ссылку на структуру <code>Item</code> из пакета <code>models</code>:</p>
+
+    <pre><code class="language-go">package db
+
+import (
+  "shopping/models"
+)
+
+func LoadItem(id int) *models.Item {
+  return &amp;models.Item{
+    Price: 9.001,
+  }
+}
+</code></pre>
+
+    <p>Вам часто будет необходимо получать доступ не только к одному пакету <code>models</code>, но, возможно, к другим похожим по смыслу папкам вроде <code>utilities</code> и т. д. Важное правило использования общих пакетов заключается в том, что они не должны импортировать ничего из пакета <code>shopping</code> или его вложенных пакетов. Вскоре мы рассмотрим интерфейсы, которые помогут нам разрешить такие зависимости.</p>
+
+    <h3 id="">Видимость</h3>
+
+    <p>Go использует простое правило определения видимости типов данных и функций извне пакета. Если имя функции или типа начинается с большой буквы, то они видимы. Если с маленькой, то нет.</p>
+
+    <p>Это правило распространяется и на поля структур. Если поле структуры начинается с маленькой буквы, то доступ к нему получает только тот код, который находится в пределах того же пакета.</p>
+
+    <p>Например, если наш файл <code>items.go</code> содержит функцию, которая выглядит так:</p>
+
+    <pre><code class="language-go">func NewItem() *Item {
+  // ...
+}
+</code></pre>
+
+    <p>То она может быть вызвана с помощью <code>models.NewItem()</code>. Но если функцию назвать <code>newItem</code>, получить доступ к ней из другого пакета не получится.</p>
+
+    <p>Попробуйте изменить имя другой функции, структуры или поля из пакета <code>shopping</code>. Например, если вы измените имя поля <code>Price</code> структуры <code>Item</code> на <code>price</code>, то вы получите ошибку.</p>
+
+    <h3 id="">Управление пакетами</h3>
+
+    <p>Мы использовали команду <code>go</code> для запуска и сборки с помощью <code>run</code> и <code>build</code>, но у нее есть еще команда <code>get</code>, которая используется для получения библиотек сторонних разработчиков. <code>go get</code> поддерживает различные протоколы, но для этого примера мы получим библиотеку с сайта GitHub. Для этого вы должны установить <code>git</code> на свой компьютер.</p>
+
+    <p>Когда git установлен, из командной строки выполните:</p>
+
+    <pre><code>go get github.com/mattn/go-sqlite3
+</code></pre>
+
+    <p><code>go get</code> забирает удалённые файлы и сохраняет их в вашем рабочем пространстве. Проверьте свою папку <code>$GOPATH/src</code>. В дополнении к проекту <code>shopping</code>, который создали мы, вы увидете папку <code>github.com</code>. Внутри находится папка <code>mattn</code>, а в ней папка <code>go-sqlite3</code>.</p>
+
+    <p>Мы только что говорили о том, как импортировать пакеты, которые лежат в вашем рабочем пространстве. Для использования нового пакета <code>go-sqlite3</code> мы импортируем его так:</p>
+
+    <pre><code class="language-go">import (
+  "github.com/mattn/go-sqlite3"
+)
+</code></pre>
+
+    <p>Я знаю, это выглядит как URL адрес, но на самом деле происходит импорт пакета <code>go-sqlite3</code>, который должен находиться в папке <code>$GOPATH/src/github.com/mattn/go-sqlite3</code>.</p>
+
+    <h3 id="">Управление зависимостями</h3>
+
+    <p>Команда <code>go get</code> имеет пару дополнительных хитростей. Если мы выполним <code>go get</code> внутри проекта, она просмотрит все файлы на наличие библиотек третих лиц в блоках <code>import</code> и скачает их. В некотором смысле, весь наш исходный код является чем-то вроде <code>Gemfile</code> или <code>package.json</code>.</p>
+
+    <p>Если вы выполните <code>go get -u</code>, произойдёт обновление пакетов (или определённого пакета при выполнении <code>go get -u ПОЛНОЕ_ИМЯ_ПАКЕТА</code>).</p>
+
+    <p>В конечном счете работа <code>go get</code> вам может показаться неадекватной. По той причине, что нет возможности указать конкретную ревизию, всегда будет использована последняя версия из master/head/trunk/default. Это может стать проблемой, если у вас два проекта и вам необходимы две разные версии одной библиотеки.</p>
+
+    <p>Чтобы избавиться от этой проблемы вы можете использовать утилиты управления зависимостями от сторонних разработчиков. Все они достаточно молоды, но две из них выглядят перспективными – <a href="https://github.com/nitrous-io/goop">goop</a> и <a href="https://github.com/tools/godep">godep</a>. Полный список доступен на <a href="https://code.google.com/p/go-wiki/wiki/PackageManagementTools">go-wiki</a>.</p>
+
+    <h2 id="">Интерфейсы</h2>
+
+    <p>Интерфейс – это такой тип, который определяет описание, но не содержит реализации:</p>
+
+    <pre><code class="language-go">type Logger interface {
+  Log(message string)
+}
+</code></pre>
+
+    <p>Вам может показаться непонятным то, для каких целей их можно применить. Интерфейсы помогают разделять ваш код в зависимости от реализации. Например, мы можете иметь несколько разных типов, используемых для логирования:</p>
+
+    <pre><code class="language-go">type SqlLogger struct { ... }
+type ConsoleLogger struct { ... }
+type FileLogger struct { ... }
+</code></pre>
+
+    <p>При программировании с помощью интерфейсов вместо их конкретных реализаций, вы можете легко изменять (и тестировать) разные варианты без внесения изменений в ваш код.</p>
+
+    <p>Как можно использовать интерфейс? Так же как и любой другой тип, он может быть полем в структуре:</p>
+
+    <pre><code class="language-go">type Server struct {
+  logger Logger
+}
+</code></pre>
+
+    <p>или параметром функции (или возвращаемым значением):</p>
+
+    <pre><code class="language-go">func process(logger Logger) {
+  logger.Log("hello!")
+}
+</code></pre>
+
+    <p>В таких языках как C# или Java мы должны явно указывать, что класс реализует интерфейс:</p>
+
+    <pre><code class="language-c#">public class ConsoleLogger : Logger {
+  public void Logger(message string) {
+    Console.WriteLine(message)
+  }
+}
+</code></pre>
+
+    <p>В Go это происходит неявно. Если ваша структура имеет функцию с именем <code>Log</code> принимающую параметр <code>string</code> и не возвращающую значений, то она может быть использована как <code>Logger</code>. Это избавляет от подробного описания при использовании интерфейсов:</p>
+
+    <pre><code class="language-go">type ConsoleLogger struct {}
+func (l ConsoleLogger) Log(message string) {
+  fmt.Println(message)
+}
+</code></pre>
+
+    <p>Также существует тенденция к использованию небольших и целенаправленных интерфейсов. Интерфейсов полно в стандартной библиотеке. Пакет <code>io</code> содержит целую кучу реализаций <code>io.Reader</code>, <code>io.Writer</code>, и <code>io.Closer</code>. Если вы пишете функцию, которая ожидает параметр с методом, который вы назвали <code>Close()</code>, то в качестве типа параметра лучше использовать <code>io.Closer</code> вместо вашего конкретного типа.</p>
+
+    <p>Интерфейсы могут использовать композицию. И интерфейсы сами по себе могут состоять из интерфейсов. Например, интерфейс <code>io.ReadCloser</code> состоит из <code>io.Reader</code> и <code>io.Closer</code>.</p>
+
+    <p>Наконец, интерфейсы обычно используются для предотвращения циклических импортов. Так как они не содержат реализации, они не будут иметь лишних зависимостей.</p>
+
+    <h2 id="">Перед тем как продолжить</h2>
+
+    <p>В конечном счете то, как структурировать ваш Go код в рабочем пространстве, вы поймёте после того, как напишете пару нетривиальных проектов. Главное запомнить, что существует тесная связь между именами пакетов и структурой директорий (не только в самом проекте, но и во всём рабочем пространстве). </p>
+
+    <p>Путь Go в определении областей видимости очень прост и эффективен. Он просто согласован. Несколько вещей мы не рассмотрели, таких как константы и глобальные переменные, но будьте уверены, их видимость определяется по тому же правилу.</p>
+
+    <p>И, наконец, если вы новичок в использовании интерфейсов, вам может понадобиться некоторое время, чтобы получить какое-то представление о них. Тем не менее, когда вы впервые увидите, что функция ожидает какой-то параметр вроде <code>io.Reader</code>, мысленно поблагодарите её автора за то, что он не требует передавать ему больше чем, нужно.</p>
+
+
+</div>
+</body>
+</html>
