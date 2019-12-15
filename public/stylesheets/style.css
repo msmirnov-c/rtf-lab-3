@@ -12,6 +12,7 @@ body, html {
 }
 
 body {
+  display: block;
   background-color: #fafafa;
   font-family: Trebuchet MS, Helvetica;
 }
@@ -180,8 +181,15 @@ header.fixed #logo {
 	background-color: #eee;
   padding: 10px 20%;
   width:60%;
-  text-align: left; 
+  text-align: justify;
 }
+
+
+.videoobject{
+	height: 100%;
+	background-color: #eee;
+}
+
 
 
 @media (max-width: 320px) {
@@ -190,8 +198,8 @@ header.fixed #logo {
   	background-color: #eee;
    padding: 10px 20%;
     width:60%;
-    text-align: left;
-    font-size: 0,9em
+    text-align: justify;
+    font-size: 0,9em;
   }
 }
 
@@ -200,15 +208,15 @@ header.fixed #logo {
     height: 100%;
 	  background-color: #eee;
     padding: 10px 20%;
-   width:60%;
-    text-align: left;
+    width:60%;
+    text-align: justify;
   }
 }
 
 
 /*-----------------------*/
 
-/* Блок с возможностями */
+/* Блок с планетами */
 
 #main {
   padding: 50px 30%;
@@ -217,13 +225,6 @@ header.fixed #logo {
   text-align: center;
   color: #484848;
 }
-
-
-
-
-
-
-
 
 .scale {
   transition: 1s; /* Время эффекта */
@@ -259,6 +260,7 @@ header.fixed #logo {
 }
 
 @media (max-width: 1400px) {
+  #main h2{ font-size: 2em;}
   #main {
     padding: 50px 10%;
     width: 80%;
@@ -278,7 +280,21 @@ header.fixed #logo {
   margin-top: 10px;
 }
 
+
+.container {
+  width: 100%;
+  padding-bottom: 40px;
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: 50% 50% ;
+  grid-template-rows:  100% 100%;
+}
+
+
 #overview h2 {font-size: 4em}
+
+
+
 
 /* Блок с преимуществами */
 
@@ -351,6 +367,8 @@ header.fixed #logo {
   padding-top: 70px;
   border-top: 4px solid #ccc;
   background: #f4f4f4;
+  text-align: center;
+  
 }
 
 h1, h2, h3, h4, h5 {
@@ -358,8 +376,9 @@ h1, h2, h3, h4, h5 {
   font-weight: lighter;
 }
 
-#contacts h5 {font-size: 3em; color: #4f4f4f}
+#contacts h5 {font-size: 3em; color: #4f4f4f; margin-bottom: 10px;}
 
+/*
 #form_input {
   font-size: 1.1em;
 }
@@ -403,21 +422,95 @@ h1, h2, h3, h4, h5 {
   width: 100%;
   border: 2px solid silver;
   font-size: 1.2em;
-  color: #ffffff;
+  color: #505050;
   font-family: 'Roboto Slab', serif;
   font-size: 1.2em;
   border-radius: 7px;
 }
 
+
 #form_input input:focus, #form_input textarea:focus {
   border-color: #333;
+}
+*/
+/*=================================================*/
+
+
+@media (min-width: 1051px) {
+  .form {
+    width: 35%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1050px) {
+  .form {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 450px) {
+  #contacts h5{
+    font-size: 2em;
+  }
+  .form {
+    width: 90%;
+    
+  }
 }
 
 
 
+.form {
+  display: inline-block;
+}
+
+.form__field {
+  margin-bottom: 10px;
+}
+
+.form__error {
+  color: red;
+  text-align: left;
+  font-size: 12px;
+  display: block;
+  margin-top: 3px;
+  display: none;
+}
+
+.form input, .form textarea{
+  margin-bottom: 10px;
+  width: 90%;
+  border: 2px solid silver;
+  font-size: 1.2em;
+  color: #505050;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2em;
+  border-radius: 7px;
+}
+
+
+
+input:valid:not(:placeholder-shown) {
+  border-color: green;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+input:invalid:not(:placeholder-shown) + .form__error {
+  display: block;
+}
+
+/*=================================================*/
+
+
+
+
 .btn {
-  float: left;
-  border-radius: 5px;
+  width: 90%;
+  border-radius: 7px;
   padding: 5px 9px;
   font-size: 1.2em;
   background-color: #6c28da;
