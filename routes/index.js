@@ -4,7 +4,5 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/auth/:id', authUser);
-
 router.post('/post/example', postExample)
-
 module.exports = router;

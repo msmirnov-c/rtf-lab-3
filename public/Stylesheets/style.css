@@ -1,0 +1,15 @@
+body {
+    padding: 55px;
+    font: 15px "Lucida Grande", Arial, Tahoma, sans-serif;
+    background: #000 url(../Images/Ang.jpg);
+}
+
+#menu{
+    display: flex;
+    height: column;
+    left: 5em;
+    line-height: flex;
+    margin: 0;
+    padding: 0;
+    top: 0;
+}
