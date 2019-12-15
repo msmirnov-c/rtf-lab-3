@@ -49,18 +49,40 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .main {
-    display: flex;
-    margin: 10px;
-    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
 
 .img {
-    float: left;
-    display: flex;
-    align-items: center;
     margin: 10px;
 }
 
 .text {
     margin: 10px;
+}
+
+.window {
+    margin: 10px auto;
+    width: 300px;
+    text-align: center;
+}
+
+.btn_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    color: black;
+    transition: color .1s linear;
+    text-decoration: none;
+}
+
+.btn:hover {
+    color: gray;
+}
+
+.inp {
+    width: 100%;
 }
