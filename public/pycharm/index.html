@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link nav-link-active" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+    <h1>PyCharm</h1>
+    <p>В прошлой теме было описано создание простейшего скрипта на языке Python. Для создания скрипта использовался текстовый редактор. В моем случае это был
+        Notepad++. Но есть и другой способ создания программ, который представляет использование различных интегрированных сред разработки или IDE.</p>
+    <p>IDE предоставляют нам текстовый редактор для набора кода, но в отличие от стандартных текстовых редакторов, IDE также обеспечивает
+        полноценную подсветку синтаксиса, автодополнение или интеллектуальную подсказку кода, возможность тут же выполнить созданный скрипт, а также многое другое.</p>
+    <p>Для Python можно использовать различные среды разработки, но одной из самых популярных из них является среда <span class="b">PyCharm</span>, созданная
+        компанией JetBrains. Эта среда динамично развивается, постоянно обновляется и доступна для наиболее распространенных операционных систем - Windows, MacOS, Linux.</p>
+    <p>Правда, она имеет одно важное ограничение. А именно она доступна в двух основных вариантах: платный выпуск Professional и бесплатный Community.
+        Многие базовые возможности доступны и в бесплатном выпуске Community. В то же время ряд возможностей, например, веб-разработка, доступны только в платном Professional.</p>
+    <p>В нашем случае воспользуемся бесплатным выпуском Community. Для этого перейдем на
+        <a href="https://www.jetbrains.com/pycharm/download/#section=windows" rel="nofollow">страницу загрузки</a> и загрузим установочный файл PyCharm Community.
+        После загрузки выполним его установку.</p>
+    <p>После завершения установки запустим программу. При первом запуске открывается начальное окно:</p>
+    <img src="../images/pycharm1.png" class="kortinki" alt="Установка PyCharm" />
+    <p>Создадим проект и для этого выберем пункт <span class="b">Create New Project</span>.</p>
+    <p>Далее нам откроется окно для настройки проекта. В поле Location необходимо указать путь к проекту. В моем случае проект будет помещаться в папку HelloApp. Собственно название папки и будет названием проекта.</p>
+    <img src="../images/pycharm2.png" class="kortinki" alt="Настройка проекта в PyCharm" />
+    <p>Следует отметить, что PyCharm позволяет разграничить настройки проектов. Так, по умолчанию выбрано поле <span class="b">New Environment Using</span>, что позволяет установить
+        версию интерпретатора для конкретного проекта. Затем все устанавливаемые дополнительные пакеты будут касаться только текущего проекта. Это удобно, если мы создаем несколько проектов, но каждый из которых рабоает с какой-то специфической версией
+        интерпретатора. Но в качестве альтернативы мы также можем выбрать поле <span class="b">Existing Interpreter</span> и задать путь к файлу интерпретатора глобально для всех проектов.</p>
+    <p>В реальности для первого простейшего приложения на PyCharm не имеет значения, как будет установлен интерпертатор. Однако данном же случае
+        оставим выбранный по умолчанию флажок <span class="b">New Environment Using</span> и под ним в поле <span class="b">Base Interpreter</span> укажем путь к файлу интерпретатора, установка которого рассматривалась в первой теме.</p>
+    <p>И после установки всех путей нажмем на кнопку Create для создания проекта.</p>
+    <p>После этого будет создан пустой проект:</p>
+    <img src="../images/pycharm3.png" class="kortinki" alt="Первый проект в PyCharm" />
+    <p>Теперь создадим простейшую программу. Для этого нажмем на название проекта правой кнопкой мыши и в появившемся контекстном меню выберем
+        <span class="b">New -&gt; Python File</span>.</p>
+    <img src="../images/pycharm4.png" class="kortinki" alt="Добавление скрипта Python в PyCharm" />
+    <p>Затем откроется окно, в котором надо будет указать название файла. Пусть файл называется <span class="b">hello</span>:</p>
+    <img src="../images/pycharm5.png" style="width:400px;" class="kortinki" />
+    <p>В созданный файл введем следующие строки:</p>
+    <pre class="brush:py;">
+name = input("Введите ваше имя: ")
+print("Привет,", name)
+</pre>
+    <p>Для запуска скрипта нажмем на него правой кнопкой мыши и в контекстном меню выберем <span class="b">Run 'hello'</span> (либо перейдем в меню
+        <span class="b">Run</span> и там нажмем на подпункт <span class="b">Run...</span>):</p>
+    <img src="../images/pycharm6.png" class="kortinki" alt="Запуск программы в PyCharm" />
+    <p>После этого внизу IDE отобразится окно вывода, где надо будет ввести имя и где после этого будет выведено приветствие:</p>
+    <img src="../images/pycharm7.png" class="kortinki" alt="Запуск программы Python в PyCharm" />
+</div>
+</body>
+</html>

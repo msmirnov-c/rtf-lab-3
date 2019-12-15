@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item active" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Условные выражения</h1>
+    <p>Ряд операций представляют условные выражения. Все эти операции принимают два операнда и возвращают логическое значение, которое в Python представляет тип <span class="b">boolean</span>.
+        Существует только два логических значения - <span class="b">True</span> (выражение истинно) и <span class="b">False</span> (выражение ложно).</p>
+    <h3>Операции сравнения</h3>
+    <p>Простейшие условные выражения представляют операции сравнения, которые сравнивают два значения. Python поддерживает следующие операции сравнения:</p>
+    <ul>
+        <li>
+            <p><span class="b">==</span></p>
+            <p>Возвращает True, если оба операнда равны. Иначе возвращает False.</p>
+        </li>
+        <li>
+            <p><span class="b">!=</span></p>
+            <p>Возвращает True, если оба операнда НЕ равны. Иначе возвращает False.</p>
+        </li>
+        <li>
+            <p><span class="b">&gt;</span> (больше чем)</p>
+            <p>Возвращает True, если первый операнд больше второго.</p>
+        </li>
+        <li>
+            <p><span class="b">&lt;</span> (меньше чем)</p>
+            <p>Возвращает True, если первый операнд меньше второго.</p>
+        </li>
+        <li>
+            <p><span class="b">&gt;=</span> (больше или равно)</p>
+            <p>Возвращает True, если первый операнд больше или равен второму.</p>
+        </li>
+        <li>
+            <p><span class="b">&lt;=</span> (меньше или равно)</p>
+            <p>Возвращает True, если первый операнд меньше или равен второму.</p>
+        </li>
+    </ul>
+    <p>Примеры операций сравнения:</p>
+    <pre class="brush:py;">
+a = 5
+b = 6
+result = 5 == 6  # сохраняем результат операции в переменную
+print(result)  # False - 5 не равно 6
+print(a != b)  # True
+print(a &gt; b)  # False - 5 меньше 6
+print(a &lt; b)  # True
+
+bool1 = True
+bool2 = False
+print(bool1 == bool2)  # False - bool1 не равно bool2
+</pre>
+    <p>Операции сравнения могут сравнивать различные объекты - строки, числа, логические значения, однако оба операнда операции должны представлять один и тот же тип.</p>
+    <h3>Логические операции</h3>
+    <p>Для создания составных условных выражений применяются логические операции. В Python имеются следующие логические операторы:</p>
+    <ul>
+        <li><p><span class="b">and</span> (логическое умножение)</p>
+            <p>Возвращает True, если оба выражения равны True</p>
+            <pre class="brush:py;">
+age = 22
+weight = 58
+result = age &gt; 21 and weight == 58
+print(result)  # True
+</pre>
+            <p>В данном случае оператор and сравнивает результаты двух выражений: <code>age &gt; 21</code> <code>weight == 58</code>. И если оба этих выражений
+                возвращают True, то оператор and также возвращает True. Причем в качестве одно из выражений необязательно выступает операция сравнения: это может быть другая логическая операция
+                или просто переменная типа boolean, которая хранит True или False.</p>
+            <pre class="brush:py;">
+age = 22
+weight = 58
+isMarried = False
+result = age &gt; 21 and weight == 58 and isMarried
+print(result)  # False, так как isMarried = False
+</pre>
+        </li>
+        <li><p><span class="b">or</span> (логическое сложение)</p>
+            <p>Возвращает True, если хотя бы одно из выражений равно True</p>
+            <pre class="brush:py;">
+age = 22
+isMarried = False
+result = age &gt; 21 or isMarried
+print(result)  # True, так как выражение age &gt; 21 равно True
+</pre>
+        </li>
+        <li><p><span class="b">not</span> (логическое отрицание)</p>
+            <p>Возвращает True, если выражение равно False</p>
+            <pre class="brush:py;">
+age = 22
+isMarried = False
+print(not age &gt; 21)  # False
+print(not isMarried)  # True
+</pre>
+        </li>
+    </ul>
+    <p>Если один из операндов оператора <span class="b">and</span> возвращает False, то другой операнд уже не оценивается, так как оператор в любом случае возвратит Flase.
+        Подобное поведение позволяет немного увеличить производительность, так как не приходится тратить ресурсы на оценку второго операнда.</p>
+    <p>Аналогично если один из операндов оператора <span class="b">or</span> возвращает True, то второй операнд не оценивается, так как оператор в любом случае возвратит True.</p>
+    <p>Если в одном выражении одновременно используется несколько или даже все логические операторы, то следует учитывать, что они имеют разные приоритеты.
+        Вначале выполняется оператор <span class="b">not</span>, затем оператор <span class="b">and</span>, а в конце оператор <span class="b">or</span>:</p>
+    <pre class="brush:py;">
+age = 22
+isMarried = False
+weight = 58
+result = weight == 58 or isMarried and not age &gt; 21  # True
+print(result)
+</pre>
+    <p>Здесь будет следующий ход вычислений:</p>
+    <ol>
+        <li><p>not age &gt; 21 равно False</p></li>
+        <li><p>isMarried and False (not age &gt; 21) равно False</p></li>
+        <li><p>weight == 58 or False (isMarried and not age &gt; 21) равно True</p></li>
+    </ol>
+    <p>Для переопределения порядка вычислений мы можем использовать скобки:</p>
+    <pre class="brush:py;">
+age = 22
+isMarried = False
+weight = 58
+result = (weight == 58 or isMarried) and not age &gt; 21  # False
+print(result)
+</pre>
+    <p>В отличие от первого случая здесь результатом будет значение False.</p>
+</div>
+</body>
+</html>

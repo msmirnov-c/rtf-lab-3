@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
+</head>
+<body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="../../logo.png" style="height: 70px; "></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button nav-link-active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item active" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+<div class="content">
+<h1>Область видимости переменных</h1>
+    <p>Область видимости или scope определяет контекст переменной, в рамках которого ее можно использовать. В Python есть два типа контекста: глобальный и локальный.</p>
+    <p>Глобальный контекст подразумевает, что переменная является глобальной, она определена вне любой из функций и доступна любой функции в программе. Например:</p>
+    <pre class="brush:py;">
+name = "Tom"
+
+
+def say_hi():
+    print("Hello", name)
+
+
+def say_bye():
+    print("Good bye", name)
+
+say_hi()
+say_bye()
+</pre>
+    <p>Здесь переменная name является глобальной и имеет глобальную область видимости. И обе определенные здесь функции могут свободно ее использовать.</p>
+    <p>В отличие от глобальных переменных локальная переменная определяется внутри функции и доступна только из этой функции, то есть имеет локальную область видимости:</p>
+    <pre class="brush:py;">
+def say_hi():
+    name = "Sam"
+    surname = "Johnson"
+    print("Hello", name, surname)
+
+
+def say_bye():
+    name = "Tom"
+    print("Good bye", name)
+
+say_hi()
+say_bye()
+</pre>
+    <p>В данном случае в каждой из двух функций определяется локальная переменная name. И хотя эти переменные называются одинаково, но тем не менее
+        это дву разных переменных, каждая из которых доступна только в рамках своей функции. Также в функции say_hi определена переменная surname, которая также является локальной,
+        поэтому в функции say_bye мы ее использовать не сможем.</p>
+    <p>Есть еще один вариант определения переменной, когда локальная переменная скрывают глобальную с тем же именем:</p>
+    <pre class="brush:py;">
+name = "Tom"
+
+
+def say_hi():
+    print("Hello", name)
+
+
+def say_bye():
+    name = "Bob"
+    print("Good bye", name)
+
+say_hi()  # Hello Tom
+say_bye()  # Good bye Bob
+</pre>
+    <p>Здесь определена глобальная переменная name. Однако в функции say_bye определена локальная переменная с тем же именем name. И если функция say_hi использует
+        глобальную переменную, то функция say_bye использует локальную переменную, которая скрывает глобальную.</p>
+    <p>Если же мы хотим изменить в локальной функции глобальную переменную, а не определить локальную, то необходимо использовать ключевое слово
+        <span class="b">global</span>:</p>
+    <pre class="brush:py;">
+def say_bye():
+	global name
+    name = "Bob"
+    print("Good bye", name)
+</pre>
+    <p>В Python, как и во многих других языках программирования, не рекомендуется использовать глобальные переменные. Единственной
+        допустимой практикой является определение небольшого числа глобальных констант, которые не изменяются в процессе работы программы.</p>
+    <pre class="brush:py;">
+PI = 3.14
+
+
+# вычисление площади круга
+def get_circle_square(radius):
+
+    print("Площадь круга с радиусом", radius, "равна", PI * radius * radius)
+
+get_circle_square(50)
+</pre>
+    <p>В данном случае число 3.14 представлено константой PI. Понятно, что это значение в принципе не изменится, поэтому его можно вынести из функций и определить в виде
+        константы. Как правило, имя константы определяется заглавными буквами.</p>
+</div>
+</body>
+</html>

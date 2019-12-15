@@ -1,14 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
+    <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <title>Введение в Python</title>
 </head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+<div id="navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/"><img src="logo.png" style="height: 70px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-active-button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы Python
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/article/1">Введение в написание программ</a>
+                    <a class="dropdown-item" href="/article/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/article/3">Операции с числами</a>
+                    <a class="dropdown-item" href="/article/4">Условные выражения</a>
+                    <a class="dropdown-item" href="/article/5">Операции со строками</a>
+                    <a class="dropdown-item" href="/article/6">Условная конструкция if</a>
+                    <a class="dropdown-item" href="/article/7">Циклы</a>
+                    <a class="dropdown-item" href="/article/8">Функции</a>
+                    <a class="dropdown-item" href="/article/9">Область видимости переменных</a>
+                    <a class="dropdown-item" href="/article/10">Модули</a>
+                    <a class="dropdown-item" href="/article/11">Обработка исключений</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/begin">Первая программа</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="/pycharm">PyCharm</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <a class="navbar-brand" href="/"><img src="images/elka.gif" style="width: 55px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+</div>
+<div class="content">
+    <h1>Язык программирования Python</h1>
+    <p>Python представляет популярный высокоуровневый язык программирования, который предназначен для создания приложений различных типов.
+        Это и веб-приложения, и игры, и настольные программы, и работа с базами данных.
+        Довольно большое распространение питон получил в области машинного обучения и исследований искусственного интеллекта.</p>
+    <p>Впервые язык Python был анонсирован в 1991 году голландским разработчиком Гвидо Ван Россумом. С тех пор данный язык проделал большой путь развития. В 2000 году была
+        издана версия 2.0, а в 2008 году - версия 3.0. Несмотря на вроде такие большие промежутки между версиями постоянно выходят подверсии. Так, текущей
+        актуальной версией на момент написания данного материала является <span class="b">3.7</span>. Более подробную информацию о всех релизах, версиях
+        и изменения языка, а также собственно интерпретаторы и необходимые утилиты для работы и прочую полезную информацию можно найти на официальном сайте <a href="https://www.python.org/" rel="nofollow">https://www.python.org/</a>.</p>
+    <p>Основные особенности языка программирования Python:</p>
+    <ul>
+        <li><p>Скриптовый язык. Код программ определяется в виде скриптов.</p></li>
+        <li><p>Поддержка самых различных парадигм программирования, в том числе объектно-ориентированной и функциональной парадигм.</p></li>
+        <li><p>Интерпретация программ. Для работы со скриптами необходим интерпретатор, который запускает и выполняет скрипт.</p>
+            <p>Выполнение программы на Python выглядит следующим образом. Сначала мы пишим в текстовом редакторе скрипт с набором выражений на данном языке программирования. Передаем этот скрипт
+                на выполнение интерпретатору. Интерпретатор транслирует код в промежуточный байткод, а затем виртуальная машина переводит полученный байткод в набор инструкций, которые выполняются операционной системой.</p>
+            <p>Здесь стоит отметить, что хотя формально трансляция интерпретатором исходного кода в байткод и перевод байткода виртуальной машиной в набор машинных команд представляют
+                два разных процесса, но фактически они объединены в самом интерпретаторе.</p>
+            <img src="images/1.1.png" class="kortinki" alt="Выполнение программы на Python" />
+        </li>
+        <li><p>Портативность и платформонезависимость. Не имеет значения, какая у нас операционная система - Windows, Mac OS, Linux, нам достаточно написать скрипт, который будет запускаться на всех этих ОС
+            при наличии интерпретатора</p></li>
+        <li><p>Автоматическое управление памяти</p></li>
+        <li><p>Динамическая типизация</p></li>
+    </ul>
+    <p>Python - очень простой язык программирования, он имеет лаконичный и в то же время довольно простой и понятный синтаксис. Соответственно его
+        легко изучать, и собственно это одна из причин, по которой он является одним из самых популярных языков программирования именно для обучения. В частности, в 2014 году он был
+        признан самым популярным языком программирования для обучения в США.</p>
+    <p>Python также популярен не только в сфере обучения, но в написании конкретных программ в том числе коммерческого характера. В немалой степени
+        поэтому для этого языка написано множество библиотек, которые мы можем использовать.</p>
+    <p>Кроме того, у данного языка программирования очень большое коммьюнити, в интернете можно найти по данному языку множество полезных материалов, примеров, получить
+        квалифицированную помощь специалистов.</p>
+    <h3>Установка Python</h3>
+    <p>Для создания программ на Python нам потребуется интерпретатор. Для его установки перейдем на сайт
+        <a href="https://www.python.org/" rel="nofollow">https://www.python.org/</a> и на главной станице в секции Downloads найдем ссылку на загрузку последней версии языка (на данный момент это 3.7.2):</p>
+    <img src="images/1.2.png" class="kortinki" alt="Установка Python" />
+    <p>Перейдем по ссылке к странице с описанием последней версии языка. Ближе к низу на ней можно найти список дистрибутивов для разных операционных систем. Выберем
+        нужный нам пакет и загрузим его. Например, в моем случае это ОС Windows 64-х разрядная, поэтому я выбираю ссылку на пакет
+        <span class="b">Windows x86-64 executable installer</span>. После загрузки дистрибутива установим его.</p>
+    <img src="images/1.3.png" class="kortinki" alt="Установщик Python" />
+    <p>Соответственно для MacOS можно выбрать пункт <span class="b">macOS 64-bit installer</span>.</p>
+    <p>На ОС Windows при запуске инсталлятора запускает окно мастера установки:</p>
+    <img src="images/1.4.png" class="kortinki" alt="Установка дистрибутива Python 3.7.2 на Windows" />
+    <p>Здесь мы можем задать путь, по которому будет устанавливаться интерпретатор. Оставим его по умолчанию, то есть
+        <span class="ii">C:\Users\[имя_пользователя]\AppData\Local\Programs\Python\Python36\</span>.</p>
+    <p>Кроме того, в самом низу отметим флажок "Add Python 3.6 to PATH", чтобы добавить путь к интерпретатору в переменные среды.</p>
+    <p>После установки в меню Пуск на ОС Windows мы сможем найти иконки для доступа к разным утилитам питона:</p>
+    <img src="images/1.5.png" style="width:320px;" class="kortinki" alt="Запуск Python 3.7.2 на Windows" />
+    <p>Здесь утилита <span class="b">Python 3.7 (64-bit)</span> представляет интерпретатор, в котором мы можем запустить скрипт. В файловой системе сам файл интерпретатора можно найти по пути,
+        по которому производилась установка. На Windows по умолчанию это путь <span class="ii">C:\Users\[имя_пользователя]\AppData\Local\Programs\Python\Python37</span>, а сам интерпретатор представляет
+        файл <span class="b">python.exe</span>. На ОС Linux установка производится по пути <span class="ii">/usr/local/bin/python3.7</span>.</p>
+</div>
+</body>
 </html>
