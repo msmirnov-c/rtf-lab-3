@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9c6859d-f04f-4419-ae9f-bc9d2391e8ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/auth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/reg.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/stylesheets/reg.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/ancient - копия.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/hmmm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/shto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error.jade" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.jade" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.jade" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +46,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="auth.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/rtf-lab-3/views/auth.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.auth.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -67,7 +73,7 @@
       <workItem from="1576263459231" duration="7682000" />
       <workItem from="1576322203341" duration="6322000" />
       <workItem from="1576335067731" duration="14125000" />
-      <workItem from="1576416634423" duration="17976000" />
+      <workItem from="1576416634423" duration="20114000" />
     </task>
     <servers />
   </component>
