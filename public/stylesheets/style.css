@@ -103,6 +103,11 @@ header.fixed #logo {
 
 /* Главный блок на сайте */
 
+#enter {
+  width: 100%;
+}
+
+
 #top {
   width: 100%;
   background-image: url(https://storge.pic2.me/upload/774/54a415fea29da.jpg);
@@ -147,6 +152,10 @@ header.fixed #logo {
 
 #top h3 {
   color: #ccc;
+}
+
+#top span {
+  font-size: 0.9em;
 }
 
 /*-----------------------*/
@@ -378,61 +387,6 @@ h1, h2, h3, h4, h5 {
 
 #contacts h5 {font-size: 3em; color: #4f4f4f; margin-bottom: 10px;}
 
-/*
-#form_input {
-  font-size: 1.1em;
-}
-
-@media (min-width: 1051px) {
-  #form_input {
-    width: 35%;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 1050px) {
-  #form_input {
-    width: 50%;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 450px) {
-  #form_input {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-#form_input label {
-  color: #505050;
-  cursor: pointer;
-  font-size: 1.4em;
-  font-family: 'Roboto Slab', serif;
-}
-
-#form_input label > span {
-  color: #e87e7e;
-}
-
-
-
-#form_input input,#form_input textarea {
-  margin-bottom: 10px;
-  width: 100%;
-  border: 2px solid silver;
-  font-size: 1.2em;
-  color: #505050;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.2em;
-  border-radius: 7px;
-}
-
-
-#form_input input:focus, #form_input textarea:focus {
-  border-color: #333;
-}
-*/
 /*=================================================*/
 
 
@@ -463,7 +417,7 @@ h1, h2, h3, h4, h5 {
 
 
 .form {
-  display: inline-block;
+  margin: 0 auto;
 }
 
 .form__field {
@@ -481,7 +435,7 @@ h1, h2, h3, h4, h5 {
 
 .form input, .form textarea{
   margin-bottom: 10px;
-  width: 90%;
+  width: 100%;
   border: 2px solid silver;
   font-size: 1.2em;
   color: #505050;
@@ -509,7 +463,7 @@ input:invalid:not(:placeholder-shown) + .form__error {
 
 
 .btn {
-  width: 90%;
+  width: 100%;
   border-radius: 7px;
   padding: 5px 9px;
   font-size: 1.2em;

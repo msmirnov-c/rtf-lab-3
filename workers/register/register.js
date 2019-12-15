@@ -24,19 +24,18 @@ function register(req, res, next) {
      let content ={
       Username: name,
       email: email,
-      hash: passwordToSave,
-      salt: salt
+      hash: passwordToSave
       };
       
      //const content = new Array(name, email, passwordToSave, salt);
-     fs.writeFile("file.txt", JSON.stringify(content), function(error){
+     fs.appendFile("file.txt", JSON.stringify(content)+'\n', function(error){
      if(error) throw error; // если возникла ошибка
      console.log("Асинхронная запись файла завершена. Содержимое файла:");
      let data = fs.readFileSync("file.txt", "utf8");
    
      console.log(data);
 
-
+   
      return res.json({Success: true});
      
     });

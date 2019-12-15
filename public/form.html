@@ -7,33 +7,36 @@
   <title>сайт</title>
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  
-  <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-
-
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
 
 <body>
-  <div class = "contacts">
-    <center><h5>Регистрация</h5></center>
-    <form  class="form" method="POST" action="api/register">
-      <div class="form__field">
-          <input type="text" name="name" placeholder="Имя*" required />
-      </div>
-      <div class="form__field">
-          <input type="email" name="email" placeholder="E-Mail" />
-          <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span>
-      </div>
-      <div class="form__field">
-          <input type="password" name="password" placeholder="Ваш пароль" />
-          <span class="form__error">Ваш рост должен быть не меньше 100 и не больше 250 см</span>
-      </div>
-      <button type="submit" class = "btn" >Отправить</button>
-    </form>    
-  </div>   
+    <header>
+        <div id="logo">
+          <span>COSMOAPP</span>
+        </div>
+        <div id="about">
+          <a href="register" title="Регистрация"> Регистрация</a>
+          <a href="authorisation" title="Авторизация"> Авторизация</a>
+          <a href="/" title="Назад"> Назад</a>
+        </div>
+    </header>
+    
+    <div id="top">
+        <center><h1>Вход</h1></center>
+
+        <form  class="form" method="POST" action="api/register">
+          <div class="form__field">
+              <input type="text" name="name" placeholder="Имя*" required />
+          </div>
+          <div class="form__field">
+              <input type="email" name="email" placeholder="E-Mail" />
+              <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span>
+          </div>
+          <div class="form__field">
+              <input type="password" name="password" placeholder="Ваш пароль" />
+              <span class="form__error">Ваш рост должен быть не меньше 100 и не больше 250 см</span>
+          </div>
+          <button type="submit" class = "btn" >Отправить</button>
+        </form> 
+    </div>    
 </body>

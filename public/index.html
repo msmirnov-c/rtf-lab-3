@@ -51,25 +51,6 @@
 
 
   <div id="top">
-      <div class="overlay_popup"></div>
-      <div class="popup" id="auth">
-          <div class="object">
-              <form  class="form" method="POST" action="api/register">
-                <div class="form__field">
-                    <input type="text" name="name" placeholder="Имя*" required />
-                </div>
-                <div class="form__field">
-                    <input type="email" name="email" placeholder="E-Mail" />
-                    <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span>
-                </div>
-                <div class="form__field">
-                    <input type="password" name="password" placeholder="Ваш пароль" />
-                    <span class="form__error">Ваш рост должен быть не меньше 100 и не больше 250 см</span>
-                </div>
-                <button type="submit" class = "btn" >Отправить</button>
-              </form>
-          </div>
-        </div>
     <h1>Космос!</h1>
     <h3>не такой далёкий как кажется</h3>
   </div>
@@ -221,37 +202,6 @@
   </div>
 
 
-  
-
-
-  <div id="contacts">
-    <center><h5>Присоединяйся в команду!</h5></center>
-    <form  class="form" method="POST" action="api/register">
-      <div class="form__field">
-          <input type="text" name="name" placeholder="Имя*" required />
-      </div>
-      <div class="form__field">
-          <input type="email" name="email" placeholder="E-Mail" />
-          <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span>
-      </div>
-      <div class="form__field">
-          <input type="password" name="password" placeholder="Ваш пароль" />
-          <span class="form__error">Ваш рост должен быть не меньше 100 и не больше 250 см</span>
-      </div>
-      <button type="submit" class = "btn" >Отправить</button>
-    </form>
-
-
-
-
-
-
-
-
-
-
-  </div>
-
 
   <div id="faq">
     <div>
@@ -283,17 +233,6 @@
         $('.overlay_popup, .popup').hide(); // Скрываем затемнённый задний фон и основное всплывающее окно
     })
   </script>
-
-<script>
-    var player;
-    function onYouTubePlayerAPIReady() {
-    player = new YT.Player('player');
-    }
-
-    $('#stop').click(function(){
-    player.stopVideo()
-    })
-</script>
 
 
   <footer>

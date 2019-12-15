@@ -6,16 +6,16 @@ var logger = require('morgan');
 const bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/authRouter');
-//const bcrypt = require( 'bcryptjs' );
+
 var app = express();
 
 
-//app.listen(3000)
+
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-//app.use(bcrypt);
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
