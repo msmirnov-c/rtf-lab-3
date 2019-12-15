@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.bundle.js"></script>
+    <title>Сайт о Go: Глава 5</title>
+</head>
+<body>
+<div id="navbar-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/215px-Go_Logo_Blue.svg.png" style="width: 80px; margin-left: 10px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Главы
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/article/1">Глава 1: Основы</a>
+                        <a class="dropdown-item" href="/article/2">Глава 2: Структуры</a>
+                        <a class="dropdown-item" href="/article/3">Глава 3: Массивы, карты и срезы</a>
+                        <a class="dropdown-item" href="/article/4">Глава 4: Организация кода и интерфейсы</a>
+                        <a class="dropdown-item" href="/article/5">Глава 5: Лакомые кусочки</a>
+                        <a class="dropdown-item" href="/article/6">Глава 6: Конкурентность</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">О сайте</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login.html">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register.html">Регистрация</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+<div class="content">
+    <h1 class="post-title">Глава 5: Лакомые кусочки</h1>
+
+    <p>В этой главе мы поговорим о возможностях Go, которые не вписываются в остальные разделы.</p>
+
+    <h2 id="">Обработка ошибок</h2>
+
+    <p>Предпочтительным способом обработки ошибок в Go является возвращение значений вместо исключений. Взглянем на функцию <code>strconv.Atoi</code>, которая принимает строку и пытается конвертировать её в целое число:</p>
+
+    <pre><code class="language-go">package main
+
+import (
+  "fmt"
+  "os"
+  "strconv"
+)
+
+func main() {
+  if len(os.Args) != 2 {
+    os.Exit(1)
+  }
+
+  n, err := strconv.Atoi(os.Args[1])
+  if err != nil {
+    fmt.Println("не является числом")
+  } else {
+    fmt.Println(n)
+  }
+}
+</code></pre>
+
+    <p>Вы можете создать свой тип ошибок. Единственное требование, которое необходимо выполнить, это реализовать встроенный интерфейс <code>error</code>:</p>
+
+    <pre><code class="language-go">type error interface {
+  Error() string
+}
+</code></pre>
+
+    <p>Также мы можем создать свою ошибку с помощью импорта пакета <code>errors</code> и вызова функции <code>New</code>:</p>
+
+    <pre><code class="language-go">import (
+  "errors"
+)
+
+
+func process(count int) error {
+  if count &lt; 1 {
+    return errors.New("Invalid count")
+  }
+  ...
+  return nil
+}
+</code></pre>
+
+    <p>Это общепринятый способ использования переменных ошибок в стандартной библиотеке Go. Например, в пакете <code>io</code> есть переменная <code>EOL</code>, которая определяется так:</p>
+
+    <pre><code class="language-go">var EOF = errors.New("EOF")
+</code></pre>
+
+    <p>Это переменная пакета  (определённая вне функции), которая имеет публичный доступ (имя начинается с большой буквы). Различные функции могут возвращать эту ошибку во время чтения из файла или STDIN. Если в вашем контексте она имеет смысл, вам тоже нужно её использовать. Так можно обработать чтение только одного файла:</p>
+
+    <pre><code class="language-go">package main
+
+import (
+  "fmt"
+  "io"
+)
+
+func main() {
+  var input int
+  _, err := fmt.Scan(&amp;input)
+  if err == io.EOF {
+    fmt.Println("no more input!")
+  }
+}
+</code></pre>
+
+    <p>И последнее замечание, в Go есть функции <code>panic</code> и <code>recover</code>. <code>panic</code> похожа на выброс исключения, а <code>recover</code> на <code>catch</code>. Они редко используются.</p>
+
+    <h2 id="defer">Defer</h2>
+
+    <p>Хотя в Go и есть сборщик мусора, некоторые ресурсы требуют, чтобы мы явно освобождали их. Например, нам нужно вызывать <code>Close()</code> для закрытия файла, после того, как работа с ним окончена. Такой код всегда опасен. С одной стороны, когда мы пишем функцию, легко забыть вызвать <code>Close</code>, для того, что мы открыли на 10 строк выше. С другой, функция может иметь несколько мест с возвращением результата, и нужно вызывать закрытие ресурса в каждом из них. Решением в Go является ключевое слово <code>defer</code>:</p>
+
+    <pre><code class="language-go">package main
+
+import (
+  "fmt"
+  "os"
+)
+
+func main() {
+  file, err := os.Open("a_file_to_read")
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer file.Close()
+  // read the file
+}
+</code></pre>
+
+    <p>Если вы попытаетесь выполнить этот код, вы, вероятно, получите ошибку (файл не существует). Смысл в том, чтобы показать как работает <code>defer</code>. Неважно, где находится ваш <code>defer</code>, он всё равно будет выполнен после того, как метод вернет результат. Это позволяет вам освобождать ресурсы прямо там же, где вы их инициализировали и спасает от дублирования кода в случае нескольких <code>return</code>.</p>
+
+    <h2 id="gofmt">go fmt</h2>
+
+    <p>Большинство программ, написанных на  Go, используют одинаковые правила форматирования. Символ табуляции используется для отступа, а скобка ставится на той же строке, что и инструкция.</p>
+
+    <p>Я знаю, у вас есть свой собственный стиль и вы придерживаетесь его. Я следовал ему долгое время, но я рад, что в конечном итоге сдался. Главная причина этому была в команде <code>go fmt</code>. Она проста в использовании и не вызывает споров (по поводу личных предпочтений).</p>
+
+    <p>Когда вы находитесь внутри проекта, вы можете применить правила форматирования для него и всех под-проектов с помощью:</p>
+
+    <pre><code>go fmt ./...
+</code></pre>
+
+    <p>Попробуйте. Она делает больше, чем просто расставляет отступы. Она выравнивает объявления полей, а так же сортирует ваши импорты в алфавитном порядке.</p>
+
+    <h2 id="">Инициализация в условии</h2>
+
+    <p>Go поддерживает немного модифицированные условные блоки. Инициализация значения в них имеет приоритет при вычислении условия:</p>
+
+    <pre><code class="language-go">if x := 10; count &gt; x {
+  ...
+}
+</code></pre>
+
+    <p>Это довольно простой пример. В реальном коде будет что-то такое:</p>
+
+    <pre><code class="language-go">if err := process(); err != nil {
+  return err
+}
+</code></pre>
+
+    <p>Интересно, что в то время, как эти значения недоступны вне инструкции <code>if</code>, они доступны внутри <code>else if</code> или <code>else</code>.</p>
+
+    <h2 id="">Пустой интерфейс и преобразования</h2>
+
+    <p>В многих объектно-ориентированных языках существует базовый класс, часто называемый <code>object</code>, который является супер классом для всех остальных классов. В Go нет наследования и нет такого супер класса. Что у него есть, так это пустой интерфейс без методов: <code>interface{}</code>. Так как каждый тип реализует все 0 методов этого интерфейса, то можно сказать, что в неявном виде каждый тип реализует пустой интерфейс.</p>
+
+    <p>Если бы нам было нужно, мы бы могли написать функцию <code>add</code> со следующей сигнатурой:</p>
+
+    <pre><code class="language-go">func add(a interface{}, b interface{}) interface{} {
+  ...
+}
+</code></pre>
+
+    <p>Для преобразования переменной в определенный тип, используйте <code>.(ТИП)</code>:</p>
+
+    <pre><code class="language-go">return a.(int) + b.(int)
+</code></pre>
+
+    <p>Также вы можете использовать такой switch:</p>
+
+    <pre><code class="language-go">switch a.(type) {
+  case int:
+    fmt.Printf("a теперь int и равно %d\n", a)
+  case bool, string:
+    // ...
+  default:
+    // ...
+}
+</code></pre>
+
+    <p>Вы встретите и, возможно, будете использовать пустой интерфейс чаще, чем может показаться с первого взгляда. Хотя стоит признать, что он не способствует чистоте кода. Преобразование значений туда и обратно – это и некрасиво и опасно. Но иногда в языках со статической типизацией это единственный выбор.</p>
+
+    <h2 id="">Строки и массивы байтов</h2>
+
+    <p>Строки и массивы байтов тесто связаны. Мы можем легко конвертировать одно в другое:</p>
+
+    <pre><code class="language-go">stra := "the spice must flow"
+byts := []byte(stra)
+strb := string(byts)
+</code></pre>
+
+    <p>На самом деле, такой способ преобразования, является также общим для всех типов. Некоторые функции ожидают явно <code>int32</code>, или <code>int64</code>, или их беззнаковые эквиваленты. Используется это так:</p>
+
+    <pre><code class="language-go">int64(count)
+</code></pre>
+
+    <p>Тем не менее, иметь дело с байтами и строками вы, вероятно, будете часто.
+        Заметьте, что когда вы используете <code>[]byte(X)</code> или <code>string(X)</code>, вы создаёте копию данных. Это необходимо, так как строки в Go неизменяемы.</p>
+
+    <p>Строки состоят из <code>рун</code> (<em>в Go, тип rune является псевдонимом для int32</em>), которые являются частями Юникода. Если взять длину строки, мы можете получить не то, чего ожидали. Следующий код выведет 3:</p>
+
+    <pre><code>fmt.Println(len("椒"))
+</code></pre>
+
+    <p>Когда вы производите итерацию по строке с использованием <code>range</code>, вы получаете руны, а не байты. Конечно, когда вы переводите строку в <code>[]byte</code>, вы получаете корректные данные.</p>
+
+    <h2 id="">Тип функция</h2>
+
+    <p>Функция – это тип первого порядка:</p>
+
+    <pre><code class="language-go">type Add func(a int, b int) int
+</code></pre>
+
+    <p>который можно использовать как угодно – как поле структуры, как параметр, как возвращаемое значение.</p>
+
+    <pre><code class="language-go">package main
+
+import (
+  "fmt"
+)
+
+type Add func(a int, b int) int
+
+func main() {
+  fmt.Println(process(func(a int, b int) int{
+      return a + b
+  }))
+}
+
+func process(adder Add) int {
+  return adder(1, 2)
+}
+</code></pre>
+
+    <p>Использование таких функций может помочь отделить код от реализации, как и в случае с интерфейсами.</p>
+
+    <h2 id="">Перед тем как продолжить</h2>
+
+    <p>Мы рассмотрели различные аспекты программирования с Go. В частности, мы увидели, как происходит обработка ошибок и как освобождаются ресурсы на примере открытых файлов. Многие люди не любят подход Go к обработке ошибок. Она кажется шагом назад. Иногда, я согласен. Тем не менее, я считаю, что такой код легче отслеживать. <code>defer</code> является необычным, но практичным подходом к управлению ресурсами. На самом деле он не привязан конкретно к ресурсам. Вы можете использовать <code>defer</code> для любых целей, таких как логирование после завершения функции.</p>
+
+    <p>Конечно мы рассмотрели не все вкусности, которые предлагает Go. Но вы должны чувствовать себя достаточно комфортно при понимании того, с чем вы столкнётесь.</p>
+
+</div>
+</body>
+</html>

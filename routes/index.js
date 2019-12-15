@@ -1,10 +1,10 @@
-const { authUser, postExample } = require('../workers/auth/index.js');
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+const {authUser, registerUser} = require('../workers/auth/index');
+console.log(authUser);
+/* GET home page. */
+router.post('/auth', authUser);
 
-/* GET users listing. */
-router.get('/auth/:id', authUser);
-
-router.post('/post/example', postExample)
+router.post('/register', registerUser);
 
 module.exports = router;
