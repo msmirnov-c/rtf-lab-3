@@ -1,0 +1,2 @@
+{"Username":"YaGriShaVDushePoyu","email":"savin-grigosha@gmail.com","hash":"$2a$10$.GpTga/knkZfF0WQaIV8DehJJsQkWoq9ZEBiuXLKkg7TPwAc5kzFG","salt":"$2a$10$.GpTga/knkZfF0WQaIV8De"}
+{"Username":"Гаев Михаил Алексеевич","email":"mixail233442@gmail.com","hash":"$2a$10$XWHaCI7w5fXzR3uGEdwH5.ZPjZyb0R3k8AAzqWDS3Vuvvf0qzScR2","salt":"$2a$10$XWHaCI7w5fXzR3uGEdwH5."}

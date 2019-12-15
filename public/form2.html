@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>сайт</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+          <span>COSMOAPP</span>
+        </div>
+        <div id="about">
+          <a href="register" title="Регистрация"> Регистрация</a>
+          <a href="authorisation" title="Авторизация"> Авторизация</a>
+          <a href="/" title="Назад"> Назад</a>
+        </div>
+    </header>
+    
+    <div id="top">
+        <center><h1>Вход</h1></center>
+
+        <form  class="form" method="POST" action="api/authorisation">
+            <div class="form__field">
+                <input type="text" name="email" placeholder="E-mail*" required />
+            </div>
+            <div class="form__field">
+                <input type="password" name="password" placeholder="Ваш пароль*" />
+                <span></span>
+            </div>
+            <button type="submit" class = "btn" >Отправить</button>
+        </form> 
+    </div>    
+</body>
