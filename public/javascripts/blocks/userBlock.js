@@ -15,7 +15,7 @@ if (cookie != "") {
     const cookies = cookie.split(';');
     cookies.map(param => {
         if (param.startsWith('login')) {
-            login = param.slice(6);
+            login = decodeURIComponent(param.slice(6));
         }
     });
     
