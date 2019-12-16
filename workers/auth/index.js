@@ -34,7 +34,7 @@ function registration(req, res, next) {
 
     fs.appendFile(path.resolve('users.txt'), req.body.mail + ':' + req.body.password + '\n', (err) => {
         if(err) {
-            res.redirect('/registration.html');
+            res.redirect('/registration');
             return
         }
         res.redirect('/');
