@@ -6,11 +6,36 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "morgan": "~1.9.0"
-  }
+    "jquery": "^3.4.1",
+    "morgan": "~1.9.0",
+    "node.js": "0.0.0",
+    "nodejs": "0.0.0",
+    "path": "^0.12.7",
+    "psql": "0.0.1",
+    "require": "^2.4.20",
+    "requirejs": "^2.3.6",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.1.1"
+  },
+  "description": "В лабораторной работе требуется:  - Создать бэк приложение с использованием:   - https://nodejs.org/en/   - https://www.npmjs.com/package/express",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mix2511/rtf-lab-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mix2511/rtf-lab-3/issues"
+  },
+  "homepage": "https://github.com/Mix2511/rtf-lab-3#readme"
 }
