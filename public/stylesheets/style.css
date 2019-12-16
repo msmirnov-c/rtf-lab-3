@@ -1,0 +1,17 @@
+body {
+  padding: 90px;
+  font: 20px Comic Sans MS, Comic Sans, cursive;
+}
+h1 {
+  font-size: 200%;
+}
+mz {
+  font-size: 22pt;
+}
+p {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+a {
+  color: #00B7FF;
+}
