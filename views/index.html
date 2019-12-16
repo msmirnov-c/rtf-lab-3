@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <title>Главная</title>
+  </head>
+  <header>
+    <nav>
+      <input type="checkbox" id="checkbox-menu" />
+      <label for="checkbox-menu">
+        <ul class="menu touch">
+          <li>
+            <a class="logo" href="/">Главная</a>
+          </li>
+          <li><a id="auth" href="/authorization">Авторизация</a></li>
+          <li><a href="/registration">Регистрация</a></li>
+        </ul>
+        <span class="toggle">☰</span>
+      </label>
+    </nav>
+  </header>
+  <body>
+    <div class="containers">
+      <div class="first">
+        <h1>Введение в <a href="https://www.getpostman.com/"><img src="images/postmanlogo.png"></a></h1>
+        <div class="navigation">
+            <nav class="toc">
+                <h2>Содержание:</h2>
+                <ul>
+                  <li><a href="#1">Postman</a>
+                  <li><a href="#2">Введение</a>
+                  <li><a href="#3">Collection</a>
+                  <li><a href="#4">Folder</a>
+                  <li><a href="#5">Request</a>
+                  <li><a href="#6">Заключение</a>
+                </ul>
+              </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    console.log(document.cookie);
+
+    let cookies = {};
+
+    document.cookie.split("; ").map(parameter => {
+      const p = parameter.split("=");
+      cookies[p[0]] = decodeURIComponent(p[1]);
+    })
+
+    const greetings = document.createElement('h1');
+
+    if (cookies.login !== undefined) {
+      greetings.innerHTML = "Hello, " + cookies.name;
+    } else {
+      greetings.innerHTML = "Hello, guest";
+    }
+    document.querySelector('header').after(greetings);
+
+    console.log(cookies)
+  </script>
+</html>
