@@ -14,8 +14,7 @@
   "babel-preset-env": "^1.6.1",
   "nodemon": "^1.12.1",
   "npm-run-all": "^4.1.1",
-  "regenerator-runtime": "^0.12.1",
-  "webpack": "^3.8.1"
+  "regenerator-runtime": "^0.12.1"
   },
   "dependencies": {
   "bcryptjs": "^2.4.3",
