@@ -335,6 +335,16 @@ button.submit:active {
     -o-box-shadow: 0 0 10px 5px #356b0b inset;
 }
 
+.footer {
+    font-size: 20px;
+    background-color: rgba(85, 85, 85, 0.377);
+    margin-top: 5px;
+    padding-top: 30px;
+    padding: 20px;
+    display: flexbox;
+    height: 100px;
+    text-align: center;
+}
 
 @media screen and (max-width: 950px) {
     .header {
