@@ -3,7 +3,6 @@ body {
   padding: 15px;
   background-image: url(https://cdn.pixabay.com/photo/2019/12/10/07/18/ice-4685227_960_720.jpg);
   background-size: 100% 100%;
-  min-width: 1050px;
 }
 
 .content {
@@ -22,6 +21,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 1px 15px -3px rgba(0,0,0,.5);
   background-color: rgb(241, 255, 254, 0.9);
+  font-size: 2vh;
+  line-height: 2vh;
 }
 
 .contentYet {
