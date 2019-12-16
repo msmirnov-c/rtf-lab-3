@@ -1,30 +1,62 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
-}
+var express = require('express');
+var app = express();
+const fs = require('fs');
+app.use(express.urlencoded({ extended: false }));
 
-/**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
- */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
+app.use('/static', express.static('static'));
+
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html')
+});
+
+app.get('/authorization', function(req, res) {
+    res.sendFile(__dirname + '/authorization.html');
+});
+
+app.get('/reg', function(req, res) {
+    res.sendFile(__dirname + '/reg.html');
+});
+
+app.get('/authorized', function(req, res) {
+    res.sendFile(__dirname + '/authorized.html');
+});
+
+function reg(email, password){
+    let data = fs.readFileSync('users.txt', 'utf-8');
+    if (data.includes(email) !== true) {
+        if (email.trim() !== "" && password.trim() !== "") {
+            fs.appendFile('users.txt', (email + " " + password + " "), (err) => {
+                if (err) throw err;
+            });
+            return 1;
+        } else return 0;
     }
-    console.log(id, age, name);
-    res.json({Success: true})
+    else return 0;
 }
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
+function authorization(email, password){
+    let data = fs.readFileSync('users.txt', 'utf-8');
+    let user = data.split(" ");
+    for (let i = 0; i < user.length; i++){
+        {
+            if (user[i] === email)
+                return (user[i+1] === password);
+        }
+    }
 }
 
-module.exports =  {
-    authUser,
-    postExample
-}
+app.post('/reg', (req, res) => {
+    if (reg(req.body.email, req.body.password) === 1)
+        res.redirect('/authorization');
+    else
+        res.redirect('/')
+});
+
+app.post('/authorization', (req, res) => {
+    if (authorization(req.body.email, req.body.password) === true)
+        res.redirect('/authorized');
+    else
+        res.redirect('/authorization')
+});
+
+
