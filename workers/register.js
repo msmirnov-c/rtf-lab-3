@@ -8,29 +8,9 @@
 function authUser(req, res, next) {
     const {login, password} = req.body;
     if (!login || !password) {
-        res.send({Error: 'Некоторые поля незаполненны'});
+        res.send({Error: 'Некоторые поля незаполнены'});
     }
 
-    let fo = require('fs').readFileSync(require('path').resolve('file.txt'), 'utf8');
-    let name_pass = {};
-    var names = new Array();
-    var passes = new Array();
-    console.log('Количество зарегестрированных', fo.split('\n').length-1);
-    for(let x = 0; x < fo.split('\n').length-1; x++)
-    {
-        names.push(fo.split('\n')[x].split(' ')[0]);
-        passes.push(fo.split('\n')[x].split(' ')[1]);
-    }
-
-    for (let x = 0; x < fo.split('\n').length-1; x++){
-        name_pass[names[x]] = passes[x];
-    }
-    if (name_pass[login] === pass){
-        res.json({Success: true});
-    } else {
-        res.json({Error: 'Такого пользователя не существует, проверьте правильность ввода'});
-    }
-    res.json({Error: 'Ввели неверные данные, проверьте имя/пароль'});
 }
 
 function postExample(req, res, next) {
