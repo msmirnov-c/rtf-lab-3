@@ -2,13 +2,17 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var app = express();
 
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({extended: false});
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+  console.log("App is running on port " + port);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
