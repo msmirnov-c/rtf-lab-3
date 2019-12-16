@@ -42,6 +42,6 @@ function getUser() {
     return user;
 }
 
-module.exports = {authUser, registerUser}; 
+module.exports = {authUser, registerUser};
 
 

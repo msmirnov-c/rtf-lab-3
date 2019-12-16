@@ -1,10 +1,11 @@
-const { authUser, postExample } = require('../workers/auth/index.js');
+const { authUser, registerUser } = require('../workers/auth/index');
+//const { registerUser,  } = require('../workers/reg/index.js');
 var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/auth/:id', authUser);
+router.post('/auth', authUser);
 
-router.post('/post/example', postExample)
+router.post('/register', registerUser);
 
 module.exports = router;

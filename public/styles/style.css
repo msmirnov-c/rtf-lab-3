@@ -1,0 +1,136 @@
+body {
+  font: 19px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FFF8DC;
+}
+
+a {
+  color: #990040;
+}
+
+a:hover{
+  color: #594a0e;
+  text-decoration: none;
+  background-color: rgba(256,256,256,0.3);
+
+  transition: 0.7s;
+}
+
+.content {
+  padding:30px 40px 10px 40px;
+  background-color: #FEFCFF;
+  width:70%;
+  max-width: 1100px;
+  margin:50px auto;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.55);
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+}
+
+h1{
+  margin-bottom: 15px;
+}
+
+#navbar-center
+{
+  width: 100%;
+
+}
+
+.bg-light {
+  background-color: #FDEEF4 !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #474787;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  color: black;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre{
+  background-color: #fff9;
+  width: 70%;
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.08);
+  color: #474787;
+  font-weight: bolder;
+
+}
+
+.consoletext{
+  background-color: black;
+  color: white;
+}
+
+.ar{
+  margin-bottom: 10px;
+}
+
+.images{
+  display: block;
+  margin: 30px auto;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  width: 65%;
+}
+
+.nav-link-active{
+  color:#474787 !important;
+  font-weight: bolder;
+}
+
+.nav-link-active:hover{
+  color: #222246 !important;
+}
+
+.nav-link{
+  margin-right: 20px;
+  border-radius: 25px;
+}
+
+.dropdown-active-button:focus{
+  border-radius:25px 25px 0px 0px;
+  background-color: rgba(256,256,256,0.3);
+  transition: 0.7s;
+}
+
+.nav-link:focus{
+  outline: none;
+}
+
+.dropdown-menu{
+  background-color: #474787;
+  margin-top: -1px;
+  border-radius: 0px 5px 5px 5px;
+}
+
+.dropdown-item{
+  color: white;
+}
+
+code{
+  color: #474787;
+  font-weight: bolder;
+} 
