@@ -1,14 +1,69 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
-</html>
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+            <link rel='stylesheet', href='/stylesheets/style.css'></link>
+            <title>Главная страница</title>
+        </head>
+        <body>
+            <div class=main>
+                    <div class=name>
+                        <div class="title">
+                            <h1 onclick="location.href='index.html'">"Сильнейшие"</h1>
+                            <p class="inf" onclick="location.href='authors.html'">Сайт публикации произведений под авторством Овчинникова В. О.</p>
+                        </div>
+                        <div class="users">
+                            <button id="login" onclick="location.href='SignIn.html'">Войти</button>
+                            <button id="reg" onclick="location.href='registration.html'">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                    <div class=menu>
+                        <div class="persons" onclick="location.href='persons.html'">
+                            <p>Персонажи</p>
+                        </div>
+                        <div class="information" onclick="location.href='information.html'">
+                            <p>Новости</p>
+                        </div>
+                        <div class="authors" onclick="location.href='authors.html'">
+                            <p>Об авторах</p>
+                        </div>
+                    </div>
+                    <div class=discription>
+                        <p>Вы когда-нибудь задумывались о том, что в России тоже могут быть супергерои?
+                           Это не будут пресловутые миллиардеры, инопланетяне или же древне-греческие боги.
+                           Они не поддаются стереотипам не о супергероях, ни о русском народе. Каждый из них по своему уникален и индивидуален.
+                           Все истории, события связаны друг с другом. Вместе они образуют единую вселенную героев не только России, но  и всего мира.
+                        </p>
+                    </div>
+                    <div class=reading>
+                        <h1>Истории</h1>
+                        <h2>Доступные истории:</h2>
+                        <div class="menuReading">
+                            <div>
+                                <p onclick="PartsMove('Darak')">История "Дарака(Darak)": </p>
+                                <p id="Darak" onclick="location.href='Stories/DarakStory.html'">Том 1 - "Отречение от реальности";</p>
+                            </div>                                
+                        </div>
+                        <h2>Скоро выйдут:</h2>
+                        <div class="waiting">
+                            <div>
+                                <p onclick="PartsMove('SixKick')">История "Эс-ки(Six Kick)": </p>
+                                <p id="SixKick" onclick="ReadNO()">Том 1 - "Новый мир";</p>
+                            </div>
+                            <div>
+                                <p onclick="PartsMove('Arsenal')">История "Арсенала(Arsenal)": </p>
+                                <p id="Arsenal" onclick="ReadNO()">Том 1 - "Наследие";</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div>
+                            <p>© "Сильнейшие" 2019</p>
+                            <p>v. 0.9</p>
+                        </div>
+                    </div>
+            </div>
+            <script src="javascripts/script.js"></script>
+        </body>
+    </html>
+<!DOCTYPE html>
