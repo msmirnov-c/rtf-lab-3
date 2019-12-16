@@ -1,30 +1,30 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
-}
-
 /**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
+ * Метод принимающий 2 парамметра
+ * @param {string} name - имя пользователя
+ * @param {string} password - имя
  */
 function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
+    const {name, password} = req.body;
+    if (!name || !password ) {
         res.send({Error: 'NO PARAMS'})
+        throw error;
     }
-    console.log(id, age, name);
-    res.json({Success: true})
-}
+    console.log(name, password);
+    //res.json({Success: true})
+    const fs = require("fs");
+    let content = {
+        Username: name,
+        Password: password,
+        };
+        console.log(content);
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
+    fs.appendFile("Reg.txt", JSON.stringify(content), function(error){
+        if(error) throw error; // если возникла ошибка
+        console.log("Запись файла завершена. Содержимое файла:");
+        let data = fs.readFileSync("Reg.txt", "utf8");
+        console.log(data);
+        return res.json({Success: true});
+     });
+    }
 
-module.exports =  {
-    authUser,
-    postExample
-}
+module.exports = {postExample}

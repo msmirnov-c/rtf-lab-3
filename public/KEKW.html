@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="\stylesheets\hextech.css">
+    <script>
+                function RegButton( ) { location.href =  'reg' }
+                function Main( ) { location.href = '/' }
+                function OL( ) { render(location.href = __dirname + '/public/index.html') }
+</script>
+
+    
+
+
+    <style>
+        .mirror { transform: scale(-1, 1); }
+
+
+        .navbar-menu {
+                position: absolute;
+                top: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+        }
+
+
+    .items {
+        display:inline-block;
+}
+    </style>
+</head>
+
+
+
+
+<body style="background-color: #000a14;">
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+                <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                                <a class="navbar-item" onclick="RegButton()">Регистрация</a>
+                                <a class="navbar-item" onclick="Main()">Главная</a>
+                                <a class="navbar-item">Райз</a>
+                                <a class="navbar-item">Видео</a>
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">Support</a>
+                                        <div class="navbar-dropdown">
+                                                        <a class="navbar-item">
+                                                               Я тут узнал
+                                                        </a>
+                                                        <a class="navbar-item">
+                                                                В моем css есть даже такое
+                                                        </a>
+                                                        <a class="navbar-item">
+                                                                Круто, да?
+                                                        </a>
+                                                        <hr class="navbar-divider">
+                                                        <a class="navbar-item">
+                                                                Ну что тут скажешь... Ссылка для дурачков
+                                                        </a>
+                                        </div>
+                        </div>
+                </div>
+        </div>
+
+</nav>
+<center><div class="video" id="youtube">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mKue4WuagL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  </div>
+ <img src="images/KEKW.jpg">
+ </center>
+</body>
