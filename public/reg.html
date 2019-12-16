@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="stylesheets/css.css" rel="stylesheet"/>
+    <script src="javascripts/scripts.js"></script>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="ni">Firefox</a>
+    <div id="buts">
+        <button class="ni" onclick="document.location.href='/reg.html'">Регистрация</button>
+        <button class="ni" onclick="document.location.href='/auth.html'">Вход</button>
+    </div>
+</nav>
+    <div class="centred">
+        <form action="/api/reg" method="post">
+            <p><b>Регистрация</b></p>
+            Логин:
+            <input type="text" required name="login" id="lg"/>
+            <br/><br/>
+            Пароль:            
+            <input type="password" required name="psw" id="psw"/>
+            <br/>
+            <button class="button1" onclick="">Зарегистрироваться</button>
+        </form>
+    </div>
+    
+</body>
+</html>
