@@ -1,10 +1,24 @@
-const { authUser, postExample } = require('../workers/auth/index.js');
 var express = require('express');
 var router = express.Router();
+var jade = require('jade');
 
-/* GET users listing. */
-router.get('/auth/:id', authUser);
+function indexPage(req, res, next) {
+    var html = jade.renderFile('./views/index.jade', res.locals);
+    res.send(html)
+}
 
-router.post('/post/example', postExample)
+function regPage(req, res, next) {
+    var html = jade.renderFile('./views/reg.jade', res.locals);
+    res.send(html)
+}
+
+function loginPage(req, res, next) {
+    var html = jade.renderFile('./views/login.jade', res.locals);
+    res.send(html)
+}
+
+router.get('/', indexPage);
+router.get('/reg', regPage);
+router.get('/login', loginPage);
 
 module.exports = router;
