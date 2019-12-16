@@ -1,0 +1,44 @@
+<head>
+    <title>Авторизация</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+<body>
+    <div class="header">
+        <a class="link" href="/"><h1>Browser history</h1>
+        </a>
+        <p class="p_0">
+            История развития Google Chrome
+        </p>
+        <aside class="side">
+            <a id="userName"> </a>
+            <div>
+                <form class="form" action="/registration" type="get">
+                    <button class="but" type="submit">
+                        Регистрация
+                    </button>
+                </form>
+                <form action="/authorization" type="get">
+                    <button class="but" type="submit">
+                        Авторизация
+                    </button>
+                </form>
+            </div>
+            <nav>
+                <a href="https://www.google.com/intl/ru/chrome/" >
+                    Google Chrome
+                </a>
+            </nav>
+        </aside>
+    </div>
+    <form class="auth" action="/api/authorization" method="post">
+        <h2 class="h2">Вход</h2>
+        <label class="lable">Имя пользователя</label>
+        <input type="text" name="userName" required>
+        <br>
+        <label class="lable">Пароль </label>
+        <input type="password" name="password" required>
+        <br>
+        <input class="submit" type="submit" value="Войти">
+    </form>
+</body>
+<script src="/script.js"></script>
