@@ -19,12 +19,9 @@ function registrate(req, res, next) {
         if(error) throw error;
         console.log("Запись файла завершена. Содержимое файла:");
         let inf = fs.readFileSync("data.txt", "utf8");
-
         console.log(inf);
-
-        res.json(alert('Регистрация прошла успешно!'));
     })
-    
+    res.send({Success: true});
 }
 
 
