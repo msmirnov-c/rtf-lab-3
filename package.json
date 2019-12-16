@@ -2,29 +2,26 @@
   "name": "lab3",
   "version": "1.0.0",
   "description": "express nodejs lab3 urfu",
-  "main": "webpack.config.js",
+  "main": "/build/bundle.js",
   "scripts": {
-    "build": "webpack",
-    "start": "npm-run-all --parallel watch:server watch:build",
-    "watch:build": "webpack --watch",
-    "watch:server": "nodemon --inspect=\"9229\" \"./build/bundle.js\" --watch \"./build\" "
+  "start": "node ./build/bundle.js"
   },
   "author": "Nikita Parenyuk",
   "license": "",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "nodemon": "^1.12.1",
-    "npm-run-all": "^4.1.1",
-    "regenerator-runtime": "^0.12.1",
-    "webpack": "^3.8.1"
+  "babel-core": "^6.26.0",
+  "babel-loader": "^7.1.2",
+  "babel-preset-env": "^1.6.1",
+  "nodemon": "^1.12.1",
+  "npm-run-all": "^4.1.1",
+  "regenerator-runtime": "^0.12.1",
+  "webpack": "^3.8.1"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "express": "^4.17.1"
+  "bcryptjs": "^2.4.3",
+  "express": "^4.17.1"
   },
   "engines": {
   "node": "10.16.3"
   }
-}
+  }
