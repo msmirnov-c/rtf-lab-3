@@ -26,7 +26,7 @@ function registration(email, password){
     let data = fs.readFileSync('users.txt', 'utf-8');
     if (data.includes(email) !== true) {
       if (email.trim() !== "" && password.trim() !== "") {
-        fs.appendFile('users.txt', (email + " " + password), (err) => {
+        fs.appendFile('users.txt', (email + " " + password + " "), (err) => {
           if (err) throw err;
         });
         return 1;
