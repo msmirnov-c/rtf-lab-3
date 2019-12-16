@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item drop-active" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Циклы</h1>
+    <p>Для совершения повторяемых действий в PHP, как и в других языках программирования, используются циклы. В PHP имеются следующие виды циклов:</p>
+    <ul>
+        <li><p>for</p></li>
+        <li><p>while</p></li>
+        <li><p>do..while</p></li>
+    </ul>
+    <h3>Цикл for</h3>
+    <p>Цикл for имеет следующее формальное определение:</p>
+    <pre class="brush:php;">
+for ([инициализация счетчика]; [условие]; [изменение счетчика])
+{
+    // действия
+}
+</pre>
+    <p>Рассмотрим стандартный цикл for:</p>
+    <pre class="brush:php;">
+&lt;?php
+for ($i = 1; $i &lt; 10; $i++)
+{
+    echo "Квадрат числа $i равен " . $i * $i . "&lt;br/&gt;";
+}
+?&gt;
+</pre>
+    <p>Первая часть объявления цикла - <code>$i = 1</code> - создает и инициализирует счетчик - переменную $i. И перед выполнением цикла его значение будет
+        равно 1. По сути это то же самое, что и объявление переменной.</p>
+    <p>Вторая часть - условие, при котором будет выполняться цикл. В данном случае цикл будет выполняться, пока $i не достигнет 10.</p>
+    <p>Третья часть - приращение счетчика на единицу. Опять же нам необязательно увеличивать на единицу. Можно уменьшать: $i--.</p>
+    <p>В итоге блок цикла сработает 9 раз, пока значение $i не станет равным 10.  И каждый раз это значение будет увеличиваться на 1. Каждое отдельное повторение цикла называется итерацией.
+        Таким образом, в данном случае произойдет 9 итераций.</p>
+    <h3>Цикл while</h3>
+    <p>Цикл <code>while</code> проверяет истинность некоторого условия, и если условие истинно, то выполняются блок выражений цикла:</p>
+    <pre class="brush:php;">
+&lt;?php
+$counter = 1;
+while($counter&lt;10)
+{
+	echo $counter * $counter . "&lt;br /&gt;";
+	$counter++;
+}
+?&gt;
+</pre>
+    <p>Если в блоке while всего одна инструкция, то фигурные скобки блока можно опустить:</p>
+    <pre class="brush:php;">
+&lt;?php
+$counter = 0;
+while(++$counter&lt;10)
+	echo $counter * $counter . "&lt;br /&gt;";
+?&gt;
+</pre>
+    <h3>Цикл do..while</h3>
+    <p>Цикл <code>do..while</code> похож на цикл <code>while</code>, только теперь выполняется блок цикла, и только потом выполняется проверка условия. То есть
+        даже если условие ложно, то блок цикла выполнится как минимум один раз:</p>
+    <pre class="brush:php;">
+&lt;?php
+$counter = 1;
+do
+{
+	echo $counter * $counter . "&lt;br /&gt;";
+	$counter++;
+}
+while($counter&lt;10)
+?&gt;
+</pre>
+    <h3>Операторы continue и break</h3>
+    <p>Иногда возникает ситуация, когда требуется выйти из цикла, не дожидаясь его завершения. В этом случае мы можем воспользоваться оператором break:</p>
+    <pre class="brush:php;">
+&lt;?php
+for ($i = 1; $i &lt; 10; $i++)
+{
+	$result = $i * $i;
+	if($result&gt;80)
+	{
+		break;
+	}
+    echo "Квадрат числа $i равен $result &lt;br/&gt;";
+}
+?&gt;
+</pre>
+    <p>И если вдруг результат операции окажется больше 80, то происходит выход из цикла.</p>
+    <p>Для управления циклами также применяется оператор <span class="bb">continue</span>. Он осуществляет переход к следующей итерации цикла:</p>
+    <pre class="brush:php;">
+&lt;?php
+for ($i = 1; $i &lt; 10; $i++)
+{
+	if($i==5)
+	{
+		continue;
+	}
+    echo "Квадрат числа $i равен " . $i * $i . "&lt;br/&gt;";
+}
+?&gt;
+</pre>
+    <p>При выполнении программы, когда значение $i станет равным 5, произойдет переход к следующей итерации, а все остальные выражения, которые следуют
+        после оператора <code>continue</code> выполняться не будут.</p>
+
+
+</div>
+</body>
+</html>

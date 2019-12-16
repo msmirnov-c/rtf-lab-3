@@ -1,0 +1,175 @@
+@font-face {
+    font-family: Pompadur; /* Имя шрифта */
+    src: url(../font/consola.ttf); /* Путь к файлу со шрифтом */
+}
+body{
+    background-color: rgba(12,12,12,1);
+    font: 19px Consolas,Pompadur,Arial,sans-serif;
+    color: white;
+}
+
+.bg-light{
+    background-color: rgba(12,12,12,1) !important;
+}
+
+.nav-item{
+}
+
+.nav-link{
+    color: rgb(204,204,204) !important;
+    padding:28px 30px !important;
+}
+
+.nav-link:hover{
+    background-color: rgb(242,242,242);
+    color:rgba(52,52,52,1) !important;
+    transition: 0.5s;
+}
+
+.content{
+    width: 70%;
+    padding: 0px 30px;
+    margin: 30px auto;
+    color: rgb(204,204,204);
+}
+
+.navbar{
+    height: 80px;
+    width: 70%;
+    min-width: 980px;
+    margin: auto;
+    border-bottom: 2px dashed rgb(204,204,204);
+    padding: 0px;
+}
+
+.navbar-brand{
+    margin: 0px;
+    padding: 14px 22px 14px 30px;
+
+}
+
+.dropdown-menu{
+    margin-top: -1px;
+    border-radius: 0px 0px 5px 5px;
+    border: none;
+    background-color: rgb(242,242,242);
+}
+
+.dropdown-item{
+    color:rgba(52,52,52,1);
+}
+
+.dropdown-item:hover{
+    background-color: rgba(12,12,12,1);
+    color: rgb(204,204,204);
+}
+
+.dropdown:hover #navbarDropdown{
+    background-color: rgb(242,242,242);
+    color:rgba(52,52,52,1) !important;
+    transition: 0.5s;
+}
+
+.navbar-brand:hover{
+    background-color: rgb(242,242,242);
+    transition: 0.5s;
+}
+
+.navbar-brand:hover .logo{
+    filter: invert(87%);
+    transition: 0.5s;
+}
+
+.logo{
+    width:50px;
+}
+
+.image{
+    width: 90%;
+    max-width: 550px;
+    margin: 30px auto 0px auto;
+    display: block;
+}
+
+.image-text{
+    text-align: center;
+    font-style:italic;
+    font-weight: bolder;
+    margin:0px 0px 30px 0px  ;
+    font-size: 17px;
+}
+
+pre{
+    width: 65%;
+    margin: 30px auto;
+    padding: 20px;
+    border: 2px dashed rgb(204,204,204);
+    color: #01a200;
+    font-weight: bolder;
+}
+
+.active{
+    font-weight: bolder;
+    background-color: #f9fdff26;
+
+}
+
+code{
+    color: #01a200;
+    font-weight: bolder;
+}
+
+.drop-active{
+    background-color: rgba(12,12,12,1);
+    color: rgb(204,204,204);
+}
+
+.btn{
+    background-color: #01a200 !important;
+    border:none;
+    margin: auto;
+    display: block;
+}
+.btn:hover{
+
+}
+form{
+    width: 50%;
+    min-width:500px;
+    margin: auto;
+    border: 2px white dashed;
+    padding: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    .content{
+        width: 100%;
+    }
+    .navbar{
+        width: 100%;
+        min-width: 100px;
+    }
+    .navbar-toggler{
+        background-color:white !important;
+        outline: none !important;
+        margin-right: 20px;
+    }
+    .nav-item{
+        text-align: center;
+    }
+    form{
+        width: 100%;
+        min-width: 300px;
+    }
+    pre{
+        width: 100% !important;
+        border-right: 0px;
+        border-left: 0px;
+        margin: 20px auto;
+    }
+    .content{
+        padding: 0px 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

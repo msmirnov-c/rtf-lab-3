@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item drop-active" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+<h1>Подключение внешних файлов</h1>
+    <p>Если программа небольшая, кода немного, то все операции можно определить и в одном файле. Однако, как правило, программы составляет множество
+        инструкций. При определении всех этих инструкций в одном файле код может выглядеть слишком громоздким. Поэтому часто отдельные части кода распределяют
+        по отдельным файлам, особенно когда эти части кода можно использовать в других программах на PHP.</p>
+    <h3>Инструкция include</h3>
+    <p>Инструкция <span class="bb">include</span> подключает в программу внешний файл с кодом php. Например, определим файл <i>factorial.php</i>:</p>
+    <pre class="brush:php;">
+&lt;?php
+function getFactorial($n)
+{
+	$result=1;
+	for($i=1; $i &lt;= $n; $i++)
+		$result*=$i;
+	return $result;
+}
+?&gt;
+</pre>
+    <p>Здесь происходит вычисление факториала. Теперь подключим данный файл в нашу программу:</p>
+    <pre class="brush:php;">
+&lt;?php
+include "factorial.php";
+
+$a = 5;
+$fact = getFactorial($a);
+echo "Факториал числа $a равен $fact";
+?&gt;
+</pre>
+    <p>В место определения инструкции include будет вставляться весь код из файла <i>factorial.php</i>. При этом вставка файла должна происходить до использования функции,
+        определенной в этом файле.</p>
+    <h3>Инструкция include_once</h3>
+    <p>Использование инструкции include имеет недостатки. Так, мы можем в разных местах кода неумышленно подключить один и тот же файл,
+        что при выполнении кода вызовет ошибки.</p>
+    <p>Чтобы исключить повторное подключение файла, вместо инструкции <code>include</code> надо применять инструкцию <span class="bb">include_once</span></p>
+    <pre class="brush:php;">
+&lt;?php
+include_once "factorial.php";
+
+$a = 5;
+$fact = getFactorial($a);
+echo "Факториал числа $a равен $fact";
+?&gt;
+</pre>
+    <p>И теперь, если мы подключим этот же файл с помощью include_once еще где-нибудь ниже, то это подключение будет проигнорировано, так как файл уже подключен в программу.</p>
+    <h3>Инструкции require и require_once</h3>
+    <p>Действие инструкции <span class="bb">require</span> подобно инструкции include: она также подключает внешний файл, вставляя в программу его содержимое.
+        Только теперь, если данный файл не будет найден, действие программы прекратится:</p>
+    <pre class="brush:php;">
+&lt;?php
+require "factorial.php";
+?&gt;
+</pre>
+    <p>И также если у нас в коде встретятся несколько инструкций <code>require</code>, которые подключают один и тот же файл, то интерпретатор выдаст ошибку. И также
+        чтобы избежать данной ситуации, надо использовать инструкцию <b>require_once</b>:</p>
+    <pre class="brush:php;">
+&lt;?php
+require_once "factorial.php";
+?&gt;
+</pre>
+
+</div>
+</body>
+</html>

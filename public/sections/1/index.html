@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item drop-active" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Основы синтаксиса</h1>
+    <p>При создании первой программы на PHP уже были затронуты некоторые основные принципы создания скриптов на языке PHP. Теперь, рассмотрим их более подробно.</p>
+    <p>Программа или скрипт на PHP, как правило, находится в файле  расширением <i>.php</i>.  Хотя разработчики могут также вставлять код php и в файлы с расширениями
+        <i>.html/.htm</i>.</p>
+    <p>Когда пользователь обращается к скрипту в адресной строке браузера, набирая, например, <i>http://localhost:8080/display.php</i>, то веб-сервер
+        передает его интерпретатору PHP. Затем интерпретатор обрабатывает код и генерирует на его основе html-разметку. И затем сгенерированный html-код отправляется пользователю.</p>
+    <p>Документ PHP может содержать как разметку html, так и код на языке php. Для перехода от разметки html к коду php используются теги
+        <code>&lt;?php и ?&gt;</code>, между которыми идет код php. Данные теги служат указанием интерпретатору, что их содержимое надо интерпретировать как код php,
+        а не разметку html.</p>
+    <p>Также можно использовать краткую версию тегов: <code>&lt;? и ?&gt;</code>. Для этого в файле <i>php.ini</i> надо изменить значение
+        <code>short_open_tag = Off</code> на <code>short_open_tag = On</code></p>
+    <p>Рассмотрим простейший скрипт на php:</p>
+    <pre class="brush:php;">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Веб-сайт&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+echo "&lt;p&gt;Привет мир!&lt;/p&gt;";
+echo "2 + 2 = " . (2+2);
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p>После обработки файла интерпретатор сформирует следующую разметку:</p>
+    <pre class="brush:xml;">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Веб-сайт&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Привет мир!&lt;/p&gt;
+2 + 2 = 4
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p>Здесь использованы две инструкции <code>echo "&lt;p&gt;Привет мир!&lt;/p&gt;"</code> и <code>echo "2 + 2 = " . (2+2)</code>, который выводят определенное значение
+        на страницу. Каждая отдельная инструкция в PHP завершается точкой с запятой.</p>
+    <h3>Комментарии</h3>
+    <p>При создании веб-сайта мы можем использовать комментарии. Например, мы можем прокомментировать какое-либо действие,
+        чтобы впоследствии иметь представление, что этот код делает:</p>
+    <pre class="brush:php;">
+&lt;?php
+echo "&lt;p&gt;Привет мир!&lt;/p&gt;"; // вывод сообщения
+// echo "2 + 2 = " . (2+2);
+?&gt;
+</pre>
+    <p>Знак <code>//</code> предваряет однострочный комментарий, и все что идет после этого знака на одной строке, будет считаться комментарием и не будет
+        выполняться интерпретатором. При обработке интерпретатор просто будет пропускать комментарии.</p>
+    <p>Если нам надо закомментировать несколько строк, то мы можем использовать многострочный комментарий <code>/* текст комментария*/</code>:</p>
+    <pre class="brush:php;">
+&lt;?php
+echo "&lt;p&gt;Привет мир!&lt;/p&gt;"; // вывод сообщения
+/*
+многострочный комментарий
+вывод результата арифметического выражения
+echo "2 + 2 = " . (2+2);
+*/
+?&gt;
+</pre>
+    <p>Все строки внутри комментария также не будут обрабатываться интерпретатором.</p>
+
+</div>
+</body>
+</html>

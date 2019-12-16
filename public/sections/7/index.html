@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item drop-active" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Функции</h1>
+    <p>Функции представляют собой набор инструкций, выполняющих определенное действие.</p>
+    <p>Синтаксис определения функции:</p>
+    <pre class="brush:php;">
+function имя_функции([параметр [, ...]])
+{
+	// Инструкции
+}
+</pre>
+    <p>Определение функции начинается с ключевого слова <span class="bb">function</span>, за которым следует имя функции. Имя функции должно начинаться с
+        алфавитного символа или подчеркивания, за которыми может следовать любое количество алфавитно-цифровых символов или символов подчеркивания.</p>
+    <p>После имени функции в скобках идет перечисление параметров. Даже если параметров у функции нет, то просто идут пустые скобки. Затем в фигурных скобках идет тело функции, содержащее набор инструкций.</p>
+    <p>Определим простейшую функцию:</p>
+    <pre class="brush:php;">
+function display()
+{
+	echo "вызов функции display()";
+}
+</pre>
+    <p>Данная функция не имеет параметров и все, что она делает - это вывод на страницу некоторого сообщения.</p>
+    <p>Чтобы функция сработала, ее надо вызвать. Теперь вызовем функцию:</p>
+    <pre class="brush:php;">
+&lt;?php
+
+display();
+
+function display()
+{
+	echo "вызов функции display()";
+}
+?&gt;
+</pre>
+    <h3>Возвращение значения и оператор return</h3>
+    <p>Функция может возвращать некоторое значение - число, строку и т.д., то есть некоторый результат. Для возвращения значения в функции применяется
+        оператор <span class="bb">return</span>, после которого указывается возвращаемое значение. Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+
+$a = get();
+echo "Сумма квадратов от 1 до 9 равна $a";
+
+function get()
+{
+	$result = 0; // возвращаемое значение
+	for($i = 1; $i&lt;10; $i++)
+	{
+		$result+= $i * $i;
+	}
+	return $result;
+}
+?&gt;
+</pre>
+    <p>Функция <code>get()</code> возвращает число, представляющее сумму квадратов от 1 до 9. Это число хранится в переменной
+        <code>$result</code>. Благодаря оператору return мы можем присвоить значение, возвращаемое функцией get, какой-нибудь переменной:
+        <code>$a = get();</code>.</p>
+    <h3>Использование параметров</h3>
+    <p>Создадим функцию с параметрами:</p>
+    <pre class="brush:php;">
+&lt;?php
+
+$a = get(1, 10);
+echo "Сумма квадратов от 1 до 9 равна $a";
+
+function get($lowlimit, $highlimit)
+{
+	$result = 0; // возвращаемое значение
+	for($i = $lowlimit; $i &lt; $highlimit; $i++)
+	{
+		$result+= $i * $i;
+	}
+	return $result;
+}
+?&gt;
+</pre>
+    <p>Так как теперь функция $get использует параметры, то мы должны передать при вызове этой функции на место параметров некоторые значения. Если при вызове
+        мы укажем значения не для всех параметров, то это будет ошибка, например: <code>$a = get(1);</code>.</p>
+    <p>Но мы можем использовать значения по умолчанию для параметров. Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+function get($lowlimit, $highlimit=10)
+{
+	$result = 0; // возвращаемое значение
+	for($i = $lowlimit; $i &lt; $highlimit; $i++)
+	{
+		$result+= $i * $i;
+	}
+	return $result;
+}
+
+$a = get(1);
+echo "Сумма квадратов равна $a";
+?&gt;
+</pre>
+    <p>В этом случае, если мы не укажем значение для второго параметра, то по умолчанию он будет равен 10.</p>
+    <h3>Передача по ссылке</h3>
+    <p>В примере выше мы передавали параметры <span class="bb">по значению</span>. Но в PHP есть и другая форма передачи параметров - <span class="bb">по ссылке</span>.
+        Рассмотрим два этих способа передачи параметров и сравним. Стандартная передача параметра по значению:</p>
+    <pre class="brush:php;">
+&lt;?php
+$number = 10;
+get($number);
+echo "&lt;br /&gt; \$number равно: $number";
+
+function get($a)
+{
+	$a*=$a;
+	echo "Квадрат равен: $a";
+}
+?&gt;
+</pre>
+    <p>После вызова функции <code>get()</code> значение переменной <code>$number</code> не изменится, так как в эту функцию в качестве параметра мы передаем
+        значение переменной.</p>
+    <p>Теперь рассмотрим передачу параметра по ссылке:</p>
+    <pre class="brush:php;">
+&lt;?php
+$number = 10;
+get($number);
+echo "&lt;br /&gt; \$number равно: $number";
+
+function get(&$a)
+{
+	$a*=$a;
+	echo "Квадрат равен: $a";
+}
+?&gt;
+</pre>
+    <p>При передаче по ссылке перед параметром ставится знак амперсанда: <code>function get(&$a)</code>. Теперь интерпретатор будет передавать не значение переменной,
+        а ссылку на эту переменную в памяти, в итоге, переменная <code>$number</code> после передачи на место параметра <code>&$a</code> также будет изменяться.</p>
+
+</div>
+</body>
+</html>
