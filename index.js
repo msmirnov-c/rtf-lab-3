@@ -1,25 +1,25 @@
 var express = require('express');
 var app = express();
 const fs = require('fs');
-
+app.set('view engine', 'html');
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static('static'));
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + "/index.html");
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
 });
 
 app.get('/authorization', function(req, res) {
-    res.sendFile(__dirname + "/authorization.html");
+    res.sendFile(__dirname + '/authorization.html');
 });
 
 app.get('/registration', function(req, res) {
-    res.sendFile(__dirname + "/registration.html");
+    res.sendFile(__dirname + '/registration.html');
 });
 
 app.get('/authorized', function(req, res) {
-  res.sendFile(__dirname + "/authorized.html");
+  res.sendFile(__dirname + '/authorized.html');
 });
 
 function registration(email, password){
