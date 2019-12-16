@@ -24,19 +24,19 @@
             <p align="center"><b>Регистрация</b></p>
             E-mail:
             <br/>
-            <input type="email" placeholder="email" id="email"/>
+            <input type="email" placeholder="email" required id="email"/>
             <br/>
             Ник:
             <br/>
-            <input type="text" id="nick" placeholder="nick"/>
+            <input type="text" id="nick" required placeholder="nick"/>
             <br/>
             Пароль:
             <br/>
-            <input type="password" id="pass" placeholder="password"/>
+            <input type="password" id="pass" required placeholder="password"/>
             <br>
             Подтверждение пароля:
             <br/>
-            <input type="password" id="passconf" placeholder="password"/>
+            <input type="password" id="passconf" required placeholder="password"/>
             <br>
             <button onclick="registerNewUser(event)">Отправить</button>
             <label id="passMess">Пароли не совпадают</label>
