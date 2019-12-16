@@ -7,8 +7,10 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.session.user != undefined){
+    res.cookie('userName', req.session.user.userName);
+  }
   console.log(req.session.user);
-  res.cookie('userName', req.session.user.userName);
   res.sendFile(path.resolve('views/index.html'));
 });
 
