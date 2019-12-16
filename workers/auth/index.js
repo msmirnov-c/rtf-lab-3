@@ -1,5 +1,7 @@
 
 const fs = require('fs');
+
+
 function authUser(req, res, next) {
     
     const data = fs.readFileSync('Data.txt', 'utf8').split(' ');
@@ -9,10 +11,10 @@ function authUser(req, res, next) {
     {
         if(name==data[i] && pass==data[i+1])
         {
-            res.json({userAuth:'Вы зашли!'})
+            res.redirect('/success.html');
         }
     }
-    res.json({Error: 'Не верный логин или пароль.'})
+    res.redirect('/error.html');
 }
 
 /**
@@ -25,13 +27,13 @@ function postExample(req, res, next) {
     const {name, pass} = req.body;
     
     if (name == "" || /[^a-zA-z]/.test(name))
-        res.json({Error: 'Ошибка имени (только латинские буквы)'});
+        res.redirect('/error.html');
 
-    if (pass == "" || /[^0-9]/.test(pass))
-        res.json({Error: 'Ошибка пароля (только цифры)'});
+    if (pass == "" || /[^a-zA-Z0-9]/.test(pass))
+        res.redirect('/error.html');
 
-    fs.appendFile('Data.txt', name + ' ' + pass + ' ', () => {});
-    res.json({Sucsess: name});
+    fs.appendFile('Data.txt', name + ' ' + pass + ' ', (error) => { if (error) throw error;});
+    res.redirect('/success.html');
 }
 
 
