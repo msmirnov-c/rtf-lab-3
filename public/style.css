@@ -2,7 +2,10 @@
 body {
   padding: 15px;
   background-image: url(https://cdn.pixabay.com/photo/2019/12/10/07/18/ice-4685227_960_720.jpg);
-  background-size: 100% 100%;
+  -webkit-background-size: cover; 
+  -moz-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover;
 }
 
 .content {
@@ -10,7 +13,10 @@ body {
     padding: 30px 25px;
     border-radius: 10px;
     box-shadow: 0 1px 15px -3px rgba(0,0,0,.5);
-    background-size: 100% 100%;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;
 }
 
 .something {
