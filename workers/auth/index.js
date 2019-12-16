@@ -13,15 +13,15 @@ app.get('/authorization', function(req, res) {
     res.sendFile(__dirname + '/authorization.html');
 });
 
-app.get('/registration', function(req, res) {
-    res.sendFile(__dirname + '/registration.html');
+app.get('/reg', function(req, res) {
+    res.sendFile(__dirname + '/reg.html');
 });
 
 app.get('/authorized', function(req, res) {
     res.sendFile(__dirname + '/authorized.html');
 });
 
-function registration(email, password){
+function reg(email, password){
     let data = fs.readFileSync('users.txt', 'utf-8');
     if (data.includes(email) !== true) {
         if (email.trim() !== "" && password.trim() !== "") {
@@ -45,8 +45,8 @@ function authorization(email, password){
     }
 }
 
-app.post('/registration', (req, res) => {
-    if (registration(req.body.email, req.body.password) === 1)
+app.post('/reg', (req, res) => {
+    if (reg(req.body.email, req.body.password) === 1)
         res.redirect('/authorization');
     else
         res.redirect('/')

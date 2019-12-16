@@ -19,7 +19,7 @@ anchors[0].href = "/";
 anchors[0].id = "logo";
 anchors[0].innerHTML = "Главная";
 
-anchors[1].href = "auth";
+anchors[1].href = "authorization";
 anchors[1].id = "login";
 anchors[1].innerHTML = "Войти";
 
