@@ -11,3 +11,5 @@ router.use(express.urlencoded()); // to support URL-encoded bodies
 router.post('/register', register);
 
 module.exports = router;
+
+
