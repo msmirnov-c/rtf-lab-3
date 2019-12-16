@@ -1,28 +1,39 @@
+
+const fs = require('fs');
 function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
+    
+    const data = fs.readFileSync('Data.txt', 'utf8').split(' ');
+    
+    const {name, pass} = req.body;
+    for(let i = 0; i < data.length; i+=2)
+    {
+        if(name==data[i] && pass==data[i+1])
+        {
+            res.json({userAuth:'Вы зашли!'})
+        }
+    }
+    res.json({Error: 'Не верный логин или пароль.'})
 }
 
 /**
  * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
  * @param {string} name - имя
- * @param {number} age - возраст
+ * @param {password} pass - пароль
  */
 function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
-    }
-    console.log(id, age, name);
-    res.json({Success: true})
+    
+    const {name, pass} = req.body;
+    
+    if (name == "" || /[^a-zA-z]/.test(name))
+        res.json({Error: 'Ошибка имени (только латинские буквы)'});
+
+    if (pass == "" || /[^0-9]/.test(pass))
+        res.json({Error: 'Ошибка пароля (только цифры)'});
+
+    fs.appendFile('Data.txt', name + ' ' + pass + ' ', () => {});
+    res.json({Sucsess: name});
 }
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
 
 module.exports =  {
     authUser,
