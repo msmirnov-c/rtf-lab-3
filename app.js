@@ -19,9 +19,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', indexRouter);
-// app.get('/error', (req, res) =>{
-//   res.sendFile(path.join(__dirname, 'public/error.html'));
-// });
 app.get('/auth', (req, res) =>{
   res.sendFile(path.join(__dirname, 'public/auth.html'));
 });
