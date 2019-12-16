@@ -4,7 +4,7 @@ block content
     .limiter
       .container-login100(style="background-image: url('design/images/bg-01.jpg');")
         .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
-          form.login100-form.validate-form
+          form.login100-form.validate-form(method="get" action="/api/auth/:id")
             span.login100-form-title.p-b-49
               | Залогинься
             .wrap-input100.validate-input.m-b-23(data-validate='Поле обязательно для заполнения')

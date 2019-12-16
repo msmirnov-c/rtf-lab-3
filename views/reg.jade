@@ -4,7 +4,7 @@ block content
     .limiter
         .container-login100(style="background-image: url('/design/images/bg-01.jpg');")
           .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
-            form.login100-form.validate-form
+            form.login100-form.validate-form(method="post" action="/api/post/example")
               span.login100-form-title.p-b-49
                 | Зарегайся
               .wrap-input100.validate-input.m-b-23(data-validate='Поле обязательно для заполнения')
@@ -13,7 +13,7 @@ block content
                 span.focus-input100(data-symbol='')
               .wrap-input100.validate-input(data-validate='Поле обязательно для заполнения')
                 span.label-input100 Сколько Вам лет?
-                input.input100(type='password', name='age', placeholder='Укажите возраст')
+                input.input100(type='text', name='age', placeholder='Укажите возраст')
                 span.focus-input100(data-symbol='')
               .wrap-input100.validate-input(data-validate='Поле обязательно для заполнения')
                 span.label-input100 Пароль
@@ -21,7 +21,7 @@ block content
                 span.focus-input100(data-symbol='')
               .wrap-input100.validate-input(data-validate='Поле обязательно для заполнения')
                 span.label-input100 Повторите пароль
-                input.input100(type='password', name='id', placeholder='Введите пароль')
+                input.input100(type='password', name='idConfirm', placeholder='Введите пароль')
                 span.focus-input100(data-symbol='')
               .container-login100-form-btn
                 .wrap-login100-form-btn

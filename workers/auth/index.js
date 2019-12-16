@@ -1,12 +1,3 @@
-const bcrypt = require('bcrypt-nodejs');
-
-const models = require('../models');
-
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req.params.id);
-    res.json({userAuth: true})
-}
 
 /**
  * Метод принимающий 3 парамметра
@@ -14,61 +5,84 @@ function authUser(req, res, next) {
  * @param {string} name - имя
  * @param {number} age - возраст
  */
-function postExample(req, res, next) {
-    console.log(req.body)
-    // const {id, name, age} = req.body;
-    const name = req.body.login;
-    const id = req.body.id;
-    const age = req.body.age;
-    const idConfirm = req.body.idConfirm;
+
+// авторизация
+function authUser(req, res, next) {
+    const {id, name, age} = req.body;
     if (!id || !name || !age) {
-        res.json({
-            ok: false,
-            error: 'Пустые поля недопустимы!',
-            fields: ['name', 'id', 'age']
-          });
-    } else if (id !== idConfirm) {
-        res.json({
-          ok: false,
-          error: 'Пароли не совпадают!',
-          fields: ['id', 'idConfirm']
+      res.json({
+        Success: false,
+        error: 'Пустые поля недопустимы!'
         });
-    }else {
-        models.User.findOne({
-          name
-        }).then(user => {
+    } else {
+      models.user.findOne({
+        name
+      })
+      .then(user => {
+        if (!user) {
+          res.json({
+            Success: false,
+            error: 'Логин или пароль неверны!'
+          });
+        } else {
+            if (!result) {
+              res.json({
+                Success: false,
+                error: 'Логин или пароль неверны!'
+              });
+            } else {
+              req.session.userId = user.id;
+              req.session.userLogin = user.login;
+              console.log('autuser');
+              console.log(req.params.id);
+              res.json({userAuth: true}) 
+            }
+          }
+      });
+    }
+}
+
+// регистрация
+function postExample(req, res, next) {
+  console.log(req.body)
+  const {id, name, age} = req.body;
+  const idConfirm = req.body.idConfirm;
+    
+  if (!id || !name || !age) {
+    res.json({
+      Success: false,
+      error: 'Пустые поля недопустимы!'
+      });
+    } else if (id !== idConfirm) {
+      res.json({
+      Success: false,
+      error: 'Пароли не совпадают!'
+      });
+    } else {
+      models.user.findOne({
+        name
+        })
+        .then(user => {
           if (!user) {
-            bcrypt.hash(id, null, null, (err, hash) => {
-              models.User.create({
-                name,
-                password: hash
+            models.user.create({
+              name,
+              id
               })
-                .then(user => {
-                  console.log(user);
-                  res.json({
-                    ok: true
-                  });
+              .then(user => {
+                console.log(id, age, name);
+                res.json({Success: true});
+                console.log(user);
                 })
-                .catch(err => {
-                  console.log(err);
-                  res.json({
-                    ok: false,
-                    error: 'Что то пошло не так!'
-                  });
-                });
-            });
           } else {
             res.json({
-              ok: false,
-              error: 'Имя занято!',
+              Success: false,
+              error: 'Имя уже занято!',
               fields: ['name']
             });
           }
         });
+      }
     }
-    console.log(id, age, name);
-    res.json({Success: true})
-}
 
 async function acyncFyn() {
     await setTimeout(() => {}, 10000)
