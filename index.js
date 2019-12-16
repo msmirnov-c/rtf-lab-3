@@ -36,7 +36,7 @@ function registration(email, password){
   }
 
   function authorization(email, password){
-    let datat = fs.readFileSync('users.txt', 'utf-8');
+    let data = fs.readFileSync('users.txt', 'utf-8');
     let user = data.split(" ");
     for (let i = 0; i < user.length; i++){
         {
