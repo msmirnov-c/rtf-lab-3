@@ -14,17 +14,17 @@ body {
 }
 
 .something {
-  margin: 0 0 0 10px;
+  margin: 10px 10px 10px 10px;
   float: left;
-  width: 10%;
   padding: 15px 15px 15px 15px;
   border-radius: 10px;
   box-shadow: 0 1px 15px -3px rgba(0,0,0,.5);
   background-color: rgb(241, 255, 254, 0.9);
-  font-size: 2vh;
-  line-height: 2vh;
 }
-
+.mytext{
+  font-size: 3vh;
+  line-height: 3vh;
+}
 .contentYet {
     width: 80%;
     float: left;
