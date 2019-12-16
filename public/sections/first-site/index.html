@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+<h1>Первый сайт на PHP</h1>
+    <p>Сейчас мы создадим небольшой сайтик, который призван дать начальное понимание работы с PHP.</p>
+    <p>Для создания программ на PHP нам потребуется текстовый редактор. Наиболее популярным на сегодняшний день является программа <a href="https://notepad-plus-plus.org/" rel="nofollow">Notepad++</a></p>
+    <p>Перейдем к ранее созданному каталогу <span class="b">C:\localhost</span>, который будет хранить все документы сайта. Создадим текстовый файл
+        и назовем его <i>index.html</i>. Откроем его в текстовом редакторе и добавим в него следующий код:</p>
+    <pre class="brush:xml;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Первый сайт на PHP&lt;/title&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Введи свои данные:&lt;/h2&gt;
+&lt;form action="display.php" method="POST"&gt;
+&lt;p&gt;Введите имя: &lt;input type="text" name="firstname" /&gt;&lt;/p&gt;
+&lt;p&gt;Введите фамилию: &lt;input type="text" name="lastname" /&gt;&lt;/p&gt;
+&lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p>Код html содержит форму с двумя текстовыми полями. При нажатии на кнопку данные этой формы отсылаются скрипту <span class="bb">display.php</span>,
+        так как он указан в атрибуте <code>action</code>.</p>
+    <p>Теперь создадим этот скрипт, который будет обрабатывать данные. Добавим в папку <i>C:\localhost</i> новый текстовый файл. Переименуем его в
+        display.php. По умолчанию файлы программ на php имеют расширение <i>.php</i>. Итак, добавим в файл display.php следующий код:</p>
+    <pre class="brush:php;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Первый сайт на PHP&lt;/title&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+$name = $_POST["firstname"];
+$surname = $_POST["lastname"];
+echo "Ваше имя: &lt;b&gt;".$name . " " . $surname . "&lt;/b&gt;";
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p>Здесь уже в разметке html идут вкрапления кода PHP. Для добавления выражений PHP на страницу используются теги <code>&lt;?php ..... ?&gt;</code>, между
+        которыми идут инструкции на языке PHP. В коде php мы получаем данные формы и выводим их на страницу.</p>
+    <p>Каждое отдельное выражение PHP должно завершаться точкой с запятой. В данном случае у нас три выражения. Два из них получают переданные данные формы,
+        например, <code>$name = $_POST["firstname"];</code>.</p>
+    <p><code>$name</code> - это переменная, которая будет хранить некоторое значение. Все переменные в PHP предваряются знаком $. И так как форма на странице index.html
+        использует для отправки метод POST, то с помощью выражения <code>$_POST["firstname"]</code> мы можем получить значение, которое было введено в текстовое поле
+        с атрибутом <code>name="firstname"</code>. И это значение попадает в переменную $name.</p>
+    <p>С помощью оператора <span class="bb">echo</span> можно вывести на страницу любое значение или текст, которые идут после оператора. В данном случае (<code>echo "Ваше имя: &lt;b&gt;".$name . " " . $surname . "&lt;/b&gt;"</code>)
+        с помощью знака точки текст в кавычках соединяется со значениями переменных $name и $surname и выводится на страницу.</p>
+    <p>Теперь обратимся к форме ввода, перейдя по адресу <i>http://localhost:8080</i>:</p>
+    <img src="../../images/first-site/1.22.png" class="image" alt="Первый сайт на PHP" />
+    <p class="image-text">Первый сайт на PHP</p>
+    <p>Введем какие-нибудь данные и нажмем на кнопку отправить:</p>
+    <img src="../../images/first-site/1.23.png" class="image" alt="Отправка данных в PHP" />
+    <p class="image-text">Отправка данных в PHP</p>
+    <p>Итак, у нас сработал скрипт <i>display.php</i>, который получил и вывел отправленные данные на страницу.</p>
+
+</div>
+</body>
+</html>

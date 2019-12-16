@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item drop-active" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+<h1>Условные конструкции</h1>
+    <p>Условные конструкции позволяют направлять работу программы в зависимости от условия по одному из возможных путей.</p>
+    <h3>Конструкция if..else</h3>
+    <p>Конструкция <code>if (условие)</code> проверяет истинность некоторого условия, и если оно окажется истинным, то выполняется блок выражений, стоящих после if. Если же
+        условие ложно, то есть равно false, тогда блок if не выполняется. Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a = 4;
+$b = 2;
+if($a&gt;0)
+{
+	$result= $a * $b;
+	echo "результат равен: $result &lt;br&gt;";
+}
+echo "конец выполнения программы";
+?&gt;
+</pre>
+    <p>Блок выражений ограничивается фигурными скобками. И так как в данном случае условие истинно (то есть равно true): значение переменной $a больше 0, то блок инструкций в фигурных
+        скобках также будет выполняться. Если бы значение $a было бы меньше 0, то блок if не выполнялся.</p>
+    <p>Если блок if содержит всего одну инструкцию, то можно опустить фигурные скобки:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a = 4;
+$b = 2;
+if($a&gt;0)
+	echo $a * $b;
+echo "&lt;br&gt;конец выполнения программы";
+?&gt;
+</pre>
+    <p>Можно в одной строке поместить всю конструкцию:</p>
+    <pre class="brush:php;">
+if($a&gt;0) echo $a * $b;
+</pre>
+    <p>В данном случае к блоку if относится только инструкция <code>echo $a * $b;</code></p>
+    <h4>else</h4>
+    <p>Блок else содержит инструкции, которые выполняются, если условие после if ложно, то есть равно false:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a = 4;
+$b = 2;
+if($a&gt;0)
+{
+	echo $a * $b;
+}
+else
+{
+	echo $a / $b;
+}
+echo "&lt;br&gt;конец выполнения программы";
+?&gt;
+</pre>
+    <p>Если $a больше 0, то выполняется блок if, если нет, то выполняется блок else.</p>
+    <p>Поскольку здесь в обоих блоках по одной инструкции, также можно было не использовать фигурные скобки для определения блоков:</p>
+    <pre>
+if($a&gt;0)
+	echo $a * $b;
+else
+	echo $a / $b;
+</pre>
+    <h4>elseif</h4>
+    <p>Конструкция elseif вводит дополнительные условия в программу:</p>
+    <pre class="brush:php;">
+$a = 5;
+$b = 2;
+if($a&lt;0)
+{
+	echo $a * $b;
+}
+elseif($a==0)
+{
+	echo $a + $b;
+}
+elseif($a==5)
+{
+	echo $a - $b;
+}
+else
+{
+	echo $a / $b;
+}
+</pre>
+    <p>Можно добавить множество блоков <code>elseif</code>. И если ни одно из условий в if или elseif не выполняется, тогда срабатывает блок else.</p>
+    <h3>Конструкция switch..case</h3>
+    <p>Конструкция <code>switch..case</code> является альтернативой использованию конструкции <code>if..elseif..else</code>. Например:</p>
+    <pre class="brush:php;">
+$a = 1;
+if($a==1)     echo "сложение";
+elseif($a==2) echo "вычитание";
+elseif($a==3) echo "умножение";
+elseif($a==4) echo "деление";
+</pre>
+    <p>Будет эквивалентно:</p>
+    <pre class="brush:php;">
+$a = 1;
+switch($a)
+{
+	case 1:
+		echo "сложение";
+		break;
+	case 2:
+		echo "вычитание";
+		break;
+	case 3:
+		echo "умножение";
+		break;
+	case 4:
+		echo "деление";
+		break;
+}
+</pre>
+    <p>После ключевого слова switch в скобках идет сравниваемое выражение. Значение этого выражения последовательно сравнивается со значениями, помещенными
+        после оператора сase. И если совпадение будет найдено, то будет выполняться определенный блок сase.</p>
+    <p>В конце блока сase ставится оператор break, чтобы избежать выполнения других блоков.</p>
+    <p>Если мы хотим также обработать ситуацию, когда совпадения не будет найдено, то можно добавить блок default:</p>
+    <pre class="brush:php;">
+$a = 1;
+switch($a)
+{
+	case 1:
+		echo "сложение";
+		break;
+	case 2:
+		echo "вычитание";
+		break;
+	default:
+		echo "действие по умолчанию";
+		break;
+}
+</pre>
+    <h3>Тернарная операция</h3>
+    <p>Тернарная операция состоит из трех операндов и имеет следующее определение: <code>[первый операнд - условие] ? [второй операнд] : [третий операнд]</code>.
+        В зависимости от условия тернарная операция возвращает второй или третий операнд: если условие равно <code>true</code>, то возвращается второй операнд;
+        если условие равно <code>false</code>, то третий. Например:</p>
+    <pre class="brush:php;">
+$a = 1;
+$b = 2;
+$z = $a &lt; $b ? $a + $b : $a - $b;
+echo $z;
+</pre>
+    <p>Если значение переменной $a меньше $b и условие истинно, то переменная $z будет равняться <code>$a + $b</code>. Иначе значение $z будет равняться
+        <code>$a - $b</code></p>
+
+</div>
+</body>
+</html>

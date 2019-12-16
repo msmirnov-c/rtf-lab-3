@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item drop-active" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>Переменные и типы данных</h1>
+    <p>Как и во многих языках программирования, в PHP есть переменные. Переменные хранят отдельные значения, которые можно использовать в выражениях на PHP.
+        Для обозначения переменных используется знак доллара <code>$</code>. Например,</p>
+    <pre class="brush:php;">
+&lt;?php
+$a = 10;
+echo $a;
+?&gt;
+</pre>
+    <p>Здесь определена переменная, которая будет хранить число 10. Присвоение значения происходит с помощью знака равенства <code>=</code>.</p>
+    <p>Можно присваивать значение другой переменной:</p>
+    <pre class="brush:php;">
+$a = 10;
+$b=$a;
+echo $b;
+</pre>
+    <p>PHP является регистрозависимым языком, а значит, переменные <code>$counter</code> и <code>$Counter</code> будут представлять две разные переменные.</p>
+    <p>Также при наименовании переменных нам надо учитывать следующие правила:</p>
+    <ul>
+        <li><p>Имена переменных должны начинаться с алфавитного символа или с подчеркивания</p></li>
+        <li><p>Имена переменных могут содержать только символы: a–z, A–Z, 0–9, и знак подчеркивания</p></li>
+        <li><p>Имена переменных не должны включать в себя пробелы</p></li>
+    </ul>
+    <h3>Проверка существования переменной. Оператор isset</h3>
+    <p>Если переменная объявлена, но ей изначально не присвоено никакого значения (иначе говоря она не инициализирована), то нам будет проблематично ее использовать. Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a;
+echo $a;
+?&gt;
+</pre>
+    <p>При попытке вывести значение переменной мы получим диагностическое сообщение о том, что переменная не определена:
+        <i>Notice: Undefined variable: a in C:\localhost\echo.php on line 3</i>.</p>
+    <p>Оператор <span class="bb">isset()</span> позволяет определить, инициализирована ли переменная или нет. Если переменная определена,
+        то <code>isset()</code> возвращает значение <code>true</code>. Если переменная не определена, то <code>isset()</code> возвращает <code>false</code>.
+        Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a;
+if(isset($a))
+	echo $a;
+else
+    echo "переменная a не определена";
+?&gt;
+</pre>
+    <p>Для проверки переменной использовалась конструкция <code>if...else</code>, которая определяет истинность выражения. И если выражение истинно, тогда выполняется
+        выражение после блока if. Если же выражение ложно (то есть равно false), выполняется выражение после блока <code>else</code></p>
+    <p>Здесь переменная не инициализирована, поэтому оператор <code>isset($a)</code> будет возвращать значение <code>false</code>, и, следовательно,
+        будет срабатывать блок <code>else</code>. Если бы мы присвоили переменной некоторое начальное значение, например, <code>$a=20</code>, то
+        оператор isset возвратил бы значение <code>true</code>, и браузер вывел бы ее значение.</p>
+    <p>С помощью оператора <span class="bb">unset()</code> мы можем уничтожить переменную:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a=20;
+echo $a; // 20
+unset($a);
+echo $a; // ошибка, переменная не определена
+?&gt;
+</pre>
+    <p>PHP является языком с динамической типизацией. Это значит, что тип данных переменной выводится во время выполнения, и в отличии от ряда других языков программирования
+        в PHP не надо указывать перед переменной тип данных.</p>
+    <p>PHP поддерживает восемь простых типа данных:</p>
+    <ul>
+        <li><p>boolean (логический тип)</p></li>
+        <li><p>integer (целые числа)</p></li>
+        <li><p>double (дробные числа)</p></li>
+        <li><p>string (строки)</p></li>
+        <li><p>array (массивы)</p></li>
+        <li><p>object (объекты)</p></li>
+        <li><p>resource (ресурсы)</p></li>
+        <li><p>NULL</p></li>
+    </ul>
+    <h3>Integer (целочисленный тип)</h3>
+    <p>Представляет целое число со знаком размером в 32 бита (от -2 147 483 648 до 2 147 483 647).</p>
+    <pre class="brush:php;">
+$int = -100;
+echo $int;
+</pre>
+    <p>Здесь переменная <code>$int</code> представляет целочисленный тип, так как ей присваивается целочисленное значение.</p>
+    <p>Кроме десятичных целых чисел PHP обладает возможностью использовать также двоичные, восьмеричные и шестнадцатеричные числа. Шаблоны чисел для других систем:</p>
+    <ul>
+        <li><p>шестнадцатеричные : 0[xX][0-9a-fA-F]</p></li>
+        <li><p>восьмеричные : 0[0-7]</p></li>
+        <li><p>двоичные : 0b[01]</p></li>
+    </ul>
+    <p>Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+// Все числа в десятичной системе имеют значение 28
+$int_10 = 28; // десятичное число
+$int_2 = 0b11100; // двоичное число
+$int_8 = 034; // восьмеричное число
+$int_16 = 0x1C; // шестнадцатеричное число
+echo "int_10 = $int_10 &lt;br&gt;";
+echo "int_2 = $int_2 &lt;br&gt;";
+echo "int_8 = $int_8 &lt;br&gt;";
+echo "int_16 = $int_16";
+?&gt;
+</pre>
+    <h3>Тип double (числа с плавающей точкой)</h3>
+    <p>Размер числа с плавающей точкой зависит от платформы. Максимально возможное значение, как правило, составляет ~1.8e308 с точностью около 14 десятичных
+        цифр. Например:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a1 = 1.5;
+$a2 = 1.3e4; // 1.3 * 10^4
+$a3 = 6E-8; // 0.00000006
+echo $a1 . " | " . $a2 . " | " . $a3;
+?&gt;
+</pre>
+    <h3>Тип boolean (логический тип)</h3>
+    <p>Переменные логического типа могут принимать два значения: <code>true</code> и <code>false</code> или иначе говоря <code>истина</code> и <code>ложь</code>.
+        Чаще всего логические значения используются в условных конструкциях:</p>
+    <pre class="brush:php;">
+&lt;?php
+$foo = true;
+$a=10;
+$b=5;
+echo "foo = true &lt;br&gt;";
+if($foo)
+  echo $a+$b;
+else
+  echo $a-$b;
+$foo = false;
+echo "&lt;br&gt; foo = false &lt;br&gt;";
+if($foo)
+  echo $a+$b;
+else
+  echo $a-$b;
+?&gt;
+</pre>
+    <p>Выражение <code>if()</code> проверяет истинность выражения. В данном случае проверяется значение переменной <code>$foo</code>. Или оно истинно или равно true, то выполняется следующее за оператором if выражение.
+        А если переменная или выражение в операторе if равно <code>false</code>, то выполняется выражение после оператора <code>else</code>.</p>
+    <h3>Специальное значение NULL</h3>
+    <p>Значение <code>NULL</code> указывает, что значение переменной не определено. Использование данного значения полезно в тех случаях, когда мы
+        хотим указать, что переменная не имеет значения. Например, если мы просто определим переменную без ее инициализации, и затем попробуем ее использовать,
+        то нам интерпретатор выдаст диагностическое сообщение, что переменная не установлена:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a;
+echo $a;
+?&gt;
+</pre>
+    <p>Использование значения NULL поможет избежать данной ситуации. Кроме того, мы сможем проверять наличие значения и в зависимости от результатов проверки
+        производить те или иные действия:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a=NULL;
+if($a)
+	echo "Переменная a определена";
+else
+	echo "Переменная a не определена";
+?&gt;
+</pre>
+    <p>Константа NULL не чувствительна к регистру, поэтому мы можем написать и так:</p>
+    <pre class="brush:php;">
+$a=null;
+</pre>
+    <h3>Тип string (строки)</h3>
+    <p>Для работы с текстом можно применять строки. Строки бывают двух типов: в двойных кавычках и одинарных. От типа кавычек
+        зависит обработка строк интерпретатором. Так, переменные в двойных кавычках заменяются значениями, а переменные в одинарных кавычках остаются неизменными.</p>
+    <pre class="brush:php;">
+&lt;?php
+$a=10;
+$b=5;
+$result = "$a+$b &lt;br&gt;";
+echo $result;
+$result = '$a+$b';
+echo $result;
+?&gt;
+</pre>
+    <p>В этом случае мы получим следующий вывод:</p>
+    <pre>
+10+5
+$a+$b
+</pre>
+    <p>Кроме обычных символов, строка может содержать специальные символы, которые могут быть неправильно интерпретированы. Например, нам надо добавить в строку кавычку:</p>
+    <pre class="brush:php;">
+$text = "Модель "Apple II"";
+</pre>
+    <p>Данная запись будет ошибочна. Чтобы исправить ошибку, мы можем сочетать различные типы кавычек ('Модель "Apple II"' или "Модель 'Apple III'") или использовать слеш, чтобы ввести кавычку в строку:</p>
+    <pre class="brush:php;">
+$text = "Модель \"Apple II\"";
+</pre>
+    <h3>Тип resource (ресурсы)</h3>
+    <p>Ресурс представляет специальную переменную, которая содержит ссылку на внешний ресурс. В качестве внешнего ресурса могут использоваться, например,
+        файлы или подключения к базам данных. Ресурсы создаются и используются специальными функциями. Далее мы подробнее рассмотрим работу с файлами и подключения к базе данных.</p>
+    <h3>Тип array (ассоциативные массивы)</h3>
+    <p>Ассоциативный массив определяет набор элементов, каждый из которых представляет пару <code>ключ=&gt;значение</code>. Создадим массив из 4-х элементов:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array('iPhone', 'Samsung Galaxy S III', 'Nokia N9', 'Samsung ACE II');
+echo $phones[1];
+?&gt;
+</pre>
+    <p>Массив создается с помощью конструкции <code>array()</code>, в котором определяются элементов. Далее выводим второй элемент массива.
+        Поскольку отсчет элементов в массиве начинается с нуля, то чтобы обратиться ко второму элементу, нам надо использовать выражение <code>$phones[1]</code></p>
+    <p>Так как в массиве только четыре элемента, мы не можем использовать в качестве ключа число, большее чем 3, например, <code>$phones[4]</code>.</p>
+    <p>Далее мы также более подробно рассмотрим данный тип</p>
+    <h3>Получение и установка типа переменной</h3>
+    <p>С помощью специальных функций мы можем определить тип переменной:</p>
+    <ul>
+        <li><p><span class="bb">is_integer($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a хранит целое число</p></li>
+        <li><p><span class="bb">is_string($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a хранит строку</p></li>
+        <li><p><span class="bb">is_double($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a хранит действительное число</p></li>
+        <li><p><span class="bb">is_numeric($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a представляет целое или действительное число или
+            является строковым представлением числа. Например:</p>
+            <pre class="brush:php;">
+$a = 10;
+$b = "10";
+echo is_numeric($a);
+echo "&lt;br&gt;";
+echo is_numeric($b);
+</pre>
+            <p>Оба выражения <code>is_numeric()</code> возвратят TRUE, так как переменная $a представляет число, а переменная $b является строковым представлением числа</p>
+        </li>
+        <li><p><span class="bb">is_bool($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a хранит значение <code>TRUE</code> или <code>FALSE</code></p></li>
+        <li><p><span class="bb">is_scalar($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a представляет один из простых типов: строку, целое число,
+            действительное число, логическое значение.</p></li>
+        <li><p><span class="bb">is_null($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a хранит значение <code>NULL</code></p></li>
+        <li><p><span class="bb">is_array($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a является массивом</p></li>
+        <li><p><span class="bb">is_object($a)</span>: возвращает значение <code>TRUE</code>, если переменная $a содержит ссылку на объект</p></li>
+        <li><p><span class="bb">gettype($a)</span>: возвращает тип переменной $a, например, <code>integer</code> (целое число),
+            <code>double</code> (действительное число), <code>string</code> (строка), <code>boolean</code> (логическое значение),
+            <code>NULL</code>, <code>array</code> (массив), <code>object</code> (объект) или <code>unknown type</code>. Например:</p>
+            <pre class="brush:php;">
+&lt;?php
+$a = 10;
+$b = "10";
+echo gettype($a); // integer
+echo "&lt;br&gt;";
+echo gettype($b);  // string
+?&gt;
+</pre>
+        </li>
+    </ul>
+    <h3>Установка типа. Функция settype()</h3>
+    <p>С помощью функции <span class="bb">settype()</span> можно установить для переменной определенный тип. Она принимает два параметра:
+        <code>settype("Переменная", "Тип")</code>. В качестве первого параметра используется переменная, тип которой надо установить, а в качестве второго -
+        строковое описание типа, которое возвращается функцией <code>gettype()</code>.</p>
+    <p>Если удалось установить тип, то функция возвращает <code>TRUE</code>, если нет - то значение <code>FALSE</code>.</p>
+    <p>Например, установим для переменной целочисленный тип:</p>
+    <pre class="brush:php;">
+&lt;?php
+$a = 10.7;
+settype($a, "integer");
+echo $a; // 10
+?&gt;
+</pre>
+    <p>Поскольку переменная $a представляет действительное число 10.7, то его вполне можно преобразовать в целое число через отсечение дробной части.
+        Поэтому в данном случае функция <code>settype()</code> возвратит <code>TRUE</code>.</p>
+</div>
+</body>
+</html>

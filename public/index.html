@@ -1,14 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="javascripts/optimize.js"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Слоны: Начало</title>
 </head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand  active" href="/"><img src="images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>PHP</h1>
+    <p>На сегодняшний день PHP является наиболее распространенным языком веб-программирования. Подавляющие большинство сайтов и веб-сервисов в интернете
+        написано с помощью PHP. По некоторым оценкам PHP применяется более чем на 80% сайтов. И такая популярность неудивительна. Простота языка позволяет быстро и легко создавать сайты и порталы различной сложности.</p>
+    <p>PHP был создан в 1994 году датским программистом Расмусом Лердорфом и изначально представлял собой набор скриптов на другом языке Perl. Позже этот
+        набор скриптов был переписан в интерпретатор на языке Си. И с самого возникновения PHP (сокращение от PHP: Hypertext Preprocessor - PHP: Препроцессор гипертекста)
+        представлял удобный набор инструментов для упрощенного создания веб-сайтов и веб-приложений.</p>
+    <p><img src="images/main/1.png" style="max-width: 450px;" class="image"  alt=""></p>
+    <p class="image-text">Логотип PHP ч/б</p>
+    <h4>Какие преимущества предоставляет PHP?</h4>
+    <ul>
+        <li><p>Для всех наиболее распространенных операционных системам (Windows, MacOS, Linux) есть свои версии пакетов разработки на PHP, а это значит, что вы можете создавать веб-сайты на любой из этих
+            операционных систем.</p></li>
+        <li><p>PHP может работать в связке с различными веб-серверами: Apache, Nginx, IIS</p></li>
+        <li><p>Простота и легкость освоения. Как правило, уже имея небольшой опыт в программировании на PHP, можно создавать простенькие веб-сайты</p></li>
+        <li><p>PHP похож на язык Си, поэтому, зная Си или один из языков с сиподобным синтаксисом, будет проще овладеть PHP </p></li>
+        <li><p>PHP поддерживает работу с множеством систем баз данных (MySQL, MSSQL, Oracle, Postgre, MongoDB и другие)</p></li>
+        <li><p>Распространенность хостинговых услуг и их дешевизна. Так как, как правило, хостинговые компании размещают веб-сайты на PHP на веб-серверах Apache или
+            Nginx, которые работают на одной из операционных систем семейства Linux. И веб-серверы, и операционные системы на базе Linux бесплатны, что снижает общую стоимость
+            использования хостинга</p></li>
+        <li><p>Постоянное развитие. PHP продолжает развиваться, выходят все новые версии, которые несут новые функции, адаптируя язык программирования к
+            новым вызовам. И, как правило, перейти на новую версию не составляет труда.</p></li>
+    </ul>
+
+
+</div>
+</body>
 </html>

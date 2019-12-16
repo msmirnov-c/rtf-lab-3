@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item drop-active" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+<h1>Константы</h1>
+
+    <p>Константы, как и переменные хранят определенное значение, только в отличие от переменных значение констант может быть установлено только один раз, и далее мы уже
+        не можем его изменить. Например, определим числовую константу:</p>
+    <pre class="brush:php;">
+&lt;?php
+define("NUMBER", 22);
+echo NUMBER;
+$num = NUMBER;
+echo $num;
+?&gt;
+</pre>
+    <p>Для определения константы используется оператор <span class="bb">define</span>, который имеет следующую форму:
+        <code>define(string $name, string $value, bool $case_sen=false)</code>. Параметр <code>$name</code> передает название константы, а параметр
+        <code>$value</code> - ее значение. Третий необязательный параметр принимает логическое значение <code>true</code> или <code>false</code>. Если значение равно
+        false, то при использовании константы будет учитываться ее регистр, если true - регистр не учитывается. В нашем случае третий параметр не использован,
+        поэтому он по умолчанию равен false.</p>
+    <p>После определения константы мы можем ее использовать также, как и обычную переменную. Единственное исключение - мы не сможем изменить ее значение.
+        Другое отличие от переменной - не надо использовать знак <code>$</code>. То есть выражение <code>NUMBER=33;</code> работать не будет.</p>
+    <h3>Предопределенные константы</h3>
+    <p>Кроме создаваемых программистом констант в PHP имеется еще несколько встроенных констант:</p>
+    <ul>
+        <li><p><span class="bb">__FILE__</span>: хранит полный путь и имя текущего файла</p></li>
+        <li><p><span class="bb">__LINE__</span>: хранит текущий номер строки, которую обрабатывает интерпретатор</p></li>
+        <li><p><span class="bb">__DIR__</span>: хранит каталог текущего файла</p></li>
+        <li><p><span class="bb">__FUNCTION__</span>: название обрабатываемой функции</p></li>
+        <li><p><span class="bb">__CLASS__</span>: название текущего класса</p></li>
+        <li><p><span class="bb">__METHOD__</span>: название обрабатываемого метода</p></li>
+        <li><p><span class="bb">__NAMESPACE__</span>: название текущего пространства имен</p></li>
+    </ul>
+    <p>Например, выведем текущую выполняемую строку и название файла:</p>
+    <pre class="brush:php;">
+&lt;?php
+echo "Cтрока " . __LINE__ . " в файле " . __FILE__;
+?&gt;
+</pre>
+    <h3>Проверка существования константы</h3>
+    <p>Чтобы проверить, определена ли константы, мы можем использовать функцию <span class="bb">bool defined(string $name)</span>.
+        Если константа <code>$name</code> определена, то функция будет возвращать значение <code>true</code></p>
+</div>
+</body>
+</html>

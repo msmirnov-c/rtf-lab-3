@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../../javascripts/optimize.js"></script>
+    <title>Слоны: Начало</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="darova">
+    <a class="navbar-brand" href="/"><img src="../../images/logo.png" class="logo" alt=""></a>
+    <button onclick="countRabbits()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/first-site">Первый сайт</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Основы PHP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/sections/1">Основы синтаксиса</a>
+                    <a class="dropdown-item" href="/sections/2">Переменные и типы данных</a>
+                    <a class="dropdown-item" href="/sections/3">Константы</a>
+                    <a class="dropdown-item" href="/sections/4">Операции в PHP</a>
+                    <a class="dropdown-item" href="/sections/5">Условные конструкции</a>
+                    <a class="dropdown-item" href="/sections/6">Циклы</a>
+                    <a class="dropdown-item" href="/sections/7">Функции</a>
+                    <a class="dropdown-item" href="/sections/8">Область видимости переменной</a>
+                    <a class="dropdown-item" href="/sections/9">Подключение внешних файлов</a>
+                    <a class="dropdown-item drop-active" href="/sections/10">Массивы и операции с ними</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sections/about-project">О проекте</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Вход</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content">
+<h1>Массивы</h1>
+    <p>Массивы предназначены для хранения наборов данных или элементов. Каждый элемент в массиве имеет свой уникальный ключ и значение. Итак, сохраним в массив список моделей телефонов:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones[0] = "Nokia N9";
+$phones[1] = "Samsung Galaxy ACE II";
+$phones[2] = "Sony Xperia Z3";
+$phones[3] = "Samsung Galaxy III";
+
+for($i=0;$i&lt;count($phones);$i++)
+	echo "$phones[$i] &lt;br /&gt;";
+?&gt;
+</pre>
+    <p>Здесь создается массив $phones из четыре элементов. Каждый элемент в массиве представляет собой пару <span class="bb">ключ - значение</span>. Так, первый элемент <code>$phones[0] = "Nokia N9"</code>
+        имеет ключ - число 0, а значение - строку "Nokia N9". В таких массивах числовые ключи еще называются индексами.</p>
+    <p>С помощью функции <span class="bb">count()</span> можно узнать количество элементов в массиве. А благодаря тому, что ключи идут по порядку от 0 до 3,
+        и зная размер массива, можно вывести элементы массивы в цикле <code>for</code>.</p>
+    <p>Чтобы было более понятно отношения ключей и значений элементов, выведем массив с помощью функции <span class="bb">print_r</span>:</p>
+    <pre class="brush:php;">print_r($phones);</pre>
+    <p>У нас получится следующий вывод:</p>
+    <pre class="brush:php;">Array ( [0] =&gt; Nokia N9 [1] =&gt; Samsung Galaxy ACE II [2] =&gt; Sony Xperia Z3 [3] =&gt; Samsung Galaxy III)</pre>
+    <p>Данное создание массива будет также эквивалентно следующему:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones[] = "Nokia N9";
+$phones[] = "Samsung Galaxy ACE II";
+$phones[] = "Sony Xperia Z3";
+$phones[] = "Samsung Galaxy III";
+$num = count($phones);
+for($i=0;$i&lt;$num;$i++)
+	echo "$phones[$i] &lt;br /&gt;";
+?&gt;
+</pre>
+    <p>Если не указывается ключ элемента, то PHP в качестве ключей использует числа. При этом нумерация ключей начинается с нуля, а каждый новый ключ увеличивается на единицу.</p>
+    <p>Зная ключ элемента в массиве, мы можем обратиться к этому элементу, получить или изменить его значение:</p>
+    <pre class="brush:php;">
+// получим элемент по ключу 1
+$myPhone = $phones[1];
+echo "$myPhone &lt;br /&gt;";
+// присвоение нового значения
+$phones[1] = "Samsung X650";
+echo "$phones[1] &lt;br /&gt;";
+</pre>
+    <p>Но в качестве ключей могут использоваться не только целые числа, но и строки:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones["nokia"] = "Nokia N9";
+$phones["samsumg"] = "Samsung Galaxy III";
+$phones["sony"] = "Sony Xperia Z3";
+$phones["apple"] = "iPhone5";
+echo $phones["samsumg"];
+?&gt;
+</pre>
+    <p>Подобные массивы еще называют <span class="bb">ассоциативными<span>.</p>
+    <h3>Оператор array</h3>
+    <p>Выше был рассмотрен один способ создания массива. Но есть и другой, который предусматривает применение оператора <code>array()</code>.</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array('iPhone', 'Samsung Galaxy S III', 'Nokia N9', 'Sony XPeria Z3');
+echo $phones[1];
+?&gt;
+</pre>
+    <p>Оператор <code>array()</code> принимает набор элементов. Здесь также явным образом не указаны ключи. Поэтому PHP автоматически нумерует элементы с нуля. Но мы также
+        можем указать для каждого элемента ключ:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array("apple"=&gt;"iPhone5", "samsumg"=&gt;"Samsung Galaxy III",
+"nokia" =&gt; "Nokia N9", "sony" =&gt; "Sony XPeria Z3");
+echo $phones["samsumg"];
+?&gt;
+</pre>
+    <p>Операция <code>=&gt;</code> позволяет сопоставить ключ с определенным значением.</p>
+    <h3>Перебор ассоциативных массивов</h3>
+    <p>Выше мы посмотрели, как с помощью цикла <code>for</code> вывести все элементы массива, где ключи заданы последовательно числами от 0 до 3. Однако с ассоциативными массивами это не работает. И для них в PHP
+        предназначен специальный тип цикла - <span class="bb">foreach...as</span>:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array("apple"=&gt;"iPhone5",
+				"samsumg"=&gt;"Samsung Galaxy III",
+				"nokia" =&gt; "Nokia N9",
+				"sony" =&gt; "Sony XPeria Z3");
+foreach($phones as $item)
+	echo "$item &lt;br /&gt;";
+?&gt;
+</pre>
+    <p>В цикле foreach из массива последовательно извлекаются все элементы и их значение помещается в переменную, указанную после ключевого слова
+        <span class="bb">as</span>. В данном случае в переменную <code>$item</code> по очереди помещаются все четыре значения из массива $phones.
+        Когда будет извлечен последний элемент из массива, цикл завершается.</p>
+    <p>Цикл <code>foreach</code> позволяет извлекать не только значения, но и ключи элементов:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array("apple"=&gt;"iPhone5",
+				"samsumg"=&gt;"Samsung Galaxy III",
+				"nokia" =&gt; "Nokia N9",
+				"sony" =&gt; "Sony XPeria Z3");
+foreach($phones as $key=&gt;$value)
+	echo "$key =&gt; $value &lt;br /&gt;";
+?&gt;
+</pre>
+    <p>Здесь при переборе элементов цикла в переменную <code>$key</code> будет передаваться ключ элемента, а в переменную <code>$value</code> ее значение.</p>
+    <p>Альтернативу циклу <code>foreach</code> представляет использование функций <span class="bb">list</span> и <span class="bb">each</span>:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array("apple"=&gt;"iPhone5",
+				"samsumg"=&gt;"Samsung Galaxy III",
+				"nokia" =&gt; "Nokia N9",
+				"sony" =&gt; "Sony XPeria Z3");
+while (list($key, $value) = each($phones))
+	echo "$key =&gt; $value &lt;br /&gt;";
+?&gt;
+</pre>
+    <p>Цикл while будет работать, пока функция <code>each</code> не вернет значение <code>false</code>. Функция <code>each</code> проходит по всем элементам
+        массива $phones и получает его в виде массива, в который входят ключ и значение элемента. Затем этот массив передается функции list и проиcходит
+        присваивает значения массива переменным внутри скобок. Когда функция <code>each</code> закончит перебор элементов массива $phones, она возвратит <code>false</code>,
+        и действие цикла while будет завершено.</p>
+    <h3>Многомерные массивы</h3>
+    <p>В предыдущих примерах рассматривались только одномерные массивы, где значения элементов представляли числа, строки. Но в PHP массивы могут также быть
+        многомерными, то есть такими, где элемент массива сам является массивом. Например, создадим многомерный массив:</p>
+    <pre class="brush:php;">
+&lt;?php
+$phones = array(
+		"apple"=&gt; array("iPhone5", "iPhone5s", "iPhone6") ,
+		"samsumg"=&gt;array("Samsung Galaxy III", "Samsung Galaxy ACE II"),
+		"nokia" =&gt; array("Nokia N9", "Nokia Lumia 930"),
+		"sony" =&gt; array("Sony XPeria Z3", "Xperia Z3 Dual", "Xperia T2 Ultra"));
+foreach ($phones as $brand =&gt; $items)
+{
+	echo "&lt;h3&gt;$brand&lt;/h3&gt;";
+	echo "&lt;ul&gt;";
+	foreach ($items as $key =&gt; $value)
+	{
+		echo "&lt;li&gt;$value&lt;/li&gt;";
+	}
+	echo "&lt;/ul&gt;";
+}
+?&gt;
+</pre>
+    <p>И при выводе мы получим 4 списка:</p>
+    <img src="../../images/2.1.png" style="max-width: 300px;" class="image" alt="Ассоциативные массивы в PHP" />
+    <p class="image-text">Ассоциативные массивы в PHP</p>
+    <p>Чтобы обратиться к элементу данного, также надо указать ключи в квадратных скобках. Например, обратимся к первому элементу в первом массиве.
+        Так как ключ первого массива - "apple", а ключ первого элемента в первом массиве - число 0 (так как мы явным образом не указали ключи):</p>
+    <pre class="brush:php;">echo $phones["apple"][0];</pre>
+    <p>Подобным образом можно получить второй элемент третьего массива:</p>
+    <pre class="brush:php;">echo $phones["nokia"][1];</pre>
+    <p>Допустим, вложенные массивы также представляют ассоциативные массивы:</p>
+    <pre class="brush:php;">
+&lt;?php
+$technics = array(
+		"phones" =&gt; array("apple" =&gt; "iPhone5",
+					"samsumg" =&gt; "Samsung Galaxy III",
+					"nokia" =&gt; "Nokia N9"),
+		"tablets" =&gt; array("lenovo" =&gt; "Lenovo IdeaTab A3500",
+						"samsung" =&gt; "Samsung Galaxy Tab 4",
+						"apple" =&gt; "Apple iPad Air"));
+foreach ($technics as $tovar =&gt; $items)
+{
+	echo "&lt;h3&gt;$tovar&lt;/h3&gt;";
+	echo "&lt;ul&gt;";
+	foreach ($items as $key =&gt; $value)
+	{
+		echo "&lt;li&gt;$key : $value&lt;/li&gt;";
+	}
+	echo "&lt;/ul&gt;";
+}
+// присвоим одному из элементов другое значение
+$technics["phones"]["nokia"] = "Nokia Lumnia 930";
+// выведем это значение
+echo $technics["phones"]["nokia"];
+?&gt;
+</pre>
+    <h3>Функция is_array</h3>
+    <p>Функция <code>is_array()</code> проверяет, является ли переменная массивом, и если является, то возвращает <code>true</code>, иначе возвращает
+        <code>false</code>. Например:</p>
+    <pre class="brush:php;">
+$isar = is_array($technics);
+echo ($isar==true)?"это массив":"это не массив";
+</pre>
+    <h3>Функции count/sizeof</h3>
+    <p>Функция <code>count()</code> и <code>sizeof()</code> получают количество элементов массива:</p>
+    <pre class="brush:php;">
+$number = count($technics);
+// то же самое, что
+// $number = sizeof($technics);
+echo "В массиве technics $number элементов";
+</pre>
+    <h3>Функции shuffle</h3>
+    <p>Функция <code>shuffle</code> перемешивает элементы массивы случайным образом:</p>
+    <pre class="brush:php;">
+$os = array("Windows 95", "Windows XP", "Windows Vista", "Windows 7", "Windows 8", "Windows 10");
+shuffle($os);
+print_r($os);
+// один из возможных вариантов
+// Array ( [0] =&gt; Windows 95 [1] =&gt; Windows 7 [2] =&gt; Windows Vista [3] =&gt; Windows XP [4] =&gt; Windows 10 [5] =&gt; Windows 8)
+</pre>
+    <h3>Функции compact</h3>
+    <p>Функция <code>compact</code> позволяет создать из набора переменных ассоциативный массив, где ключами будут сами имена переменных:</p>
+    <pre class="brush:php;">
+&lt;?php
+
+$model = "Apple II";
+$producer = "Apple";
+$year = 1978;
+
+$data = compact('model', 'producer', 'year');
+print_r($data);
+// получится следующий вывод
+// Array ( [model] =&gt; Apple II [producer] =&gt; Apple [year] =&gt; 1978 )
+?&gt;
+</pre>
+    <p>Функция compact получает в скобках набор переменных. Каждая переменная указывается в кавычка без знака $. Результатом функции является новый массив.</p>
+    <h3>Сортировка массивов</h3>
+    <p>В PHP имеются два типа сортировки: сортировка строк по алфавиту и сортировка чисел по возрастанию/убыванию. Если сортируемые значения представляют строки,
+        то они сортируются по алфавиту, если числа - то они сортируются в порядке возрастания чисел. PHP по умолчанию самостоятельно выбирает тип сортировки.</p>
+    <p>Для сортировки по возрастанию используется функция <span class="bb">asort</span>:</p>
+    <pre class="brush:php;">
+&lt;?php
+$tablets = array("lenovo" =&gt; "Lenovo IdeaTab A3500",
+						"samsung" =&gt; "Samsung Galaxy Tab 4",
+						"apple" =&gt; "Apple iPad Air");
+asort($tablets);
+
+echo "&lt;ul&gt;";
+foreach ($tablets as $key =&gt; $value)
+{
+	echo "&lt;li&gt;$key : $value&lt;/li&gt;";
+}
+echo "&lt;/ul&gt;";
+?&gt;
+</pre>
+    <p>В данном случае значения массива представляют строки, поэтому PHP выберет сортировку по алфавиту. Однако с помощью дополнительного параметра мы можем явно указать
+        интерпретатору PHP тип сортировки. Данный параметр может принимать три значения:</p>
+    <ul>
+        <li><p><code>SORT_REGULAR</code>: автоматический выбор сортировки</p></li>
+        <li><p><code>SORT_NUMERIC</code>: числовая сортировка</p></li>
+        <li><p><code>SORT_STRING</code>: сортировка по алфавиту</p></li>
+    </ul>
+    <p>Укажем явно тип сортировки:</p>
+    <pre class="brush:php;">asort($tablets, SORT_STRING);</pre>
+    <p>Чтобы отсортировать массив в обратном порядке, применяется функция <span class="bb">arsort</span>:</p>
+    <pre class="brush:php;">arsort($tablets);</pre>
+    <h4>Сортировка по ключам</h4>
+    <p>Функция <code>asort</code> производит сортировку по значениям элементов, но также существует и еще и сортировка по ключам. Она представлена функцией
+        <span class="bb">ksort</span>:</p>
+    <pre class="brush:php;">ksort($tablets, SORT_STRING);</pre>
+    <p>Сортировка по ключам в обратном порядке выполняется функцией <span class="bb">krsort()</span>:</p>
+    <pre class="brush:php;">krsort($tablets);</pre>
+    <h4>Естественная сортировка</h4>
+    <p>Хотя выше описанные функции сортировки прекрасно выполняют свою работу, но их возможностей все-таки недостаточно. Например, отсортируем по возрастанию следующий массив:</p>
+    <pre class="brush:php;">
+&lt;?php
+$os = array("Windows 7", "Windows 8", "Windows 10");
+asort($os);
+print_r($os);
+// результат
+// Array ( [2] =&gt; Windows 10 [0] =&gt; Windows 7 [1] =&gt; Windows 8 )
+?&gt;
+</pre>
+    <p>Так как значения представляют строки, то PHP сортирует по алфавиту. Однако подобная сортировка не учитывает числа и регистр. Поэтому значение
+        "Windows 10" будет идти в самом начале, а не в конце, как должно было быть. И для решения этой проблемы в PHP есть функция <span class="bb">natsort()</span>,
+        которая выполняет естественную сортировку:</p>
+    <pre class="brush:php;">
+&lt;?php
+$os = array("Windows 7", "Windows 8", "Windows 10");
+natsort($os);
+print_r($os);
+// результат
+// Array ( [0] =&gt; Windows 7 [1] =&gt; Windows 8 [2] =&gt; Windows 10)
+?&gt;
+</pre>
+    <p>Если нам надо еще при этом, чтобы сортировка не учитывала регистр, то мы можем применить функцию <span class="bb">natcasesort()</span>:</p>
+    <pre class="brush:php;">natcasesort($os);</pre>
+</div>
+</body>
+</html>
