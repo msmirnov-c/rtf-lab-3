@@ -15,23 +15,23 @@ async function authUser(req, res, next) {
 * @param {string} email - почта
 * @param {string} pass - пароль
 */
-async function postExample(req, res, next){
+async function postExample(req, res, next) {
     const {email, nick, pass} = req.body;
-    if (!email || !nick || !pass ) {
+    if (!email || !nick || !pass) {
         res.send({Error: 'NO PARAMS'});
     }
     const db = new DbClient();
     await db.AddUser(email, nick, pass, async function (err, row) { // Добавляем в базу данных нового пользователя
-             if (row === undefined) {
-                 res.send("Success");
-                 console.log(err);
-             } else {
-                 res.status(500).send('Пользователь с таким логином или почтой уже зарегистрирован!');
-                 console.log(err);
-                 throw err
-             }
+        if (err) {
+            res.status(500).send('Пользователь с таким логином или почтой уже зарегистрирован!');
+            console.log(err);
+            throw err
+        }
     });
-    console.log(email, nick, pass);
+    if (res.status !== 500) {
+        console.log(email, nick, pass);
+        res.send("Success");
+    }
     db.close();
 }
 

@@ -1,5 +1,5 @@
 @import url('fontsStyle.css');
-@media (min-width: 1251px) {
+@media (min-width: 1031px) {
 body {
   font: 14px ibm_plex_sanslight, sans-serif;
   color: white;
@@ -52,7 +52,7 @@ input{
     margin: 5px;
     cursor: pointer;
     text-align: center;
-    border-radius: 5%;
+    border-radius: 5px;
     display: flex;
     height: 40px;
     width: 130px;
@@ -90,6 +90,7 @@ header{
   display: flex;
   height: 100px;
 }
+
 
 .SystemHolder {
   cursor: crosshair;
@@ -142,10 +143,12 @@ h2:first-child{
   .Title
    {
      position: relative;
-     left: 0;
+     display: flex;
+    align-items: center;
+    text-align: center;
      font-family: 'ibm_plex_sansmedium';
      color: white;
-     font-size: 4em;
+     font-size: 5vmin;
     cursor: pointer;
 
    }
@@ -181,7 +184,7 @@ h2:first-child{
   position: relative;
  /* background: rgb(62,27,201); */
   width: 30em;
-  border-radius: 5%;
+  border-radius: 5px;
 }
 
 .NavBar {
@@ -214,7 +217,7 @@ h2:first-child{
   margin: 5px;
   cursor: pointer;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 5px;
   display: flex;
   height: 40px;
   width: 90px;
@@ -249,13 +252,13 @@ h2:first-child{
 .PlanetHolder{
 width: 30em;
   height: 30em;
-  border-radius: 5%;
+  border-radius: 10px;
   overflow: hidden;
 }
   .PlanetModel{
     width: inherit;
     height: inherit;
-    background-image: url("https://i.gifer.com/origin/4d/4dc11d17f5292fd463a60aa2bbb41f6a_w200.gif");
+    background-image: url('loader.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -267,13 +270,14 @@ width: 30em;
     position: relative;
     background: rgb(62,27,201);
     width: 60em;
-    border-radius: 3%;
+    border-radius: 3px;
     height: 30em;
 }
 }
-@media (max-width: 1250px) {
+
+@media (max-width: 1030px) {
   body {
-    font: 14px ibm_plex_sansextralight, sans-serif;
+    font: 16px ibm_plex_sansextralight, sans-serif;
     /* width: 1300px;*/
     display: flex;
     margin: 0;
@@ -294,7 +298,7 @@ width: 30em;
   {
     font-family: 'ibm_plex_sanslight';
     color: white;
-    font-size: 2em;
+    font-size: 5vmin;
   }
   header{
     padding: 0;
@@ -302,24 +306,24 @@ width: 30em;
     height: 100px;
   }
   .WidthButtonText{
-    height: 20px;
-    width: 110px;
+    height: 4vmin;
+    width: 22vmin;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6px;
+    margin-top: 1.2vmin;
     font-family: 'ibm_plex_sansmedium';
     color: #230669;
-    font-size: 18px;
+    font-size: 3.3vmin;
   }
   .WidthButton {
     flex: none;
     margin: 5px;
     cursor: pointer;
     text-align: center;
-    border-radius: 5%;
+    border-radius: 5px;
     display: flex;
-    height: 40px;
-    width: 130px;
+    height: 8vmin;
+    width: 22vmin;
     background: #00B7FF;
   }
 
@@ -348,7 +352,7 @@ width: 30em;
     text-align: center;
     margin: auto;
     color: #00b7ff;
-    font-size: 18px;
+    font-size: 5vmin;
   }
 
   #EmInput{
@@ -382,7 +386,7 @@ width: 30em;
     /* margin: 2em;*/
   }
   h1{
-    font-size: 32px;
+    font-size: 6.6vmin;
     font-weight: normal;
     font-style: normal;
     margin-bottom: 18px;
@@ -390,7 +394,7 @@ width: 30em;
 
   h2{
     font-family: 'ibm_plex_sanslight';
-    font-size: 32px;
+    font-size: 6.6vmin;
     color: white;
   }
   h2:first-child{
@@ -399,14 +403,14 @@ width: 30em;
   h3 {
     font-family: 'ibm_plex_sansextralight';
     color: white;
-    font-size: 20px;
+    font-size: 4vmin;
   }
   #yearCounter{
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
     font-family: 'ibm_plex_sansextralight';
-    font-size: 1em;
+    font-size: 3.3vmin;
     z-index: 2;
     color: white;
   }
@@ -419,7 +423,7 @@ width: 30em;
     font-family: 'ibm_plex_sansmedium';
     color: white;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 4vmin;
 
   }
   .Info{
@@ -446,8 +450,8 @@ width: 30em;
     flex-direction: column;
     position: relative;
     /* background: rgb(62,27,201); */
-    width: 30em;
-    border-radius: 5%;
+    width: 80vw;
+    border-radius: 5px;
   }
 
 
@@ -487,21 +491,21 @@ width: 30em;
     margin: 5px;
     cursor: pointer;
     text-align: center;
-    border-radius: 5%;
+    border-radius: 5px;
     display: flex;
-    height: 40px;
-    width: 90px;
+    height: 8vmin;
+    width: 17.3vmin;
     background: #00B7FF;
   }
   .NavBarButtonText{
-    height: 20px;
-    width: 80px;
+    height: 4vmin;
+    width: 13.3vmin;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6px;
+    margin-top: 1.2vmin;
     font-family: 'ibm_plex_sansmedium';
     color: #230669;
-    font-size: 18px;
+    font-size: 3.3vmin;
   }
   .NavBarButton:hover {
     background: #65ebff;
@@ -520,15 +524,15 @@ width: 30em;
   }
 
   .PlanetHolder{
-    width: 30em;
+    width: 80vmin;
     height: 30em;
-    border-radius: 5%;
+    border-radius: 10px;
     overflow: hidden;
   }
   .PlanetModel{
     width: inherit;
     height: inherit;
-    background-image: url("https://i.gifer.com/origin/4d/4dc11d17f5292fd463a60aa2bbb41f6a_w200.gif");
+    background-image: url('loader.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -540,17 +544,9 @@ width: 30em;
     position: relative;
     background: rgb(62,27,201);
     width: 60em;
-    border-radius: 3%;
+    border-radius: 3px;
     height: 30em;
   }
 
-  #yearCounter{
-    margin-left: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-family: 'ibm_plex_sansextralight';
-    font-size: 1em;
-    z-index: 2;
-    color: white;
-  }
+
 }
