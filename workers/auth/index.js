@@ -1,30 +1,60 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
+const fs = require('fs');
+
+/**
+ * Метод принимающий 2 парамметра
+ * @param {string} login - логин
+ * @param {number} password - пароль
+ */
+function auth(req, res, next) {
+    const {login, password} = req.body;
+    if (!login || !password) {
+        res.send({Error: 'NO PARAMS'})
+    }
+    console.log(login, password);
+
+    const usersData = fs.readFileSync("users.txt", "utf8");
+    if (usersData.includes(`login":"${login}","password":"${password}"`)){
+        res.redirect('/public/index.html');
+    } else {
+        res.json({Success: false})
+    }
 }
 
 /**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
+ * Метод, принимающий 3 парамметра
+ * @param {string} login - логин
+ * @param {string} email - почта
+ * @param {number} password - пароль
  */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
+function register(req, res, next) {
+    const {login, email, password} = req.body;
+    if (login || email  || password) {
         res.send({Error: 'NO PARAMS'})
     }
-    console.log(id, age, name);
-    res.json({Success: true})
+    console.log(login, email, password);
+    /*res.json({Success: true})*/
+
+
+    const usersData = fs.readFileSync("users.txt", "utf8");
+    if (usersData.includes(`name":"${login}"`)) {
+        res.json({Error: 'Такой логин уже существует. Придумайте новый'});
+    } else {
+        let content = {
+            name: login,
+            password: password,
+            email: email,
+        };
+
+        fs.appendFile("users.txt", JSON.stringify(content) + '\n', (error, data) => {
+            if (error) throw error;
+            console.log(data);
+        });
+        //res.json({Success: true});
+        res.redirect('/public/index.html');
+    }
 }
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
-
-module.exports =  {
-    authUser,
-    postExample
-}
+module.exports = {
+    auth,
+    register
+};
