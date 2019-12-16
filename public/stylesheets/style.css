@@ -1,0 +1,552 @@
+@import url('fontsStyle.css');
+@media (min-width: 1031px) {
+body {
+  font: 14px ibm_plex_sanslight, sans-serif;
+  color: white;
+ /* width: 1300px;*/
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  background: #2c0992;
+}
+  .SubBody{
+    margin: 8px;
+  }
+
+  .AuthRegFont{
+    font: 18px ibm_plex_sanslight, sans-serif;
+    color: white;
+  }
+
+.AuthRegForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+a {
+  color: #00b7ff;
+}
+
+input{
+  background: #0e39af;
+  border: 0;
+  font-family: 'ibm_plex_sanslight_italic';
+  text-align: center;
+  margin: auto;
+  color: #00b7ff;
+  font-size: 18px;
+}
+
+  .WidthButtonText{
+    height: 20px;
+    width: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+    font-family: 'ibm_plex_sansmedium';
+    color: #230669;
+    font-size: 18px;
+  }
+  .WidthButton {
+    flex: none;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    height: 40px;
+    width: 130px;
+    background: #00B7FF;
+  }
+
+  .WidthButton:Hover{
+    background: #65ebff;
+    transition: 0.5s linear;
+  }
+
+  #EmInput{
+    margin-left: 12px;
+  }
+
+  #LogInput{
+    margin-left: 11px;
+  }
+
+  .HPLink{
+  color: #00B7FF;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+  .HPLink:Hover{
+    color: #65ebff;
+    transition: 0.5s linear;
+  }
+html{
+  padding: 0;
+}
+header{
+  padding: 0;
+  display: flex;
+  height: 100px;
+}
+
+
+.SystemHolder {
+  cursor: crosshair;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#animationBlock{
+  display: flex;
+  justify-content: space-between;
+
+  /* margin: 2em;*/
+}
+
+#BigMargin{
+margin-top: 30px;
+  margin-bottom: 30px
+;
+}
+
+  h1{
+    font-size: 32px;
+    font-weight: normal;
+    font-style: normal;
+    margin-bottom: 18px;
+  }
+
+  h2{
+    font-family: 'ibm_plex_sanslight';
+    font-size: 32px;
+    color: white;
+  }
+h2:first-child{
+  margin: 0;
+}
+  h3 {
+    font-family: 'ibm_plex_sansextralight';
+    color: white;
+    font-size: 20px;
+  }
+  #yearCounter{
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'ibm_plex_sansextralight';
+    font-size: 1em;
+    z-index: 2;
+    color: white;
+  }
+  .Title
+   {
+     position: relative;
+     display: flex;
+    align-items: center;
+    text-align: center;
+     font-family: 'ibm_plex_sansmedium';
+     color: white;
+     font-size: 5vmin;
+    cursor: pointer;
+
+   }
+  #User
+  {
+    font-family: 'ibm_plex_sanslight';
+    color: white;
+    font-size: 2em;
+  }
+
+  .Info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #MainHolder {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+
+#genInfo{
+  /*content-align: center;*/
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+ /* background: rgb(62,27,201); */
+  width: 30em;
+  border-radius: 5px;
+}
+
+.NavBar {
+  height:100px;
+  background: rgb(62,27,201);
+  width: 110%;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+}
+
+  .NavBarBlock {
+    flex:1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .NavBarBlock:last-child {
+    vertical-align: middle;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  #ButtonHolder{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+.NavBarButton {
+  flex: none;
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  width: 90px;
+  background: #00B7FF;
+}
+.NavBarButtonText{
+  height: 20px;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  font-family: 'ibm_plex_sansmedium';
+  color: #230669;
+  font-size: 18px;
+}
+.NavBarButton:hover {
+  background: #65ebff;
+  transition: 0.5s linear;
+}
+
+.PlanetRow{
+  margin-top: 30px;
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: nowrap;
+   align-items: center
+ }
+  .PlanetRow:first-child{
+    margin-top: 30px;
+  }
+
+.PlanetHolder{
+width: 30em;
+  height: 30em;
+  border-radius: 10px;
+  overflow: hidden;
+}
+  .PlanetModel{
+    width: inherit;
+    height: inherit;
+    background-image: url('loader.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .PlanetInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: rgb(62,27,201);
+    width: 60em;
+    border-radius: 3px;
+    height: 30em;
+}
+}
+
+@media (max-width: 1030px) {
+  body {
+    font: 16px ibm_plex_sansextralight, sans-serif;
+    /* width: 1300px;*/
+    display: flex;
+    margin: 0;
+    background: #2c0992;
+    flex-direction: column;
+  }
+  .SubBody{
+    margin: 8px;
+  }
+
+  a {
+    color: #00B7FF;
+  }
+  html{
+    padding: 0;
+  }
+  #User
+  {
+    font-family: 'ibm_plex_sanslight';
+    color: white;
+    font-size: 5vmin;
+  }
+  header{
+    padding: 0;
+    display: flex;
+    height: 100px;
+  }
+  .WidthButtonText{
+    height: 4vmin;
+    width: 22vmin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.2vmin;
+    font-family: 'ibm_plex_sansmedium';
+    color: #230669;
+    font-size: 3.3vmin;
+  }
+  .WidthButton {
+    flex: none;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    height: 8vmin;
+    width: 22vmin;
+    background: #00B7FF;
+  }
+
+  .WidthButton:Hover{
+    background: #65ebff;
+    transition: 0.5s linear;
+  }
+  .AuthRegFont{
+    font: 18px ibm_plex_sanslight, sans-serif;
+    color: white;
+  }
+
+  .AuthRegForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  a {
+    color: #00b7ff;
+  }
+
+  input{
+    background: #0e39af;
+    border: 0;
+    font-family: 'ibm_plex_sanslight_italic';
+    text-align: center;
+    margin: auto;
+    color: #00b7ff;
+    font-size: 5vmin;
+  }
+
+  #EmInput{
+    margin-left: 12px;
+  }
+
+  .HPLink{
+    color: #00B7FF;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  #LogInput{
+    margin-left: 11px;
+  }
+
+  .HPLink:Hover{
+    color: #65ebff;
+    transition: 0.5s linear;
+  }
+  .SystemHolder {
+    cursor: crosshair;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #animationBlock{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    /* margin: 2em;*/
+  }
+  h1{
+    font-size: 6.6vmin;
+    font-weight: normal;
+    font-style: normal;
+    margin-bottom: 18px;
+  }
+
+  h2{
+    font-family: 'ibm_plex_sanslight';
+    font-size: 6.6vmin;
+    color: white;
+  }
+  h2:first-child{
+    margin: 0;
+  }
+  h3 {
+    font-family: 'ibm_plex_sansextralight';
+    color: white;
+    font-size: 4vmin;
+  }
+  #yearCounter{
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'ibm_plex_sansextralight';
+    font-size: 3.3vmin;
+    z-index: 2;
+    color: white;
+  }
+  .Title
+  {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0;
+    font-family: 'ibm_plex_sansmedium';
+    color: white;
+    cursor: pointer;
+    font-size: 4vmin;
+
+  }
+  .Info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #MainHolder {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+
+  #genInfo{
+    /*content-align: center;*/
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    /* background: rgb(62,27,201); */
+    width: 80vw;
+    border-radius: 5px;
+  }
+
+
+  #BigMargin{
+    margin-top: 30px;
+    margin-bottom: 30px
+  ;
+  }
+
+  .NavBar {
+    height:100px;
+    background: rgb(62,27,201);
+    width: 110%;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+  }
+
+  .NavBarBlock {
+    flex:1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .NavBarBlock:last-child {
+    vertical-align: middle;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  #ButtonHolder{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .NavBarButton {
+    flex: none;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    height: 8vmin;
+    width: 17.3vmin;
+    background: #00B7FF;
+  }
+  .NavBarButtonText{
+    height: 4vmin;
+    width: 13.3vmin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.2vmin;
+    font-family: 'ibm_plex_sansmedium';
+    color: #230669;
+    font-size: 3.3vmin;
+  }
+  .NavBarButton:hover {
+    background: #65ebff;
+    transition: 0.5s linear;
+  }
+
+  .PlanetRow{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    align-items: center
+  }
+  .PlanetRow:first-child{
+    margin-top: 30px;
+  }
+
+  .PlanetHolder{
+    width: 80vmin;
+    height: 30em;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .PlanetModel{
+    width: inherit;
+    height: inherit;
+    background-image: url('loader.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .PlanetInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: rgb(62,27,201);
+    width: 60em;
+    border-radius: 3px;
+    height: 30em;
+  }
+
+
+}

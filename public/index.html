@@ -1,14 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/solarSystemStyle.css">
+    <link rel="stylesheet" href="stylesheets/fontsStyle.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="javascripts/solarSystem.js"></script>
+    <script src="javascripts/registration.js"></script>
+    <script src="javascripts/checkAuth.js"></script>
+    <script src="javascripts/cookie.js"></script>
+    <script src="javascripts/planetChoosing.js"></script>
+    <title>Solar System Model</title>
 </head>
-<body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+<body onload="CheckAuth()" >
+<header>
+    <header class="NavBar" role="banner">
+        <div class="NavBarBlock">
+            <div class="Title" onclick="document.location.href='/'" >Solar system model</div>
+        </div>
+        <div class="NavBarBlock" id="MainNav">
+            <div class="NavBarButton" onclick="document.location.href = '/auth'">
+                <div class="NavBarButtonText">Войти</div>
+            </div>
+            <div class="WidthButton" onclick="document.location.href = '/join'">
+                <div class="WidthButtonText">Регистрация</div>
+            </div>
+        </div>
+    </header>
+</header>
+<div class="SubBody">
+<h3 id="yearCounter" >Прошло лет: 0</h3>
+<div id="MainHolder">
+    <div id="animationBlock">
+        <div id="path">
+        <div id="mercury" onclick="GiveMercury()" title="Mercury">
+        </div>
+        <div class="sun" onclick="GiveSun()" title="Sun"></div>
+        <div id="venus" onclick="GiveVenus()" title="Venus"></div>
+        <div id="planet"  onclick="GiveEarth()" title="Earth">
+            <div id="moon"></div>
+        </div>
+        <div id="mars" title="Mars" onclick="GiveMars()"></div>
+        <div id="jupiter" onclick="GiveJupiter()" title="Jupiter"></div>
+        <div id="saturn" onclick="GiveSaturn()" title="Saturn">
+            <div class="Ring" onclick="GiveSaturn()"></div>
+        </div>
+        <div id="uranus" onclick="GiveUranus()" title="Uranus"></div>
+        <div id="neptune" onclick="GiveNeptune()" title="Neptune"></div>
+        </div>
+</div>
+    <div class="Info">
+        <div id="CurrentPlanet"></div>
+        <div id="genInfo">
+            <h2 id="CurrentTitle">Солнечная система</h2>
+            <h3 id="CurrentDescription">В Солнечной системе восемь планет. Планеты земной группы: Меркурий – самый маленький и ближайший к горячему Солнцу, окутанная плотной кислотной атмосферой и перегретая Венера, холодный, но, вероятно, некогда вполне пригодный для жизни Марс и наша колыбель – Земля. Есть еще планеты-гиганты, расположенные за пределами пояса астероидов и не имеющие твердой поверхности: Юпитер, Сатурн, Уран, Нептун. </h3>
+        </div>
+        <div id="ButtonHolder">
+            <div class="NavBarButton" onclick="NextPlanet()">
+                <div class="NavBarButtonText" id="NextButtonText">Начать</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--
+    <div class="PlanetRow">
+        <div class="PlanetHolder">
+            <iframe class="PlanetModel" src="https://solarsystem.nasa.gov/gltf_embed/2369" frameborder="0" ></iframe>
+        </div>
+        <div class="PlanetInfo"></div>
+    </div> -->
+</div>
+</body>
 </html>

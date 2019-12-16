@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="javascripts/authorisation.js"></script>
+    <script src="javascripts/cookie.js"></script>
+    <script>
+        window.onload = async function CheckAuth() {
+            if (localStorage.getItem('user') !== null){
+                document.location.href = '/';
+                LogInput.disabled = true;
+                EmInput.disabled = true;
+                password.disabled = true;
+                sender.disabled = true;
+            }
+        }
+    </script>
+    <title>Авторизация</title>
+<body>
+<header>
+    <header class="NavBar" role="banner">
+        <div class="NavBarBlock">
+            <div class="Title" onclick="document.location.href='/'">Solar system model</div>
+        </div>
+        <div class="NavBarBlock" id="MainNav">
+            <div class="NavBarButton" onclick="document.location.href = '/auth'">
+                <div class="NavBarButtonText">Войти</div>
+            </div>
+            <div class="WidthButton" onclick="document.location.href = '/join'">
+                <div class="WidthButtonText">Регистрация</div>
+            </div>
+        </div>
+    </header>
+</header>
+<div class="SubBody AuthRegForm">
+    <h2 id="BigMargin" >Авторизация</h2>
+    <div>
+    <label class="AuthRegFont" >Почта:
+        <input id="EmInput" type="email" />
+    </label>
+    <br/>
+    <br/>
+    <label class="AuthRegFont" >Пароль:
+        <input type="password" id="password"/>
+    </label>
+<br/>
+<br>
+    </div>
+    <div id="sender" class="AuthRegFont WidthButton" onclick="sendUserData()">
+        <div class="WidthButtonText ">Отправить</div>
+    </div>
+    <a  class="AuthRegFont HPLink" onclick="document.location.href = '/join'">Создать аккаунт</a>
+
+</div>
+</body>
+</html>
