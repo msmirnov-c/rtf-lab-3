@@ -1,9 +1,12 @@
 const { authUser, regUser } = require('../workers/auth/index.js');
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+router.use(express.json());
+router.use(express.urlencoded());
 
 /* GET users listing. */
-router.get('/auth', authUser);
+router.post('/auth', authUser);
 
 router.post('/reg', regUser)
 

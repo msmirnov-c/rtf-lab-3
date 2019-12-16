@@ -30,11 +30,11 @@
         <div class="auth">
             <h2 class="title">Регистрация</h2>
             <div class="input__block">
-                <form method="post" action="api/post/example">
-                    <input name="email" type="email" placeholder="Адрес электронной почты"/>
-                    <input name="login" type="text" placeholder="Логин" />
-                    <input name="password" type="password" placeholder="Пароль" />
-                    <button class="button--log">Зарегистрироваться</button>
+                <form method="post" action="api/reg">
+                    <input name="email" type="email" placeholder="Адрес электронной почты" required/>
+                    <input name="login" type="text" placeholder="Логин" required/>
+                    <input name="password" type="password" placeholder="Пароль" required/>
+                    <button type="submit" class="button--log">Зарегистрироваться</button>
                 </form>
             </div>
         </div>

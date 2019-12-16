@@ -180,11 +180,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--first {
-    background-color: rgba(183, 201, 151, 0.65);
+    background-color: rgba(183, 201, 151, 0.5);
 }
 
 .section--second {
-    background-color: rgba(173, 195, 129, 0.66);
+    background-color: rgba(165, 187, 123, 0.45);
 }
 
 .section__title {

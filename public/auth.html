@@ -30,10 +30,10 @@
     <div class="auth">
         <h2 class="title">Авторизация</h2>
         <div class="input__block">
-            <form>
-                <input name="login" type="text" placeholder="Логин" />
-                <input name="password" type="password" placeholder="Пароль" />
-                <button class="button--log">Авторизоваться</button>
+            <form method="post" action="api/auth">
+                <input name="login" type="text" placeholder="Логин" required/>
+                <input name="password" type="password" placeholder="Пароль" required/>
+                <button type="submit" class="button--log">Авторизоваться</button>
             </form>
         </div>
     </div>
