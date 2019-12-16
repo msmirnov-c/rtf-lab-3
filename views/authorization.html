@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <title>Авторизация</title>
+  </head>
+  <header>
+    <nav>
+      <input type="checkbox" id="checkbox-menu" />
+      <label for="checkbox-menu">
+        <ul class="menu touch">
+          <li>
+            <a class="logo" href="/">Главная</a>
+          </li>
+          <!-- <li><a href="#"></a></li>
+          <li><a href="#"></a></li> -->
+        </ul>
+        <span class="toggle">☰</span>
+      </label>
+    </nav>
+  </header>
+  <body>
+    <div class="authorization-form">
+      <h1>Авторизация</h1>
+      <form action="/api/authorization" method="POST">
+        <div class="form">
+          <div>
+            <input
+              type="text"
+              placeholder="Укажите Ваш email"
+              name="email"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Введите пароль"
+              name="password"
+              maxlength="16"
+              required
+            />
+          </div>
+          <div>
+            <button class="reg" type="submit">Войти</button>
+            <div>
+              <label
+                >Если вы не зарегистррованы, то
+                <a href="/registration">зарегистрируйтесь</a></label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
