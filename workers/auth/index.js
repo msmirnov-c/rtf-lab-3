@@ -7,18 +7,18 @@ const fs = require('fs');
  */
 function auth(req, res, next) {
     const {login, password} = req.body;
-    if (!login || !password) {
-        res.send({Error: 'NO PARAMS'})
-    }
+
     console.log(login, password);
 
     const usersData = fs.readFileSync("users.txt", "utf8");
-    if (usersData.includes(`login":"${login}","password":"${password}"`)){
+    if (usersData.includes(`"login":"${login}","password":"${password}"`)){
         res.redirect('/public/index.html');
     } else {
         res.json({Success: false})
     }
+    res.redirect('/public/index.html');
 }
+
 
 /**
  * Метод, принимающий 3 парамметра
@@ -28,30 +28,18 @@ function auth(req, res, next) {
  */
 function register(req, res, next) {
     const {login, email, password} = req.body;
-    if (login || email  || password) {
-        res.send({Error: 'NO PARAMS'})
-    }
+
     console.log(login, email, password);
     /*res.json({Success: true})*/
 
 
     const usersData = fs.readFileSync("users.txt", "utf8");
-    if (usersData.includes(`name":"${login}"`)) {
+    if (usersData.includes(`"login":"${login}"`)) {
         res.json({Error: 'Такой логин уже существует. Придумайте новый'});
     } else {
-        let content = {
-            name: login,
-            password: password,
-            email: email,
-        };
-
-        fs.appendFile("users.txt", JSON.stringify(content) + '\n', (error, data) => {
-            if (error) throw error;
-            console.log(data);
-        });
-        //res.json({Success: true});
+        fs.appendFileSync('users.txt', ` "login":"${login}","password":"${password}","email":"${email}"` + '\n');
         res.redirect('/public/index.html');
-    }
+    }    
 }
 
 module.exports = {
