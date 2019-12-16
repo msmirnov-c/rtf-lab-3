@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=Б, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="menu">
+    <ul>
+      <li><a href="/">Главная</a></li>
+    </ul>
+  </nav>
+  <form action="/api/registration" method="post" class="contact_form">
+    <ul>
+      <li>
+        <h2>Регистрация</h2>
+        <span class="required_notification">* Поля обязательные для заполнения</span>
+      </li>
+      <li>
+        <label>Имя</label>
+        <input type="text" name="firstName" placeholder="Имя" minlength="2" required />
+      </li>
+      <li>
+        <label>Фамилия</label>
+        <input type="text" name="lastName" placeholder="Фамилия" minlength="2" required />
+      </li>
+      <li>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="mail@mail.ru" required />
+      </li>
+      <li>
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Пароль" minlength="8" required />
+      </li>
+      <li>
+        <button class="submit" type="submit">Зарегестрироваться</button>  <br>
+        <a>Если вы уже зарегестрированы, <a href="/auth">войдите</a></a>
+      </li>
+    </ul>
+  </form>
+</body>
+
+</html>

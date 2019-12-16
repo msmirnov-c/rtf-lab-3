@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="menu">
+    <ul>
+      <li><a href="/">Главная</a></li>
+    </ul>
+  </nav>
+  <form action="/api/authorization" method="post" class="contact_form">
+    <ul>
+      <li>
+        <h2>Вход</h2>
+      </li>
+      <li>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="mail@mail.ru" required />
+      </li>
+      <li>
+        <label>Пароль</label>
+        <input type="password" name="password" placeholder="Пароль" required />
+      </li>
+        <button class="submit" type="submit">Войти</button> <br>
+        <a>Если вы еще не зарегестрированы, <a href="/reg">зарегестрируйтесь</a></a>
+      </li>
+
+    </ul>
+
+</body>
+
+</html>

@@ -1,30 +1,29 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
-}
+var mongoose = require('mongoose');
+var User = require('../../model/model');
+const url = "mongodb+srv://alexp:pass@tinkoffdb-sfgtm.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true })
 
-/**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
- */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
-    }
-    console.log(id, age, name);
-    res.json({Success: true})
-}
+function Authorization(req, res, next) {
+    
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
+    User.find({email: req.body.email, password: req.body.password }, function (err, users) {
+        if (err) throw err;
+        console.log(users);
+        if (users.length === 0) {
+            console.log("Что то пошло не так!");
+            req.session.user = {
+                exсeption: true
+            }
+            res.redirect("/auth");
+        } else {
+            console.log("Авторизация прошла успешно!")
+            req.session.user = {
+                email: req.body.email,
+                password: req.body.password
+            }
+            res.redirect("/")
+        }
+    }) 
+} 
 
-module.exports =  {
-    authUser,
-    postExample
-}
+module.exports = Authorization
