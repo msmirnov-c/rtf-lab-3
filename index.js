@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 const fs = require('fs');
-app.set('view engine', 'html');
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static('static'));
