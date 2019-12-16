@@ -36,13 +36,22 @@ h3{
     margin: 0;
 }
 
+h5{
+    color: #000000;
+    font-family: ‘Time New RomanS’, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-indent: 30px;
+    margin: 0;
+}
+
 /* кнопка "подробнее"*/
 footer a {
     text-decoration: none;
     line-height: 2;
     font-size: 1.5em;
     font-family: ‘Time New RomanS’, sans-serif;
-
     padding: 0.1em 1em;
     border-radius: 25px;
     box-shadow: 0 1px 15px -3px rgba(255,255,0,.5);
@@ -112,9 +121,34 @@ a {
         text-indent: 30px;
         margin: 0;
     }
+
+    h5{
+        color: #000000;
+        font-family: ‘Time New RomanS’, sans-serif;
+        font-size: 17px;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-indent: 30px;
+        margin: 0;
+    }
 }
 
 section {
     display: block;
     width: 100%;
+}
+
+.field {
+    margin-bottom: 5px;
+}
+
+.btn {
+    text-decoration: none;
+    line-height: 2;
+    font-size: 1.1em;
+    font-family: ‘Time New RomanS’, sans-serif;
+    padding: 0.1em 1em;
+    border-radius: 15px;
+    box-shadow: 0 1px 15px -3px rgba(255,255,0,.5);
+    background-color: rgba(255, 0, 255, 0.9);
 }

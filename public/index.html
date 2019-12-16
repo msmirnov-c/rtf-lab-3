@@ -115,7 +115,39 @@
     </div>
   </section>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="Reg">
+  <h5>Вход для авторизации</h5>
+
+  <form  class="authorisation_begin" method="POST" action="api/authorisation">
+    <div class="field">
+      <input type="text" name="email" placeholder="E-mail" required />
+    </div>
+    <div class="field">
+      <input type="password" name="password" placeholder="Пароль" />
+      <span></span>
+    </div>
+    <button type="submit" class = "btn" >ОК</button>
+  </form>
+</div>
+
+<div class="Reg">
+  <h5>Регистрация</h5>
+
+  <form  class="authorisation_begin" method="POST" action="api/register">
+    <div class="field">
+      <input type="text" name="name" placeholder="Имя пользователя" required />
+    </div>
+    <div class="field">
+      <input type="email" name="email" placeholder="E-Mail" />
+    </div>
+    <div class="field">
+      <input type="password" name="password" placeholder="Пароль" />
+    </div>
+    <button type="submit" class = "btn" >ОК</button>
+  </form>
+</div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
