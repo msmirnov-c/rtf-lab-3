@@ -1,7 +1,7 @@
 /**
- * Метод принимающий 3 парамметра
+ * Метод принимающий 2 параметра
  * @param {string} name - имя
- * @param {number} pass - возраст
+ * @param {number} pass - пароль
  */
 const file = require('fs');
 const path = require('path');
@@ -16,6 +16,7 @@ function authUser(req, res, next) {
     var names = new Array();
     var passes = new Array();
     console.log('Количество зарегестрированных', fo.split('\n').length-1);
+
     for(let x = 0; x < fo.split('\n').length-1; x++)
     {
         names.push(fo.split('\n')[x].split(' ')[0]);
@@ -25,11 +26,13 @@ function authUser(req, res, next) {
     for (let x = 0; x < fo.split('\n').length-1; x++){
         name_pass[names[x]] = passes[x];
     }
+
     if (name_pass[name] === pass){
-        res.json({Success: true});
+        res.json({Success: true}); // Вывод этого сообщения значит успешную авторизацию
     } else {
         res.json({Error: 'Такого пользователя не существует, проверьте правильность ввода'});
     }
+    
     res.json({Error: 'Ввели неверные данные, проверьте имя/пароль'});
 }
 
@@ -40,7 +43,7 @@ function postExample(req, res, next) {
     }
     file.appendFile(path.resolve('DB.txt'), name + ' ' + pass+'\n', () => {});
     
-    res.json({Success: true});
+    res.json({Success: true}); // Вывод этого сообщения значит успешную регистрацию
 }
 
 module.exports =  {
