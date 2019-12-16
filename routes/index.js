@@ -26,6 +26,10 @@ router.get('/authorization', function(req, res, next) {
   res.sendFile(path.resolve('views/authorization.html'));
 });
 
+router.get('/registration', function(req, res, next) {
+  res.sendFile(path.resolve('views/registration.html'));
+});
+
 router.post('/api/registration', regirstation)
 router.post('/api/authorization', authorization)
 
