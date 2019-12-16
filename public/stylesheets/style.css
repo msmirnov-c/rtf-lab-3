@@ -152,14 +152,14 @@ body {
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
-    width: 180px;
+    width: 350px;
 }
 
 .img-right {
     float: right;
     margin-left: 20px;
     margin-bottom: 10px;
-    width: 180px;
+    width: 350px;
 }
 
 /*Формы*/
@@ -415,5 +415,20 @@ button.submit:active {
 
     .contact_form button {
         margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .img-left {
+        margin-right: 20px;
+        margin-bottom: 10px;
+        width: 250px;
+    }
+    
+    .img-right {
+
+        margin-left: 20px;
+        margin-bottom: 10px;
+        width: 250px;
     }
 }
