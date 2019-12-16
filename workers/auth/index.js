@@ -1,3 +1,4 @@
+
 function authUser(req, res, next) {
     console.log('autuser');
     console.log(req);
