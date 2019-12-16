@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/post.js" lang="js"></script>
+    <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+<div>
+    <p><a href="index.html">Главная</a> <a href="authorisation.html">Авторизация</a> <a href="registration.html">Регитрация</a></p>
+
+</div>
+<div>
+    <form class="form" method="POST" action="api/register">
+            <h3>Имя пользователя</h3>
+            <input type="text" name="name" CLASS="mac" /><br>
+            <h3>E-mail</h3>
+            <input type="email" name="email" class="mac" /><br>
+            <h3>Пароль</h3>
+            <input type="password" name="password" class="mac"/><br>
+        <button type="submit" class="button">Отправить</button>
+    </form>
+</div>
+
+</body>
+</html>

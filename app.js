@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/register', urlencodedParser, function(request, response) {
-  response.sendFile(__dirname + '/public/register.html')
+  response.sendFile(__dirname + '/public/form.html')
 })
 app.post('/register', urlencodedParser, function(request, response) {
   if (!request.body) return response.sendStatus(400)
@@ -33,7 +33,7 @@ app.post('/register', urlencodedParser, function(request, response) {
 })
 
 app.get('/authorisation', urlencodedParser, function(request, response) {
-  response.sendFile(__dirname + '/public/authorisation.html')
+  response.sendFile(__dirname + '/public/form2.html')
 })
 app.post('/authorisation', urlencodedParser, function(request, response) {
   if (!request.body) return response.sendStatus(400)
