@@ -58,3 +58,5 @@ function registration(email, password){
       else
       res.redirect('/authorization')
   });
+
+  app..listen(process.env.PORT || 3000)
