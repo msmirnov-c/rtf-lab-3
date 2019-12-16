@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static('static'));
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
@@ -59,5 +59,3 @@ function registration(email, password){
       else
       res.redirect('/authorization')
   });
-
-app.listen(3000);
