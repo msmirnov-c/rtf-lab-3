@@ -35,9 +35,8 @@ nav li {
     color: black;
 }
 
-.logo div{
- text-align: center;
-
+.logo {
+    text-align: center;
 }
 
 .parent {
@@ -76,9 +75,7 @@ button {
 
 }
 
-div {
-    display: block;
-}
+
 
 .send{
     opacity: 1;
