@@ -1,6 +1,6 @@
 {
   "name": "rtf-lab-3",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -14,5 +14,16 @@
     "express-session": "^1.17.0",
     "mongodb": "^3.4.0",
     "morgan": "~1.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvpilizassal/rtf-lab-3.git"
+  },
+  "author": "olyakorelina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pvpilizassal/rtf-lab-3/issues"
+  },
+  "homepage": "https://github.com/pvpilizassal/rtf-lab-3#readme"
 }
+

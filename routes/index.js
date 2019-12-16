@@ -4,8 +4,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.post('/auth', authUser);
+//router.post('/auth', authUser);
 
-router.post('/register', registerUser);
+//router.post('/register', registerUser);
 
-module.exports = router;
+//module.exports = router;

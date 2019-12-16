@@ -1,47 +1,62 @@
+var express = require('express');
+var app = express();
 const fs = require('fs');
-const path = require('path');
+app.use(express.urlencoded({ extended: false }));
 
-function authUser(req, res, next) {
-    let user = getUser();
+app.use('/static', express.static('static'));
 
-    if (user[req.body.username] === req.body.password) {
-        res.json({login: req.body.username, success: true});
-    } else {
-        res.json({error: "This login doesn't exist", success: false});
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html')
+});
+
+app.get('/authorization', function(req, res) {
+    res.sendFile(__dirname + '/authorization.html');
+});
+
+app.get('/registration', function(req, res) {
+    res.sendFile(__dirname + '/registration.html');
+});
+
+app.get('/authorized', function(req, res) {
+    res.sendFile(__dirname + '/authorized.html');
+});
+
+function registration(email, password){
+    let data = fs.readFileSync('users.txt', 'utf-8');
+    if (data.includes(email) !== true) {
+        if (email.trim() !== "" && password.trim() !== "") {
+            fs.appendFile('users.txt', (email + " " + password + " "), (err) => {
+                if (err) throw err;
+            });
+            return 1;
+        } else return 0;
     }
+    else return 0;
 }
 
-function registerUser(req, res, next) {
-    let user = getUser();
-
-    if (user[req.body.username]){
-        res.json({success: false, err: 'User already exists'});
-        return
-    }
-
-    fs.appendFile(path.resolve('auth.txt'), req.body.username + ':' + req.body.password + '\n', (err) => {
-        if(err) {
-            res.json({success: false});
-            return
+function authorization(email, password){
+    let data = fs.readFileSync('users.txt', 'utf-8');
+    let user = data.split(" ");
+    for (let i = 0; i < user.length; i++){
+        {
+            if (user[i] === email)
+                return (user[i+1] === password);
         }
-
-        res.json({success: true})
-    });
-}
-
-function getUser() {
-    let file = fs.readFileSync(path.resolve('auth.txt'), 'utf8');
-    let line = file.split('\n');
-
-    let user = {};
-    for (let i = 0; i < line.length; i++) {
-        let user = line[i].split(':');
-        user[user[0]] = user[1];
     }
-
-    return user;
 }
 
-module.exports = {authUser, registerUser};
+app.post('/registration', (req, res) => {
+    if (registration(req.body.email, req.body.password) === 1)
+        res.redirect('/authorization');
+    else
+        res.redirect('/')
+});
+
+app.post('/authorization', (req, res) => {
+    if (authorization(req.body.email, req.body.password) === true)
+        res.redirect('/authorized');
+    else
+        res.redirect('/authorization')
+});
 
 
