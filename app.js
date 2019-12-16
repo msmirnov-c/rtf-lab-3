@@ -32,6 +32,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get("/", urlencodedParser, function (request, response) {
+  response.sendFile(__dirname + "/index.html");
+});
+
 app.get("/reg", urlencodedParser, function (request, response) {
   response.sendFile(__dirname + "/reg.html");
 });
@@ -56,10 +60,6 @@ app.post("/reg", urlencodedParser, function (request, response) {
   else { 
     response.redirect("/reg/err");
   }
-});
-
-app.get("/", urlencodedParser, function (request, response) {
-  response.sendFile(__dirname + "/index.html");
 });
 
 app.get("/reg/err", urlencodedParser, function (request, response) {
@@ -98,10 +98,6 @@ app.post("/log", urlencodedParser, function (request, response) {
   else { 
     response.redirect("/reg/err");
   }
-});
-
-app.post("/", urlencodedParser, function (request, response) {
-  console.log(request.body);
 });
 
 class User {
