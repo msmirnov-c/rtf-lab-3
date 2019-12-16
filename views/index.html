@@ -13,12 +13,17 @@
             <aside class="side">
                 <a id="userName"> </a>
                 <div>
-                    <form class="form" action="/registration" type="get">
+                    <form action="/out" type="get">
+                        <button class="but" id="out" type="submit">
+                            Выход
+                        </button>
+                    </form>
+                    <form class="form" action="/registration" id="reg" type="get">
                         <button class="but" type="submit">
                             Регистрация
                         </button>
                     </form>
-                    <form action="/authorization" type="get">
+                    <form action="/authorization" id="auth" type="get">
                         <button class="but" type="submit">
                             Авторизация
                         </button>

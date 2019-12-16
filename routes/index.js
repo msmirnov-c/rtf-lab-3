@@ -7,6 +7,7 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   if (req.session.user != undefined){
     res.cookie('userName', req.session.user.userName);
   }
@@ -14,8 +15,11 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.resolve('views/index.html'));
 });
 
-router.get('/registration', function(req, res, next) {
-  res.sendFile(path.resolve('views/registration.html'));
+router.get('/out', function(req, res, next) {
+  delete req.session.user;
+  res.clearCookie("userName");
+  console.log(req.session.user);
+  res.sendFile(path.resolve('views/index.html'));
 });
 
 router.get('/authorization', function(req, res, next) {
