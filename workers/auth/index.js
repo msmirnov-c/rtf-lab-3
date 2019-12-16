@@ -37,7 +37,7 @@ function registration(req, res, next) {
             res.redirect('/registration.html');
             return
         }
-        res.redirect('/index.html');
+        res.redirect('/');
     });
 }
 

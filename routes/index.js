@@ -5,7 +5,7 @@ const {login, registration} = require('../workers/auth/index')
 
 router.use(express.static('public'));
 router.get('/', (request, response) => {
-	response.sendFile(path.resolve ('public/index.html'))
+	response.sendFile(path.resolve ('/public/index.html'))
 });
 
 router.get('/registration', (request, response) => {
