@@ -16,7 +16,8 @@
             <a class="logo" href="/">Главная</a>
           </li>
           <li><a id="auth" href="/authorization">Авторизация</a></li>
-          <li><a href="/registration">Регистрация</a></li>
+          <li><a id="reg" href="/registration">Регистрация</a></li>
+          <li><a id="logout" href="/logout">Выйти</a></li>
         </ul>
         <span class="toggle">☰</span>
       </label>
@@ -42,26 +43,5 @@
       </div>
     </div>
   </body>
-
-  <script>
-    console.log(document.cookie);
-
-    let cookies = {};
-
-    document.cookie.split("; ").map(parameter => {
-      const p = parameter.split("=");
-      cookies[p[0]] = decodeURIComponent(p[1]);
-    })
-
-    const greetings = document.createElement('h1');
-
-    if (cookies.login !== undefined) {
-      greetings.innerHTML = "Hello, " + cookies.name;
-    } else {
-      greetings.innerHTML = "Hello, guest";
-    }
-    document.querySelector('header').after(greetings);
-
-    console.log(cookies)
-  </script>
+  <script src="../javascripts/index.js"></script>
 </html>
