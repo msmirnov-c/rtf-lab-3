@@ -6,9 +6,8 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 html {
-  overflow: hidden;
   background-color: #e4e0dd;
-  background-image: url(../images/back0.jpg);
+  background-image: url(/images/back.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -18,7 +17,7 @@ html {
   background-size: cover;
 }
 header {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(238, 238, 238, 0.7);
 }
 nav {
   margin: 0 auto;
@@ -175,49 +174,73 @@ div.form a {
 div.form a:hover {
   opacity: 0.7;
 }
-div.comtainers {
-  position: absolute;
-  left: 50%;
-  margin-left: -700px;
-  width: 1400px;
-  height: 100%;
-  max-width: 1400px;
+/* МНОГОУРОВНЕНЫЙ СПИСОК */
+div.d0 ol {
+  list-style: none;
+  counter-reset: li;
 }
-div.first {
-  width: 1400px;
-  height: 350px;
-  position: absolute;
-  top: 120px;
-  right: 0;
-  left: 0;
+div.d0 li:before {
+  counter-increment: li;
+  content: counters(li, ".") ". ";
+}
+/* МНОГОУРОВНЕНЫЙ СПИСОК */
+ul {
+  list-style: inside;
+}
+
+.containers-shadow {
+  display: block;
+  margin: 10px auto 20px;
+  width: 80%;
+  border-radius: 10px;
+  padding: .5%;
+  box-shadow: 0px 0px 80px #000;
+}
+.containers {
   margin: 0 auto;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.35);
-  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(238, 238, 238, 0.5);
+  border-radius: 10px;
 }
-div.first img {
-  margin: 0px 0px -20px 0px;
-  width: 13%;
+.containers p ~ div {
+  display: inline;
+  min-width: 90%;
+  margin: 20px 10px 10px 10px;
 }
-div.first h1 {
-  margin: 20px 20px;
+.postman-color {
+  color: #f47023;
 }
-div.navigation {
-  width: 1400px;
-  position: absolute;
-  top: 120px;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
+#postman-logo {
+  max-width: 10%;
 }
-nav.toc a {
-  color: #ddd;
-  font-size: 18px;
-  text-decoration: none;
+.d0 {
+  /* background-color: green; */
 }
-nav.toc a:hover {
-  color: rgb(66, 66, 66);
-  font-size: 18px;
+.d1 {
+  /* display: block;
+  width: 80%; */
+  /* background-color: white; */
+}
+.d2 {
+  /* background-color: blue;
+  justify-content: center; */
+}
+.d3 {
+  /* background-color: red; */
+}
+.d4 {
+  /* background-color: green; */
+}
+.d5 {
+  /* background-color: yellow; */
+}
+
+.wrapper {
+  text-align: center;
+}
+.wrapper img {
+  width: 90%;
 }
 @media screen and (max-width: 768px) {
   .toggle {
@@ -265,6 +288,9 @@ nav.toc a:hover {
   }
   .menu li a.logo {
     margin-right: 0px;
+  }
+  div.first {
+    width: 95%;
   }
   div.registration-form {
     position: absolute;

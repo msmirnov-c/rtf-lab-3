@@ -1,7 +1,7 @@
 console.log(document.cookie);
 
 let h = (new Date()).getHours();                  
-if (h > 3 && h <  12) document.getElementById("hour").innerHTML = "Доброе утро, ";                    
+if (h > 3 && h <  12) document.getElementById("hour").innerHTML = "Доброе утро,";                    
 if (h > 11 && h <  19) document.getElementById("hour").innerHTML ="Добрый день,";                   
 if (h > 18 && h <  24) document.getElementById("hour").innerHTML = "Добрый вечер,";                 
 if (h > 23 || h <  4 ) document.getElementById("hour").innerHTML = "Привет полуночникам,";
@@ -23,7 +23,7 @@ document.cookie.split("; ").map(parameter => {
     document.getElementById('logout').hidden = true;
 
   } else {
-    document.getElementById("greeting").innerHTML = "" + cookies.name + ' ' + cookies.surname;
+    document.getElementById("greeting").innerHTML = cookies.name + ' ' + cookies.surname;
     document.getElementById('auth').hidden = true;
     document.getElementById('reg').hidden = true;
     document.getElementById('logout').hidden = false;
