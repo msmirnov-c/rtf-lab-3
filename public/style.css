@@ -12,13 +12,13 @@ nav ul {
 nav li {
     list-style-position: inside;
     font: 20px 'Oswald', sans-serif;
-    padding: 10px;
+    padding: 5%;
 
 }
 
 .top-menu li {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 1vw 3vw;
     margin: 0;
     background:#ffcc00;
     border-radius: 10%;
@@ -56,13 +56,8 @@ nav li {
     font-size: 20px;
 }
 
-.buttons {
-    float: right;
-    margin-top: 15px;  
-}
-
-.but div{
-    display: block;
+.buttons div{
+    display: inline;
 }
 
 button {
@@ -75,7 +70,9 @@ button {
 
 }
 
-
+div {
+    display: block;
+}
 
 .send{
     opacity: 1;

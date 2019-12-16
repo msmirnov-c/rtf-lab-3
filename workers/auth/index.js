@@ -14,11 +14,9 @@ function auth(req, res, next) {
     if (usersData.includes(`"login":"${login}","password":"${password}"`)){
         res.redirect('/public/index.html');
     } else {
-        res.json({Success: false})
+        res.req({Error: 'Такого пользователя нет в базе. Может введены неверные данные'});
     }
-    res.redirect('/public/index.html');
 }
-
 
 /**
  * Метод, принимающий 3 парамметра
@@ -28,14 +26,11 @@ function auth(req, res, next) {
  */
 function register(req, res, next) {
     const {login, email, password} = req.body;
-
     console.log(login, email, password);
-    /*res.json({Success: true})*/
-
 
     const usersData = fs.readFileSync("users.txt", "utf8");
     if (usersData.includes(`"login":"${login}"`)) {
-        res.json({Error: 'Такой логин уже существует. Придумайте новый'});
+        res.req({Error: 'Такой логин уже существует. Придумайте новый'});
     } else {
         fs.appendFileSync('users.txt', ` "login":"${login}","password":"${password}","email":"${email}"` + '\n');
         res.redirect('/public/index.html');
