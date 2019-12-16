@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 const fs = require('fs');
+
+const port = process.env.PORT || 3000
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static('static'));
@@ -59,4 +62,4 @@ function registration(email, password){
       res.redirect('/authorization')
   });
 
-  app.listen(process.env.PORT || 3000)
+  app.listen(port)
