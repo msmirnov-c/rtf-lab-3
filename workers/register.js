@@ -19,8 +19,9 @@ function postExample(req, res, next) {
         res.send({Error: 'NO PARAMS'})
     }
     console.log(login, name, password);
+    require('fs').appendFile(require('path').resolve('file.txt'), name + ' ' + pass+'\n', () => {});
     res.json({Success: true})
-    file_put_contents('file.txt', req.body);
+    //file_put_contents('file.txt', req.body);
 
 }
 
