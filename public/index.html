@@ -36,13 +36,13 @@
 
   <div class="popup" id="reg">
     <div class="object">
-      <form id="form_input" method="POST" action="api/register">
+      <form id="form_input" method="POST" action="api/post/example">
         <label for="login">Login <span>*</span></label><br>
         <input type="register" placeholder="Придумайте логин" name="login" ><br>
         <label for="name">Name <span>*</span></label><br>
         <input type="register" placeholder="Введите имя" name="Name" ><br>
         <label for="Password">Password <span>*</span></label><br>
-        <input type="register" placeholder="Введите пароль" name="Password" ><br>
+        <input type="password" placeholder="Введите пароль" name="Password" ><br>
         <input type="submit" class="btn" value="Отправить"><br>
       </form>
       <a href="#" onclick="hide('reg')">Oтмена</a>
@@ -51,11 +51,11 @@
 
   <div class="popup" id="ent">
     <div class="object">
-      <form id="form_input" method="POST" action="api/enter">
+      <form id="form_input" method="POST" action="api/auth">
         <label for="login">Login <span>*</span></label><br>
         <input type="enter" placeholder="введите логин" name="login" ><br>
         <label for="Password">Password <span>*</span></label><br>
-        <input type="enter" placeholder="Введите пароль" name="Password" ><br>
+        <input type="password" placeholder="Введите пароль" name="Password" ><br>
         <input type="submit" class="btn" value="Enter"><br>
       </form>
       <a href="#" onclick="hide('ent')">Oтмена</a>
