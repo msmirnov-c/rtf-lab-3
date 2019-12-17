@@ -16,7 +16,7 @@ router.get('/login', (request, response) => {
 	response.sendFile(path.resolve ('public/login.html'))
 });
 
-router.post('/regn', registration);
-router.post('/log', login);
+router.post('/api/regn', registration);
+router.post('/api/log', login);
 
 module.exports = router;
