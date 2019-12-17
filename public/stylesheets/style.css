@@ -154,9 +154,6 @@
   text-indent: 2%;
 }
 /*********************************************************************************/
-#auth-login{
-  margin-left: 0.9%;
-}
 
 .registration > .content{
   margin-left: 5%;
@@ -188,3 +185,32 @@
 .me{
   margin-left: 5%;
 }
+
+/*****************************************************************************/
+
+#emailLog, #lognameLog{
+  margin-bottom: 2%;
+}
+
+.authentication > .content{
+  margin-left: 5%;
+  
+}
+
+
+#emailLog, #lognameLog{
+  margin-bottom: 2%;
+}
+.authentication > .content > .btn{
+  margin: 2% 0% 0% 9%;
+  width: max-content;
+}
+
+#emailLog{
+  margin-left: 1.4%;
+} 
+
+#lognameLog{
+  margin-left: 0.8%;
+}
+
