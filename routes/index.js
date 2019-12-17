@@ -8,11 +8,11 @@ router.get('/', (request, response) => {
 	response.sendFile(path.resolve ('/public/index.html'))
 });
 
-router.get('/regn', (request, response) => {
+router.get('/registration', (request, response) => {
 	response.sendFile(path.resolve ('public/registration.html'))
 });
 
-router.get('/log', (request, response) => {
+router.get('/login', (request, response) => {
 	response.sendFile(path.resolve ('public/login.html'))
 });
 
