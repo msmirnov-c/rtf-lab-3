@@ -32,6 +32,7 @@ function registrate(req, res, next) {
  * @param {string} password - пароль
  */
 function authenticate(req, res, next){
+    let flag = true;
     const {email, logname, password} = req.body;
     if (!email || !logname || !password) {
         res.send({Error: 'NO Enter'})
@@ -39,19 +40,19 @@ function authenticate(req, res, next){
     const fs = require("fs");
     fs.readFile("data.txt", "utf8", function(error, data){
         if(error) throw error;
-        let mas = data.split("\n");
-        mas.forEach(element => {
+        data.split("\n").forEach(element => {
             let inf = JSON.parse(element);
             console.log(inf);
             console.log(email, logname, password);
-            if(logname == inf.logname)
+            if(logname == inf.logname && email == inf.email && password == inf.password)
             {
                 console.log("Очень рад вас видеть, " + inf.logname);
+                flag = false;
                 return res.send({Success: true});
             }
         });
-        return res.send({Success: false});
-    }) 
+        if(flag) return res.send({Success: false});
+    }); 
 }
 
 module.exports =  {
