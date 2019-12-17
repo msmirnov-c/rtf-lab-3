@@ -1,0 +1,216 @@
+@media (max-width: 999px){
+  body {
+    font: 30px Georgia, 'Times New Roman', Times, serif;
+    background: url(/images/back_phon.jpg);
+    background-size: 100%;
+    color: black;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1020px) {
+  body {
+    font: 13px Georgia, 'Times New Roman', Times, serif;
+    background: url(/images/back_phon.jpg) repeat-y;
+    background-size: 100%;
+    color: black;
+    height: 660px;
+  }
+}
+
+.main{
+  background: #FAF4EA;
+  display: block;
+  width: 70%;
+  margin: 1% 15% 1% 15%;
+  height: max-content;
+}
+
+.discription {
+  text-align: justify;
+  height: 80%;
+  padding: 0% 1% 0% 1%;
+  font-size: 120%;
+}
+
+.name{
+  height: 10%;
+  padding: 1%;
+  border-bottom: 2px dotted black ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name > div > h1{
+  cursor:pointer;
+}
+#login, #reg{
+  height: 30%;
+}
+
+.name > .title{
+  display: flex;
+  flex-direction: column;
+}
+
+.name > .title > h1{
+  margin-top: 1%;
+}
+.name > .title > p{
+  margin: 0px;
+}
+
+.name > div{
+  width: max-content;
+}
+.name > .users{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.menu{
+  height: 10%;
+  padding: 1%;
+  display: flex;
+  justify-content: space-around;
+  border-collapse: collapse;
+}
+
+.menu > div{
+  border: 2px solid black;
+  display: inline-block;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 150%;
+  padding: 1%;
+}
+
+.menu > div:hover{
+  border-color: white;
+}
+
+.persons, .authors, .information, .reading > .History > p{
+    cursor:pointer;
+}
+
+.inf{
+  text-align: left;
+  opacity: 0.5;
+  cursor:pointer;
+}
+
+
+.reading > h1{
+  text-align: center;
+}
+
+.reading > h2{
+  margin-left: 5%;
+}
+
+.menuReading, .waiting{
+  font-size: 110%;
+  display: flex;
+  flex-direction: column;
+}
+
+#Darak, #SixKick, #Arsenal{
+  visibility: hidden;
+  user-select: none;
+  margin-left: 3%;
+  cursor:pointer;
+}
+
+.menuReading >div, .waiting > div{
+  display: flex;
+  flex-direction: row;
+}
+
+.menuReading > div > p:nth-child(1), .waiting > div > p:nth-child(1)
+{
+  padding-left: 5%;
+  width: max-content;
+  user-select: none;
+  cursor:pointer;
+  vertical-align: center;
+}
+/************************************************************************/
+.footer{
+  border-top: 2px dotted black;
+  margin-top: 5%;
+}
+
+.footer > div{
+  margin: 0 0 0 5%;
+}
+
+/**********************************************************************************/
+.Parts{
+  font-size: 110%;
+}
+.Parts  > p{
+  text-indent: 2%;
+}
+/*********************************************************************************/
+
+.registration > .content{
+  margin-left: 5%;
+}
+
+#email, #logname{
+  margin-bottom: 2%;
+}
+.registration > .content > .btn{
+  margin: 2% 0% 0% 9%;
+  width: max-content;
+}
+
+#email{
+  margin-left: 1.4%;
+} 
+
+#logname{
+  margin-left: 0.8%;
+}
+
+/***********************************************************************/
+.anotherInf{
+  font-size: 70%;
+  opacity: 0.5;
+}
+
+/*****************************************************/
+.me{
+  margin-left: 5%;
+}
+
+/*****************************************************************************/
+
+#emailLog, #lognameLog{
+  margin-bottom: 2%;
+}
+
+.authentication > .content{
+  margin-left: 5%;
+  
+}
+
+
+#emailLog, #lognameLog{
+  margin-bottom: 2%;
+}
+.authentication > .content > .btn{
+  margin: 2% 0% 0% 9%;
+  width: max-content;
+}
+
+#emailLog{
+  margin-left: 1.4%;
+} 
+
+#lognameLog{
+  margin-left: 0.8%;
+}
+
