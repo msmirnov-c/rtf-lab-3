@@ -40,7 +40,6 @@ function authenticate(req, res, next){
     fs.readFile("data.txt", "utf8", function(error, data){
         if(error) throw error;
         let mas = data.split("\n");
-        let mas = data.split("\n");
         mas.forEach(element => {
             let inf = JSON.parse(element);
             console.log(inf);
