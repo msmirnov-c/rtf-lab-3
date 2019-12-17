@@ -8,15 +8,15 @@ router.get('/', (request, response) => {
 	response.sendFile(path.resolve ('/public/index.html'))
 });
 
-router.get('/registration', (request, response) => {
+router.get('/regn', (request, response) => {
 	response.sendFile(path.resolve ('public/registration.html'))
 });
 
-router.get('/login', (request, response) => {
+router.get('/log', (request, response) => {
 	response.sendFile(path.resolve ('public/login.html'))
 });
 
-router.post('/registration', registration);
-router.post('/login', login);
+router.post('/regn', registration);
+router.post('/log', login);
 
 module.exports = router;
