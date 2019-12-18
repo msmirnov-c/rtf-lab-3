@@ -99,7 +99,7 @@ h2{
   text-indent: 30px;
   margin: 0; 
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
 
   h1{
     color: #323333;  
@@ -120,6 +120,13 @@ h2{
     text-indent: 30px;
     margin: 0; 
   }
+  .content {
+    border-radius: 10px;
+    box-shadow: 0 1px 15px -3px rgba(0,0,0,.5);
+    background-color: rgb(208, 221, 233, 0.65);
+    text-align: justify;
+}
+
 
 }
 
@@ -188,7 +195,7 @@ body {
 }
 
 .content {
-    padding: 30px 25px;
+    padding: 1em 2em;
     border-radius: 10px;
     box-shadow: 0 1px 15px -3px rgba(0,0,0,.5);
     background-color: rgb(208, 221, 233, 0.65);

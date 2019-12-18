@@ -8,7 +8,7 @@ const path = require('path');
 function authUser(req, res, next) {
     const {name, pass} = req.body;
     if (!name || !pass) {
-        res.send({Error: 'Некоторые поля незаполненны, заполните Имя/Пароль'});
+        res.redirect('/Error2.html');
     }
 
     let fo = file.readFileSync(path.resolve('DB.txt'), 'utf8');
@@ -28,22 +28,20 @@ function authUser(req, res, next) {
     }
 
     if (name_pass[name] === pass){
-        res.json({Success: true}); // Вывод этого сообщения значит успешную авторизацию
+        res.redirect('/successAuth.html'); // Вывод этого сообщения значит успешную авторизацию
     } else {
-        res.json({Error: 'Такого пользователя не существует, проверьте правильность ввода'});
+        res.redirect('/Error.html');
     }
-    
-    res.json({Error: 'Ввели неверные данные, проверьте имя/пароль'});
 }
 
 function postExample(req, res, next) {
     const {name, pass} = req.body;
     if (!name || !pass) {
-        res.send({Error: 'Некоторые поля остались незаполненными, заполните Имя/Пароль'});
+        res.redirect('/Error2.html');
     }
     file.appendFile(path.resolve('DB.txt'), name + ' ' + pass+'\n', () => {});
     
-    res.json({Success: true}); // Вывод этого сообщения значит успешную регистрацию
+    res.redirect('/successReg.html'); // Вывод этого сообщения значит успешную регистрацию
 }
 
 module.exports =  {
