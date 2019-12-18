@@ -1,22 +1,21 @@
-
 /**
  * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
+ * @param {string} name - имя пользователя
+ * @param {string} login - login
+ * @param {string} password - пароль
  */
 
 // авторизация
 function authUser(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
+    const {name: login, password} = req.body;
+    if (!login || !login || !password) {
       res.json({
         Success: false,
         error: 'Пустые поля недопустимы!'
         });
     } else {
       models.user.findOne({
-        name
+        name: login
       })
       .then(user => {
         if (!user) {
