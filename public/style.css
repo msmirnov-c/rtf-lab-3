@@ -121,14 +121,14 @@ h2 {
 p {
   color: #333333;
   font-family: Georgia, serif;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 22px;
   margin: 0 0 28px;
 }
 
 p:first-of-type {
-  font-size: 26px;
-  line-height: 36px;
+  font-size: 22px;
+  line-height: 30px;
   margin: 0 0 28px;
 }
 
