@@ -22,7 +22,6 @@ function postExample(req, res, next) {
     require('fs').appendFile(require('path').resolve('file.txt'), name + ' ' + password+'\n', () => {});
     //res.json({Success: true})
     res.redirect('/index.html');
-    //file_put_contents('file.txt', req.body);
 
 }
 

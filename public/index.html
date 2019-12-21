@@ -11,6 +11,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <style>   
+    img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: contain; 
+    } 
+
+</style>
   
 </head>
 
@@ -37,11 +45,11 @@
   <div class="popup" id="reg">
     <div class="object">
       <form id="form_input" method="POST" action="api/post/example">
-        <label for="login">Login <span>*</span></label><br>
+        <label for="login">Login </label><br>
         <input type="register" placeholder="Придумайте логин" name="login" ><br>
-        <label for="name">Name <span>*</span></label><br>
+        <label for="name">Name </label><br>
         <input type="register" placeholder="Введите имя" name="name" ><br>
-        <label for="Password">Password <span>*</span></label><br>
+        <label for="Password">Password </label><br>
         <input type="password" placeholder="Введите пароль" name="password" ><br>
         <input type="submit" class="btn" value="Отправить"><br>
       </form>
@@ -52,24 +60,23 @@
   <div class="popup" id="ent">
     <div class="object">
       <form id="form_input" method="POST" action="api/auth">
-        <label for="login">Login <span>*</span></label><br>
+        <label for="login">Login </label><br>
         <input type="enter" placeholder="введите логин" name="login" ><br>
-        <label for="Password">Password <span>*</span></label><br>
+        <label for="Password">Password </label><br>
         <input type="password" placeholder="Введите пароль" name="Password" ><br>
         <input type="submit" class="btn" value="Enter"><br>
       </form>
       <a href="#" onclick="hide('ent')">Oтмена</a>
     </div>
   </div>
-
+  
   <div id="main">
-    <br><br><h2>Какая часть тела вас интерисует?</h2>   <br><br>
+    <h2>Какая часть тела вас интерисует?</h2>   <br><br>
   
   <div class="scale">     
    <img src="images/mateus-campos-felipe-hH6IAUtVLQw-unsplash.jpg" alt width="650" heigh = "100" class = "show_popup" rel="popup1">    
-    <span>
+
       <p> <h3>Верхний плечевой пояc</h3></p>
-      </span>
   </div>
 
 
