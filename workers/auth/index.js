@@ -1,3 +1,6 @@
+const fs = require('fs');
+const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
+
 /**
  * Метод принимающий 3 парамметра
  * @param {string} name - имя пользователя
@@ -5,90 +8,40 @@
  * @param {string} password - пароль
  */
 
-// авторизация
-function authUser(req, res, next) {
-    const {name: login, password} = req.body;
-    if (!login || !login || !password) {
-      res.json({
-        Success: false,
-        error: 'Пустые поля недопустимы!'
-        });
-    } else {
-      models.user.findOne({
-        name: login
-      })
-      .then(user => {
-        if (!user) {
-          res.json({
-            Success: false,
-            error: 'Логин или пароль неверны!'
-          });
-        } else {
-            if (!result) {
-              res.json({
-                Success: false,
-                error: 'Логин или пароль неверны!'
-              });
-            } else {
-              req.session.userId = user.id;
-              req.session.userLogin = user.login;
-              console.log('autuser');
-              console.log(req.params.id);
-              res.json({userAuth: true}) 
-            }
-          }
-      });
-    }
+function authentication(req, res) {
+  const { login, password } = req.body;
+
+  if (!login || !password) {
+    res.json({ Success: false });
+  } else if (!DBusers.includes(`"login":"${login}", "password":"${password}"`)) {
+    res.json({ Success: false, error: "Логин или пароль неверны" });
+  } else {
+    res.json({ Success: true });
+  }
 }
 
-// регистрация
-function postExample(req, res, next) {
-  console.log(req.body)
-  const {id, name, age} = req.body;
-  const idConfirm = req.body.idConfirm;
-    
-  if (!id || !name || !age) {
+function registration(req, res) {
+  const { name, login, password, passwordConfirm } = req.body;
+
+  if (!name || !login || !password || !passwordConfirm) {
+    res.json({ Success: false });
+  } else if (password !== passwordConfirm) {
     res.json({
       Success: false,
-      error: 'Пустые поля недопустимы!'
-      });
-    } else if (id !== idConfirm) {
-      res.json({
-      Success: false,
       error: 'Пароли не совпадают!'
-      });
-    } else {
-      models.user.findOne({
-        name
-        })
-        .then(user => {
-          if (!user) {
-            models.user.create({
-              name,
-              id
-              })
-              .then(user => {
-                console.log(id, age, name);
-                res.json({Success: true});
-                console.log(user);
-                })
-          } else {
-            res.json({
-              Success: false,
-              error: 'Имя уже занято!',
-              fields: ['name']
-            });
-          }
-        });
-      }
-    }
-
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
+    });
+  } else if (!DBusers.includes(`"login":"${login}"`)) {
+    fs.appendFileSync('models/DBusers.txt', `"name":"${name}", "login":"${login}", "password":"${password}"` + '\n');
+    res.json({ Success: true });
+  } else {
+    res.json({
+      Success: false,
+      error: 'Имя уже занято!'
+    });
+  }
 }
 
 module.exports =  {
-    authUser,
-    postExample
+    authUser: authentication,
+    postExample: registration
 }

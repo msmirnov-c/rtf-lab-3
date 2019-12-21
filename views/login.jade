@@ -4,27 +4,27 @@ block content
     .limiter
       .container-login100(style="background-image: url('design/images/bg-01.jpg');")
         .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
-          form.login100-form.validate-form(method="get" action="/api/auth/:id")
+          form.login100-form.validate-form(method="post" action="/api/auth" name="auth")
             span.login100-form-title.p-b-49
-              | Залогинься
-            .wrap-input100.validate-input.m-b-23(data-validate='Поле обязательно для заполнения')
+              | ЗАЛОГИНЬСЯ
+            .wrap-input100.validate-input.m-b-23(data-validate='Введите логин  ')
               span.label-input100 Имя пользователя
-              input.input100(type='text', name='name', placeholder='Введите имя пользователя')
+              input.input100(type='text', name='login', placeholder='  Введите имя пользователя')
               span.focus-input100(data-symbol='😲')
-            .wrap-input100.validate-input(data-validate='Поле обязательно для заполнения')
+            .wrap-input100.validate-input(data-validate='Введите пароль')
               span.label-input100 Пароль
-              input.input100(type='password', name='id', placeholder='Введите пароль')
+              input.input100(type='password', name='password', placeholder='  Введите пароль  ')
               span.focus-input100(data-symbol='😆')
             .container-login100-form-btn
               .wrap-login100-form-btn
                 .login100-form-bgbtn
                 button.login100-form-btn
-                  | Login
+                  | ЗАЛОГИНИТЬСЯ
             .txt1.text-center.p-t-54.p-b-20
               span
                 | Нет аккаунта? 
               a.txt2(href='/reg')
-                | Зарегайся
+                | ЗАРЕГАЙСЯ
     #dropDownSelect1
     script(src='design/vendor/jquery/jquery-3.2.1.min.js')
     script(src='design/vendor/animsition/js/animsition.min.js')
