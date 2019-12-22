@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto')
 const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
 
 /**
@@ -10,12 +11,17 @@ const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
 
 function authentication(req, res) {
   const { login, password } = req.body;
+  var hash = crypto.createHash('md5').update(password).digest("hex");
+  console.log(password);
+  console.log(hash);
 
   if (!login || !password) {
     res.json({ Success: false });
-  } else if (!DBusers.includes(`"login":"${login}", "password":"${password}"`)) {
+  } else if (!DBusers.includes(`"login":"${login}", "password":"${hash}"`)) {
     res.json({ Success: false, error: "Логин или пароль неверны" });
   } else {
+    res.cookie('login', login, { maxAge: 900000, httpOnly: true });
+    res.cookie('secret', hash, { maxAge: 900000, httpOnly: true });
     res.json({ Success: true });
   }
 }
@@ -31,7 +37,8 @@ function registration(req, res) {
       error: 'Пароли не совпадают!'
     });
   } else if (!DBusers.includes(`"login":"${login}"`)) {
-    fs.appendFileSync('models/DBusers.txt', `"name":"${name}", "login":"${login}", "password":"${password}"` + '\n');
+    var hash = crypto.createHash('md5').update(password).digest("hex");
+    fs.appendFileSync('models/DBusers.txt', `"name":"${name}", "login":"${login}", "password":"${hash}"` + '\n');
     res.json({ Success: true });
   } else {
     res.json({
@@ -40,8 +47,14 @@ function registration(req, res) {
     });
   }
 }
+ function logout(req, res){
+    res.clearCookie('login');
+    res.clearCookie('secret');
+    res.redirect("/");
+ }
 
 module.exports =  {
-    authUser: authentication,
-    postExample: registration
+    authentication,
+    registration, 
+    logout
 }

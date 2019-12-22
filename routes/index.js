@@ -3,6 +3,16 @@ var router = express.Router();
 var jade = require('jade');
 
 function indexPage(req, res, next) {
+    const login = req.cookies.login;
+    if (login !== undefined) {
+        res.locals.greeting = `Привет, ${login}!`;
+        res.locals.action = "РАЗЛОГИНИТЬСЯ";
+        res.locals.direction = "/api/logout";
+    } else {
+        res.locals.action = "ЗАЛОГИНИТЬСЯ";
+        res.locals.direction = "/login";
+    }
+
     res.locals.title = 'История IE';
     var html = jade.renderFile('./views/index.jade', res.locals);
     res.send(html);

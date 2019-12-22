@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    text-decoration: none;
+    list-style: none; 
+}
+body{
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+.top{
+    background: #0d1f36;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+.top p{
+    padding-left: 10%;
+    color:white;
+    font-size: 40px;       
+}
+.ielogo{
+    padding: 5px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+nav{
+    margin: auto;
+    width: 800px;
+    height: 100px;  
+}
+.topnav{
+    background-color: #fff;
+    font-size: 14px;
+    margin-top: 40px;
+}
+.topnav a{
+    color:  #000;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 15px;
+}
+.content{
+    font-size: medium;
+    text-align: justify;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.subhead{
+    font-size: larger;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 5%;
+    scroll-padding-top: 5%;
+}
