@@ -25,10 +25,11 @@ header {
   position: fixed;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 330px) {
   header {
     width: 100%;
     padding: 0px 0.5% 0px 0.5%;
+    padding-right: 10px;
     background: transparent;
     float: left;
     position: fixed;
@@ -58,7 +59,37 @@ header #logo span {
   margin-top: -40px;
 }
 
-@media (max-width: 320px) {
+
+@media (max-width: 760px) {
+  #logo {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 1.0em;
+    margin-left: -20px;
+  }
+
+  #about {
+    float: left;
+    width: 100%;
+  }
+}
+
+@media (min-width: 331px) and (max-width: 490px) {
+  #logo {
+    margin-top: 9px;
+    width: 100%;
+    font-size: 0.8em;
+    margin-left: -20px;
+  }
+
+  #about {
+    float: left;
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 330px) {
   header #logo {
     margin-top: 1px;
     width: 100%;
@@ -70,24 +101,7 @@ header #logo span {
     float: left;
     width: 100%;
     font-size: 10px;
-  }
-}
-
-
-@media (max-width: 700px) {
-  #logo {
-    margin-top: 15px;
-    width: 100%;
-    font-size: 1.5em;
-  }
-
-  #about {
-    float: left;
-    width: 100%;
-  }
-
-  #about > a:not(:last-child) {
-    margin-right: 10px; /*расстояние между элементами*/
+    margin-right: -40px;
   }
 }
 
@@ -102,13 +116,22 @@ header #logo span {
   margin-right: 30px; /*расстояние между элементами*/
 }
 
-@media (max-width: 320px) {
+@media (max-width: 490px) {
+
+  #about > a:not(:last-child) {
+    margin-right: 11px; /*расстояние между элементами*/
+  }
+
+}
+
+@media (max-width: 330px) {
 
   #about > a:not(:last-child) {
     margin-right: 10px; /*расстояние между элементами*/
   }
 
 }
+
 
 /* Главный блок на сайте */
 #top {
@@ -134,7 +157,59 @@ header #logo span {
   padding-right: 15%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
+  #top {
+    width: 100%;
+    height: 330px;
+    background-image: url(../images/steve-barker.jpg);
+    background-blend-mode: overlay;
+    background-size: 768px;
+    background-repeat: no-repeat;
+    text-align: right;
+    color: #fff;
+  } 
+
+  #top h1 {
+    font-weight: bold;
+    font-family: Century Gothic, Courier New;
+    font-size:  15px;
+    padding-top: 25%;
+    padding-right: 15%;
+  }
+  #top h3 {
+    color: #ccc;
+    padding-right: 9%;
+    font-size:  10px;
+  }
+}
+
+@media (max-width: 490px) {
+  #top {
+    width: 100%;
+    height: 220px;
+    background-image: url(../images/steve-barker.jpg);
+    background-blend-mode: overlay;
+    background-size: 480px;
+    background-repeat: no-repeat;
+    text-align: right;
+    color: #fff;
+  } 
+
+  #top h1 {
+    font-weight: bold;
+    font-family: Century Gothic, Courier New;
+    font-size:  15px;
+    padding-top: 25%;
+    padding-right: 15%;
+  }
+  #top h3 {
+    color: #ccc;
+    padding-right: 9%;
+    font-size:  10px;
+  }
+}
+
+@media (max-width: 340px) {
   #top {
     width: 100%;
     height: 145px;
@@ -160,6 +235,8 @@ header #logo span {
     font-size:  10px;
   }
 }
+
+
 
 .popup {
   display: none;
@@ -243,6 +320,11 @@ header #logo span {
   text-align: center;
   color: #574301;
 }
+.box img{
+  width: 300px; 
+  height: auto; 
+}
+
 
 @media (min-width: 1401px) {
   #main {
@@ -268,7 +350,51 @@ header #logo span {
   }
 }
 
-@media (max-width : 320px) {
+@media (max-width : 760px) {
+  #main {
+    font-family: Century Gothic, Courier New;
+    padding: 50px 10%;
+    width: 80%;
+    background-color:  #eee;
+  }
+
+  img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    } 
+
+    .box img{
+      width: 60%; 
+      height: auto; 
+      object-fit: contain; 
+    }      
+}
+
+@media (max-width : 490px) {
+  #main {
+    font-family: Century Gothic, Courier New;
+    padding: 50px 10%;
+    width: 80%;
+    font-size: 13px;
+    background-color:  #eee;
+  }
+
+  img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    } 
+
+    .box img{
+      width: 70%; 
+      height: auto; 
+      object-fit: contain; 
+    } 
+}
+
+
+@media (max-width : 340px) {
   #main {
     font-family: Century Gothic, Courier New;
     padding: 50px 10%;
@@ -276,8 +402,19 @@ header #logo span {
     font-size: 10px;
     background-color:  #eee;
   }
-}
 
+  img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    } 
+
+    .box img{
+      width: 70%; 
+      height: auto; 
+      object-fit: contain; 
+    } 
+}
 
 .spoiler >  input + .box {
 	display: none;
