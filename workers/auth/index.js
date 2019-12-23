@@ -1,6 +1,5 @@
 const fs = require('fs');
 const crypto = require('crypto')
-const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
 
 /**
  * Метод принимающий 3 парамметра
@@ -15,6 +14,7 @@ function authentication(req, res) {
   console.log(password);
   console.log(hash);
 
+  const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
   if (!login || !password) {
     res.json({ Success: false });
   } else if (!DBusers.includes(`"login":"${login}", "password":"${hash}"`)) {
@@ -29,6 +29,7 @@ function authentication(req, res) {
 function registration(req, res) {
   const { name, login, password, passwordConfirm } = req.body;
 
+  const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
   if (!name || !login || !password || !passwordConfirm) {
     res.json({ Success: false });
   } else if (password !== passwordConfirm) {

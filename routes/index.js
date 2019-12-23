@@ -5,12 +5,15 @@ var jade = require('jade');
 function indexPage(req, res, next) {
     const login = req.cookies.login;
     if (login !== undefined) {
-        res.locals.greeting = `Привет, ${login}!`;
+        res.locals.greeting = `ПРИВЕТ, ${login}!`;
         res.locals.action = "РАЗЛОГИНИТЬСЯ";
+        res.locals.loggedInDirection="";
         res.locals.direction = "/api/logout";
     } else {
         res.locals.action = "ЗАЛОГИНИТЬСЯ";
-        res.locals.direction = "/login";
+        res.locals.direction = "/login";       
+        res.locals.greeting = "ЗАРЕГАТЬСЯ";
+        res.locals.loggedInDirection="/reg";
     }
 
     res.locals.title = 'История IE';

@@ -3,9 +3,8 @@ extends layout
 block content
   nav
     #myTopnav.topnav
-      a(href=direction class="logAction")=action
-      a(href='/reg')  ЗАРЕГАТЬСЯ 
-      span(style="padding: 0px 0px 0px 80px") #{greeting}
+      a(href=direction, class="logAction")=action
+      a(href=loggedInDirection, class="regGreetAction")=greeting
     hr(color='black', width='280')
   .content
       p.subhead История Internet Explorer

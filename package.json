@@ -33,5 +33,18 @@
     "eslint": "^6.7.2",
     "eslint-plugin-node": "^10.0.0",
     "nodemon": "^2.0.2"
-  }
+  },
+  "description": "В лабораторной работе требуется: \r - Создать бэк приложение с использованием:\r   - https://nodejs.org/en/\r   - https://www.npmjs.com/package/express",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anna-Skorodskaya/rtf-lab-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anna-Skorodskaya/rtf-lab-3/issues"
+  },
+  "homepage": "https://github.com/Anna-Skorodskaya/rtf-lab-3#readme"
 }

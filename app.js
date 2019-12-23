@@ -33,10 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'design')));
 
-// app.use(passport.initialize())
-// app.use(passport.session())
-
-
 app.use('/api', apiRouter);
 app.use(indexRouter);
 
