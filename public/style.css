@@ -1,0 +1,93 @@
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    list-style-position: inside;
+    font: 20px 'Oswald', sans-serif;
+    padding: 5%;
+
+}
+
+.top-menu li {
+    display: inline-block;
+    padding: 1vw 3vw;
+    margin: 0;
+    background:#ffcc00;
+    border-radius: 10%;
+    opacity: 0.8;
+    
+}
+
+.top-menu :hover{
+    background: blue;
+    transition: All 0.5s ease;
+}
+
+.top-menu a {
+    color: black;
+}
+
+.logo {
+    text-align: center;
+}
+
+.parent {
+    min-height: 55vh;
+    background-color: #1c1a1a;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 3%;
+    opacity: 0.8;
+    overflow: auto;
+}
+
+.text {
+    text-align: center;
+    color: #dcded5;
+    font-size: 20px;
+}
+
+.buttons .hello div{
+    display: inline;
+}
+
+button {
+    background-color: #ffcc00;
+    border: black;
+    border-radius: 5%;
+    opacity: 0.6;
+    width: 90px;
+    display: inline-block;
+
+}
+
+div {
+    display: block;
+}
+
+.send{
+    opacity: 1;
+}
+
+.modal-window {
+    position: relative;
+    margin: auto;
+    border: black solid ;
+    background-color: darkslategray;
+    opacity: 0.8;
+    display: none;
+}
+
+
+
+
+

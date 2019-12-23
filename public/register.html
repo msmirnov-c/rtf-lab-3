@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Регистрация</title>
+	<link href="style.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+</head>
+
+<body background="\images\background.jpg" 
+no-repeat
+background-size: cover
+>
+<div id='but' class="but">
+	<div class='buttons'>
+		<a class="b1" href="register.html"><button >Регистрация</button></a>	
+		<a class="b2" href="auth.html"><button >Вход</button>	</a>	
+	</div>
+</div>
+<header class="logo" > 
+<a href="index.html" ><img src="\images\logo.png" width="50%" ></a>
+<nav>
+	<ul class="top-menu">
+		<li><a href="\History.html">Предпосылки</a></li>
+		<li><a href="\FirstWar.html">Первая война</a></li>
+		<li><a href="\SecondWar.html">Вторая война</a></li>
+	</ul>
+</nav>	
+</header>
+<div class="parent">
+    <div class="text">
+		<h2>Регистрация</h2>
+		<form action="api/register" method="post">
+		<p >Логин</p>
+		<input type='login' name='login' placeholder="Логин" required> 
+		<p>Email</p>
+		<input type="email" name='email' placeholder="Email" required> 
+		<p>Пароль</p>
+		<input type='password' name='password' placeholder="Пароль" required> 
+		<p><button type="submit">Отправить</button ></p></form>
+	</div>
+</div>
+
+</body>

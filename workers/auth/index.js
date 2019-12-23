@@ -1,30 +1,43 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
+const fs = require('fs');
+
+/**
+ * Метод принимающий 2 парамметра
+ * @param {string} login - логин
+ * @param {string} password - пароль
+ */
+function auth(req, res, next) {
+    const {login, password} = req.body;
+
+    console.log(login, password);
+
+    const usersData = fs.readFileSync("users.txt", "utf8");
+    if (usersData.includes(`"login":"${login}","password":"${password}"`)){
+        res.redirect('/public/index.html');
+    } else {
+        res.json({Error: 'Такого пользователя нет в базе. Может введены неверные данные'});
+    }
 }
 
 /**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
+ * Метод, принимающий 3 парамметра
+ * @param {string} login - логин
+ * @param {string} email - почта
+ * @param {string} password - пароль
  */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
+function register(req, res, next) {
+    const {login, email, password} = req.body;
+    console.log(login, email, password);
+
+    const usersData = fs.readFileSync("users.txt", "utf8");
+    if (!usersData.includes(`"login":"${login}"`)) {
+        fs.appendFileSync('users.txt', ` "login":"${login}","password":"${password}","email":"${email}"` + '\n');
+        res.redirect('/public/index.html');
+    } else {
+        res.json('Такой логин уже существует.');
     }
-    console.log(id, age, name);
-    res.json({Success: true})
 }
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
-
-module.exports =  {
-    authUser,
-    postExample
-}
+module.exports = {
+    auth,
+    register
+};
