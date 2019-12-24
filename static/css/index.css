@@ -9,7 +9,7 @@ body{
     color: white;
     text-align: left;
     font-size: 1.3em;
-    position: static;
+    width: auto;
 }
 
 .block h1 {
