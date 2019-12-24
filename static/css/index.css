@@ -19,3 +19,19 @@ body{
 	font-size: 30px;
 	text-transform: uppercase;
 }
+
+button {
+    position: relative;
+    display: inline-block;
+    font-size: 90%;
+    font-weight: 700;
+    color: #fff;
+    padding: .5em 1em;
+    top: .5em;
+    left: 2.95em;
+    background: rgba(0,0,0,.7);
+}
+
+button:hover:not(:active) {
+    background: rgb(126,126,134)
+}
