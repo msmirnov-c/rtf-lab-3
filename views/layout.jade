@@ -2,6 +2,23 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Fira+Sans+Condensed&display=swap')    
+    link(rel='icon', type='image/png', href='design/images/icons/favicon.ico')  
+    link(rel='stylesheet', type='text/css', href='/design/vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/design/vendor/animate/animate.css')
+    link(rel='stylesheet', type='text/css', href='/design/vendor/css-hamburgers/hamburgers.min.css')
+    link(rel='stylesheet', type='text/css', href='/design/vendor/animsition/css/animsition.min.css')
+    link(rel='stylesheet', type='text/css', href='/design/vendor/select2/select2.min.css')
+    link(rel='stylesheet', type='text/css', href='/design/vendor/daterangepicker/daterangepicker.css')
+    link(rel='stylesheet', type='text/css', href='/design/css/util.css')
+    link(rel='stylesheet', type="text/css" href="/design/css/main.css")
+    link(rel='stylesheet', type="text/css" href="/design/css/indexstyle.css")
   body
+    header
+      .top
+        a(href='http://lurkmore.to/Internet_Explorer')
+          img.ielogo(src='design/images/ie.png', alt='logo', width='70', height='70')
+        p SHORTLY ABOUT THE LEGEND
     block content
