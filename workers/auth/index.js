@@ -11,8 +11,6 @@ const crypto = require('crypto')
 function authentication(req, res) {
   const { login, password } = req.body;
   var hash = crypto.createHash('md5').update(password).digest("hex");
-  console.log(password);
-  console.log(hash);
 
   const DBusers = fs.readFileSync("models/DBusers.txt", "utf8");
   if (!login || !password) {
