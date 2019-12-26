@@ -11,6 +11,8 @@ export default class Page {
                 const commentAdd = document.getElementById("commentAdd");
                 if (commentAdd !== undefined && commentAdd !== null) {
                     commentAdd.disabled = false;
+                    comment.readOnly = false;
+                    comment.innerHTML = '';
                     commentAdd.onclick = ev =>
                         socket.send(`{"comment": "${comment.value}", "login": "${u.email}", "origin":"${origin}"}`);
                 }
