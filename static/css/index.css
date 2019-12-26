@@ -13,7 +13,7 @@ body{
     width: auto;
 }
 
-.block h1 {
+.block h1{
     margin: 0 0;
 	padding: 0;
 	text-align: left;
@@ -22,7 +22,7 @@ body{
 	text-transform: uppercase;
 }
 
-button {
+button{
     position: relative;
     display: inline-block;
     font-size: 90%;
@@ -34,6 +34,6 @@ button {
     background: rgba(0,0,0,.7);
 }
 
-button:hover:not(:active) {
+button:hover:not(:active){
     background: rgb(126,126,134)
 }
