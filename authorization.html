@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="static/css/authorization.css" rel="stylesheet">
+	<link rel="shortcut icon" href="/static/favicon.ico" type="images/x-icon">
+    <title>Вход</title>
+</head>
+<body>
+	<form action="/authorization" method="POST">
+		<div class="form">
+			<h1>Вход</h1>
+			<div class="input-form">
+				<input type="email" placeholder="Логин" name="email">
+			</div>
+			<div class="input-form">
+				<input type="password" placeholder="Пароль" name="password">
+			</div>
+			<div class="input-form">
+				<input type="submit" value="Войти">
+			</div>
+			<a href="/registration">Регистрация</a>
+		</div>
+	</form>
+</body>
+</html>
