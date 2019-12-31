@@ -1,14 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8" />
+    <title>About bots</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+
+    <script src="..\workers\auth\index.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <form method="post" action="/api/post/example">
+      <input placeholder="Login" name="name" type="text" />
+      <input placeholder="Password" name="pass" type="password" />
+      <button type="submit" class="green">Reg</button>
+    </form>
+    <form method="post" action="/api/auth">
+      <input placeholder="Login" name="name" type="text" />
+      <input placeholder="Password" name="pass" type="password" />
+      <button type="submit" class="green">Auth</button>
+    </form>
+    <div class="contentYet">
+      <div class="content">
+        <h1>
+          Выявление ботов
+        </h1>
+        <div>
+          <h3>Содержание</h3>
+          <ul>
+            <li><a href="#block1">Функции ботов</a></li>
+            <li>
+              <a href="#block2"
+                >Признаки для определения ботов и методы борьбы с ними</a
+              >
+            </li>
+            <li><a href="#block3">Особенности социального графа у ботов</a></li>
+            <li><a href="#block4">Способ извлечения признаков из графа</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p>
+            Боты появляются в социальных сетях почти сразу после их создания.
+            Так в твитере рассылка спама была зафиксирована через неделю после
+            его открытия[1] Боты регистрируются и управляются
+            (полу)автоматически. Как правило основная функция ботов — рассылка
+            спама (реклама), но не обязательно. Есть у ботов и другие функции.
+          </p>
+          <a href="#zatemnenie">Узнать больше</a>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <h1>
+        Чем боты занимаются.
+      </h1>
+      <div>
+        <h2 id="block1">
+          Функции ботов.
+        </h2>
+        <p>
+          Рассылка спама Отправка личных сообщений, публикация постов рекламного
+          характера. Это одна из наиболее раздражающих деятельностей ботов,
+          часто методы выявления ботов расчитаны как раз на выявление
+          ботов–спамеров. Астротурфинг Явление астротурфинга названо в по имени
+          компании, производящей искусственный газон. Суть явления — создания
+          видимости общественной поддержки (или наоборот). Эта поддержка может
+          заключаться в оставление комментариев, вступление в группы (которые
+          необходимо поддержать), выражение поддержки другими методами (лайки,
+          репосты)
+        </p>
+        <br />
+      </div>
+      <br />
+      <div>
+        <h2 id="block2">
+          Обнаружение и борьба с ботами.
+        </h2>
+
+        <p>
+          Боты рассылают спам. Как правило социальная сеть позволяет
+          пожаловаться на рассылку спама и администрация сети может блокировать
+          такого пользователя. Подобный подход не лишён недостатков: Боты
+          блокируются после совершения нежелательных действий (спам уже
+          разослан) Таким образом можно выделить не всех ботов, например
+          астротурфинг подобными методами не выделяется. Блокировка
+          пользователей в ручном режиме может быть трудозатратной (необходимо
+          проанализировать большое количество жалоб) Боты управляются
+          автоматически или полуавтоматически. Люди управляют своими аккаунтами
+          “в ручную”. Таким образом в поведении людей и ботов существуют
+          отличия, отличия можно выявлять, в том числе и методами машинного
+          обучения. Для построения обучающей выборки можно использовать
+          информацию о блокировках пользователей.
+        </p>
+      </div>
+      <br />
+
+      <div>
+        <h2 id="block3">
+          Особенности социального графа у ботов
+        </h2>
+        <p>
+          В работе [2] было показано, что ботов имеет особенности: Боты пытаются
+          образовать социальные связи со случайными пользователями. Это
+          позволяет им лучше распространять информацию. Как правило боты имеют
+          больший процент отказов. Боты могут образовывать социальные связи друг
+          с другом, образовывать плотные сообщества[2]. Владельцы ботов не могут
+          в полной мере контролировать структуру социального графа.
+        </p>
+      </div>
+
+      <div>
+        <h2 id="block4">Способ извлечения признаков из графа.</h2>
+        <p>
+          Есть основания предполагать, что структура графа обычных пользователей
+          и ботов отличаются. Если это так, то можно использовать граф выявления
+          ботов. Владельцы ботов не могут менять структуру графа произвольным
+          образом. К такому методу труднее адаптироваться. Социальный граф
+          занимает относительно небольшой объём (относительно других данных в
+          социальной сети, например сообщений) Большинство классических
+          алгоритмов классификации (SVM, Xgboost, . . . ) не могут работать с
+          графом непосредственно. Для применения алгоритмов классификации
+          необходимо выделить признаки т.е. сопоставить каждой вершине вектор
+          конечной размерности. Embedding Представление вершин графа в виде
+          вектора производятся с помощью алгоритмов Graph Embedding. В нашей
+          работе использовалась модель BLM
+        </p>
+      </div>
+    </div>
+
+    <app-root></app-root>
+    <div id="zatemnenie">
+      <div id="okno">
+        <ul>
+          <li>
+            <a
+              href="http://www.soc-phys.chem.msu.ru/rus/prev/zas-2016-12-06/presentation1.pdf"
+              >Выявление ботов</a
+            >
+          </li>
+          <li><a href="https://habr.com/ru/post/413855/">Habr</a></li>
+          <li>
+            <a href="https://tproger.ru/news/gan-against-captcha/">Tproger</a>
+          </li>
+        </ul>
+        <a href="#" class="green">Закрыть окно</a>
+      </div>
+    </div>
+    <script src="runtime-es2015.js" type="module"></script>
+    <script src="polyfills-es2015.js" type="module"></script>
+    <script src="runtime-es5.js" nomodule></script>
+    <script src="polyfills-es5.js" nomodule></script>
+    <script src="styles-es2015.js" type="module"></script>
+    <script src="styles-es5.js" nomodule></script>
+    <script src="vendor-es2015.js" type="module"></script>
+    <script src="main-es2015.js" type="module"></script>
+    <script src="vendor-es5.js" nomodule></script>
+    <script src="main-es5.js" nomodule></script>
+  </body>
 </html>
