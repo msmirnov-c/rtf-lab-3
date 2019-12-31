@@ -1,6 +1,6 @@
 body {
   padding: 15px;
-  background: url(../img/pctr.jpg);
+  background-image: url(pctr.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,7 +14,7 @@ html {
   height: 100%;
 }
 .content {
-  background: url(../img/pctrYet.jpg);
+  background-image: url(pctrYet.jpg);
   padding: 30px 25px;
   border-radius: 10px;
   box-shadow: 0 1px 15px -3px rgba(0, 0, 0, 0.5);
