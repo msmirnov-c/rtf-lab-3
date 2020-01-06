@@ -132,7 +132,15 @@ header #logo span {
 
 }
 
-
+img {
+  opacity: 1;
+  transition: opacity 0.3s;
+  }
+  
+  img[data-src] {
+  opacity: 0;
+  }
+  
 /* Главный блок на сайте */
 #top {
   width: 100%;
