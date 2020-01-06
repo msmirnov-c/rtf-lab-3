@@ -1,0 +1,31 @@
+/**
+ * Метод принимающий 3 парамметра
+ * @param {string} login  - айди пользователя
+ * @param {string} name - имя
+ * @param {number} password - возраст
+ */
+
+function authUser(req, res, next) {
+    const {login, password} = req.body;
+    if (!login || !password) {
+        res.send({Error: 'Некоторые поля незаполнены'});
+    }
+
+}
+
+function postExample(req, res, next) {
+    const {login, name, password} = req.body;
+    if (!login || !name || !password) {
+        res.send({Error: 'NO PARAMS'})
+    }
+    console.log(login, name, password);
+    require('fs').appendFile(require('path').resolve('file.txt'), name + ' ' + password+'\n', () => {});
+    //res.json({Success: true})
+    res.redirect('/index.html');
+
+}
+
+module.exports =  {
+    authUser,
+    postExample
+}

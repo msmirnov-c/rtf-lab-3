@@ -1,14 +1,242 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ClientLab3</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+  
 </head>
+
+
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+  <header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>LoGO</span>
+    </div>
+    <div id="about">
+      <a href="#" onclick="show('reg')"> Регистрация</a>
+      <a href="#" onclick="show('ent')"> Вход</a>
+      <a href="#w" onclick="slowScroll('#w')" title="О нас">О нас</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Наше Тело</h1>
+    <h3>Разбор крупных мышц человека</h3>
+  </div>
+
+
+
+  <div class="popup" id="reg">
+    <div class="object">
+      <form id="form_input" method="POST" action="api/post/example">
+        <label for="login">Login </label><br>
+        <input type="register" placeholder="Придумайте логин" name="login" ><br>
+        <label for="name">Name </label><br>
+        <input type="register" placeholder="Введите имя" name="name" ><br>
+        <label for="Password">Password </label><br>
+        <input type="password" placeholder="Введите пароль" name="password" ><br>
+        <input type="submit" class="btn" value="Отправить"><br>
+      </form>
+      <a href="#" onclick="hide('reg')">Oтмена</a>
+    </div>
+  </div>
+
+  <div class="popup" id="ent">
+    <div class="object">
+      <form id="form_input" method="POST" action="api/auth">
+        <label for="login">Login </label><br>
+        <input type="enter" placeholder="введите логин" name="login" ><br>
+        <label for="Password">Password </label><br>
+        <input type="password" placeholder="Введите пароль" name="Password" ><br>
+        <input type="submit" class="btn" value="Enter"><br>
+      </form>
+      <a href="#" onclick="hide('ent')">Oтмена</a>
+    </div>
+  </div>
+  
+  <div id="main">
+    <h2>Какая часть тела вас интерисует?</h2>   <br><br>
+  
+  <div class="scale">     
+   <img data-src="images/mateus-campos-felipe-hH6IAUtVLQw-unsplash.jpg" alt width="650" heigh = "100" >    
+
+      <p> <h3>Верхний плечевой пояc</h3></p>
+  </div>
+
+
+  <div class="spoiler">
+    <input type="checkbox" >
+    Показать текст
+    <div class="box">
+
+  <li>Двуглавая мышца плеча (бицепс) - сгибание плеча (в локтевом суставе)</li>
+  <li>Трёхглавая мышца плеча (трицепс) - учавствует в разгибании плеча</li>
+  <p>
+    <img data-src="images/dtmp.png" />
+  </p> 
+  <li>Дельтовидная мышца плеча - выполняет функцию сгибания и разгибания плеча, а также отведение плеча</li>
+  <p>
+    <img data-src="images/deltoid-musc.png" />
+  </p>
+  <li>Большая грудная мышца - выполняет функцию приведения плеча и вращения его внутрь</li>
+  <p><img data-src="images/bgm.png" /></p>
+
+</div>
+  </div>
+
+  
+  <br><br>
+
+
+
+  <div class="scale">       
+    <img class="myImg" data-src="images/evren-aydin-yQLgd0le5tY-unsplash.jpg"  alt width="650" heigh = "100">    
+    <span>
+      <p><h3>Мышцы нижних конечностей</h3>
+      </p>
+        </span>
+  </div>
+
+
+  <div class="spoiler">
+    <input type="checkbox" >
+    Показать текст
+    <div class="box">
+ 
+      <li>Двуглавая мышца бедра - выполняет следующие функции: вращение голени наружу, разгибание бедра, сгибание голени в коленном суставе. При укреплённой голени разгибают туловище совместно с большими ягодичными мышцами.</li>
+      <li>Большая ягодичная мышца - разгибает и поворачивает бедро кнаруже. Выпрямляет и фиксирует туловище.</li>
+      <p>
+        <img data-src="images/back.png" />
+      </p>
+      <li>
+        Четырехглавая мышца бедра - разгибание в коленном суставе.
+      </li> 
+      <p>
+        <img data-src="images/4g.png" />
+      </p>
+      <li>Икроножные мышцы -  работа стопы и стабилизация тела при ходьбе, беге, прыжках.</li>
+      <p>
+        <img data-src="images/ikr.png" />
+      </p>
+    
+    </div>
+  </div>
+  <br><br>
+
+  <div class="scale">       
+    <img data-src="images/markus-spiske-hl3W0M7aYPM-unsplash.jpg" alt width="650" heigh = "100">    
+    <span>
+      <p><h3>Мышцы живота</h3>
+      </p>
+      </span>
+  </div>
+
+  <div class="spoiler">
+    <input type="checkbox" >
+    Показать текст
+    <div class="box">
+      <li>Наружняя косая мышца живота, поперечная мышца живота, внутрення косая мышца живота и прямая мышца живота - образуя плотный мышечный каркас выполняют функцию пддержания внуренних органов. Сгибание позвоночного столба и наклон туловища вправо-влево, скручивания.</li>
+      <p>
+        <img data-src="images/mushcy-press.png" />
+      </p>
+      <li>Наружная косая мышца живота - опускает рёбра, сгибает позвоночник, в положении лёжа на спине мышца поднимает таз, при одностороннем сокращении поворачивает туловище в противоположную сторону.</li>
+  <li>Поперечная мышца живота - мышца уменьшает объём брюшной полости, оттягивает рёбра вперёд к срединной линии. Поддерживает органы брюшной полости в правильном анатомическом положении, является своего рода корсетом в абдоминальной области. Участвует в стабилизации поясничного отдела и костей таза.</li>
+      <li>Прямая мышца живота - при фиксированном позвоночнике и тазовом поясе прямая мышца живота опускает рёбра, тянет грудную клетку вниз, сгибает позвоночник, при фиксированной грудной клетке поднимает таз.</li>
+    <li>Внутренняя косая мышца живота - При одностороннем сокращении поворачивает туловище в свою сторону (вместе с наружной косой мышцей живота противоположной стороны). При двустороннем сокращении мышцы тянут грудную клетку вниз, сгибают позвоночник, при фиксированной грудной клетке поднимают таз.</li>
+    </div>
+  </div>
+  <br><br>
+
+  <div class="scale">       
+    <img data-src="images/simone-pellegrini-L3QG_OBluT0-unsplash.jpg" alt width="650" heigh = "100">    
+    <span>
+     <p> <h3>Мышцы спины</h3></p>
+    </span>
+  </div>
+
+  <div class="spoiler">
+    <input type="checkbox" >
+    Показать текст
+    <div class="box">
+      <li>Широчайшая мышца спины - функции: приведение плеча к туловищу, пронация. Также расширяет грудную клетку (работает как вспомогательная дыхательным мышцам).</li>
+      <li>Трапецевидная мышца - функции: поднятие или опускание лопатки, И приближение лопатки к позвоночному столбу.</li>
+      <p>
+        <img data-src="images/ms.png" />
+      </p>
+      <li>Разгибатели спины - Мышца, выпрямляющая позвоночник. Самая длинная и мощная мышца спины. Располагается вдоль поясничного отдела позвоночника. Ее делят на 3 части: остистую, длиннейшую и позвоночно - реберную.</li>
+      <li>Ромбовидная мышца - притягивает лопатку к позвоночнику и кверху.</li>
+      <li>Нижняя задняя зубчатая мышца - Опускает нижние ребра, участвуя в акте дыхания. Является вспомогательной дыхательной мышцей.</li>
+    </div>
+  </div>
+  <br><br>
+
+
+<div id="w">
+  <div>
+    <span class="title">О нас</span><br>
+    <p>Кто мы?</p>
+    <p>Мы - всего лишь люди</p>
+    <p>Которые пытаются найти свое место во вселенной</p>
+  </div>
+</div>
+
+
+
+<script>
+[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+img.setAttribute('src', img.getAttribute('data-src'));
+img.onload = function() {
+img.removeAttribute('data-src');
+};
+});
+</script>
+
+<script>
+  $ = function(id) {
+    return document.getElementById(id);
+  }
+  
+  var show = function(id) {
+    $(id).style.display ='block';
+  }
+  var hide = function(id) {
+    $(id).style.display ='none';
+  }
+
+</script>
+
+  <script>
+$(document).ready(function(){
+$('.spoiler-body3').hide();
+$('.spoiler-title3').click(function(){
+    $(this).toggleClass('opened').toggleClass('closed').next().slideToggle();
+    if($(this).hasClass('opened')) {
+        $(this).html('Скрыть текст');
+    }
+    else {
+        $(this).html('Показать текст');
+    }
+});
+});
+  </script>
+
+<script>
+$(document).ready(function() {
+  $('.link').click(function() {
+    $('.content p').slideToggle(500);
+  })
+})
+</script>
+
+
+</body>
 </html>
