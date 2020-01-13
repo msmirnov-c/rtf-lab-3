@@ -1,30 +1,44 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
-}
+const fs = require('fs');
+const path = require('path');
 
-/**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
- */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
+
+function login(req, res, next) {
+    let users = info();	
+    if (users[req.body.mail] === req.body.password){
+        res.redirect('/');
+    } else {
+        res.json("Ошибка");
     }
-    console.log(id, age, name);
-    res.json({Success: true})
+    
 }
 
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
+
+function info() {
+    let file = fs.readFileSync(path.resolve('users.txt'), 'utf8');
+    let lines = file.split('\n');
+    let users = {};
+    for (let i = 0; i < lines.length; i++){
+        let user = lines[i].split(':');
+        users[user[0]] = user[1];
+    }
+
+    return users
 }
 
-module.exports =  {
-    authUser,
-    postExample
+function registration(req, res, next) {
+    let users = info();
+    if (users[req.body.mail]){
+        res.json('Такой пользователь уже существует');
+        return
+    }
+
+    fs.appendFile(path.resolve('users.txt'), req.body.mail + ':' + req.body.password + '\n', (err) => {
+        if(err) {
+            res.redirect('/registration');
+            return
+        }
+        res.redirect('/');
+    });
 }
+
+module.exports = {login, registration};

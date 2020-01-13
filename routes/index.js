@@ -1,10 +1,22 @@
-const { authUser, postExample } = require('../workers/auth/index.js');
-var express = require('express');
-var router = express.Router();
+const express =  require('express');
+const router = express.Router();
+const path = require('path');
+const {login, registration} = require('../workers/auth/index')
 
-/* GET users listing. */
-router.get('/auth/:id', authUser);
+router.use(express.static('public'));
+router.get('/', (request, response) => {
+	response.sendFile(path.resolve ('/public/index.html'))
+});
 
-router.post('/post/example', postExample)
+router.get('/registration', (request, response) => {
+	response.sendFile(path.resolve ('public/registration.html'))
+});
+
+router.get('/login', (request, response) => {
+	response.sendFile(path.resolve ('public/login.html'))
+});
+
+router.post('/regn', registration);
+router.post('/log', login);
 
 module.exports = router;
