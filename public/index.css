@@ -21,9 +21,6 @@ header {
     grid-area: auth;
 }
 
-#check:checked ~ button {
-    display: none;
-}
 
 .references {
     grid-area: ref;
@@ -65,10 +62,6 @@ footer {
     /* Font styles */
     text-decoration: none;
     text-shadow: 0 1px rgba(255,255,255,0.7);
-}
-
-.labelll {
-
 }
 
 .login:hover {
