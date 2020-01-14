@@ -1,39 +1,39 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const app = express();
 
-var indexRouter = require('./routes/index');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
-app.use(express.json());
+app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+const fs = require('fs');
 
-app.use('/api', indexRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.get('/',  (req, res) => {
+    res.render('index.ejs')
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.get('/architecture',  (req, res) => {
+    res.render('architecture.ejs')
 });
 
-module.exports = app;
+app.get('/indexLogin',  (req, res) => {
+    res.render('indexLogin.ejs')
+});
+
+app.post('/register', (req, res) => {
+    if (fs.readFileSync('data.txt').includes(req.body.name) === false)
+        if (req.body.name !== "" && req.body.password !== "")
+            fs.appendFile('data.txt', ('username:' + req.body.name + ',password:' + req.body.password + '\n'), (err) => {
+                if (err)
+                    throw err;
+            });
+    res.redirect('/');
+});
+
+app.post('/login', (req, res) => {
+    let arr = fs.readFileSync('data.txt', 'utf-8').split('\n');
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(req.body.name) && arr[i].includes(req.body.password))
+            res.redirect('/indexLogin');
+    }
+    res.redirect('/');
+});
+
+app.listen(process.env.PORT || 3000);
