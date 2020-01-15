@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang ="ru">
+ <head>
+  <meta charset="UTF-8">
+  <title>Авторизация</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheetsA/style.css">
+  
+ </head>
+ <body>
+	<header class="header"> 
+		<div>
+		<h1>Авторизация</h1>
+		</div>
+	</header>
+	<div class="maininfo">
+			<form class="reg "method="post" onsubmit="check(this)">
+				<input class="name" name="name" type="text" placeholder="Nickname" id="name"/>
+				<br>
+				<input class="password" name="pass" type="pass" placeholder="Password" id="password"/>
+				<br><br>
+				<input class="button" name="submit" value="Авторизоваться" type="submit" id="finishR"/>
+			</form>
+	</div>
+	<footer class="footer">
+		<ul class="more">
+			<li>
+				<p>Дополнительно:</p>
+			</li>
+			<li>
+				<a href="mailto:d.kuvashov@gmail.com" >Обратная связь</a>
+			</li>
+		</ul>		
+	</footer>
+  <script src="authorization.js"></script>
+ </body>
+</html>

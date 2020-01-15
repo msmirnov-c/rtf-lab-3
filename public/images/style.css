@@ -1,0 +1,54 @@
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+body { 
+	font: 75% Gill Sans, sans-serif;
+	line-height: 1.88889;
+	margin: 0; 
+	padding: 0;
+	}
+p { 
+	margin-top: 10; 
+	text-align: justify;
+	}
+h1 { 
+	font-family: "Mistral" Cursive;
+	letter-spacing: 1px; 
+	margin-bottom: 0; 
+	color: White;
+	}
+h3 { 
+	font: Gill Sans, sans-serif;
+	letter-spacing: 1px; 
+	margin-bottom: 0; 
+	color: black;
+	}
+
+
+/* specific divs */
+.page-wrapper { 
+	background: url(http://oboi.cc/1440-900-100-uploads/11_05_2013/view/201209/oboik.ru_11126.jpg); 
+	padding: 0 175px 0 110px;  
+	margin: 0; 
+	position: relative;
+	}
+
+header {
+	padding-top: 20px;
+	height: 87px;
+}
+
+.supporting {	
+	padding-left: 10px;
+	padding-right: 10px; 
+	}
+
+footer { 
+	text-align: center; 
+	}
+footer a:link, footer a:visited { 
+	margin-right: 20px; 
+	}
+
