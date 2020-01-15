@@ -9,7 +9,7 @@ function valid (form) {
 	if (fail)
 		alert(fail);
 	else {
-		document.location.href = "index.html";
+		document.location.href = 'https://microcontrollers.herokuapp.com/index.html';
 		localStorage.setItem(name,password);
 	}
 

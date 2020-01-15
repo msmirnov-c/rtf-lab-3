@@ -10,7 +10,7 @@ function check (form) {
 	if (fail)
 		alert(fail);
 	else {
-		document.location.href='/index.html';
+		document.location.href = 'https://microcontrollers.herokuapp.com/index.html';
 		alert("Добро пожаловать, " + name);
 	}
 }
