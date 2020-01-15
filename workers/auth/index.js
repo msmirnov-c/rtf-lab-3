@@ -1,30 +1,35 @@
-function authUser(req, res, next) {
-    console.log('autuser');
-    console.log(req);
-    res.json({userAuth: true})
-}
-
+const bcrypt =  require('bcryptjs');
 /**
- * Метод принимающий 3 парамметра
- * @param {string} id - айди пользователя
- * @param {string} name - имя
- * @param {number} age - возраст
+ * Метод принимающий 2 парамметра
+ * @param {string} login - логин пользователя
+ * @param {string} password - пароль
  */
-function postExample(req, res, next) {
-    const {id, name, age} = req.body;
-    if (!id || !name || !age) {
-        res.send({Error: 'NO PARAMS'})
+function auth(req, res, next) {
+    const { login, password } = req.body;
+    if ( !login || !password) { 
+        return res.send({Error: 'WTF???'})
     }
-    console.log(id, age, name);
-    res.json({Success: true})
+    const fs = require("fs"); 
+    fs.readFile("Users.txt", "utf8",function(error, information) {
+                console.log("Чтение секретного документа");
+                if(error) throw error;
+                console.log(information);
+                let content = JSON.parse(information); 
+                console.log("Парсинг ...");
+                if (login === content.login) {
+                    bcrypt.compare(password, content.hash, function(error, result){
+                        console.log("Сравнение ...");
+                        console.log(result);
+                        if (result === true){
+                        console.log ("You are welcome! ", content.Username);
+                        return res.json({Success: true})
+                        }
+                        else return res.json({Success: false});    
+                    });
+                } 
+                else return res.json({Success: false});    
+            });   
 }
-
-async function acyncFyn() {
-    await setTimeout(() => {}, 10000)
-    return true;
-}
-
 module.exports =  {
-    authUser,
-    postExample
+    auth
 }
