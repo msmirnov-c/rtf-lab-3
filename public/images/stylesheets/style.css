@@ -1,0 +1,46 @@
+body {
+	background: url(http://oboi.cc/1440-900-100-uploads/11_05_2013/view/201209/oboik.ru_11126.jpg);
+	background-attachment: fixed;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	padding: 0;
+	margin: 0; 
+}
+.header {
+	padding: 20px 100px 20px 100px;
+	margin: 0px;
+}
+div,p,a,img,form{
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+ul,li {
+	padding: 0;
+	margin: 0;
+}
+.maininfo {
+	background-clip: content-box;
+	background-color: #e9e9e9;
+	color: black;
+	padding: 20px 100px 20px 100px;
+}
+.maininfo div {
+	padding: 0px 20px 0px 20px;
+}
+.footer {
+	display: flex;
+	padding: 40px 120px 40px 100px;
+	margin: 0px;
+}
+.footer li a {
+	color: #e9e9e9;
+}
+.footer li {
+	display: block;
+	margin-right: 40px;
+}
+.footer li a:hover {
+	color: #808080
+}
