@@ -6,7 +6,7 @@ body {
 
 header h1 {
 	font: italic 2.4em/2.2 georgia;
-	color: #1a86b8;
+	color: #FA8072;
 	text-shadow: #000000 0 0 1px;
 	margin-left: 25%;
 	}
@@ -19,7 +19,7 @@ header h1 {
 
 button {
 	display: inline-block;
-	color: #000000;
+	color: #FA8072;
 	font-weight: 700;
 	text-decoration: none;
 	user-select: none;
@@ -52,7 +52,7 @@ button:active { background: white; }
 
 .form__input {
 	font-family: 'Roboto', sans-serif;
-	color: #333;
+	color: #FA8072;
 	font-size: 1.2rem;
 	margin: 0 auto;
 	padding: 1.2rem 1.2rem;
@@ -96,7 +96,7 @@ input{
 }
 
 .s13 {
-	color: #1a86b8;
+	color: #FA8072;
 	line-height: 1.2;
 	position: relative;
 	padding: 0 14px;
