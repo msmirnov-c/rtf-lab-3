@@ -5,8 +5,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: false }));
 const fs = require('fs');
 
-
-
 app.get('/',  (req, res) => {
     res.render('guest.ejs')
 });
@@ -34,4 +32,4 @@ app.post('/login', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 1234);
+app.listen(process.env.PORT || 3000);
