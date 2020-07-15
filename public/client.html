@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/style.css" rel="stylesheet"/>
+    <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="stylesheets/code_style.css"/>
+    <script type="module"  src="javascripts/ClientPage.js">
+    </script>
+    <script src="javascripts/showMenu.js" lang="js"></script>
+    <title>Клиентская часть</title>
+</head>
+<body>
+    <nav>
+        <div id="title"><a href="/">WebSockets</a></div>
+        <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
+        <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+        <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+        <div id="menuButton" onclick="showMenu()">menu</div>
+        <div id="user">
+            <a href="register.html">Регистрация</a>/<a href="authorisation.html">Вход</a>
+        </div>
+    </nav>
+    <article>
+        <div class="content">
+            <h2>Пример браузерного кода</h2>
+            Для открытия соединения достаточно создать объект WebSocket, указав в нём специальный протокол ws.
+            <br/>
+            У объекта socket есть четыре колбэка: один при получении данных и три – при изменениях в состоянии соединения.
+            <div>
+            <div class="javascript"><ol><li class="li1"><div class="de1"><span class="kw2">const</span> socket <span class="sy0">=</span> <span class="kw2">new</span> WebSocket<span class="br0">&#40;</span><span class="st0">&quot;ws://javascript.ru/ws&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">socket.<span class="me1">onopen</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">&quot;Connection has opened.&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp;</div></li>
+                <li class="li1"><div class="de1">socket.<span class="me1">onclose</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>event<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>event.<span class="me1">wasClean</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">'Connection has cleanly closed'</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">'Connection has broken'</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">// server process was killed </span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">'Code: '</span> + <span class="sy0"~ezentity_gt+ezentity_lt~></span> event.<span class="me1">code</span> + <span class="sy0"~ezentity_gt+ezentity_lt~></span> <span class="st0">' reason: '</span> <span class="sy0"~ezentity_gt+ezentity_lt~></span> event.<span class="me1">reason</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">socket.<span class="me1">onmessage</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>event<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">&quot;Data received&quot;</span> +<span class="sy0"~ezentity_gt+ezentity_lt~></span> event.<span class="me1">data</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">socket.<span class="kw3">onerror</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>error<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; <span class="kw3">alert</span><span class="br0">&#40;</span><span class="st0">&quot;Error &quot;</span> +<span class="sy0"~ezentity_gt+ezentity_lt~></span> error.<span class="me1">message</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+            </ol></div>
+        </div>
+            Для посылки данных используется метод socket.send(data). Пересылать можно любые данные.
+            <br/>
+            Например, строку:
+            <br/>
+            socket.send("Привет");
+            <br/>
+            …Или файл, выбранный в форме:
+            <br/>
+            socket.send(form.elements[0].file);
+            <br/>
+            Просто, не правда ли? Выбираем, что переслать, и socket.send().
+            <br/>
+            Для того, чтобы коммуникация была успешной, сервер должен поддерживать протокол WebSocket.
+            <br/>
+            Пример примитивного чата (клиентский код):
+            <div id="clientChat" class="javascript"><ol><li class="li1"><div class="de1"><span class="co1">// create connection</span></div></li>
+                <li class="li1"><div class="de1"><span class="kw2">var</span> socket <span class="sy0">=</span> <span class="kw2">new</span> WebSocket<span class="br0">&#40;</span><span class="st0">&quot;ws://localhost:8081&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1"><span class="co1">// send message from form</span></div></li>
+                <li class="li2"><div class="de2">document.<span class="me1">forms</span>.<span class="me1">publish</span>.<span class="me1">onsubmit</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw2">var</span> outgoingMessage <span class="sy0">=</span> <span class="kw1">this</span>.<span class="me1">message</span>.<span class="me1">value</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; socket.<span class="me1">send</span><span class="br0">&#40;</span>outgoingMessage<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw1">return</span> <span class="kw2">false</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1"><span class="co1">// handling receiving messages</span></div></li>
+                <li class="li1"><div class="de1">socket.<span class="me1">onmessage</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">&#40;</span>event<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; <span class="kw2">var</span> incomingMessage <span class="sy0">=</span> event.<span class="me1">data</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; showMessage<span class="br0">&#40;</span>incomingMessage<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1"><span class="co1">// show message in div#subscribe</span></div></li>
+                <li class="li1"><div class="de1"><span class="kw2">function</span> showMessage<span class="br0">&#40;</span>message<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; <span class="kw2">var</span> messageElem <span class="sy0">=</span> document.<span class="me1">createElement</span><span class="br0">&#40;</span><span class="st0">'div'</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; messageElem.<span class="me1">appendChild</span><span class="br0">&#40;</span>document.<span class="me1">createTextNode</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; document.<span class="me1">getElementById</span><span class="br0">&#40;</span><span class="st0">'subscribe'</span><span class="br0">&#41;</span>.<span class="me1">appendChild</span><span class="br0">&#40;</span>messageElem<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+            </ol></div>
+        </div>
+        <div class="content comments">
+            <h3>Коментарии</h3>
+            <div id="comments">
+            </div>
+            <p>Добавить коментарий</p>
+            <textarea id="comment">
+            </textarea>
+            <br/>
+            <button id="commentAdd" disabled="disabled">Добавить</button>
+        </div>
+    </article>
+    <footer>2019 WebSockets</footer>
+</body>
+</html>

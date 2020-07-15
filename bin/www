@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('laba3-api:server');
+var debug = require('debug')('site:server');
 var http = require('http');
 
 /**
@@ -14,13 +14,18 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-console.log('CURRENT PORT:', port)
 
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
+
+const WebSocket = require('ws');
+//initialize the WebSocket server instance
+const wss = new WebSocket.Server({ server: server, path: "/api/comment" });
+const onconnection = require('../comments');
+wss.on('connection', onconnection.bind(null, wss));
 
 /**
  * Listen on provided port, on all network interfaces.

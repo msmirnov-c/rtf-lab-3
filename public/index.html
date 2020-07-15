@@ -1,14 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ClientLab3</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <link href="stylesheets/style.css" rel="stylesheet"/>
+    <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
+    <script type="module"  src="javascripts/StartPage.js"></script>
+    <script src="javascripts/showMenu.js" lang="js"></script>
+    <title>WebSockets</title>
 </head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.js" type="module"></script><script src="polyfills-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule></script><script src="polyfills-es5.js" nomodule></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule></script><script src="vendor-es2015.js" type="module"></script><script src="main-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule></script><script src="main-es5.js" nomodule></script></body>
+    <nav>
+        <div id="title"><a href="/">WebSockets</a></div>
+        <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
+        <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+        <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+        <div id="menuButton" onclick="showMenu()">menu</div>
+        <div id="user">
+            <a href="register.html">Регистрация</a>/<a href="authorisation.html">Вход</a>
+        </div>
+    </nav>
+    <article>
+        <div class="content" >
+            <h1 align="center">Общая информация</h1>
+            Вебсокеты это продвинутая технология, позволяющая открыть постоянное двунаправленное сетевое соединение между браузером пользователя и сервером.
+            Кросс-доменная, универсальная, безопасная.
+            <br/>
+            С помощью его API вы можете отправить сообщение на сервер и получить ответ без выполнения http запроса, причем этот процесс будет событийно-управляемым.
+            <br/>
+            WebSocket — протокол связи поверх TCP-соединения, предназначенный для обмена сообщениями между браузером и веб-сервером в режиме реального времени.
+            На текущий момент он работает в браузерах IE10+, FF11+, Chrome 16+, Safari 6+, Opera 12.5+. В более старых версиях FF, Chrome, Safari, Opera есть поддержка черновых редакций протокола.
+            <br/>
+            Протокол Web Socket определяет две URI-схемы, ws: (нешифрованное соединение) и wss: (шифрованное соединение).
+            <p><b>Установление соединения</b></p>
+            Пример запроса от браузера при создании нового объекта new WebSocket ("ws://server.example.com/chat"):
+            <br/>
+            <div class="request">
+            GET /chat HTTP/1.1
+            Host: server.example.com
+            Upgrade: websocket
+            Connection: Upgrade
+            Origin: http://javascript.ru
+            Sec-WebSocket-Key: Iv8io/9s+lYFgZWcXczP8Q==
+            Sec-WebSocket-Version: 13
+            </div>
+            <h3>Описания заголовков:</h3>
+            <ul>
+                <li>
+                <b>GET, Host</b>
+                Стандартные HTTP-заголовки из URL запроса
+                </li>
+                <li>
+                <b>Upgrade, Connection</b>
+                Указывают, что браузер хочет перейти на websocket.
+                </li>
+                <li>
+                <b>Origin</b>
+                Протокол, домен и порт, откуда отправлен запрос.
+                </li>
+                <li>
+                <b>Sec-WebSocket-Key</b>
+                Случайный ключ, который генерируется браузером: 16 байт в кодировке Base64.
+                </li>
+                <li>
+                <b>Sec-WebSocket-Version</b>
+                Версия протокола. Текущая версия: 13.
+                </li>
+            </ul>
+            <i>Все заголовки, кроме GET и Host, браузер генерирует сам, без возможности вмешательства JavaScript.</i>
+            <div class="content inner-content">
+            <br/>
+            <b>Такой XMLHttpRequest создать нельзя</b>
+                <br/>
+            Создать подобный XMLHttpRequest-запрос (подделать WebSocket) невозможно, по одной простой причине:
+            указанные выше заголовки запрещены к установке методом setRequestHeader.
+            </div>
+            <b>Ответ сервера, если он понимает и разрешает WebSocket-подключение:</b>
+            <div class="request">
+                HTTP/1.1 101 Switching Protocols
+                Upgrade: websocket
+                Connection: Upgrade
+                Sec-WebSocket-Accept: hsBlbuDTkk24srzEOTBUlZAlC2g=
+            </div>
+            Здесь строка <i>Sec-WebSocket-Accept</i> представляет собой перекодированный по специальному алгоритму ключ <i>Sec-WebSocket-Key</i>.
+            Браузер использует её для проверки, что ответ предназначается именно ему.
+            </div>
+        <div class="content comments">
+            <h3>Коментарии</h3>
+            <div id="comments">
+            </div>
+            <p>Добавить коментарий</p>
+            <textarea readonly id="comment">
+                Комментарии могут оставлять только авторизованные пользователи
+            </textarea>
+            <br/>
+            <button id="commentAdd" disabled="disabled">Добавить</button>
+        </div>
+    </article>
+    <footer>2019 WebSockets</footer>
+</body>
 </html>

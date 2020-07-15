@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet"/>
+    <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
+    <script src="javascripts/authorisation.js" lang="js"></script>
+    <script src="javascripts/showMenu.js" lang="js"></script>
+    <title>Авторизация</title>
+</head>
+<body>
+<nav>
+    <div id="title"><a href="/">WebSockets</a></div>
+    <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
+    <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+    <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+    <div id="menuButton" onclick="showMenu()">menu</div>
+    <div id="user">
+        <a href="register.html">Регистрация</a>/<a href="#">Вход</a>
+    </div>
+</nav>
+    <article>
+        <form class="content">
+            <p align="center"><b>Авторизация</b></p>
+            <br/>
+            Тип авторизации
+            <br/>
+            <br/>
+                <label id="emaillabel" onclick="setEmailInput()" class="activeInput">
+                    E-mail
+                </label>
+                <label id="nicklabel" onclick="setNickInput()" class="passiveInput">
+                    Ник
+                </label>
+            <br/>
+            <br/>
+            <input type="email" id="email" placeholder="email"/>
+            <input type="text" id="nick" class="hiddenInput" placeholder="nick"/>
+            <br/>
+            Пароль:
+            <br/>
+            <input type="password" id="pass" required="required" placeholder="password"/>
+            <br>
+            <button onclick="getUserData(event)">Ок</button>
+            <button onclick="document.location.href = '/passwordDropping.html'">Забыл пароль</button>
+        </form>
+    </article>
+    <footer>2019 WebSockets</footer>
+</body>
+</html>

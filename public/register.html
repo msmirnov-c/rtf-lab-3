@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet"/>    <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
+    <script src="javascripts/authorisation.js" lang="js"></script>
+    <script src="javascripts/showMenu.js" lang="js"></script>
+    <title>Регистрация</title>
+</head>
+<body>
+<nav>
+    <div id="title"><a href="/">WebSockets</a></div>
+    <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
+    <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+    <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+    <div id="menuButton" onclick="showMenu()">menu</div>
+    <div id="user">
+        <a href="register.html">Регистрация</a>/<a href="authorisation.html">Вход</a>
+    </div>
+</nav>
+    <article>
+        <form class="content">
+            <p align="center"><b>Регистрация</b></p>
+            E-mail:
+            <br/>
+            <input type="email" placeholder="email" required id="email"/>
+            <br/>
+            Ник:
+            <br/>
+            <input type="text" id="nick" required placeholder="nick"/>
+            <br/>
+            Пароль:
+            <br/>
+            <input type="password" id="pass" required placeholder="password"/>
+            <br>
+            Подтверждение пароля:
+            <br/>
+            <input type="password" id="passconf" required placeholder="password"/>
+            <br>
+            <button onclick="registerNewUser(event)">Отправить</button>
+            <label id="passMess">Пароли не совпадают</label>
+        </form>
+    </article>
+    <footer>2019 WebSockets</footer>
+</body>
+</html>

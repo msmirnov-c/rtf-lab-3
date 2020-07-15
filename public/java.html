@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="stylesheets/style.css" rel="stylesheet"/>
+    <script type="module"  src="javascripts/JavaPage.js"></script>
+    <link href="stylesheets/mobile_style.css" rel="stylesheet"/>
+    <link href="stylesheets/code_style.css" rel="stylesheet"/>
+    <script src="javascripts/showMenu.js" lang="js"></script>
+    <title>WebSockets Java</title>
+</head>
+<body>
+    <nav>
+        <div id="title"><a href="/">WebSockets</a></div>
+        <div class="nav-item" onclick="document.location.href = '/client.html'">Клиент</div>
+        <div class="nav-item" onclick="document.location.href = '/java.html'">Java</div>
+        <div class="nav-item" onclick="document.location.href = '/node.html'">Node</div>
+        <div id="menuButton" onclick="showMenu()">menu</div>
+        <div id="user">
+            <a href="register.html">Регистрация</a>/<a href="authorisation.html">Вход</a>
+        </div>
+    </nav>
+    <article>
+        <div class="content">
+            <h2>Руководство по API Java для WebSocket</h2>
+            Java API предоставляет компоненты как на стороне сервера, так и на стороне клиента:
+            <ul>
+                <li>
+                    Сервер : все в пакете javax.websocket.server.
+                </li>
+                <li>
+                    Клиент : содержимое пакета javax.websocket , который состоит из
+                    API на стороне клиента, а также общие библиотеки для сервера и клиента.
+                </li>
+            </ul>
+            Для использования WebSocket нужно установить в Maven (или другой системе сборки), соответствующую зависимость:
+            <div class="xml"><ol><li class="li1"><div class="de1"><span class="sc3"><span class="re1">&lt;dependency<span class="re2">&gt;</span></span></span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;groupId<span class="re2">&gt;</span></span></span>javax.websocket<span class="sc3"><span class="re1">&lt;/groupId<span class="re2">&gt;</span></span></span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;artifactId<span class="re2">&gt;</span></span></span>javax.websocket-api<span class="sc3"><span class="re1">&lt;/artifactId<span class="re2">&gt;</span></span></span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;version<span class="re2">&gt;</span></span></span>1.1<span class="sc3"><span class="re1">&lt;/version<span class="re2">&gt;</span></span></span></div></li>
+                <li class="li2"><div class="de2"><span class="sc3"><span class="re1">&lt;/dependency<span class="re2">&gt;</span></span></span></div></li>
+            </ol></div>
+            <br/>
+            <p><b>Конечная конфигурация</b></p>
+            Существует два способа настройки конечных точек: _annotation - based и extension-based. Вы можете либо расширить класс javax.websocket.Endpoint_ , либо использовать специальные аннотации на уровне методов.
+            <br/>
+            Поскольку модель аннотации приводит к более чистому коду по сравнению с программной моделью, аннотация стала обычным выбором кодирования. В этом случае события жизненного цикла конечной точки WebSocket обрабатываются следующими аннотациями:
+            @ ServerEndpoint: Если украшено <i>@ServerEndpoint</i>, контейнер обеспечивает доступность класса как сервера WebSocket , слушающего конкретное пространство URI <i>@ClientEndpoint</i> : класс, украшенный этой аннотацией, обрабатывается
+            как клиент WebSocket <i>@OnOpen</i> : метод Java с <i>@OnOpen</i> вызывается контейнером
+            когда новое соединение WebSocket инициируется  <i>@OnMessage</i> : метод Java, аннотированный <i>@OnMessage</i>, получает
+            информация из контейнера WebSocket , когда сообщение отправляется конечная точка <i>@OnError</i> : метод с <i>@OnError</i> вызывается при наличии проблема со связью  <i>@OnClose</i> : Используется для оформления метода Java, который вызывается
+            контейнер, когда закрывается соединение WebSocket.
+            <p><b>Пример серверного кода:</b></p>
+            <div class="java"><ol><li class="li1"><div class="de1">@ServerEndpoint<span class="br0">&#40;</span>value <span class="sy0">=</span> <span class="st0">&quot;/chat/{username}&quot;</span><span class="br0">&#41;</span></div></li>
+                <li class="li1"><div class="de1"><span class="kw1">public</span> <span class="kw1">class</span> ChatEndpoint <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnOpen</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onOpen<span class="br0">&#40;</span>Session session<span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Get session and WebSocket connection</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnMessage</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onMessage<span class="br0">&#40;</span>Session session, Message message<span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Handle new messages</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnClose</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onClose<span class="br0">&#40;</span>Session session<span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//WebSocket connection closes</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnError</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onError<span class="br0">&#40;</span>Session session, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Athrowable+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">Throwable</span></a> throwable<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Do error handling here</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+            </ol></div>
+
+            <h3>Создание чата с помощью WebSockets</h3>
+            Приведенный выше код является скелетом конечной точки сервера для нашего приложения, похожего на чат.
+            Как видите, у нас есть 4 аннотации, сопоставленные с их соответствующими методами.
+            Ниже вы можете увидеть реализацию таких методов.
+            <div class="java"><ol><li class="li1"><div class="de1">@ServerEndpoint<span class="br0">&#40;</span>value<span class="sy0">=</span><span class="st0">&quot;/chat/{username}&quot;</span><span class="br0">&#41;</span></div></li>
+                <li class="li1"><div class="de1"><span class="kw1">public</span> <span class="kw1">class</span> ChatEndpoint <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> Session session<span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">private</span> <span class="kw1">static</span> Set<span class="sy0">&lt;</span>ChatEndpoint<span class="sy0">&gt;</span> chatEndpoints</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; <span class="sy0">=</span> <span class="kw1">new</span> CopyOnWriteArraySet<span class="sy0">&lt;&gt;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <span class="kw1">static</span> HashMap<span class="sy0">&lt;</span>String, String<span class="sy0">&gt;</span> users <span class="sy0">=</span> <span class="kw1">new</span> HashMap<span class="sy0">&lt;&gt;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnOpen</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onOpen<span class="br0">&#40;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; Session session,</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; @PathParam<span class="br0">&#40;</span><span class="st0">&quot;username&quot;</span><span class="br0">&#41;</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> username<span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">this</span>.<span class="me1">session</span> <span class="sy0">=</span> session<span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; &nbsp; chatEndpoints.<span class="me1">add</span><span class="br0">&#40;</span><span class="kw1">this</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; users.<span class="me1">put</span><span class="br0">&#40;</span>session.<span class="me1">getId</span><span class="br0">&#40;</span><span class="br0">&#41;</span>, username<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; Message message <span class="sy0">=</span> <span class="kw1">new</span> Message<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; message.<span class="me1">setFrom</span><span class="br0">&#40;</span>username<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; &nbsp; message.<span class="me1">setContent</span><span class="br0">&#40;</span><span class="st0">&quot;Connected!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; broadcast<span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnMessage</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onMessage<span class="br0">&#40;</span>Session session, Message message<span class="br0">&#41;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; message.<span class="me1">setFrom</span><span class="br0">&#40;</span>users.<span class="me1">get</span><span class="br0">&#40;</span>session.<span class="me1">getId</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; broadcast<span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnClose</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onClose<span class="br0">&#40;</span>Session session<span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; &nbsp; chatEndpoints.<span class="me1">remove</span><span class="br0">&#40;</span><span class="kw1">this</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; Message message <span class="sy0">=</span> <span class="kw1">new</span> Message<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; message.<span class="me1">setFrom</span><span class="br0">&#40;</span>users.<span class="me1">get</span><span class="br0">&#40;</span>session.<span class="me1">getId</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; message.<span class="me1">setContent</span><span class="br0">&#40;</span><span class="st0">&quot;Disconnected!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; broadcast<span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; @OnError</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> onError<span class="br0">&#40;</span>Session session, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Athrowable+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">Throwable</span></a> throwable<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Do error handling here</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <span class="kw1">static</span> <span class="kw4">void</span> broadcast<span class="br0">&#40;</span>Message message<span class="br0">&#41;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a>, EncodeException <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; &nbsp; chatEndpoints.<span class="kw1">forEach</span><span class="br0">&#40;</span>endpoint <span class="sy0">-&gt;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">synchronized</span> <span class="br0">&#40;</span>endpoint<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">try</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; endpoint.<span class="me1">session</span>.<span class="me1">getBasicRemote</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="me1">sendObject</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span> <span class="kw1">catch</span> <span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aioexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">IOException</span></a> <span class="sy0">|</span> EncodeException e<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1"><span class="kw1">public</span> <span class="kw1">class</span> Message <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> from<span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> to<span class="sy0">;</span></div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; <span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> content<span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp;<span class="co1">//standard constructors, getters, setters</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+            </ol></div>
+            Когда новый пользователь входит в систему ( @ OnOpen ), он немедленно сопоставляется со структурой данных активных пользователей. Затем сообщение создается и отправляется на все конечные точки с помощью метода broadcast.
+            Этот метод также используется всякий раз, когда новое сообщение отправляется ( @ OnMessage ) любым из подключенных пользователей - это основная цель чата.
+            Если в какой-то момент происходит ошибка, метод с аннотацией @ OnError обрабатывает ее. Вы можете использовать этот метод для регистрации информации об ошибке и очистки конечных точек.
+            Наконец, когда пользователь больше не подключен к чату, метод @ OnClose очищает конечную точку и передает всем пользователям, что пользователь был отключен.
+            Типы сообщений
+            <br/>
+            <br/>
+            Спецификация WebSocket поддерживает два формата данных на проводе - текстовый и двоичный. API поддерживает оба этих формата, добавляет возможности для работы с объектами Java и сообщениями о проверке работоспособности (пинг-понг), как определено в спецификации:
+            <ul>
+
+            <li>Text : любые текстовые данные ( java.lang.String , примитивы или их
+                эквивалентные классы-обертки),</li>
+                <li>Binary : двоичные данные (например, аудио, изображения и т. Д.),</li>
+                <li>Представленные
+            java.nio.ByteBuffer или byte[]​​(байтовый массив)  Java objects : API позволяет работать с нативным (Java
+            объект) представления в вашем коде и использовать пользовательские преобразователи (кодеры/декодеры), чтобы преобразовать их в совместимые форматы (текстовый, двоичный), разрешенный протоколом WebSocket Ping-Pong : javax.websocket.PongMessage - подтверждение отправлено
+                    одноранговым узлом WebSocket в ответ на запрос проверки работоспособности (ping).</li>
+            </ul>
+            Для нашего приложения мы будем использовать Java Objects. Мы создадим классы для кодирования и декодирования сообщений.
+            <p><b>Кодер</b></p>
+            <div class="java"><ol><li class="li1"><div class="de1"><span class="kw1">public</span> <span class="kw1">class</span> MessageEncoder <span class="kw1">implements</span> Encoder.<span class="me1">Text</span><span class="sy0">&lt;</span>Message<span class="sy0">&gt;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <span class="kw1">static</span> Gson gson <span class="sy0">=</span> <span class="kw1">new</span> Gson<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> encode<span class="br0">&#40;</span>Message message<span class="br0">&#41;</span> <span class="kw1">throws</span> EncodeException <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> gson.<span class="me1">toJson</span><span class="br0">&#40;</span>message<span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> init<span class="br0">&#40;</span>EndpointConfig endpointConfig<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Custom initialization logic</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> destroy<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Close resources</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+            </ol></div>
+            <p><b>Декодер</b></p>
+            <div class="java"><ol><li class="li1"><div class="de1"><span class="kw1">public</span> <span class="kw1">class</span> MessageDecoder <span class="kw1">implements</span> Decoder.<span class="me1">Text</span><span class="sy0">&lt;</span>Message<span class="sy0">&gt;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">private</span> <span class="kw1">static</span> Gson gson <span class="sy0">=</span> <span class="kw1">new</span> Gson<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> Message decode<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> s<span class="br0">&#41;</span> <span class="kw1">throws</span> DecodeException <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> gson.<span class="me1">fromJson</span><span class="br0">&#40;</span>s, Message.<span class="kw1">class</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">boolean</span> willDecode<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky"><span class="kw3">String</span></a> s<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">return</span> <span class="br0">&#40;</span>s <span class="sy0">!=</span> <span class="kw2">null</span><span class="br0">&#41;</span><span class="sy0">;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> init<span class="br0">&#40;</span>EndpointConfig endpointConfig<span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Custom initialization logic</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp;</div></li>
+                <li class="li2"><div class="de2">&nbsp; &nbsp; @Override</div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">public</span> <span class="kw4">void</span> destroy<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">//Close resources</span></div></li>
+                <li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">&#125;</span></div></li>
+                <li class="li1"><div class="de1"><span class="br0">&#125;</span></div></li>
+            </ol></div>
+        </div>
+        <div class="content comments">
+            <h3>Коментарии</h3>
+            <div id="comments">
+            </div>
+            <p>Добавить коментарий</p>
+            <textarea id="comment">
+            </textarea>
+            <br/>
+            <button id="commentAdd" disabled="disabled">Добавить</button>
+        </div>
+    </article>
+    <footer>2019 WebSockets</footer>
+</body>
+</html>

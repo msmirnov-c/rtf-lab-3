@@ -1,0 +1,76 @@
+
+@media (max-width: 1020px) {
+    article {
+        padding: 5% 7%;
+        flex-grow: 5;
+        display: flex;
+        background: linear-gradient(135deg, brown 65%, #9F1A1A, #971919, #971919, #2D2D2D/*, #1F1F1F, #171717*/);
+    }
+
+    body {
+        word-wrap: break-word;
+        font-size: 5vmin;
+        overflow-x: hidden;
+    }
+
+    nav {
+        height: 10vh;
+        max-height: 10vh;
+    }
+
+    footer {
+        max-height: 10vh;
+        height: 10vh;
+    }
+
+    #menuButton {
+        display: flex;
+        height: 10vh;
+    }
+
+    .nav-item {
+        color: lightgray;
+        background: linear-gradient( #660909 70%, #550a0a, black);
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        /*top: 10vh;*/
+        width: 100%;
+        height: 6vh;
+        display: flex;
+        visibility: hidden;
+        align-items: center;
+        justify-content: center;
+        /*transition: top 1s ease;*/
+    }
+
+    .nav-item:hover {
+        border: none;
+        color: darkgray;
+        font-weight: normal;
+        background-color: #990c0c;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .javascript, .java, .xml {
+        padding: 0 0 0 6vmin;
+    }
+
+    .request {
+        background-color: rgba(200, 200, 200, 0.6);
+        white-space: normal;
+        overflow-x: scroll;
+        width: fit-content
+    }
+
+    .inner-content {
+        min-width: 0;
+        max-width: 90%;
+    }
+}

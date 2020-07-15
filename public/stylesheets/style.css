@@ -1,0 +1,204 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+    min-height: 99vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+article {
+    padding: 5% 7%;
+    margin: 0;
+    flex-grow: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, black, brown, brown, brown, brown, brown, brown, black);
+}
+
+nav {
+    flex-grow: 1;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    color: lightgray;
+    background: linear-gradient(#660909 70%, #550a0a, black );
+}
+
+footer {
+    height: 6vh;
+    flex-grow: 1;
+    color: lightgray;
+    background: linear-gradient( #660909 70%, #550a0a, black );
+}
+
+.nav-item, #menuButton {
+    min-width: 10vw;
+    height: 6vh;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item:hover, #menuButton:hover {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    color:darkgray;
+    font-weight: bold;
+    background-color: #990c0c;
+    cursor: pointer;
+}
+
+#title {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    flex-grow: 5;
+}
+
+#user {
+    margin:  0  35px 0 35px;
+}
+
+#passMess {
+    visibility: hidden;
+    color: red;
+}
+
+form.content {
+    min-width: 200pt;
+}
+
+.content {
+    border-radius: 12px;
+    background: rgba(150,150,150,0.175);
+    color: black;
+    padding: 12px;
+    margin: 12px;
+    align-items: center;
+    width: 70%;
+}
+
+.content input, textarea {
+    width: 90%;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.inner-content {
+    min-width: 0;
+}
+
+.request {
+    background-color: rgba(200, 200, 200, 0.6);
+    white-space: pre-wrap;
+    width: fit-content
+}
+
+#newComment {
+    width: inherit;
+}
+
+.comment {
+    border-top: 1px solid rgba(211,211,211, 0.4);
+    border-bottom: 1px solid rgba(211,211,211, 0.4);;
+    background-color: rgba(150,150,150,0.175);
+}
+
+.comment:hover {
+    background-color: rgba(211,211,211, 0.4);
+}
+
+.comments {
+    text-align: left;
+}
+
+a, #editLink {
+    border: none;
+    background: none;
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:hover, #editLink:hover {
+    cursor: pointer;
+    color:darkgray;
+}
+
+h3, p {
+    margin: 0;
+}
+
+#menuButton {
+    display: none;
+}
+
+textarea {
+    font-size: 26px;
+}
+
+.commentDescription {
+    font-size: 3vmin;
+}
+
+button {
+    min-width: 20vmin;
+    min-height: 7vmin;
+    font-size: 5vmin;
+    border: none;
+    margin: 10px;
+    border-radius: 20px;
+    color: lightgray;
+    background-color: #550a0a;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #990c0c;
+}
+
+button:disabled {
+    cursor: auto;
+    background-color: #550a0a;
+}
+
+.activeInput {
+    background-color: lightgray;
+}
+
+.passiveInput {
+    cursor: pointer;
+    background-color: lightgray;
+    opacity: 0.5;
+}
+
+#emaillabel {
+    border-radius: 5px 0 0 5px;
+    transition: opacity 500ms;
+}
+
+#nicklabel {
+    border-radius: 0 5px 5px 0;
+    transition: opacity 500ms;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+input {
+    font-size: 5vmin;
+    min-height: 5vmin;
+    margin: 15px 5px;
+}
